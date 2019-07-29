@@ -1,0 +1,16 @@
+{
+  "name": "generator-single-spa",
+  "description": "A helper for creating single-spa projects",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "files": [
+    "src"
+  ],
+  "version": "1.0.0",
+  "main": "src/generator-single-spa.js",
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "^4.0.1"
+  }
+}
