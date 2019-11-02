@@ -8,7 +8,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "yargs": "^13.2.4",
-    "yeoman-environment": "^2.4.0"
+    "yargs": "^14.2.0",
+    "yeoman-environment": "^2.6.0"
   }
 }

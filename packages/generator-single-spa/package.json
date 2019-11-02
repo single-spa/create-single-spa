@@ -11,6 +11,6 @@
   "main": "src/generator-single-spa.js",
   "license": "MIT",
   "dependencies": {
-    "yeoman-generator": "^4.0.1"
+    "yeoman-generator": "^4.2.0"
   }
 }
