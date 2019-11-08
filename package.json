@@ -3,5 +3,8 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.15.0"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap"
   }
 }
