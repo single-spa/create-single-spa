@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "yargs": "^14.2.0",
-    "yeoman-environment": "^2.6.0"
+    "yeoman-environment": "^2.6.0",
+    "generator-single-spa": "*"
   }
 }

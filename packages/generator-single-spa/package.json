@@ -7,7 +7,7 @@
   "files": [
     "src"
   ],
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "main": "src/generator-single-spa.js",
   "license": "MIT",
   "dependencies": {
