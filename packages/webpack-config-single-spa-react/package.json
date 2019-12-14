@@ -1,0 +1,35 @@
+{
+  "name": "webpack-config-single-spa-react",
+  "version": "1.0.0",
+  "description": "A helper for creating webpack configs for react single-spa applications",
+  "keywords": [
+    "single-spa",
+    "react",
+    "webpack",
+    "microfrontends"
+  ],
+  "author": "Joel Denning <joeldenning@gmail.com>",
+  "homepage": "https://github.com/CanopyTax/single-spa/packages/webpack-config-single-spa-react",
+  "license": "MIT",
+  "main": "lib/webpack-config-single-spa-react.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CanopyTax/create-single-spa.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/CanopyTax/create-single-spa/issues"
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "unused-files-plugin": "^1.0.2",
+    "unused-files-webpack-plugin": "^3.4.0",
+    "webpack-bundle-analyzer": "^3.6.0"
+  }
+}
