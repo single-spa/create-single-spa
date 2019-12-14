@@ -10,6 +10,6 @@
   "dependencies": {
     "yargs": "^14.2.0",
     "yeoman-environment": "^2.6.0",
-    "generator-single-spa": "*"
+    "generator-single-spa": "^1.0.0-alpha.0"
   }
 }
