@@ -2,7 +2,8 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^3.15.0"
+    "lerna": "^3.15.0",
+    "yeoman-assert": "^3.1.1"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap"
