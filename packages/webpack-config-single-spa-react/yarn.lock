@@ -904,11 +904,6 @@ unpipe@1.0.0, unpipe@~1.0.0:
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
-unused-files-plugin@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/unused-files-plugin/-/unused-files-plugin-1.0.2.tgz#5e0f708be1d0525343c582971d1ec60f2a5045a3"
-  integrity sha512-821S6cFLxFpNhvrSYIrEuffodf++WJYusk7MwkyrWIVmpXxrjUxjR0fNuG+zTy/dl0vK/xW6zdo9lkuEuNwpDg==
-
 unused-files-webpack-plugin@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/unused-files-webpack-plugin/-/unused-files-webpack-plugin-3.4.0.tgz#adc67a3b5549d028818d3119cbf2b5c88aea8670"
