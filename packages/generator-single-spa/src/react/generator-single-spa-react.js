@@ -4,24 +4,33 @@ const fs = require('fs').promises
 const chalk = require('chalk')
 
 module.exports = class SingleSpaReactGenerator extends Generator {
-  async createPackageJson() {
-    const answers = await this.prompt([
-      {
-        type: "list",
-        name: "packageManager",
-        message: "Which package manager do you want to use?",
-        choices: [
-          "yarn",
-          "npm",
-        ]
-      }
-    ])
+  constructor(args, opts) {
+    super(args, opts)
 
-    this.packageManager = answers.packageManager
+    this.option("packageManager", {
+      type: String
+    })
+  }
+  async createPackageJson() {
+    this.packageManager = this.options.packageManager
+
+    if (!this.packageManager) {
+      this.packageManager = (await this.prompt([
+        {
+          type: "list",
+          name: "packageManager",
+          message: "Which package manager do you want to use?",
+          choices: [
+            "yarn",
+            "npm",
+          ]
+        }
+      ])).packageManager
+    }
 
     const packageJsonTemplate = await fs.readFile(this.templatePath('package.json'), { encoding: "utf-8" })
     const packageJsonStr = ejs.render(packageJsonTemplate, {
-      packageManager: answers.packageManager
+      packageManager: this.packageManager
     })
 
     this.fs.extendJSON(
