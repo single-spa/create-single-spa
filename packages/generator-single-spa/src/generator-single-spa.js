@@ -9,33 +9,72 @@ module.exports = class SingleSpaGenerator extends Generator {
       type: String,
     })
 
-    this.destinationPath("test")
+    this.option("moduleType", {
+      type: String,
+    })
   }
-  async getFramework() {
-    if (!this.options.framework) {
+  async composeChildGenerator() {
+    let moduleType = this.options.moduleType
+
+    if (!moduleType) {
       const answers = await this.prompt([
         {
-          type: "list",
-          name: "framework",
-          message: "Which framework do you want to use?",
+          type: 'list',
+          name: 'moduleType',
+          message: 'Which kind of in-browser module do you want create-single-spa to create for you?',
           choices: [
-            "react",
-            "angular",
+            { name: 'single-spa application / parcel', value: 'ss-app-parcel' },
+            { name: 'in-browser utility module (styleguide, api cache, etc)', value: 'raw-module' },
+            { name: 'single-spa root config', value: 'ss-config' },
           ]
         }
       ])
 
-      this.options.framework = answers.framework
+      moduleType = answers.moduleType
+    }
+
+    if (moduleType === 'ss-config') {
+      throw Error('root config not yet implemented')
+    } else if (moduleType === 'ss-app-parcel') {
+      await runFrameworkGenerator.call(this)
+    } else if (moduleType === 'raw-module') {
+      throw Error('raw module not yet implemented')
+    } else {
+      throw Error(`unknown moduleType option ${moduleType}`)
     }
   }
-  initPackageJson() {
-    if (this.options.framework === 'react') {
+}
+
+async function runFrameworkGenerator() {
+  if (!this.options.framework) {
+    const answers = await this.prompt([
+      {
+        type: "list",
+        name: "framework",
+        message: "Which framework do you want to use?",
+        choices: [
+          "react",
+          "vue",
+          "angular",
+          "other"
+        ]
+      }
+    ])
+
+    this.options.framework = answers.framework
+  }
+
+  switch (this.options.framework) {
+    case "react":
       this.composeWith({
         Generator: SingleSpaReactGenerator,
         path: require.resolve('./react/generator-single-spa-react.js')
       })
-    } else {
+      break;
+    case "other":
+      console.log(`Check https://github.com/CanopyTax/create-single-spa/issues for updates on new frameworks being added to create-single-spa. Feel free to create a new issue if one does not yet exist for the framework you're using.`)
+      break;
+    default:
       throw Error(`Unsupported framework '${this.options.framework}'`)
-    }
   }
 }
