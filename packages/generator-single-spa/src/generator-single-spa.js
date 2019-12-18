@@ -1,5 +1,6 @@
 const Generator = require('yeoman-generator')
 const SingleSpaReactGenerator = require('./react/generator-single-spa-react')
+const SingleSpaRootConfigGenerator = require('./root-config/generator-root-config')
 
 module.exports = class SingleSpaGenerator extends Generator {
   constructor(args, opts) {
@@ -17,7 +18,7 @@ module.exports = class SingleSpaGenerator extends Generator {
     let moduleType = this.options.moduleType
 
     if (!moduleType) {
-      const answers = await this.prompt([
+      moduleType = (await this.prompt([
         {
           type: 'list',
           name: 'moduleType',
@@ -28,13 +29,16 @@ module.exports = class SingleSpaGenerator extends Generator {
             { name: 'single-spa root config', value: 'root-config' },
           ]
         }
-      ])
-
-      moduleType = answers.moduleType
+      ])).moduleType
     }
 
+    console.log('moduleType', moduleType)
+
     if (moduleType === 'root-config') {
-      throw Error('root config not yet implemented')
+      this.composeWith({
+        Generator: SingleSpaRootConfigGenerator,
+        path: require.resolve('./root-config/generator-root-config.js'),
+      }, this.options)
     } else if (moduleType === 'app-parcel') {
       await runFrameworkGenerator.call(this)
     } else if (moduleType === 'raw-module') {
