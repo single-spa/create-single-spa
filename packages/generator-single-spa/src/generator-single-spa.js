@@ -68,8 +68,8 @@ async function runFrameworkGenerator() {
     case "react":
       this.composeWith({
         Generator: SingleSpaReactGenerator,
-        path: require.resolve('./react/generator-single-spa-react.js')
-      })
+        path: require.resolve('./react/generator-single-spa-react.js'),
+      }, this.options)
       break;
     case "other":
       console.log(`Check https://github.com/CanopyTax/create-single-spa/issues for updates on new frameworks being added to create-single-spa. Feel free to create a new issue if one does not yet exist for the framework you're using.`)
