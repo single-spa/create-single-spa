@@ -23,9 +23,9 @@ module.exports = class SingleSpaGenerator extends Generator {
           name: 'moduleType',
           message: 'Which kind of in-browser module do you want create-single-spa to create for you?',
           choices: [
-            { name: 'single-spa application / parcel', value: 'ss-app-parcel' },
+            { name: 'single-spa application / parcel', value: 'app-parcel' },
             { name: 'in-browser utility module (styleguide, api cache, etc)', value: 'raw-module' },
-            { name: 'single-spa root config', value: 'ss-config' },
+            { name: 'single-spa root config', value: 'root-config' },
           ]
         }
       ])
@@ -33,9 +33,9 @@ module.exports = class SingleSpaGenerator extends Generator {
       moduleType = answers.moduleType
     }
 
-    if (moduleType === 'ss-config') {
+    if (moduleType === 'root-config') {
       throw Error('root config not yet implemented')
-    } else if (moduleType === 'ss-app-parcel') {
+    } else if (moduleType === 'app-parcel') {
       await runFrameworkGenerator.call(this)
     } else if (moduleType === 'raw-module') {
       throw Error('raw module not yet implemented')
