@@ -21,7 +21,7 @@ module.exports = class SingleSpaGenerator extends Generator {
         {
           type: 'list',
           name: 'moduleType',
-          message: 'Which kind of in-browser module do you want create-single-spa to create for you?',
+          message: 'Select type to generate',
           choices: [
             { name: 'single-spa application / parcel', value: 'app-parcel' },
             { name: 'in-browser utility module (styleguide, api cache, etc)', value: 'raw-module' },
