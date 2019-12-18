@@ -1,26 +1,36 @@
 const Generator = require('yeoman-generator')
 const ejs = require('ejs')
 const fs = require('fs').promises
+const chalk = require('chalk')
 
 module.exports = class SingleSpaReactGenerator extends Generator {
-  async createPackageJson() {
-    const answers = await this.prompt([
-      {
-        type: "list",
-        name: "packageManager",
-        message: "Which package manager do you want to use?",
-        choices: [
-          "yarn",
-          "npm",
-        ]
-      }
-    ])
+  constructor(args, opts) {
+    super(args, opts)
 
-    this.packageManager = answers.packageManager
+    this.option("packageManager", {
+      type: String
+    })
+  }
+  async createPackageJson() {
+    this.packageManager = this.options.packageManager
+
+    if (!this.packageManager) {
+      this.packageManager = (await this.prompt([
+        {
+          type: "list",
+          name: "packageManager",
+          message: "Which package manager do you want to use?",
+          choices: [
+            "yarn",
+            "npm",
+          ]
+        }
+      ])).packageManager
+    }
 
     const packageJsonTemplate = await fs.readFile(this.templatePath('package.json'), { encoding: "utf-8" })
     const packageJsonStr = ejs.render(packageJsonTemplate, {
-      packageManager: answers.packageManager
+      packageManager: this.packageManager
     })
 
     this.fs.extendJSON(
@@ -41,6 +51,9 @@ module.exports = class SingleSpaReactGenerator extends Generator {
         message: "Project name (use lowercase and dashes)",
       }
     ])
+
+    this.orgName = templateOptions.orgName
+    this.projectName = templateOptions.projectName
 
     this.fs.copyTpl(
       this.templatePath('jest.config.json'),
@@ -83,6 +96,15 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       npm: this.packageManager === 'npm',
       yarn: this.packageManager === 'yarn',
       bower: false,
+    })
+  }
+  finished() {
+    this.on(`${this.packageManager}Install:end`, () => {
+      const coloredFinalInstructions = chalk.bgWhite.black
+      console.log(coloredFinalInstructions("Project setup complete!"))
+      console.log(coloredFinalInstructions("Steps to test your React single-spa application:"))
+      console.log(coloredFinalInstructions(`1. Run '${this.packageManager} start${this.packageManager === 'npm' ? ' --' : ''} --https --port 8500'`))
+      console.log(coloredFinalInstructions(`2. Go to http://single-spa-playground.org/playground/instant-test?name=@${this.orgName}/${this.projectName}&url=8500 to see it working!`))
     })
   }
 }
