@@ -17,6 +17,10 @@ module.exports = class SingleSpaGenerator extends Generator {
   async composeChildGenerator() {
     let moduleType = this.options.moduleType
 
+    if (!moduleType && this.options.framework) {
+      moduleType = 'app-parcel'
+    }
+
     if (!moduleType) {
       moduleType = (await this.prompt([
         {

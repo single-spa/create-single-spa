@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "node"
+script:
+  - yarn typescript
+  - yarn check-format
+  - yarn lint
+  - yarn build

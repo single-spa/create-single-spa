@@ -36,21 +36,32 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       templatePackageJson
     )
   }
-  copyFiles() {
-    this.fs.copy(
-      this.templatePath(".eslintrc"),
-      this.destinationPath(".eslintrc")
+  async copyFiles() {
+    const templateOptions = await this.prompt([
+      {
+        type: "input",
+        name: "orgName",
+        message: "Organization name (use lowercase and dashes)",
+      },
+    ])
+
+    this.fs.copyTpl(
+      this.templatePath(),
+      this.destinationPath(),
+      templateOptions,
+      {delimiter: '?'}
     )
 
-    this.fs.copy(
-      this.templatePath("webpack.config.js"),
-      this.destinationPath("webpack.config.js")
-    )
+    // this.fs.copyTpl(
+    //   this.templatePath("webpack.config.js"),
+    //   this.destinationPath("webpack.config.js"),
+    //   templateOptions
+    // )
 
-    this.fs.copy(
-      this.templatePath("src"),
-      this.destinationPath("src")
-    )
+    // this.fs.copy(
+    //   this.templatePath("src"),
+    //   this.destinationPath("src")
+    // )
   }
   install() {
     this.installDependencies({

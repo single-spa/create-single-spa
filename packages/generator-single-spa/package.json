@@ -8,7 +8,7 @@
     "src"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest --testPathIgnorePatterns templates"
   },
   "version": "1.0.0-alpha.0",
   "main": "src/generator-single-spa.js",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "chalk": "^3.0.0",
     "jest": "^24.9.0",
+    "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.0.0"
   }
 }
