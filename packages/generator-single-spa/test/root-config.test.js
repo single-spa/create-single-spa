@@ -33,6 +33,11 @@ describe('generator-single-spa', () => {
       assert.file(path.join(dir, "src/index.ejs"))
       const indexEjsStr = fs.readFileSync(path.join(dir, 'src/index.ejs'), {encoding: 'utf-8'})
       expect(indexEjsStr.includes('some-org-name')).toBe(true)
+
+      // The root-config.js file should have their org name in it
+      assert.file(path.join(dir, "src/root-config.js"))
+      const rootConfigStr = fs.readFileSync(path.join(dir, 'src/root-config.js'), {encoding: 'utf-8'})
+      expect(rootConfigStr.includes('some-org-name')).toBe(true)
     })
   })
 })
