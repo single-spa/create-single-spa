@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "bin": {
-    "create-single-spa": "create-single-spa.js"
+    "create-single-spa": "bin/create-single-spa.js"
   },
   "author": "",
   "license": "MIT",
