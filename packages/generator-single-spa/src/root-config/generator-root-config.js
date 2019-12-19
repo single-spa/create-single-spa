@@ -51,17 +51,6 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       templateOptions,
       {delimiter: '?'}
     )
-
-    // this.fs.copyTpl(
-    //   this.templatePath("webpack.config.js"),
-    //   this.destinationPath("webpack.config.js"),
-    //   templateOptions
-    // )
-
-    // this.fs.copy(
-    //   this.templatePath("src"),
-    //   this.destinationPath("src")
-    // )
   }
   install() {
     this.installDependencies({
