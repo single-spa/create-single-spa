@@ -22,9 +22,6 @@ describe('generator-single-spa', () => {
       })
 
     return runContext.then(dir => {
-      assert.file(path.join(dir, 'package.json'))
-      assert.file(path.join(dir, ".prettierignore"))
-
       // The webpack config should have their org name in its webpack externals
       assert.file(path.join(dir, "webpack.config.js"))
       const webpackConfigAsStr = fs.readFileSync(path.join(dir, 'webpack.config.js'), {encoding: "utf-8"})

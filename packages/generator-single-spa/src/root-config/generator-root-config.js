@@ -46,6 +46,20 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     ])
 
     this.fs.copyTpl(
+      this.templatePath('.eslintrc'),
+      this.destinationPath('.eslintrc'),
+      templateOptions,
+      {delimiter: '?'}
+    )
+
+    this.fs.copyTpl(
+      this.templatePath('.prettierignore'),
+      this.destinationPath('.prettierignore'),
+      templateOptions,
+      {delimiter: '?'}
+    )
+
+    this.fs.copyTpl(
       this.templatePath(),
       this.destinationPath(),
       templateOptions,
