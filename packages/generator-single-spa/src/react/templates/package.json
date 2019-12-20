@@ -11,7 +11,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && concurrently <%= packageManager %>:test <%= packageManager %>:lint <%= packageManager %>:typescript <%= packageManager %>:coverage"
+      "pre-commit": "pretty-quick --staged && concurrently <%= packageManager %>:test <%= packageManager %>:lint"
     }
   },
   "devDependencies": {

@@ -71,6 +71,11 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       templateOptions
     )
     this.fs.copyTpl(
+      this.templatePath('.prettierignore'),
+      this.destinationPath('.prettierignore'),
+      templateOptions
+    )
+    this.fs.copyTpl(
       this.templatePath('webpack.config.js'),
       this.destinationPath('webpack.config.js'),
       templateOptions
