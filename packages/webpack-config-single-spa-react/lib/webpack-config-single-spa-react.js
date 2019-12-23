@@ -25,7 +25,7 @@ function webpackConfigSingleSpaReact(opts) {
     output: {
       filename: `${opts.orgName}-${opts.projectName}.js`,
       libraryTarget: "system",
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(process.cwd(), "dist"),
       jsonpFunction: `webpackJsonp_${opts.projectName}`
     },
     module: {
