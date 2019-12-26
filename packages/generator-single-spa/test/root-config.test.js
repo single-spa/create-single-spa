@@ -25,6 +25,7 @@ describe('generator-single-spa', () => {
       assert.file(path.join(dir, 'package.json'))
       assert.file(path.join(dir, ".eslintrc"))
       assert.file(path.join(dir, ".prettierignore"))
+      assert.file(path.join(dir, ".babelrc"))
 
       // The webpack config should have their org name in its webpack externals
       assert.file(path.join(dir, "webpack.config.js"))
