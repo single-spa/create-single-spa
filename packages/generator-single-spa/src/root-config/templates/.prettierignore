@@ -2,3 +2,5 @@
 .prettierignore
 yarn.lock
 package-lock.json
+LICENSE
+*.ejs
