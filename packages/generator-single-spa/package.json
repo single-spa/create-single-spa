@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest --testPathIgnorePatterns templates"
   },
-  "version": "1.1.0-alpha.0",
+  "version": "1.2.0-alpha.0",
   "main": "src/generator-single-spa.js",
   "license": "MIT",
   "dependencies": {
