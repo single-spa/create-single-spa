@@ -4,7 +4,7 @@ const generator = require('../src/generator-single-spa')
 const helpers = require('yeoman-test')
 const assert = require('yeoman-assert')
 
-describe('generator-single-spa-react', () => {
+describe('generator-single-spa-util-module', () => {
   let runContext
 
   afterEach(() => {
@@ -14,7 +14,7 @@ describe('generator-single-spa-react', () => {
   it('handles yarn option properly', () => {
     runContext = helpers.run(generator)
       .withOptions({
-        framework: "react",
+        moduleType: "util-module"
       })
       .withPrompts({
         packageManager: "yarn"
@@ -35,7 +35,7 @@ describe('generator-single-spa-react', () => {
   it('handles npm option properly', () => {
     runContext = helpers.run(generator)
       .withOptions({
-        framework: "react",
+        moduleType: "util-module"
       })
       .withPrompts({
         packageManager: "npm"
@@ -65,6 +65,7 @@ describe('generator-single-spa-react', () => {
     return runContext.then(dir => {
       assert.file(path.join(dir, 'jest.config.json'))
       assert.file(path.join(dir, '.babelrc'))
+      assert.file(path.join(dir, 'webpack.config.js'))
     })
   })
 })

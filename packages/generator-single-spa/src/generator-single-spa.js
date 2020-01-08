@@ -3,6 +3,7 @@ const SingleSpaReactGenerator = require('./react/generator-single-spa-react')
 const SingleSpaRootConfigGenerator = require('./root-config/generator-root-config')
 const SingleSpaVueGenerator = require('./vue/generator-single-spa-vue')
 const SingleSpaAngularGenerator = require('./angular/generator-single-spa-angular')
+const SingleSpaUtilModuleGenerator = require('./util-module/generator-single-spa-util-module')
 
 module.exports = class SingleSpaGenerator extends Generator {
   constructor(args, opts) {
@@ -31,7 +32,7 @@ module.exports = class SingleSpaGenerator extends Generator {
           message: 'Select type to generate',
           choices: [
             { name: 'single-spa application / parcel', value: 'app-parcel' },
-            { name: 'in-browser utility module (styleguide, api cache, etc)', value: 'raw-module' },
+            { name: 'in-browser utility module (styleguide, api cache, etc)', value: 'util-module' },
             { name: 'single-spa root config', value: 'root-config' },
           ]
         }
@@ -45,8 +46,11 @@ module.exports = class SingleSpaGenerator extends Generator {
       }, this.options)
     } else if (moduleType === 'app-parcel') {
       await runFrameworkGenerator.call(this)
-    } else if (moduleType === 'raw-module') {
-      throw Error('raw module not yet implemented')
+    } else if (moduleType === 'util-module') {
+      this.composeWith({
+        Generator: SingleSpaUtilModuleGenerator,
+        path: require.resolve('./util-module/generator-single-spa-util-module.js')
+      })
     } else {
       throw Error(`unknown moduleType option ${moduleType}`)
     }
