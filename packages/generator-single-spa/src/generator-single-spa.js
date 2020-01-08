@@ -32,7 +32,7 @@ module.exports = class SingleSpaGenerator extends Generator {
           message: 'Select type to generate',
           choices: [
             { name: 'single-spa application / parcel', value: 'app-parcel' },
-            { name: 'in-browser utility module (styleguide, api cache, etc)', value: 'raw-module' },
+            { name: 'in-browser utility module (styleguide, api cache, etc)', value: 'util-module' },
             { name: 'single-spa root config', value: 'root-config' },
           ]
         }
