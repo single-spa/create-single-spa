@@ -1,6 +1,8 @@
 const Generator = require('yeoman-generator')
 const SingleSpaReactGenerator = require('./react/generator-single-spa-react')
 const SingleSpaRootConfigGenerator = require('./root-config/generator-root-config')
+const SingleSpaVueGenerator = require('./vue/generator-single-spa-vue')
+const SingleSpaAngularGenerator = require('./angular/generator-single-spa-angular')
 
 module.exports = class SingleSpaGenerator extends Generator {
   constructor(args, opts) {
@@ -76,6 +78,18 @@ async function runFrameworkGenerator() {
         Generator: SingleSpaReactGenerator,
         path: require.resolve('./react/generator-single-spa-react.js'),
       }, this.options)
+      break;
+    case "vue":
+      this.composeWith({
+        Generator: SingleSpaVueGenerator,
+        path: require.resolve("./vue/generator-single-spa-vue.js")
+      })
+      break;
+    case "angular":
+      this.composeWith({
+        Generator: SingleSpaAngularGenerator,
+        path: require.resolve('./angular/generator-single-spa-angular.js')
+      })
       break;
     case "other":
       console.log(`Check https://github.com/CanopyTax/create-single-spa/issues for updates on new frameworks being added to create-single-spa. Feel free to create a new issue if one does not yet exist for the framework you're using.`)
