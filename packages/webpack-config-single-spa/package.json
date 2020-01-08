@@ -1,0 +1,26 @@
+{
+  "name": "webpack-config-single-spa",
+  "version": "1.0.6",
+  "description": "A webpack config for in-browser modules used with single-spa",
+  "author": "Joel Denning <joeldenning@gmail.com>",
+  "homepage": "https://github.com/CanopyTax/create-single-spa",
+  "license": "MIT",
+  "main": "lib/webpack-config-single-spa.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CanopyTax/create-single-spa.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/CanopyTax/create-single-spa/issues"
+  }
+}

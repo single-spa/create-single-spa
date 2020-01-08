@@ -29,6 +29,7 @@
   "dependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "unused-files-webpack-plugin": "^3.4.0",
+    "webpack-config-single-spa": "^1.0.6",
     "webpack-bundle-analyzer": "^3.6.0"
   }
 }
