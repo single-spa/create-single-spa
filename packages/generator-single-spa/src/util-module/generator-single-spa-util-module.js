@@ -105,8 +105,8 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
       console.log(coloredFinalInstructions("Steps to test your utility module:"))
       console.log(coloredFinalInstructions(`1. Run '${this.packageManager} start${this.packageManager === 'npm' ? ' --' : ''} --port 8500 --https'`))
       console.log(coloredFinalInstructions(`2. Go to https://single-spa-playground.org`))
-      console.log(coloredFinalInstructions(`3. Run the following in the browser console: window.importMapOverrides.addOverride('${this.orgName}/${this.projectName}', '8500')`))
-      console.log(coloredFinalInstructions(`4. Run the following in the browser console: System.import('${this.orgName}/${this.projectName}')`))
+      console.log(coloredFinalInstructions(`3. Run the following in the browser console: window.importMapOverrides.addOverride('@${this.orgName}/${this.projectName}', '8500')`))
+      console.log(coloredFinalInstructions(`4. Run the following in the browser console: System.import('@${this.orgName}/${this.projectName}')`))
     })
   }
 }
