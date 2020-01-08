@@ -17,9 +17,13 @@
     "type": "git",
     "url": "git+https://github.com/CanopyTax/create-single-spa.git"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "bugs": {
     "url": "https://github.com/CanopyTax/create-single-spa/issues"
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "unused-files-webpack-plugin": "^3.4.0",
+    "webpack-bundle-analyzer": "^3.6.0"
   }
 }
