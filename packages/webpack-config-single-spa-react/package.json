@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-single-spa-react",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "A helper for creating webpack configs for react single-spa applications",
   "keywords": [
     "single-spa",
@@ -29,7 +29,7 @@
   "dependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "unused-files-webpack-plugin": "^3.4.0",
-    "webpack-config-single-spa": "^1.0.6",
-    "webpack-bundle-analyzer": "^3.6.0"
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-config-single-spa": "^1.0.7"
   }
 }
