@@ -23,7 +23,7 @@ module.exports = env => ({
   devServer: {
     historyApiFallback: true,
     headers: {
-      'Access-Control-Allow-Origin': true
+      'Access-Control-Allow-Origin': '*'
     },
     disableHostCheck: true
   },
