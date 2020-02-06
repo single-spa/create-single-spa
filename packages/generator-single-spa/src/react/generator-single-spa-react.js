@@ -109,7 +109,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       console.log(coloredFinalInstructions("Project setup complete!"))
       console.log(coloredFinalInstructions("Steps to test your React single-spa application:"))
       console.log(coloredFinalInstructions(`1. Run '${this.packageManager} start${this.packageManager === 'npm' ? ' --' : ''} --https --port 8500'`))
-      console.log(coloredFinalInstructions(`2. Go to http://single-spa-playground.org/playground/instant-test?name=@${this.orgName}/${this.projectName}&url=8500 to see it working!`))
+      console.log(coloredFinalInstructions(`2. Go to https://single-spa-playground.org/playground/instant-test?name=@${this.orgName}/${this.projectName}&url=8500 to see it working!`))
     })
   }
 }
