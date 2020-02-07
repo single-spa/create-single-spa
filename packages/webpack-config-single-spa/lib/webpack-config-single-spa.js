@@ -81,6 +81,7 @@ function webpackConfigSingleSpa(opts) {
             "**/*.spec.js",
             "**/*.js.snap",
             "**/test-setup.js",
+            "**/*.stories.js",
           ],
         }
       }),
