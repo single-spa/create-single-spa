@@ -1,11 +1,3 @@
 # `webpack-config-single-spa-react`
 
-> TODO: description
-
-## Usage
-
-```
-const webpackConfigSingleSpaReact = require('webpack-config-single-spa-react');
-
-// TODO: DEMONSTRATE API
-```
+[Full documentation](https://single-spa.js.org/docs/create-single-spa#webpack-config-single-spa-react)
