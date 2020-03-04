@@ -1,8 +1,8 @@
-{
-  "transform": {
+module.exports = {
+  transform: {
     "^.+\\.(j|t)sx?$": "babel-jest"
   },
-  "moduleNameMapper": {
+  moduleNameMapper: {
     "\\.(css)$": "identity-obj-proxy"
   }
 }
