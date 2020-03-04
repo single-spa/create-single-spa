@@ -56,8 +56,8 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
     this.projectName = templateOptions.projectName
 
     this.fs.copyTpl(
-      this.templatePath('jest.config.json'),
-      this.destinationPath('jest.config.json'),
+      this.templatePath('jest.config.js'),
+      this.destinationPath('jest.config.js'),
       templateOptions
     )
     this.fs.copyTpl(
