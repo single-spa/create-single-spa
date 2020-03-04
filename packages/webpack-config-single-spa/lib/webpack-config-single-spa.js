@@ -26,7 +26,8 @@ function webpackConfigSingleSpa(opts) {
       filename: `${opts.orgName}-${opts.projectName}.js`,
       libraryTarget: "system",
       path: path.resolve(process.cwd(), "dist"),
-      jsonpFunction: `webpackJsonp_${opts.projectName}`
+      jsonpFunction: `webpackJsonp_${opts.projectName}`,
+      chunkFilename: "[name].js"
     },
     module: {
       rules: [

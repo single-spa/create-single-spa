@@ -7,7 +7,8 @@ module.exports = env => ({
   output: {
     filename: "root-config.js",
     libraryTarget: "system",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    chunkFilename: "[name].js"
   },
   devtool: "sourcemap",
   module: {
