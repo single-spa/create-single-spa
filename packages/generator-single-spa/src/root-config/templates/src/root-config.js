@@ -2,8 +2,8 @@ import { registerApplication, start } from "single-spa";
 import * as isActive from "./activity-functions";
 
 registerApplication(
-  "@<?- orgName ?>/navbar",
-  () => System.import("@<?- orgName ?>/navbar"),
+  "@react-mf/navbar",
+  () => System.import("@react-mf/navbar"),
   isActive.navbar
 );
 
