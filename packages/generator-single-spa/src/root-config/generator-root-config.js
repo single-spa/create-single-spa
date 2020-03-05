@@ -42,7 +42,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
         type: "input",
         name: "orgName",
         message: "Organization name (use lowercase and dashes)",
-        default: "react-mf"
+        default: "org-name"
       },
     ])
 
