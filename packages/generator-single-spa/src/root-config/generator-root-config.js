@@ -42,6 +42,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
         type: "input",
         name: "orgName",
         message: "Organization name (use lowercase and dashes)",
+        default: "org-name"
       },
     ])
 
@@ -49,28 +50,28 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       this.templatePath('.babelrc'),
       this.destinationPath('.babelrc'),
       templateOptions,
-      {delimiter: '?'}
+      { delimiter: '?' }
     )
 
     this.fs.copyTpl(
       this.templatePath('.eslintrc'),
       this.destinationPath('.eslintrc'),
       templateOptions,
-      {delimiter: '?'}
+      { delimiter: '?' }
     )
 
     this.fs.copyTpl(
       this.templatePath('.prettierignore'),
       this.destinationPath('.prettierignore'),
       templateOptions,
-      {delimiter: '?'}
+      { delimiter: '?' }
     )
 
     this.fs.copyTpl(
       this.templatePath(),
       this.destinationPath(),
       templateOptions,
-      {delimiter: '?'}
+      { delimiter: '?' }
     )
   }
   install() {
