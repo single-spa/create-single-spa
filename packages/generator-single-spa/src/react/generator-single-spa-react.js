@@ -95,7 +95,19 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       this.destinationPath(`src/${templateOptions.orgName}-${templateOptions.projectName}.js`),
       templateOptions
     )
-    this.spawnCommand('git', ['init'])
+
+    const childGitInitProcess = this.spawnCommand('git', ['init'])
+    // log error if it exists
+    childGitInitProcess.on('error', function (err) {
+      console.log(chalk.red('\n************'))
+      console.log(chalk.red('Cannot initialize git repository'))
+      console.log(chalk.red('************\n'))
+    })
+    // log success if the process exited without an error
+    childGitInitProcess.on('exit', function (code) {
+      console.log(chalk.green('\nInitialized git repository\n'))
+    })
+
   }
   install() {
     this.installDependencies({
