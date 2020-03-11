@@ -95,6 +95,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       this.destinationPath(`src/${templateOptions.orgName}-${templateOptions.projectName}.js`),
       templateOptions
     )
+    this.spawnCommand('git', ['init'])
   }
   install() {
     this.installDependencies({
