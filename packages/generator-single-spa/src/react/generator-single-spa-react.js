@@ -71,7 +71,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       templateOptions
     )
     this.fs.copyTpl(
-      this.templatePath('.gitignore'),
+      this.templatePath('gitignore'),
       this.destinationPath('.gitignore'),
       templateOptions
     )
