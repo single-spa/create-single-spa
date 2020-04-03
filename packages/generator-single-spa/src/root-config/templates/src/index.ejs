@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Root Config</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'strict-dynamic' localhost unpkg.com cdn.jsdelivr.net; object-src 'none';">
+  <!-- 
+    This CSP allows any SSL-enabled host, but you should limit these directives further to increase your app's security.
+    Learn more about CSP policies at https://content-security-policy.com/#directive
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
   <meta name="importmap-type" content="systemjs-importmap" />
   <script type="systemjs-importmap" src="https://storage.googleapis.com/react.microfrontends.app/importmap.json"></script>
   <% if (isLocal) { %>
