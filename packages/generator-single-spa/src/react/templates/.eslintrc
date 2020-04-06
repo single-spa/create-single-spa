@@ -1,6 +1,6 @@
 {
   "extends": [
-    "react-important-stuff",
+    <%if (typescript) { %>"ts-react-important-stuff",<%} else { %>"react-important-stuff",<% } %>
     "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint"

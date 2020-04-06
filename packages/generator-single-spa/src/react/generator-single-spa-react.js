@@ -84,9 +84,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       templateOptions
     )
     this.fs.copyTpl(
-      this.typescript
-        ? this.templatePath(".ts.eslintrc")
-        : this.templatePath(".eslintrc"),
+      this.templatePath(".eslintrc"),
       this.destinationPath('.eslintrc'),
       templateOptions
     )
@@ -137,7 +135,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
         "typescript",
         "fork-ts-checker-webpack-plugin",
         "@babel/preset-typescript",
-        "@typescript-eslint/parser",
+        "eslint-config-ts-react-important-stuff",
       ]
       const typeDeps = [
         "@types/jest",
