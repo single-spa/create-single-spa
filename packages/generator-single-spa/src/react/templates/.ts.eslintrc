@@ -3,5 +3,5 @@
     "ts-react-important-stuff",
     "plugin:prettier/recommended"
   ],
-  "parser": "@typescript-eslint/parser"
+  "parser": "babel-eslint"
 }
