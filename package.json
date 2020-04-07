@@ -11,7 +11,7 @@
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
     "lint": "lerna run lint",
-    "format": "pretty-quick"
+    "format": "prettier './**/*' --write"
   },
   "husky": {
     "hooks": {
