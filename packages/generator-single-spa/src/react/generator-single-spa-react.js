@@ -120,6 +120,13 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       ),
       templateOptions
     );
+    if (this.typescript) {
+      this.fs.copyTpl(
+        this.templatePath("tsconfig.json"),
+        this.destinationPath("tsconfig.json"),
+        templateOptions
+      );
+    }
 
     const childGitInitProcess = this.spawnCommandSync("git", ["init"]);
     if (childGitInitProcess.error) {
