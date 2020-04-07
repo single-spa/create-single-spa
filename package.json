@@ -10,7 +10,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "format": "pretty-quick"
   },
   "husky": {
     "hooks": {
