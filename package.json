@@ -2,11 +2,19 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^3.15.0"
+    "husky": "^4.2.3",
+    "lerna": "^3.15.0",
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
     "lint": "lerna run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
