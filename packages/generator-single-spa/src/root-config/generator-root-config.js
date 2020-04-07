@@ -1,40 +1,41 @@
-const Generator = require('yeoman-generator')
-const fs = require('fs').promises
-const chalk = require('chalk')
+const Generator = require("yeoman-generator");
+const fs = require("fs").promises;
+const chalk = require("chalk");
 
-let times = 0
+let times = 0;
 
 module.exports = class SingleSpaRootConfigGenerator extends Generator {
   constructor(args, opts) {
-    super(args, opts)
+    super(args, opts);
 
     this.option("packageManager", {
-      type: String
-    })
+      type: String,
+    });
   }
   async createPackageJson() {
-    this.packageManager = this.options.packageManager
+    this.packageManager = this.options.packageManager;
 
     if (!this.packageManager) {
-      this.packageManager = (await this.prompt([
-        {
-          type: "list",
-          name: "packageManager",
-          message: "Which package manager do you want to use?",
-          choices: [
-            "yarn",
-            "npm",
-          ]
-        }
-      ])).packageManager
+      this.packageManager = (
+        await this.prompt([
+          {
+            type: "list",
+            name: "packageManager",
+            message: "Which package manager do you want to use?",
+            choices: ["yarn", "npm"],
+          },
+        ])
+      ).packageManager;
     }
 
-    const templatePackageJson = JSON.parse(await fs.readFile(this.templatePath('package.json')))
+    const templatePackageJson = JSON.parse(
+      await fs.readFile(this.templatePath("package.json"))
+    );
 
     this.fs.extendJSON(
       this.destinationPath("package.json"),
       templatePackageJson
-    )
+    );
   }
   async copyFiles() {
     const templateOptions = await this.prompt([
@@ -42,50 +43,54 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
         type: "input",
         name: "orgName",
         message: "Organization name (use lowercase and dashes)",
-        default: "org-name"
+        default: "org-name",
       },
-    ])
+    ]);
 
     this.fs.copyTpl(
-      this.templatePath('.babelrc'),
-      this.destinationPath('.babelrc'),
+      this.templatePath(".babelrc"),
+      this.destinationPath(".babelrc"),
       templateOptions,
-      { delimiter: '?' }
-    )
+      { delimiter: "?" }
+    );
 
     this.fs.copyTpl(
-      this.templatePath('.eslintrc'),
-      this.destinationPath('.eslintrc'),
+      this.templatePath(".eslintrc"),
+      this.destinationPath(".eslintrc"),
       templateOptions,
-      { delimiter: '?' }
-    )
+      { delimiter: "?" }
+    );
 
     this.fs.copyTpl(
-      this.templatePath('.prettierignore'),
-      this.destinationPath('.prettierignore'),
+      this.templatePath(".prettierignore"),
+      this.destinationPath(".prettierignore"),
       templateOptions,
-      { delimiter: '?' }
-    )
+      { delimiter: "?" }
+    );
 
     this.fs.copyTpl(
       this.templatePath(),
       this.destinationPath(),
       templateOptions,
-      { delimiter: '?' }
-    )
+      { delimiter: "?" }
+    );
   }
   install() {
     this.installDependencies({
-      npm: this.packageManager === 'npm',
-      yarn: this.packageManager === 'yarn',
+      npm: this.packageManager === "npm",
+      yarn: this.packageManager === "yarn",
       bower: false,
-    })
+    });
   }
   finished() {
     this.on(`${this.packageManager}Install:end`, () => {
-      const coloredFinalInstructions = chalk.bgWhite.black
-      console.log(coloredFinalInstructions("Project setup complete!"))
-      console.log(coloredFinalInstructions(`Run '${this.packageManager} start' to boot up your single-spa root config`))
-    })
+      const coloredFinalInstructions = chalk.bgWhite.black;
+      console.log(coloredFinalInstructions("Project setup complete!"));
+      console.log(
+        coloredFinalInstructions(
+          `Run '${this.packageManager} start' to boot up your single-spa root config`
+        )
+      );
+    });
   }
-}
+};
