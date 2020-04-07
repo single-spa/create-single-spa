@@ -1,9 +1,8 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin')
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
-
+const { UnusedFilesWebpackPlugin } = require("unused-files-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = webpackConfigSingleSpa;
 
@@ -89,6 +88,8 @@ function webpackConfigSingleSpa(opts) {
           ],
         },
       }),
-    ].concat(opts.typecheck === "typescript" ? [new ForkTsCheckerWebpackPlugin()] : [])
+    ].concat(
+      opts.typecheck === "typescript" ? [new ForkTsCheckerWebpackPlugin()] : []
+    ),
   };
 }

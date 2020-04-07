@@ -8,12 +8,12 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     super(args, opts);
 
     this.option("packageManager", {
-      type: String
-    })
+      type: String,
+    });
     this.option("typescript", {
       type: Boolean,
       default: false,
-    })
+    });
   }
   async createPackageJson() {
     this.packageManager = this.options.packageManager;
@@ -67,8 +67,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
         type: "input",
         name: "projectName",
         message: "Project name (use lowercase and dashes)",
-      }
-    ])
+      },
+    ]);
     templateOptions.typescript = this.typescript;
     this.orgName = templateOptions.orgName;
     this.projectName = templateOptions.projectName;
@@ -79,13 +79,13 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       templateOptions
     );
     this.fs.copyTpl(
-      this.templatePath(".babelrc"),
+      this.templatePath(".babelrc.ejs"),
       this.destinationPath(".babelrc"),
       templateOptions
     );
     this.fs.copyTpl(
-      this.templatePath(".eslintrc"),
-      this.destinationPath('.eslintrc'),
+      this.templatePath(".eslintrc.ejs"),
+      this.destinationPath(".eslintrc"),
       templateOptions
     );
     this.fs.copyTpl(
@@ -137,20 +137,20 @@ module.exports = class SingleSpaReactGenerator extends Generator {
         "fork-ts-checker-webpack-plugin",
         "@babel/preset-typescript",
         "eslint-config-ts-react-important-stuff",
-      ]
+      ];
       const typeDeps = [
         "@types/jest",
         "@types/react",
         "@types/react-dom",
         "@types/systemjs",
         "@types/webpack-env",
-      ]
+      ];
       if (this.packageManager === "npm") {
-        this.npmInstall(typescriptDevDeps, { "save-dev": true })
-        this.npmInstall(typeDeps, { save: true })
+        this.npmInstall(typescriptDevDeps, { "save-dev": true });
+        this.npmInstall(typeDeps, { save: true });
       } else {
-        this.yarnInstall(typescriptDevDeps, { dev: true })
-        this.yarnInstall(typeDeps)
+        this.yarnInstall(typescriptDevDeps, { dev: true });
+        this.yarnInstall(typeDeps);
       }
     }
     this.installDependencies({
