@@ -36,6 +36,6 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "single-spa": "^4.4.2"
+    "single-spa": "^5.3.1"
   }
 }
