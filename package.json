@@ -1,6 +1,5 @@
 {
   "name": "root",
-  "private": true,
   "devDependencies": {
     "husky": "^4.2.3",
     "lerna": "^3.15.0",
@@ -11,6 +10,7 @@
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
     "lint": "lerna run lint",
+    "publish-all": "lerna publish",
     "format": "prettier './**/*' --write"
   },
   "husky": {
