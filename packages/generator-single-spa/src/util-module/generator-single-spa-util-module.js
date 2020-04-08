@@ -78,6 +78,11 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
       templateOptions
     );
     this.fs.copyTpl(
+      this.templatePath("../../common-templates/.gitignore"), // this is relative to /templates
+      this.destinationPath(".gitignore"),
+      templateOptions
+    );
+    this.fs.copyTpl(
       this.templatePath("webpack.config.js"),
       this.destinationPath("webpack.config.js"),
       templateOptions
