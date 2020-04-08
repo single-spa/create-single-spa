@@ -2,6 +2,7 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { UnusedFilesWebpackPlugin } = require("unused-files-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = webpackConfigSingleSpa;
 
@@ -41,7 +42,7 @@ function webpackConfigSingleSpa(opts) {
           },
         },
         {
-          test: /\.js$/,
+          test: /\.(js|ts)x?$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
@@ -79,14 +80,16 @@ function webpackConfigSingleSpa(opts) {
         globOptions: {
           cwd: path.resolve(process.cwd(), "src"),
           ignore: [
-            "**/*.test.js",
-            "**/*.spec.js",
-            "**/*.js.snap",
-            "**/test-setup.js",
-            "**/*.stories.js",
+            "**/*.test.*",
+            "**/*.spec.*",
+            "**/*.*.snap",
+            "**/test-setup.*",
+            "**/*.stories.*",
           ],
         },
       }),
-    ],
+    ].concat(
+      opts.typecheck === "typescript" ? [new ForkTsCheckerWebpackPlugin()] : []
+    ),
   };
 }

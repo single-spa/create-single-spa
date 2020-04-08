@@ -10,6 +10,10 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     this.option("packageManager", {
       type: String,
     });
+    this.option("typescript", {
+      type: Boolean,
+      default: false,
+    });
   }
   async createPackageJson() {
     this.packageManager = this.options.packageManager;
@@ -41,6 +45,18 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     );
   }
   async copyOtherFiles() {
+    if (!this.typescript) {
+      this.typescript = (
+        await this.prompt([
+          {
+            type: "confirm",
+            name: "typescript",
+            message: "Will this project use Typescript?",
+            default: false,
+          },
+        ])
+      ).typescript;
+    }
     const templateOptions = await this.prompt([
       {
         type: "input",
@@ -53,7 +69,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
         message: "Project name (use lowercase and dashes)",
       },
     ]);
-
+    templateOptions.typescript = this.typescript;
     this.orgName = templateOptions.orgName;
     this.projectName = templateOptions.projectName;
 
@@ -63,12 +79,12 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       templateOptions
     );
     this.fs.copyTpl(
-      this.templatePath(".babelrc"),
+      this.templatePath(".babelrc.ejs"),
       this.destinationPath(".babelrc"),
       templateOptions
     );
     this.fs.copyTpl(
-      this.templatePath(".eslintrc"),
+      this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
       templateOptions
     );
@@ -104,6 +120,13 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       ),
       templateOptions
     );
+    if (this.typescript) {
+      this.fs.copyTpl(
+        this.templatePath("tsconfig.json"),
+        this.destinationPath("tsconfig.json"),
+        templateOptions
+      );
+    }
 
     const childGitInitProcess = this.spawnCommandSync("git", ["init"]);
     if (childGitInitProcess.error) {
@@ -115,6 +138,28 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     }
   }
   install() {
+    if (this.typescript) {
+      const typescriptDevDeps = [
+        "typescript",
+        "fork-ts-checker-webpack-plugin",
+        "@babel/preset-typescript",
+        "eslint-config-ts-react-important-stuff",
+      ];
+      const typeDeps = [
+        "@types/jest",
+        "@types/react",
+        "@types/react-dom",
+        "@types/systemjs",
+        "@types/webpack-env",
+      ];
+      if (this.packageManager === "npm") {
+        this.npmInstall(typescriptDevDeps, { "save-dev": true });
+        this.npmInstall(typeDeps, { save: true });
+      } else {
+        this.yarnInstall(typescriptDevDeps, { dev: true });
+        this.yarnInstall(typeDeps);
+      }
+    }
     this.installDependencies({
       npm: this.packageManager === "npm",
       yarn: this.packageManager === "yarn",
