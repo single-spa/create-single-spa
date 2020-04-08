@@ -21,12 +21,20 @@ function webpackConfigSingleSpa(opts) {
     );
   }
 
+  const typescript = opts.typecheck === "typescript";
+
   let webpackConfigEnv = opts.webpackConfigEnv || {};
+  let entryFileExtension;
+  if (typescript) {
+    entryFileExtension = opts.react ? "tsx" : "ts";
+  } else {
+    entryFileExtension = "js";
+  }
 
   return {
     entry: path.resolve(
       process.cwd(),
-      `src/${opts.orgName}-${opts.projectName}.js`
+      `src/${opts.orgName}-${opts.projectName}.${entryFileExtension}`
     ),
     output: {
       filename: `${opts.orgName}-${opts.projectName}.js`,
@@ -88,8 +96,11 @@ function webpackConfigSingleSpa(opts) {
           ],
         },
       }),
-    ].concat(
-      opts.typecheck === "typescript" ? [new ForkTsCheckerWebpackPlugin()] : []
-    ),
+    ].concat(typescript ? [new ForkTsCheckerWebpackPlugin()] : []),
+    resolve: {
+      extensions: [".js", ".mjs", ".wasm", ".json"].concat(
+        typescript ? [".ts", ".tsx"] : []
+      ),
+    },
   };
 }
