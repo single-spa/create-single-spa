@@ -31,20 +31,6 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       ).packageManager;
     }
 
-    const packageJsonTemplate = await fs.readFile(
-      this.templatePath("package.json"),
-      { encoding: "utf-8" }
-    );
-    const packageJsonStr = ejs.render(packageJsonTemplate, {
-      packageManager: this.packageManager,
-    });
-
-    this.fs.extendJSON(
-      this.destinationPath("package.json"),
-      JSON.parse(packageJsonStr)
-    );
-  }
-  async copyOtherFiles() {
     if (!this.typescript) {
       this.typescript = (
         await this.prompt([
@@ -57,6 +43,35 @@ module.exports = class SingleSpaReactGenerator extends Generator {
         ])
       ).typescript;
     }
+
+    const packageJsonTemplate = await fs.readFile(
+      this.templatePath("package.json"),
+      { encoding: "utf-8" }
+    );
+    const packageJsonStr = ejs.render(packageJsonTemplate, {
+      packageManager: this.packageManager,
+      typescript: this.typescript,
+    });
+
+    const packageJson = JSON.parse(packageJsonStr);
+
+    if (this.typescript) {
+      // Will be added as a dependency via ts-package.json
+      delete packageJson.devDependencies["@types/jest"];
+      // Will be replaced by eslint-config-ts-react-important-stuff
+      delete packageJson.devDependencies["eslint-config-react-important-stuff"];
+    }
+
+    this.fs.extendJSON(this.destinationPath("package.json"), packageJson);
+
+    if (this.typescript) {
+      this.fs.extendJSON(
+        this.destinationPath("package.json"),
+        this.fs.readJSON(this.templatePath("ts-package.json"))
+      );
+    }
+  }
+  async copyOtherFiles() {
     const templateOptions = await this.prompt([
       {
         type: "input",
@@ -72,6 +87,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     templateOptions.typescript = this.typescript;
     this.orgName = templateOptions.orgName;
     this.projectName = templateOptions.projectName;
+
+    const srcFileExtension = this.typescript ? "tsx" : "js";
 
     this.fs.copyTpl(
       this.templatePath("jest.config.js"),
@@ -105,18 +122,18 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     );
     this.fs.copyTpl(
       this.templatePath("src/root.component.js"),
-      this.destinationPath("src/root.component.js"),
+      this.destinationPath(`src/root.component.${srcFileExtension}`),
       templateOptions
     );
     this.fs.copyTpl(
       this.templatePath("src/set-public-path.js"),
-      this.destinationPath("src/set-public-path.js"),
+      this.destinationPath(`src/set-public-path.${srcFileExtension}`),
       templateOptions
     );
     this.fs.copyTpl(
       this.templatePath("src/main.js"),
       this.destinationPath(
-        `src/${templateOptions.orgName}-${templateOptions.projectName}.js`
+        `src/${templateOptions.orgName}-${templateOptions.projectName}.${srcFileExtension}`
       ),
       templateOptions
     );
@@ -138,28 +155,6 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     }
   }
   install() {
-    if (this.typescript) {
-      const typescriptDevDeps = [
-        "typescript",
-        "fork-ts-checker-webpack-plugin",
-        "@babel/preset-typescript",
-        "eslint-config-ts-react-important-stuff",
-      ];
-      const typeDeps = [
-        "@types/jest",
-        "@types/react",
-        "@types/react-dom",
-        "@types/systemjs",
-        "@types/webpack-env",
-      ];
-      if (this.packageManager === "npm") {
-        this.npmInstall(typescriptDevDeps, { "save-dev": true });
-        this.npmInstall(typeDeps, { save: true });
-      } else {
-        this.yarnInstall(typescriptDevDeps, { dev: true });
-        this.yarnInstall(typeDeps);
-      }
-    }
     this.installDependencies({
       npm: this.packageManager === "npm",
       yarn: this.packageManager === "yarn",

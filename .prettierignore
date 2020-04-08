@@ -2,3 +2,4 @@
 .prettierignore
 yarn.lock
 *.ejs
+packages/generator-single-spa/src/react/templates/webpack.config.js
