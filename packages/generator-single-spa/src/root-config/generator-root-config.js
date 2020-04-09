@@ -55,7 +55,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath("../../common-templates/.gitignore"), // this is relative to /templates
+      this.templatePath("../../common-templates/gitignore"), // this is relative to /templates
       this.destinationPath(".gitignore"),
       templateOptions,
       { delimiter: "?" }
