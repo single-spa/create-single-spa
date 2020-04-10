@@ -14,7 +14,7 @@ We're using [lerna](https://lerna.js.org/).
 2. `yarn bootstrap`
 3. `node packages/create-single-spa/bin/create-single-spa.js ../some-test-dir`
 
-Note that create-single-spa can runs in the current directory by default, but you can provide a different destination directory through the CLI (as shown above with `some-test-dir`).
+Note that create-single-spa can run in the current directory by default, but you can provide a different destination directory through the CLI (as shown above with `some-test-dir`).
 
 ### Tests
 
