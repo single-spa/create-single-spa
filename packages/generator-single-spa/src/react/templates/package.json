@@ -20,6 +20,7 @@
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
     "@babel/runtime": "^7.8.7",
+    "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^9.4.0",
     "@types/jest": "^24.0.23",
     "babel-eslint": "^11.0.0-beta.2",
@@ -41,10 +42,10 @@
     "style-loader": "^1.0.1",
     "systemjs-webpack-interop": "^1.1.2",
     "webpack": "^4.41.2",
-    "webpack-config-single-spa-react": "^1.0.3",
-    "webpack-merge": "^4.2.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-config-single-spa-react": "^1.0.3",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "react": "^16.12.0",
