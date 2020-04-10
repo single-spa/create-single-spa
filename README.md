@@ -12,9 +12,9 @@ We're using [lerna](https://lerna.js.org/).
 
 1. `yarn install`
 2. `yarn bootstrap`
-3. `node packages/create-single-spa/bin/create-single-spa.js`
+3. `node packages/create-single-spa/bin/create-single-spa.js ../some-test-dir`
 
-Note that create-single-spa **runs in the current directory**. For development purposes, you may want to create a test directory outside of the create-single-spa folder to run it on. There is no compilation / build step.
+Note that create-single-spa can run in the current directory by default, but you can provide a different destination directory through the CLI (as shown above with `some-test-dir`).
 
 ### Tests
 
