@@ -5,4 +5,7 @@ module.exports = {
   moduleNameMapper: {
     "\\.(css)$": "identity-obj-proxy",
   },
+  setupFilesAfterEnv: [
+    "./node_modules/@testing-library/jest-dom/dist/index.js",
+  ],
 };
