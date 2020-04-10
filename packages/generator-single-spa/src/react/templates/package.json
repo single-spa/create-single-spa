@@ -5,7 +5,7 @@
     "analyze": "webpack --mode=production --env.analyze=true",
     "lint": "eslint src --ext js<% if (typescript) { %>,ts,tsx<% } %>",
     "prettier": "prettier --write './**'",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "watch-tests": "jest --watch",
     "coverage": "jest --coverage"
   },
