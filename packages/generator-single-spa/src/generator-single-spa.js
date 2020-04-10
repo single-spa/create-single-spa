@@ -26,6 +26,20 @@ module.exports = class SingleSpaGenerator extends Generator {
       this.options.dir = args[0];
     }
   }
+  async chooseDestinationDir() {
+    if (!this.options.dir) {
+      const response = await this.prompt([
+        {
+          type: "input",
+          name: "dir",
+          message: "Directory for new project",
+          default: ".",
+        },
+      ]);
+
+      this.options.dir = response.dir;
+    }
+  }
   async composeChildGenerator() {
     let moduleType = this.options.moduleType;
 
