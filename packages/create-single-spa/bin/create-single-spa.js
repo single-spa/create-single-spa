@@ -5,4 +5,4 @@ const argv = require("yargs").argv;
 
 const env = yeoman.createEnv();
 env.registerStub(require("generator-single-spa"), "single-spa");
-env.run("single-spa", argv);
+env.run(`single-spa ${argv._.join(" ")}`, argv);

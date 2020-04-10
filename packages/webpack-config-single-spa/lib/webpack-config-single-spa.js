@@ -95,7 +95,9 @@ function webpackConfigSingleSpa(opts) {
           ],
         },
       }),
-    ].concat(typescript ? [new require('fork-ts-checker-webpack-plugin')()] : []),
+    ].concat(
+      typescript ? [new (require("fork-ts-checker-webpack-plugin"))()] : []
+    ),
     resolve: {
       extensions: [".js", ".mjs", ".wasm", ".json"].concat(
         typescript ? [".ts", ".tsx"] : []

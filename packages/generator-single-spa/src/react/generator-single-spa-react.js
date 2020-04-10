@@ -126,6 +126,11 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       templateOptions
     );
     this.fs.copyTpl(
+      this.templatePath("src/root.component.test.js"),
+      this.destinationPath(`src/root.component.test.${srcFileExtension}`),
+      templateOptions
+    );
+    this.fs.copyTpl(
       this.templatePath("src/set-public-path.js"),
       this.destinationPath(`src/set-public-path.${srcFileExtension}`),
       templateOptions
