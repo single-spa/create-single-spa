@@ -14,12 +14,16 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       type: Boolean,
       default: false,
     });
+    this.option("orgName", {
+      type: String,
+    });
+    this.option("projectName", {
+      type: String,
+    });
   }
   async createPackageJson() {
-    this.packageManager = this.options.packageManager;
-
-    if (!this.packageManager) {
-      this.packageManager = (
+    if (!this.options.packageManager) {
+      this.options.packageManager = (
         await this.prompt([
           {
             type: "list",
@@ -31,8 +35,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       ).packageManager;
     }
 
-    if (!this.typescript) {
-      this.typescript = (
+    if (!this.options.typescript) {
+      this.options.typescript = (
         await this.prompt([
           {
             type: "confirm",
@@ -49,13 +53,13 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       { encoding: "utf-8" }
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
-      packageManager: this.packageManager,
-      typescript: this.typescript,
+      packageManager: this.options.packageManager,
+      typescript: this.options.typescript,
     });
 
     const packageJson = JSON.parse(packageJsonStr);
 
-    if (this.typescript) {
+    if (this.options.typescript) {
       // Will be added as a dependency via ts-package.json
       delete packageJson.devDependencies["@types/jest"];
       // Will be replaced by eslint-config-ts-react-important-stuff
@@ -64,7 +68,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
 
     this.fs.extendJSON(this.destinationPath("package.json"), packageJson);
 
-    if (this.typescript) {
+    if (this.options.typescript) {
       this.fs.extendJSON(
         this.destinationPath("package.json"),
         this.fs.readJSON(this.templatePath("ts-package.json"))
@@ -72,81 +76,85 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     }
   }
   async copyOtherFiles() {
-    const templateOptions = await this.prompt([
-      {
-        type: "input",
-        name: "orgName",
-        message: "Organization name (use lowercase and dashes)",
-      },
-      {
-        type: "input",
-        name: "projectName",
-        message: "Project name (use lowercase and dashes)",
-      },
-    ]);
-    templateOptions.typescript = this.typescript;
-    this.orgName = templateOptions.orgName;
-    this.projectName = templateOptions.projectName;
+    if (!this.options.orgName) {
+      this.options.orgName = await this.prompt([
+        {
+          type: "input",
+          name: "orgName",
+          message: "Organization name (use lowercase and dashes)",
+        },
+      ]).orgName;
+    }
 
-    const srcFileExtension = this.typescript ? "tsx" : "js";
+    if (!this.options.projectName) {
+      this.options.projectName = await this.prompt([
+        {
+          type: "input",
+          name: "projectName",
+          message: "Project name (use lowercase and dashes)",
+        },
+      ]);
+    }
+
+    const srcFileExtension = this.options.typescript ? "tsx" : "js";
 
     this.fs.copyTpl(
       this.templatePath("jest.config.js"),
       this.destinationPath("jest.config.js"),
-      templateOptions
+      this.options
     );
     this.fs.copyTpl(
       this.templatePath(".babelrc.ejs"),
       this.destinationPath(".babelrc"),
-      templateOptions
+      this.options
     );
     this.fs.copyTpl(
       this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
-      templateOptions
+      this.options
     );
     this.fs.copyTpl(
       this.templatePath("../../common-templates/gitignore"), // this is relative to /templates
       this.destinationPath(".gitignore"),
-      templateOptions
+      this.options
     );
     this.fs.copyTpl(
       this.templatePath(".prettierignore"),
       this.destinationPath(".prettierignore"),
-      templateOptions
+      this.options
     );
     this.fs.copyTpl(
       this.templatePath("webpack.config.js"),
       this.destinationPath("webpack.config.js"),
-      templateOptions
+      this.options
     );
     this.fs.copyTpl(
       this.templatePath("src/root.component.js"),
       this.destinationPath(`src/root.component.${srcFileExtension}`),
-      templateOptions
+      this.options
     );
     this.fs.copyTpl(
       this.templatePath("src/root.component.test.js"),
       this.destinationPath(`src/root.component.test.${srcFileExtension}`),
-      templateOptions
+      this.options
     );
     this.fs.copyTpl(
       this.templatePath("src/set-public-path.js"),
       this.destinationPath(`src/set-public-path.${srcFileExtension}`),
-      templateOptions
+      this.options
     );
     this.fs.copyTpl(
       this.templatePath("src/main.js"),
       this.destinationPath(
-        `src/${templateOptions.orgName}-${templateOptions.projectName}.${srcFileExtension}`
+        `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`
       ),
-      templateOptions
+      this.options
     );
-    if (this.typescript) {
+    if (this.options.typescript) {
       this.fs.copyTpl(
         this.templatePath("tsconfig.json"),
         this.destinationPath("tsconfig.json"),
-        templateOptions
+        this.options
       );
     }
 
@@ -161,13 +169,13 @@ module.exports = class SingleSpaReactGenerator extends Generator {
   }
   install() {
     this.installDependencies({
-      npm: this.packageManager === "npm",
-      yarn: this.packageManager === "yarn",
+      npm: this.options.packageManager === "npm",
+      yarn: this.options.packageManager === "yarn",
       bower: false,
     });
   }
   finished() {
-    this.on(`${this.packageManager}Install:end`, () => {
+    this.on(`${this.options.packageManager}Install:end`, () => {
       const coloredFinalInstructions = chalk.bgWhite.black;
       console.log(coloredFinalInstructions("Project setup complete!"));
       console.log(
@@ -177,8 +185,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       );
       console.log(
         coloredFinalInstructions(
-          `1. Run '${this.packageManager} start${
-            this.packageManager === "npm" ? " --" : ""
+          `1. Run '${this.options.packageManager} start${
+            this.options.packageManager === "npm" ? " --" : ""
           } --https --port 8500'`
         )
       );

@@ -1,10 +1,21 @@
+const { createFixtureIfDoesntExist } = require("./test-helpers.js");
 const nixt = require("nixt");
 
+const fixtureName = "basic-react";
+
 describe(`react generator`, () => {
-  it("can successfully generate a react project", (done) => {
-    nixt()
-      .cwd(process.cwd())
-      .run("node ../packages/create-single-spa/bin/create-single-spa.js")
-      .end(done);
+  const fixtureDir = createFixtureIfDoesntExist(
+    fixtureName,
+    `
+    --framework react
+    --packageManager yarn
+    --orgName org
+    --projectName project
+    --typescript
+  `
+  );
+
+  it(`Can yarn build`, (done) => {
+    nixt().cwd(fixtureDir).run(`yarn build`).stdout(/Done!/).code(0).end(done);
   });
 });
