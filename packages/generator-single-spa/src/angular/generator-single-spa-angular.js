@@ -18,7 +18,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
 
     spawn(
       command,
-      args.concat(["new", "--directory", this.options.dir || "./"]),
+      args.concat(["new", "--directory", this.options.dir || "."]),
       { stdio: "inherit" }
     );
   }
