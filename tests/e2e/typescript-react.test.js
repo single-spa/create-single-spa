@@ -6,6 +6,12 @@ const fixtureName = "typescript-react";
 describe(`typescript react usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
     fixtureName,
+    [
+      "webpack-config-single-spa",
+      "webpack-config-single-spa-react",
+      "webpack-config-single-spa-ts",
+      "webpack-config-single-spa-react-ts",
+    ],
     `
     --framework react
     --packageManager yarn

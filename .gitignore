@@ -1,3 +1,5 @@
 node_modules
 .DS_Store
 tests/fixtures
+lerna-debug.log
+yarn-error.log

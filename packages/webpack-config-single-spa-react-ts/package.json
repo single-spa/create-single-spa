@@ -1,0 +1,36 @@
+{
+  "name": "webpack-config-single-spa-react-ts",
+  "version": "1.4.2",
+  "description": "Shareable webpack config for single-spa react projects that use typescript",
+  "keywords": [
+    "single-spa",
+    "microfrontends",
+    "webpack",
+    "react",
+    "typescript"
+  ],
+  "author": "Joel Denning <joeldenning@gmail.com>",
+  "homepage": "https://github.com/single-spa/create-single-spa/tree/master/packages/webpack-config-single-spa-react-ts",
+  "license": "MIT",
+  "main": "lib/webpack-config-single-spa-react-ts.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/single-spa/create-single-spa.git"
+  },
+  "scripts": {
+    "test": "echo 'No tests yet'"
+  },
+  "bugs": {
+    "url": "https://github.com/single-spa/create-single-spa/issues"
+  },
+  "dependencies": {
+    "webpack-config-single-spa-react": "^1.4.1",
+    "webpack-config-single-spa-ts": "^1.4.2"
+  }
+}

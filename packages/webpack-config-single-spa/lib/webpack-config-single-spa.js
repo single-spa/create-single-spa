@@ -20,20 +20,12 @@ function webpackConfigSingleSpa(opts) {
     );
   }
 
-  const typescript = opts.typecheck === "typescript";
-
   let webpackConfigEnv = opts.webpackConfigEnv || {};
-  let entryFileExtension;
-  if (typescript) {
-    entryFileExtension = opts.react ? "tsx" : "ts";
-  } else {
-    entryFileExtension = "js";
-  }
 
   return {
     entry: path.resolve(
       process.cwd(),
-      `src/${opts.orgName}-${opts.projectName}.${entryFileExtension}`
+      `src/${opts.orgName}-${opts.projectName}.js`
     ),
     output: {
       filename: `${opts.orgName}-${opts.projectName}.js`,
@@ -95,13 +87,9 @@ function webpackConfigSingleSpa(opts) {
           ],
         },
       }),
-    ].concat(
-      typescript ? [new (require("fork-ts-checker-webpack-plugin"))()] : []
-    ),
+    ],
     resolve: {
-      extensions: [".js", ".mjs", ".wasm", ".json"].concat(
-        typescript ? [".ts", ".tsx"] : []
-      ),
+      extensions: [".js", ".mjs", ".jsx", ".wasm", ".json"],
     },
   };
 }

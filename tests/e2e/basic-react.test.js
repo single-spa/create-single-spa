@@ -6,6 +6,7 @@ const fixtureName = "basic-react";
 describe(`basic react usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
     fixtureName,
+    ["webpack-config-single-spa", "webpack-config-single-spa-react"],
     `
     --framework react
     --packageManager yarn
