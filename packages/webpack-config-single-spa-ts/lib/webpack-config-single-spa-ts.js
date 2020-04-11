@@ -1,4 +1,3 @@
-console.log("CWD", process.cwd());
 const webpackConfigSingleSpa = require("webpack-config-single-spa");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const merge = require("webpack-merge");
