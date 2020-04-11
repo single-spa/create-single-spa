@@ -1,0 +1,38 @@
+{
+  "name": "webpack-config-single-spa-ts",
+  "version": "1.4.2-beta.0",
+  "description": "webpack-config for single-spa + typescript",
+  "keywords": [
+    "single-spa",
+    "microfrontends",
+    "typescript",
+    "webpack"
+  ],
+  "author": "Joel Denning <joeldenning@gmail.com>",
+  "homepage": "https://github.com/single-spa/create-single-spa/tree/master/packages/webpack-config-single-spa-ts",
+  "license": "MIT",
+  "main": "lib/webpack-config-single-spa-ts.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/single-spa/create-single-spa.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/single-spa/create-single-spa/issues"
+  },
+  "dependencies": {
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.2",
+    "style-loader": "^1.1.3",
+    "webpack-merge": "^4.2.2"
+  }
+}
