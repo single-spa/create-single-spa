@@ -3,7 +3,7 @@
     "start": "webpack-dev-server",
     "build": "webpack --mode=production",
     "analyze": "webpack --mode=production --env.analyze=true",
-    "lint": "eslint src",
+    "lint": "eslint src --ext js<% if (typescript) { %>,ts,tsx<% } %>",
     "format": "prettier --write './**'",
     "test": "jest --passWithNoTests",
     "watch-tests": "jest --watch",

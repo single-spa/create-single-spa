@@ -60,7 +60,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     const packageJson = JSON.parse(packageJsonStr);
 
     if (this.options.typescript) {
-      // Will be added as a dependency via ts-package.json
+      // Will be added as a dependency via ts package.json
       delete packageJson.devDependencies["@types/jest"];
       // Will be replaced by eslint-config-ts-react-important-stuff
       delete packageJson.devDependencies["eslint-config-react-important-stuff"];
@@ -73,7 +73,15 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     if (this.options.typescript) {
       this.fs.extendJSON(
         this.destinationPath("package.json"),
-        this.fs.readJSON(this.templatePath("ts-package.json"))
+        this.fs.readJSON(
+          this.templatePath("../../common-templates/typescript/package.json")
+        )
+      );
+
+      // Extend with react-specific package json for typescript
+      this.fs.extendJSON(
+        this.destinationPath("package.json"),
+        this.fs.readJSON(this.templatePath("typescript/package.json"))
       );
     }
   }

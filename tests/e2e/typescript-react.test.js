@@ -27,6 +27,8 @@ describe(`typescript react usage`, () => {
       .cwd(fixtureDir)
       .run(`yarn build`)
       .expect((result) => {
+        console.log(result.stdout);
+        console.log(result.stderr);
         expect(result.stdout).toMatch(/webpack --mode=production/);
         expect(result.stdout).toMatch(/org-project.js/);
       })
@@ -40,6 +42,8 @@ describe(`typescript react usage`, () => {
       .cwd(fixtureDir)
       .run(`yarn lint`)
       .expect((result) => {
+        console.log(result.stdout);
+        console.log(result.stderr);
         expect(result.stdout).toMatch(/eslint/);
       })
       .code(0)
@@ -52,6 +56,8 @@ describe(`typescript react usage`, () => {
       .cwd(fixtureDir)
       .run(`yarn format`)
       .expect((result) => {
+        console.log(result.stdout);
+        console.log(result.stderr);
         expect(result.stdout).toMatch(/prettier/);
         expect(result.stdout).toMatch(/webpack.config.js/);
       })
@@ -65,6 +71,8 @@ describe(`typescript react usage`, () => {
       .cwd(fixtureDir)
       .run(`yarn test`)
       .expect((result) => {
+        console.log(result.stdout);
+        console.log(result.stderr);
         expect(result.stdout).toMatch(/jest/);
         expect(result.stderr).toMatch(/Ran all test suites/);
       })

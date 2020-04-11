@@ -1,5 +1,5 @@
 const webpackMerge = require("webpack-merge");
-const singleSpaDefaults = require("webpack-config-single-spa");
+const singleSpaDefaults = require("webpack-config-single-spa<% if (typescript) { %>-ts<% } %>");
 
 module.exports = (webpackConfigEnv) => {
   const defaultConfig = singleSpaDefaults({
