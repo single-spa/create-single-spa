@@ -25,6 +25,10 @@ module.exports = class SingleSpaGenerator extends Generator {
     if (args.length > 0 && !this.options.dir) {
       this.options.dir = args[0];
     }
+
+    Object.keys(this.options).forEach((optionKey) => {
+      if (this.options[optionKey] === "false") this.options[optionKey] = false;
+    });
   }
   async chooseDestinationDir() {
     if (!this.options.dir) {
