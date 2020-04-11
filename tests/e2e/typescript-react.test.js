@@ -1,9 +1,9 @@
 const { createFixtureIfDoesntExist } = require("../test-helpers.js");
 const nixt = require("nixt");
 
-const fixtureName = "basic-react";
+const fixtureName = "typescript-react";
 
-describe(`basic react usage`, () => {
+describe(`typescript react usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
     fixtureName,
     `
@@ -11,6 +11,7 @@ describe(`basic react usage`, () => {
     --packageManager yarn
     --orgName org
     --projectName project
+    --typescript
   `
   );
 

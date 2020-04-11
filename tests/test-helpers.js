@@ -8,7 +8,10 @@ const packagesToLink = [
   "webpack-config-single-spa-react",
 ];
 
-beforeAll(() => Promise.all(packagesToLink.map(linkPackage)));
+beforeAll(() => {
+  console.log("setting up yarn links");
+  Promise.all(packagesToLink.map(linkPackage));
+});
 
 function linkPackage(packageName) {
   return new Promise((resolve, reject) => {
