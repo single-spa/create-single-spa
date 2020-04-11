@@ -58,6 +58,8 @@ exports.createFixtureIfDoesntExist = function (name, args) {
           }
         });
     });
+  } else {
+    console.log(`Reusing existing fixture for ${name}`);
   }
 
   return path.join(__dirname, `./fixtures/${name}`);

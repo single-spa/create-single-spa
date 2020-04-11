@@ -17,7 +17,7 @@
     "bootstrap": "lerna bootstrap",
     "clean-tests": "rimraf tests/fixtures",
     "test": "yarn clean-tests && concurrently -n w: 'yarn:test:*'",
-    "test:individual": "lerna run test",
+    "test:packages": "lerna run test",
     "test:e2e": "jest",
     "lint": "lerna run lint",
     "publish-all": "lerna publish",
