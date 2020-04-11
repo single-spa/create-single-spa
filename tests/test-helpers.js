@@ -31,7 +31,11 @@ function linkPackage(packageName) {
   });
 }
 
-exports.createFixtureIfDoesntExist = function (name, args) {
+exports.createFixtureIfDoesntExist = function (
+  name,
+  fixturePackagesToLink,
+  args
+) {
   if (!fs.existsSync(path.join(__dirname, `./fixtures/${name}/package.json`))) {
     const cwd = path.join(__dirname, "./fixtures");
     mkdirp.sync(cwd);
@@ -57,7 +61,7 @@ exports.createFixtureIfDoesntExist = function (name, args) {
             );
             nixt()
               .cwd(path.join(cwd, name))
-              .run(`yarn link ${packagesToLink.join(" ")}`)
+              .run(`yarn link ${fixturePackagesToLink.join(" ")}`)
               .code(0)
               .end(done);
           }
