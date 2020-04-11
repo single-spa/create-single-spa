@@ -6,7 +6,7 @@ const fixtureName = "typescript-util-module";
 describe(`typescript util module usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
     fixtureName,
-    ["webpack-config-single-spa", "webpack-config-single-spa"],
+    ["webpack-config-single-spa", "webpack-config-single-spa-ts"],
     `
     --moduleType util-module
     --packageManager yarn
