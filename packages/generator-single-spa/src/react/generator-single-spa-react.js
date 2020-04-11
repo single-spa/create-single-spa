@@ -46,8 +46,6 @@ module.exports = class SingleSpaReactGenerator extends Generator {
           },
         ])
       ).typescript;
-    } else if (this.options.typescript === "false") {
-      this.options.typescript = false;
     }
 
     const packageJsonTemplate = await fs.readFile(

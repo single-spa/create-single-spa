@@ -3,6 +3,29 @@ const fs = require("fs");
 const path = require("path");
 const mkdirp = require("mkdirp");
 
+const packagesToLink = [
+  "webpack-config-single-spa",
+  "webpack-config-single-spa-react",
+];
+
+beforeAll(() => Promise.all(packagesToLink.map(linkPackage)));
+
+function linkPackage(packageName) {
+  return new Promise((resolve, reject) => {
+    nixt()
+      .cwd(path.join(process.cwd(), `packages/${packageName}`))
+      .run(`yarn link`)
+      .code(0)
+      .end((err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+  });
+}
+
 exports.createFixtureIfDoesntExist = function (name, args) {
   if (!fs.existsSync(path.join(__dirname, `./fixtures/${name}/package.json`))) {
     const cwd = path.join(__dirname, "./fixtures");
@@ -29,9 +52,7 @@ exports.createFixtureIfDoesntExist = function (name, args) {
             );
             nixt()
               .cwd(path.join(cwd, name))
-              .run(
-                "yarn link webpack-config-single-spa webpack-config-single-spa-react"
-              )
+              .run(`yarn link ${packagesToLink.join(" ")}`)
               .code(0)
               .end(done);
           }
