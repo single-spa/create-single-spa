@@ -2,7 +2,6 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.9.0",
     "eslint-config-ts-react-important-stuff": "^2.0.0",
-    "fork-ts-checker-webpack-plugin": "^4.1.3",
     "typescript": "^3.8.3",
     "webpack-config-single-spa-ts": "^1.4.2"
   },
