@@ -64,6 +64,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       delete packageJson.devDependencies["@types/jest"];
       // Will be replaced by eslint-config-ts-react-important-stuff
       delete packageJson.devDependencies["eslint-config-react-important-stuff"];
+      // Will be replaced by webpack-config-single-spa-ts
+      delete packageJson.devDependencies["webpack-config-single-spa"];
     }
 
     this.fs.extendJSON(this.destinationPath("package.json"), packageJson);

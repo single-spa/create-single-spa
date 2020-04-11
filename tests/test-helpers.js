@@ -5,7 +5,9 @@ const mkdirp = require("mkdirp");
 
 const packagesToLink = [
   "webpack-config-single-spa",
+  "webpack-config-single-spa-ts",
   "webpack-config-single-spa-react",
+  "webpack-config-single-spa-react-ts",
 ];
 
 beforeAll(() => {

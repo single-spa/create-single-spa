@@ -1108,6 +1108,22 @@ webpack-bundle-analyzer@^3.6.0:
     opener "^1.5.1"
     ws "^6.0.0"
 
+webpack-config-single-spa-react@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/webpack-config-single-spa-react/-/webpack-config-single-spa-react-1.4.1.tgz#027eafb4e848c8b47c2e1f34093a2c2ff7fa4934"
+  integrity sha512-lnncgUwQ+Z81zqXoPTVaMB+JsgR3JtF7qOQW7yP7G2tbCagzcUAmmh/8v6EEs5jxmYRZRwgG2L6uvJthDN9YxQ==
+  dependencies:
+    webpack-config-single-spa "^1.4.1"
+
+webpack-config-single-spa@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/webpack-config-single-spa/-/webpack-config-single-spa-1.4.1.tgz#8addd3431f31b28ed19b9c2afa891cd1c831eab3"
+  integrity sha512-ZtpR4uVyiV294JNl5wFcBT0URq1dwON6cBKMrj9nCp1BhDXc+T9nqm2iI0jN5PKr/XvYc//QSc8YhwmOkwiDyg==
+  dependencies:
+    clean-webpack-plugin "^3.0.0"
+    unused-files-webpack-plugin "^3.4.0"
+    webpack-bundle-analyzer "^3.6.0"
+
 which-module@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/which-module/-/which-module-2.0.0.tgz#d9ef07dce77b9902b8a3a8fa4b31c3e3f7e6e87a"
