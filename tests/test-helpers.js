@@ -4,7 +4,7 @@ const path = require("path");
 const mkdirp = require("mkdirp");
 
 exports.createFixtureIfDoesntExist = function (name, args) {
-  if (!fs.existsSync(path.join(__dirname, `./fixtures/${name}`))) {
+  if (!fs.existsSync(path.join(__dirname, `./fixtures/${name}/package.json`))) {
     const cwd = path.join(__dirname, "./fixtures");
     mkdirp.sync(cwd);
 
@@ -20,7 +20,22 @@ exports.createFixtureIfDoesntExist = function (name, args) {
         )
         .stdout(/Project setup complete!/)
         .code(0)
-        .end(done);
+        .end((err) => {
+          if (err) {
+            fail(err);
+          } else {
+            console.log(
+              `Linking create-single-spa packages to ${name} fixture`
+            );
+            nixt()
+              .cwd(path.join(cwd, name))
+              .run(
+                "yarn link webpack-config-single-spa webpack-config-single-spa-react"
+              )
+              .code(0)
+              .end(done);
+          }
+        });
     });
   }
 

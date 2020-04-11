@@ -35,7 +35,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       ).packageManager;
     }
 
-    if (!this.options.typescript) {
+    if (!this.options.hasOwnProperty("typescript")) {
       this.options.typescript = (
         await this.prompt([
           {
@@ -46,6 +46,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
           },
         ])
       ).typescript;
+    } else if (this.options.typescript === "false") {
+      this.options.typescript = false;
     }
 
     const packageJsonTemplate = await fs.readFile(
