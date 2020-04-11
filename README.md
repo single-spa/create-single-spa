@@ -18,4 +18,6 @@ Note that create-single-spa can run in the current directory by default, but you
 
 ### Tests
 
-`yarn test`
+There are two kinds of tests - end-to-end (e2e) and package-specific tests. The package-specific tests reside inside of each package and can be run with `yarn test:packages`. The end-to-end tests can be run with `yarn test:e2e`. To run both, you can run `yarn test`.
+
+Note that the end-to-end tests run create-single-spa several times to create several "fixture" directories, which takes a fair amount of time. To avoid having to recreate the fixtures every test run, the tests will reuse an existing fixtures directory if one is present. This means you only have to create the fixtures once. To clean out a specific fixture so that it is recreated, simply delete the directory. To clean out all fixtures, you can run `yarn clean-tests`.
