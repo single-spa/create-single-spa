@@ -11,7 +11,7 @@ const modifyConfig = (opts, webpackConfig) => {
   return merge.strategy({
     entry: "replace",
     plugins: "append",
-    "resolve.extensions": "append"
+    "resolve.extensions": "append",
   })(webpackConfig, {
     entry: webpackConfig.entry.replace(
       ".js",
@@ -19,8 +19,8 @@ const modifyConfig = (opts, webpackConfig) => {
     ),
     plugins: [new ForkTsCheckerWebpackPlugin({ typescript: typescriptPath })],
     resolve: {
-      extensions: [".ts", ".tsx"]
-    }
+      extensions: [".ts", ".tsx"],
+    },
   });
 };
 

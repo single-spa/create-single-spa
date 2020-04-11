@@ -10,7 +10,7 @@ describe(`typescript react usage`, () => {
       "webpack-config-single-spa",
       "webpack-config-single-spa-react",
       "webpack-config-single-spa-ts",
-      "webpack-config-single-spa-react-ts"
+      "webpack-config-single-spa-react-ts",
     ],
     `
     --framework react
@@ -21,12 +21,12 @@ describe(`typescript react usage`, () => {
   `
   );
 
-  it(`Can yarn build`, done => {
+  it(`Can yarn build`, (done) => {
     console.log("yarn build");
     nixt()
       .cwd(fixtureDir)
       .run(`yarn build`)
-      .expect(result => {
+      .expect((result) => {
         console.log(result.stdout);
         console.log(result.stderr);
         expect(result.stdout).toMatch(/webpack --mode=production/);
@@ -36,12 +36,12 @@ describe(`typescript react usage`, () => {
       .end(done);
   });
 
-  it(`Can yarn lint`, done => {
+  it(`Can yarn lint`, (done) => {
     console.log("yarn lint");
     nixt()
       .cwd(fixtureDir)
       .run(`yarn lint`)
-      .expect(result => {
+      .expect((result) => {
         console.log(result.stdout);
         console.log(result.stderr);
         expect(result.stdout).toMatch(/eslint/);
@@ -50,12 +50,12 @@ describe(`typescript react usage`, () => {
       .end(done);
   });
 
-  it(`Can yarn format`, done => {
+  it(`Can yarn format`, (done) => {
     console.log("yarn format");
     nixt()
       .cwd(fixtureDir)
       .run(`yarn format`)
-      .expect(result => {
+      .expect((result) => {
         console.log(result.stdout);
         console.log(result.stderr);
         expect(result.stdout).toMatch(/prettier/);
@@ -65,12 +65,12 @@ describe(`typescript react usage`, () => {
       .end(done);
   });
 
-  it(`Can yarn test`, done => {
+  it(`Can yarn test`, (done) => {
     console.log("yarn test");
     nixt()
       .cwd(fixtureDir)
       .run(`yarn test`)
-      .expect(result => {
+      .expect((result) => {
         console.log(result.stdout);
         console.log(result.stderr);
         expect(result.stdout).toMatch(/jest/);

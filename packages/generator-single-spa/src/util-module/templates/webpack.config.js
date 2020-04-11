@@ -1,11 +1,11 @@
 const webpackMerge = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa<% if (typescript) { %>-ts<% } %>");
 
-module.exports = webpackConfigEnv => {
+module.exports = (webpackConfigEnv) => {
   const defaultConfig = singleSpaDefaults({
     orgName: "<%= orgName %>",
     projectName: "<%= projectName %>",
-    webpackConfigEnv
+    webpackConfigEnv,
   });
 
   return webpackMerge.smart(defaultConfig, {

@@ -7,7 +7,7 @@ const packagesToLink = [
   "webpack-config-single-spa",
   "webpack-config-single-spa-ts",
   "webpack-config-single-spa-react",
-  "webpack-config-single-spa-react-ts"
+  "webpack-config-single-spa-react-ts",
 ];
 
 beforeAll(() => {
@@ -21,7 +21,7 @@ function linkPackage(packageName) {
       .cwd(path.join(process.cwd(), `packages/${packageName}`))
       .run(`yarn link`)
       .code(0)
-      .end(err => {
+      .end((err) => {
         if (err) {
           reject(err);
         } else {
@@ -31,7 +31,7 @@ function linkPackage(packageName) {
   });
 }
 
-exports.createFixtureIfDoesntExist = function(
+exports.createFixtureIfDoesntExist = function (
   name,
   fixturePackagesToLink,
   args
@@ -40,7 +40,7 @@ exports.createFixtureIfDoesntExist = function(
     const cwd = path.join(__dirname, "./fixtures");
     mkdirp.sync(cwd);
 
-    it(`can successfully generate the '${name}' fixture`, done => {
+    it(`can successfully generate the '${name}' fixture`, (done) => {
       const argsStr = args.replace(/\s+/g, " ");
 
       console.log(`Creating '${name}' fixture. This could take a while...`);
@@ -53,7 +53,7 @@ exports.createFixtureIfDoesntExist = function(
         .cwd(cwd)
         .run(command)
         .code(0)
-        .end(err => {
+        .end((err) => {
           if (err) {
             fail(err);
           } else {
