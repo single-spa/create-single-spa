@@ -103,6 +103,8 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
       ]);
     }
 
+    this.options.framework = "none";
+
     const srcFileExtension = this.options.typescript ? "ts" : "js";
 
     this.fs.copyTpl(
@@ -111,7 +113,7 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath(".babelrc"),
+      this.templatePath("../../common-templates/.babelrc.ejs"),
       this.destinationPath(".babelrc"),
       this.options
     );
