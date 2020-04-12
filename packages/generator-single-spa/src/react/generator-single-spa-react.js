@@ -8,17 +8,16 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     super(args, opts);
 
     this.option("packageManager", {
-      type: String,
+      type: String
     });
     this.option("typescript", {
-      type: Boolean,
-      default: false,
+      type: Boolean
     });
     this.option("orgName", {
-      type: String,
+      type: String
     });
     this.option("projectName", {
-      type: String,
+      type: String
     });
   }
   async createPackageJson() {
@@ -29,21 +28,21 @@ module.exports = class SingleSpaReactGenerator extends Generator {
             type: "list",
             name: "packageManager",
             message: "Which package manager do you want to use?",
-            choices: ["yarn", "npm"],
-          },
+            choices: ["yarn", "npm"]
+          }
         ])
       ).packageManager;
     }
 
-    if (!this.options.hasOwnProperty("typescript")) {
+    if (this.options.typescript === undefined) {
       this.options.typescript = (
         await this.prompt([
           {
             type: "confirm",
             name: "typescript",
             message: "Will this project use Typescript?",
-            default: false,
-          },
+            default: false
+          }
         ])
       ).typescript;
     }
@@ -54,7 +53,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
       packageManager: this.options.packageManager,
-      typescript: this.options.typescript,
+      typescript: this.options.typescript
     });
 
     const packageJson = JSON.parse(packageJsonStr);
@@ -87,23 +86,27 @@ module.exports = class SingleSpaReactGenerator extends Generator {
   }
   async copyOtherFiles() {
     if (!this.options.orgName) {
-      this.options.orgName = await this.prompt([
-        {
-          type: "input",
-          name: "orgName",
-          message: "Organization name (use lowercase and dashes)",
-        },
-      ]).orgName;
+      this.options.orgName = (
+        await this.prompt([
+          {
+            type: "input",
+            name: "orgName",
+            message: "Organization name (use lowercase and dashes)"
+          }
+        ])
+      ).orgName;
     }
 
     if (!this.options.projectName) {
-      this.options.projectName = await this.prompt([
-        {
-          type: "input",
-          name: "projectName",
-          message: "Project name (use lowercase and dashes)",
-        },
-      ]);
+      this.options.projectName = (
+        await this.prompt([
+          {
+            type: "input",
+            name: "projectName",
+            message: "Project name (use lowercase and dashes)"
+          }
+        ])
+      ).projectName;
     }
 
     this.options.framework = "react";
@@ -183,7 +186,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     this.installDependencies({
       npm: this.options.packageManager === "npm",
       yarn: this.options.packageManager === "yarn",
-      bower: false,
+      bower: false
     });
   }
   finished() {

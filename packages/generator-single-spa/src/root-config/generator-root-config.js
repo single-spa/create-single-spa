@@ -12,8 +12,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     });
 
     this.option("typescript", {
-      type: Boolean,
-      default: false
+      type: Boolean
     });
 
     this.option("orgName", {
@@ -34,7 +33,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       ).packageManager;
     }
 
-    if (!this.options.hasOwnProperty("typescript")) {
+    if (this.options.typescript === undefined) {
       this.options.typescript = (
         await this.prompt([
           {
@@ -80,13 +79,15 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
   }
   async copyFiles() {
     if (!this.options.orgName) {
-      this.options.orgName = await this.prompt([
-        {
-          type: "input",
-          name: "orgName",
-          message: "Organization name (use lowercase and dashes)"
-        }
-      ]).orgName;
+      this.options.orgName = (
+        await this.prompt([
+          {
+            type: "input",
+            name: "orgName",
+            message: "Organization name (use lowercase and dashes)"
+          }
+        ])
+      ).orgName;
     }
 
     this.options.framework = "none";
