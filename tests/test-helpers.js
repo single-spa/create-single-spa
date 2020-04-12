@@ -32,10 +32,14 @@ function linkPackage(packageName) {
 }
 
 exports.createFixtureIfDoesntExist = function (
-  name,
+  fileName,
   fixturePackagesToLink,
   args
 ) {
+  const name = fileName
+    .replace(__dirname + path.sep + "e2e" + path.sep, "")
+    .replace(".test.js", "");
+
   if (!fs.existsSync(path.join(__dirname, `./fixtures/${name}/package.json`))) {
     const cwd = path.join(__dirname, "./fixtures");
     mkdirp.sync(cwd);

@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack-dev-server --mode=development --port 9000 --env.isLocal=true",
-    "lint": "eslint src",
+    "lint": "eslint src --ext js<% if (typescript) { %>,ts,tsx<% } %>",
     "test": "jest",
     "format": "prettier --write './**'",
     "build": "webpack --mode=production"
@@ -19,7 +19,6 @@
     "@types/systemjs": "^6.1.0",
     "babel-eslint": "^11.0.0-beta.2",
     "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^6.7.2",
     "eslint-config-important-stuff": "^1.1.0",
     "eslint-config-prettier": "^6.7.0",
@@ -33,7 +32,9 @@
     "serve": "^11.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-config-single-spa": "^1.4.1",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "single-spa": "^5.3.1"

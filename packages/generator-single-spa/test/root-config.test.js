@@ -12,15 +12,12 @@ describe("generator-single-spa", () => {
   });
 
   it("can run the generator", () => {
-    runContext = helpers
-      .run(generator)
-      .withOptions({
-        moduleType: "root-config",
-      })
-      .withPrompts({
-        packageManager: "yarn",
-        orgName: "some-org-name",
-      });
+    runContext = helpers.run(generator).withOptions({
+      moduleType: "root-config",
+      packageManager: "yarn",
+      orgName: "some-org-name",
+      projectName: "some-project-name",
+    });
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "package.json"));

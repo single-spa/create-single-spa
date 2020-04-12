@@ -1,14 +1,17 @@
 const { createFixtureIfDoesntExist } = require("../test-helpers.js");
 const nixt = require("nixt");
 
-const fixtureName = "typescript-util-module";
-
-describe(`typescript util module usage`, () => {
+describe(`typescript react usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
-    fixtureName,
-    ["webpack-config-single-spa", "webpack-config-single-spa-ts"],
+    __filename,
+    [
+      "webpack-config-single-spa",
+      "webpack-config-single-spa-react",
+      "webpack-config-single-spa-ts",
+      "webpack-config-single-spa-react-ts",
+    ],
     `
-    --moduleType util-module
+    --framework react
     --packageManager yarn
     --orgName org
     --projectName project
@@ -69,7 +72,7 @@ describe(`typescript util module usage`, () => {
         console.log(result.stdout);
         console.log(result.stderr);
         expect(result.stdout).toMatch(/jest/);
-        expect(result.stdout).toMatch(/No tests found, exiting with code 0/);
+        expect(result.stderr).toMatch(/Ran all test suites/);
       })
       .code(0)
       .end(done);

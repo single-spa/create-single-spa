@@ -106,6 +106,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       ]);
     }
 
+    this.options.framework = "react";
+
     const srcFileExtension = this.options.typescript ? "tsx" : "js";
 
     this.fs.copyTpl(
@@ -114,7 +116,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath(".babelrc.ejs"),
+      this.templatePath("../../common-templates/.babelrc.ejs"),
       this.destinationPath(".babelrc"),
       this.options
     );

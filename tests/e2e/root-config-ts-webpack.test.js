@@ -1,18 +1,15 @@
 const { createFixtureIfDoesntExist } = require("../test-helpers.js");
 const nixt = require("nixt");
 
-const fixtureName = "js-util-module";
-
-describe(`js util module usage`, () => {
+describe(`typescript root config usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
-    fixtureName,
-    ["webpack-config-single-spa", "webpack-config-single-spa"],
+    __filename,
+    ["webpack-config-single-spa", "webpack-config-single-spa-ts"],
     `
-    --moduleType util-module
+    --moduleType root-config
     --packageManager yarn
     --orgName org
-    --projectName project
-    --typescript=false
+    --typescript
   `
   );
 
