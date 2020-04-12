@@ -16,10 +16,10 @@ describe("generator-single-spa", () => {
       moduleType: "root-config",
       packageManager: "yarn",
       orgName: "some-org-name",
-      projectName: "some-project-name",
+      projectName: "some-project-name"
     });
 
-    return runContext.then((dir) => {
+    return runContext.then(dir => {
       assert.file(path.join(dir, "package.json"));
       assert.file(path.join(dir, ".eslintrc"));
       assert.file(path.join(dir, ".prettierignore"));
@@ -36,14 +36,14 @@ describe("generator-single-spa", () => {
       // The index.ejs file should have their org name in it
       assert.file(path.join(dir, "src/index.ejs"));
       const indexEjsStr = fs.readFileSync(path.join(dir, "src/index.ejs"), {
-        encoding: "utf-8",
+        encoding: "utf-8"
       });
       expect(indexEjsStr.includes("some-org-name")).toBe(true);
 
       // The root-config.js file should have their org name in it
-      assert.file(path.join(dir, "src/root-config.js"));
+      assert.file(path.join(dir, "src/some-org-name-root-config.js"));
       const rootConfigStr = fs.readFileSync(
-        path.join(dir, "src/root-config.js"),
+        path.join(dir, "src/some-org-name-root-config.js"),
         { encoding: "utf-8" }
       );
       expect(rootConfigStr.includes("some-org-name")).toBe(true);

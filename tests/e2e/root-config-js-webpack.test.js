@@ -4,7 +4,7 @@ const nixt = require("nixt");
 describe(`js root config usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
     __filename,
-    ["webpack-config-single-spa", "webpack-config-single-spa"],
+    ["webpack-config-single-spa"],
     `
     --moduleType root-config
     --packageManager yarn
@@ -13,27 +13,27 @@ describe(`js root config usage`, () => {
   `
   );
 
-  it(`Can yarn build`, (done) => {
+  it(`Can yarn build`, done => {
     console.log("yarn build");
     nixt()
       .cwd(fixtureDir)
       .run(`yarn build`)
-      .expect((result) => {
+      .expect(result => {
         console.log(result.stdout);
         console.log(result.stderr);
         expect(result.stdout).toMatch(/webpack --mode=production/);
-        expect(result.stdout).toMatch(/org-project.js/);
+        expect(result.stdout).toMatch(/org-root-config.js/);
       })
       .code(0)
       .end(done);
   });
 
-  it(`Can yarn lint`, (done) => {
+  it(`Can yarn lint`, done => {
     console.log("yarn lint");
     nixt()
       .cwd(fixtureDir)
       .run(`yarn lint`)
-      .expect((result) => {
+      .expect(result => {
         console.log(result.stdout);
         console.log(result.stderr);
         expect(result.stdout).toMatch(/eslint/);
@@ -42,12 +42,12 @@ describe(`js root config usage`, () => {
       .end(done);
   });
 
-  it(`Can yarn format`, (done) => {
+  it(`Can yarn format`, done => {
     console.log("yarn format");
     nixt()
       .cwd(fixtureDir)
       .run(`yarn format`)
-      .expect((result) => {
+      .expect(result => {
         console.log(result.stdout);
         console.log(result.stderr);
         expect(result.stdout).toMatch(/prettier/);
@@ -57,16 +57,15 @@ describe(`js root config usage`, () => {
       .end(done);
   });
 
-  it(`Can yarn test`, (done) => {
+  it(`Can yarn test`, done => {
     console.log("yarn test");
     nixt()
       .cwd(fixtureDir)
       .run(`yarn test`)
-      .expect((result) => {
+      .expect(result => {
         console.log(result.stdout);
         console.log(result.stderr);
         expect(result.stdout).toMatch(/jest/);
-        expect(result.stdout).toMatch(/No tests found, exiting with code 0/);
       })
       .code(0)
       .end(done);
