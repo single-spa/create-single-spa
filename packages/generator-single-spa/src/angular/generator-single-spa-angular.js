@@ -12,8 +12,12 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
     if (globalInstallation) {
       command = "ng";
     } else {
-      command = process.platform === "win32" ? "npx.cmd" : "npx";
+      command = "npx";
       args.push("@angular/cli");
+    }
+
+    if (process.platform === "win32") {
+      command += ".cmd";
     }
 
     const cwd = this.options.dir || ".";
