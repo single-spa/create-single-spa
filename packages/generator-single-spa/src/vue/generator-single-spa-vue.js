@@ -12,12 +12,16 @@ module.exports = class SingleSpaVueGenerator extends Generator {
     if (globalInstallation) {
       command = "vue";
     } else {
-      command = process.platform === "win32" ? "npx.cmd" : "npx";
+      command = "npx";
       args.push("@vue/cli");
     }
 
+    if (process.platform === "win32") {
+      command += ".cmd";
+    }
+
     spawn(command, args.concat(["create", this.options.dir || "."]), {
-      stdio: "inherit",
+      stdio: "inherit"
     });
   }
 };
