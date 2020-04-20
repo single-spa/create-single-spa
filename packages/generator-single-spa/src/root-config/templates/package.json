@@ -8,7 +8,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && eslint src"
+      "pre-commit": "pretty-quick --staged && concurrently <%= packageManager %>:test <%= packageManager %>:lint"
     }
   },
   "devDependencies": {
