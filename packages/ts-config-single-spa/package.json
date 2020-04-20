@@ -1,0 +1,28 @@
+{
+  "name": "ts-config-single-spa",
+  "version": "1.6.0",
+  "description": "typescript config for single-spa",
+  "keywords": [
+    "single-spa",
+    "microfrontends",
+    "typescript"
+  ],
+  "author": "Joel Denning <joeldenning@gmail.com>",
+  "homepage": "https://github.com/single-spa/create-single-spa/tree/master/packages/ts-config-single-spa",
+  "license": "MIT",
+  "main": "tsconfig.json",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/single-spa/create-single-spa.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/single-spa/create-single-spa/issues"
+  }
+}
