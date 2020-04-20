@@ -1,5 +1,5 @@
 const Generator = require("yeoman-generator");
-const { spawn } = require("child_process");
+const { spawnSync } = require("child_process");
 const util = require("util");
 const commandExists = util.promisify(require("command-exists"));
 
@@ -20,10 +20,27 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
       command += ".cmd";
     }
 
-    spawn(
+    const cwd = this.options.dir || ".";
+
+    const { status, signal } = spawnSync(
       command,
-      args.concat(["new", "--directory", this.options.dir || "."]),
+      args.concat(["new", "--directory", cwd]),
       { stdio: "inherit" }
     );
+
+    if (signal) {
+      process.exit(1);
+    } else if (status !== 0) {
+      process.exit(status);
+    } else {
+      spawnSync(command, args.concat(["add", "single-spa-angular"]), {
+        stdio: "inherit",
+        cwd
+      });
+
+      console.log(
+        "For further routing setup, see https://single-spa.js.org/docs/ecosystem-angular#configure-routes"
+      );
+    }
   }
 };
