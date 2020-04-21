@@ -37,7 +37,7 @@
     "pretty-quick": "^2.0.1",
     "style-loader": "^1.0.1",
     "systemjs-webpack-interop": "^1.1.2",
-    "ts-config-single-spa": "beta",
+    "ts-config-single-spa": "^1.7.0",
     "webpack": "^4.41.2",
     "webpack-config-single-spa": "^1.0.7",
     "webpack-merge": "^4.2.2",
