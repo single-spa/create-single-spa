@@ -31,6 +31,12 @@ function checkNodeVersion() {
   }
 
   if (!validVersion) {
-    throw Error("create-single-spa requires NodeJS >= " + minVersion);
+    throw Error(
+      "create-single-spa requires NodeJS >= " +
+        minVersion +
+        ", but you are using NodeJS " +
+        process.versions.node +
+        "."
+    );
   }
 }
