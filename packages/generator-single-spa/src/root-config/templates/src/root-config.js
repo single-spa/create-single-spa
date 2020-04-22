@@ -7,4 +7,6 @@ registerApplication({
   activeWhen: isActive.navbar,
 });
 
-start();
+start({
+  urlRerouteOnly: true,
+});
