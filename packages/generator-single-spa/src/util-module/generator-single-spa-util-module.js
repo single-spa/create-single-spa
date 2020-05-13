@@ -8,19 +8,19 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
     super(args, opts);
 
     this.option("packageManager", {
-      type: String
+      type: String,
     });
 
     this.option("typescript", {
-      type: Boolean
+      type: Boolean,
     });
 
     this.option("orgName", {
-      type: String
+      type: String,
     });
 
     this.option("projectName", {
-      type: String
+      type: String,
     });
   }
   async createPackageJson() {
@@ -31,8 +31,8 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
             type: "list",
             name: "packageManager",
             message: "Which package manager do you want to use?",
-            choices: ["yarn", "npm"]
-          }
+            choices: ["yarn", "npm"],
+          },
         ])
       ).packageManager;
     }
@@ -44,8 +44,8 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
             type: "confirm",
             name: "typescript",
             message: "Will this project use Typescript?",
-            default: false
-          }
+            default: false,
+          },
         ])
       ).typescript;
     }
@@ -56,7 +56,7 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
       packageManager: this.options.packageManager,
-      typescript: this.options.typescript
+      typescript: this.options.typescript,
     });
 
     const packageJson = JSON.parse(packageJsonStr);
@@ -88,8 +88,8 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
           {
             type: "input",
             name: "orgName",
-            message: "Organization name (use lowercase and dashes)"
-          }
+            message: "Organization name (use lowercase and dashes)",
+          },
         ])
       ).orgName;
     }
@@ -100,8 +100,8 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
           {
             type: "input",
             name: "projectName",
-            message: "Project name (use lowercase and dashes)"
-          }
+            message: "Project name (use lowercase and dashes)",
+          },
         ])
       ).projectName;
     }
@@ -165,7 +165,7 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
     this.installDependencies({
       npm: this.options.packageManager === "npm",
       yarn: this.options.packageManager === "yarn",
-      bower: false
+      bower: false,
     });
   }
   finished() {
@@ -179,11 +179,11 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
         coloredFinalInstructions(
           `1. Run '${this.options.packageManager} start${
             this.options.packageManager === "npm" ? " --" : ""
-          } --port 8500 --https'`
+          } --port 8500`
         )
       );
       console.log(
-        coloredFinalInstructions(`2. Go to https://single-spa-playground.org`)
+        coloredFinalInstructions(`2. Go to http://single-spa-playground.org`)
       );
       console.log(
         coloredFinalInstructions(
