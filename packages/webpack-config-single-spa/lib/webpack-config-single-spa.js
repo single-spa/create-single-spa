@@ -64,6 +64,7 @@ function webpackConfigSingleSpa(opts) {
     },
     devtool: "sourcemap",
     devServer: {
+      compress: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
