@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-single-spa-ts",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "webpack-config for single-spa + typescript",
   "keywords": [
     "single-spa",
