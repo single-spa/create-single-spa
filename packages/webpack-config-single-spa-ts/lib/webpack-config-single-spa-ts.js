@@ -16,7 +16,11 @@ const modifyConfig = (opts, webpackConfig) => {
       ".js",
       opts.framework === "react" ? ".tsx" : ".ts"
     ),
-    plugins: [new ForkTsCheckerWebpackPlugin({ typescript: typescriptPath })],
+    plugins: [
+      opts.webpackConfigEnv && opts.webpackConfigEnv.analyze
+        ? false
+        : new ForkTsCheckerWebpackPlugin({ typescript: typescriptPath }),
+    ].filter(Boolean),
     resolve: {
       extensions: [".ts", ".tsx"],
     },
