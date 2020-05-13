@@ -8,15 +8,15 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     super(args, opts);
 
     this.option("packageManager", {
-      type: String
+      type: String,
     });
 
     this.option("typescript", {
-      type: Boolean
+      type: Boolean,
     });
 
     this.option("orgName", {
-      type: String
+      type: String,
     });
   }
   async createPackageJson() {
@@ -27,8 +27,8 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
             type: "list",
             name: "packageManager",
             message: "Which package manager do you want to use?",
-            choices: ["yarn", "npm"]
-          }
+            choices: ["yarn", "npm"],
+          },
         ])
       ).packageManager;
     }
@@ -40,8 +40,8 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
             type: "confirm",
             name: "typescript",
             message: "Will this project use Typescript?",
-            default: false
-          }
+            default: false,
+          },
         ])
       ).typescript;
     }
@@ -52,7 +52,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
       packageManager: this.options.packageManager,
-      typescript: this.options.typescript
+      typescript: this.options.typescript,
     });
 
     const packageJson = JSON.parse(packageJsonStr);
@@ -84,8 +84,8 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
           {
             type: "input",
             name: "orgName",
-            message: "Organization name (use lowercase and dashes)"
-          }
+            message: "Organization name (use lowercase and dashes)",
+          },
         ])
       ).orgName;
     }
@@ -136,11 +136,13 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       this.options
     );
 
-    this.fs.copyTpl(
-      this.templatePath("tsconfig.json"),
-      this.destinationPath("tsconfig.json"),
-      this.options
-    );
+    if (this.options.typescript) {
+      this.fs.copyTpl(
+        this.templatePath("tsconfig.json"),
+        this.destinationPath("tsconfig.json"),
+        this.options
+      );
+    }
 
     this.fs.copyTpl(
       this.templatePath("src/root-config.js"),
@@ -161,7 +163,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     this.installDependencies({
       npm: this.options.packageManager === "npm",
       yarn: this.options.packageManager === "yarn",
-      bower: false
+      bower: false,
     });
   }
   finished() {
