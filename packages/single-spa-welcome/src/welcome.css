@@ -1,0 +1,43 @@
+body {
+  font-family: sans-serif;
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+  margin-bottom: 0.8em;
+}
+
+li {
+  margin-bottom: 0.4em;
+}
+
+a {
+  color: #01f;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #02a;
+}
+
+.logo {
+  display: block;
+  margin: 1rem auto;
+  width: 50px;
+}
+
+.center {
+  text-align: center;
+}
