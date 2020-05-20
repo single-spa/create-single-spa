@@ -9,13 +9,20 @@ h2,
 h3,
 p,
 ul,
-ol {
+ol,
+pre {
   margin: 0;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.6em;
 }
 
 li {
   margin-bottom: 0.4em;
+}
+
+pre {
+  background: #eef;
+  overflow-y: scroll;
+  padding: 0.6em;
 }
 
 a {
@@ -34,8 +41,15 @@ a:visited {
 
 .logo {
   display: block;
-  margin: 1rem auto;
-  width: 50px;
+  margin-right: 1rem;
+  width: 60px;
+}
+
+.banner {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 1rem 0;
 }
 
 .center {
