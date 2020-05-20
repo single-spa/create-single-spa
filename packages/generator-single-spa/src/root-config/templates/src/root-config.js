@@ -8,6 +8,12 @@ registerApplication({
   activeWhen: isActive.always,
 });
 
+// registerApplication({
+//   name: "@<%- orgName %>/navbar",
+//   app: () => System.import("@<%- orgName %>/navbar"),
+//   activeWhen: isActive.always,
+// });
+
 start({
   urlRerouteOnly: true,
 });
