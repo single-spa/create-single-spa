@@ -11,7 +11,7 @@ registerApplication({
 // registerApplication({
 //   name: "@<%- orgName %>/navbar",
 //   app: () => System.import("@<%- orgName %>/navbar"),
-//   activeWhen: isActive.always,
+//   activeWhen: ['/']
 // });
 
 start({
