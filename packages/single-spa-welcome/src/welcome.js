@@ -73,7 +73,7 @@ export default function Root(props) {
         <li>
           <a href="https://github.com/systemjs/systemjs/">SystemJS</a> and{" "}
           <a href="https://github.com/systemjs/systemjs/blob/master/docs/import-maps.md">
-            importmaps
+            Import Maps
           </a>
         </li>
         <li>Single-spa ecosystem</li>
