@@ -1,4 +1,3 @@
-export function navbar(location) {
-  // The navbar is always active
+export function always(location) {
   return true;
 }
