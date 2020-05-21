@@ -3,7 +3,7 @@ import { registerApplication, start } from "single-spa";
 registerApplication({
   name: "@single-spa/welcome",
   app: () =>
-    System.import("https://dist-qqbprggud.now.sh/single-spa-welcome.js"),
+    System.import("https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"),
   activeWhen: ["/"],
 });
 
