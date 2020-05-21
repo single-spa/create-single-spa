@@ -24,7 +24,8 @@
     "format": "prettier --write './**'",
     "test": "jest",
     "watch-tests": "jest --watch",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "prepublishOnly": "yarn build"
   },
   "husky": {
     "hooks": {
