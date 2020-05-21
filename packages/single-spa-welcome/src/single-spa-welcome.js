@@ -13,7 +13,7 @@ const lifecycles = singleSpaReact({
     return (
       <p role="alert">
         Oops! Something went wrong. Please help us fix this by submitting an
-        <a href="https://github.com/single-spa/create-single-spa/issues/new">
+        <a href="https://github.com/single-spa/create-single-spa/issues/new?title=single-spa-welcome+encountered+an+error&body=Steps+to+reproduce">
           issue to our Github
         </a>{" "}
         with details on how you got here.
