@@ -1,0 +1,57 @@
+body {
+  font-family: sans-serif;
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+pre {
+  margin: 0;
+  margin-bottom: 0.6em;
+}
+
+li {
+  margin-bottom: 0.4em;
+}
+
+pre {
+  background: #eef;
+  overflow-y: scroll;
+  padding: 0.6em;
+}
+
+a {
+  color: #01f;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #02a;
+}
+
+.logo {
+  display: block;
+  margin-right: 1rem;
+  width: 60px;
+}
+
+.banner {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 1rem 0;
+}
+
+.center {
+  text-align: center;
+}

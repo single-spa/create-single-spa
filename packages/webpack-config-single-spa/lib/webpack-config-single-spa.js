@@ -48,8 +48,8 @@ function webpackConfigSingleSpa(opts) {
           },
         },
         {
-          test: /\.css$/,
-          include: /node_modules/,
+          test: /\.css$/i,
+          include: [/node_modules/, /src/],
           use: [
             { loader: "style-loader" },
             {

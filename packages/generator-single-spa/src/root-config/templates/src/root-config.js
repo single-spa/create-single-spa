@@ -1,11 +1,19 @@
 import { registerApplication, start } from "single-spa";
-import * as isActive from "./activity-functions";
 
 registerApplication({
-  name: "@<%- orgName %>/navbar",
-  app: () => System.import("@<%- orgName %>/navbar"),
-  activeWhen: isActive.navbar,
+  name: "@single-spa/welcome",
+  app: () =>
+    System.import(
+      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
+    ),
+  activeWhen: ["/"],
 });
+
+// registerApplication({
+//   name: "@<%- orgName %>/navbar",
+//   app: () => System.import("@<%- orgName %>/navbar"),
+//   activeWhen: ["/"]
+// });
 
 start({
   urlRerouteOnly: true,
