@@ -124,18 +124,6 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       this.options
     );
 
-    this.fs.copyTpl(
-      this.templatePath("src/activity-functions.js"),
-      this.destinationPath(`src/activity-functions.${srcFileExtension}`),
-      this.options
-    );
-
-    this.fs.copyTpl(
-      this.templatePath("src/activity-functions.test.js"),
-      this.destinationPath(`src/activity-functions.test.${srcFileExtension}`),
-      this.options
-    );
-
     if (this.options.typescript) {
       this.fs.copyTpl(
         this.templatePath("tsconfig.json"),
