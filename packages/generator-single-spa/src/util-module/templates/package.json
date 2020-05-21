@@ -33,7 +33,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.4",
     "pretty-quick": "^2.0.1",
     "style-loader": "^1.0.1",
     "systemjs-webpack-interop": "^1.1.2",

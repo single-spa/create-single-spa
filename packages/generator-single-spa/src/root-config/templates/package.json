@@ -28,7 +28,7 @@
     "husky": "^4.2.3",
     "jest": "^25.2.7",
     "jest-cli": "^25.2.7",
-    "prettier": "^2.0.3",
+    "prettier": "^2.0.4",
     "pretty-quick": "^2.0.1",
     "serve": "^11.2.0",
     "ts-config-single-spa": "^1.7.0",
