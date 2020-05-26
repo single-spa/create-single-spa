@@ -22,9 +22,9 @@
     "analyze": "webpack --mode=production --env.analyze=true",
     "lint": "eslint src --ext js",
     "format": "prettier --write './**'",
-    "test": "jest",
-    "watch-tests": "jest --watch",
-    "coverage": "jest --coverage",
+    "test": "cross-env BABEL_ENV=test jest",
+    "watch-tests": "cross-env BABEL_ENV=test jest --watch",
+    "coverage": "cross-env BABEL_ENV=test jest --coverage",
     "prepublishOnly": "yarn build"
   },
   "husky": {
@@ -45,6 +45,7 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "concurrently": "^5.0.1",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.3.2",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",

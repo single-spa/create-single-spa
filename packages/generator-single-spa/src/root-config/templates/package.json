@@ -2,7 +2,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode=development --port 9000 --env.isLocal=true",
     "lint": "eslint src --ext js<% if (typescript) { %>,ts,tsx<% } %>",
-    "test": "jest --passWithNoTests",
+    "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "format": "prettier --write './**'",
     "build": "webpack --mode=production"
   },
@@ -21,6 +21,7 @@
     "babel-eslint": "^11.0.0-beta.2",
     "babel-loader": "^8.0.6",
     "concurrently": "^5.1.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.7.2",
     "eslint-config-important-stuff": "^1.1.0",
     "eslint-config-prettier": "^6.7.0",
