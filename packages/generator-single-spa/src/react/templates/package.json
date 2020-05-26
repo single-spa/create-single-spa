@@ -6,8 +6,8 @@
     "lint": "eslint src --ext js<% if (typescript) { %>,ts,tsx<% } %>",
     "format": "prettier --write './**'",
     "test": "cross-env BABEL_ENV=test jest",
-    "watch-tests": "jest --watch",
-    "coverage": "jest --coverage"
+    "watch-tests": "cross-env BABEL_ENV=test jest --watch",
+    "coverage": "cross-env BABEL_ENV=test jest --coverage"
   },
   "husky": {
     "hooks": {
