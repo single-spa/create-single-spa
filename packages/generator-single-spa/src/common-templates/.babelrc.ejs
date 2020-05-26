@@ -12,5 +12,14 @@
         "regenerator": false
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["@babel/preset-env", {
+          "targets": "current node"
+        }]
+      ]
+    }
+  }
 }
