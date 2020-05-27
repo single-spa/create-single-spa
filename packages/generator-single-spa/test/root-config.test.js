@@ -16,14 +16,14 @@ describe("generator-single-spa", () => {
       moduleType: "root-config",
       packageManager: "yarn",
       orgName: "some-org-name",
-      projectName: "some-project-name"
+      projectName: "some-project-name",
     });
 
-    return runContext.then(dir => {
+    return runContext.then((dir) => {
       assert.file(path.join(dir, "package.json"));
       assert.file(path.join(dir, ".eslintrc"));
       assert.file(path.join(dir, ".prettierignore"));
-      assert.file(path.join(dir, ".babelrc"));
+      assert.file(path.join(dir, "babel.config.json"));
 
       // The webpack config should have their org name in its webpack externals
       assert.file(path.join(dir, "webpack.config.js"));
@@ -36,7 +36,7 @@ describe("generator-single-spa", () => {
       // The index.ejs file should have their org name in it
       assert.file(path.join(dir, "src/index.ejs"));
       const indexEjsStr = fs.readFileSync(path.join(dir, "src/index.ejs"), {
-        encoding: "utf-8"
+        encoding: "utf-8",
       });
       expect(
         indexEjsStr.includes(
