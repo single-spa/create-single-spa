@@ -1,13 +1,15 @@
 {
-  "name": "@<%= orgName %>/<%= projectName %>",
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "serve": "sirv dist -c"
+    "serve": "sirv dist -c",
+    "format": "prettier --write ./**/*.{svelte,js}"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^12.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
+    "prettier": "^2.0.5",
+    "prettier-plugin-svelte": "^1.1.0",
     "rollup": "^2.3.4",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
