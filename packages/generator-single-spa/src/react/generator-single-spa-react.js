@@ -119,8 +119,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath("../../common-templates/.babelrc.ejs"),
-      this.destinationPath(".babelrc"),
+      this.templatePath("../../common-templates/babel.config.json.ejs"),
+      this.destinationPath("babel.config.json"),
       this.options
     );
     this.fs.copyTpl(

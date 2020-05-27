@@ -68,7 +68,7 @@ describe("generator-single-spa-react", () => {
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "jest.config.js"));
-      assert.file(path.join(dir, ".babelrc"));
+      assert.file(path.join(dir, "babel.config.json"));
     });
   });
 });

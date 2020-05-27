@@ -95,8 +95,8 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     const srcFileExtension = this.options.typescript ? "ts" : "js";
 
     this.fs.copyTpl(
-      this.templatePath("../../common-templates/.babelrc.ejs"),
-      this.destinationPath(".babelrc"),
+      this.templatePath("../../common-templates/babel.config.json.ejs"),
+      this.destinationPath("babel.config.json"),
       this.options
     );
 
