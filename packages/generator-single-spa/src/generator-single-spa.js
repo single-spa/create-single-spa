@@ -5,6 +5,7 @@ const SingleSpaRootConfigGenerator = require("./root-config/generator-root-confi
 const SingleSpaVueGenerator = require("./vue/generator-single-spa-vue");
 const SingleSpaAngularGenerator = require("./angular/generator-single-spa-angular");
 const SingleSpaUtilModuleGenerator = require("./util-module/generator-single-spa-util-module");
+const SingleSpaSvelteGenerator = require("./svelte/generator-single-spa-svelte");
 
 module.exports = class SingleSpaGenerator extends Generator {
   constructor(args, opts) {
@@ -116,7 +117,7 @@ async function runFrameworkGenerator() {
         type: "list",
         name: "framework",
         message: "Which framework do you want to use?",
-        choices: ["react", "vue", "angular", "other"],
+        choices: ["react", "vue", "angular", "svelte", "other"],
       },
     ]);
 
@@ -124,6 +125,18 @@ async function runFrameworkGenerator() {
   }
 
   switch (this.options.framework) {
+    case "svelte":
+      this._setDestinationDir();
+
+      this.composeWith(
+        {
+          Generator: SingleSpaSvelteGenerator,
+          path: require.resolve("./svelte/generator-single-spa-svelte.js"),
+        },
+        this.options
+      );
+
+      break;
     case "react":
       this._setDestinationDir();
 
