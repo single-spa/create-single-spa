@@ -44,16 +44,18 @@ function webpackConfigSingleSpa(opts) {
           test: /\.(js|ts)x?$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader",
+            loader: require.resolve("babel-loader", { paths: [__dirname] }),
           },
         },
         {
           test: /\.css$/i,
           include: [/node_modules/, /src/],
           use: [
-            { loader: "style-loader" },
             {
-              loader: "css-loader",
+              loader: require.resolve("style-loader", { paths: [__dirname] }),
+            },
+            {
+              loader: require.resolve("css-loader", { paths: [__dirname] }),
               options: {
                 modules: false,
               },

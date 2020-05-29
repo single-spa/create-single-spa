@@ -22,13 +22,11 @@
     "url": "https://github.com/single-spa/create-single-spa/issues"
   },
   "dependencies": {
+    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.3",
+    "style-loader": "^1.2.1",
     "unused-files-webpack-plugin": "^3.4.0",
     "webpack-bundle-analyzer": "^3.6.0"
-  },
-  "peerDependencies": {
-    "babel-loader": "*",
-    "css-loader": "*",
-    "style-loader": "*"
   }
 }
