@@ -104,21 +104,21 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
     const srcFileExtension = /* this.options.typescript ? "tsx" : */ "js";
 
     this.fs.copyTpl(
-      this.templatePath("../../common-templates/gitignore"), // this is relative to /templates
-      this.destinationPath(".gitignore"),
+      this.templatePath(`../../common-templates/gitignore`), // this is relative to /templates
+      this.destinationPath(`.gitignore`),
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath(".prettierignore"),
-      this.destinationPath(".prettierignore"),
+      this.templatePath(`.prettierignore`),
+      this.destinationPath(`.prettierignore`),
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath("rollup.config.js"),
-      this.destinationPath("rollup.config.js"),
+      this.templatePath(`rollup.config.js`),
+      this.destinationPath(`rollup.config.js`),
       this.options
     );
-    ejs.render(this.destinationPath("rollup.config.js"), {
+    ejs.render(this.destinationPath(`rollup.config.js`), {
       orgName: this.options.orgName,
       projectName: this.options.projectName,
     });
@@ -133,17 +133,17 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath("src/App.svelte"),
+      this.templatePath(`src/App.svelte`),
       this.destinationPath(`src/App.svelte`),
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath("src/App.test.js"),
+      this.templatePath(`src/App.test.js`),
       this.destinationPath(`src/App.test.${srcFileExtension}`),
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath("src/main.js"),
+      this.templatePath(`src/main.js`),
       this.destinationPath(
         `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`
       ),
