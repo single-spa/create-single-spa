@@ -19,7 +19,7 @@ describe(`basic svelte usage`, () => {
     console.log("yarn build");
     nixt()
       .cwd(fixtureDir)
-      .runUntilExit(`yarn build`)
+      .run(`yarn build`)
       .stdout(/rollup/) // Unable to capture the result beyond that it is executing the bundler
       .code(0)
       .end(done);
@@ -49,18 +49,18 @@ describe(`basic svelte usage`, () => {
       .end(done);
   });
 
-  // it(`Can yarn test`, done => {
-  //   console.log("yarn test");
-  //   nixt()
-  //     .cwd(fixtureDir)
-  //     .run(`yarn test`)
-  //     .expect(result => {
-  //       console.log(result.stdout);
-  //       console.log(result.stderr);
-  //       expect(result.stdout).toMatch(/jest/);
-  //       expect(result.stderr).toMatch(/Ran all test suites/);
-  //     })
-  //     .code(0)
-  //     .end(done);
-  // });
+  it(`Can yarn test`, (done) => {
+    console.log("yarn test");
+    nixt()
+      .cwd(fixtureDir)
+      .run(`yarn test`)
+      .expect((result) => {
+        console.log(result.stdout);
+        console.log(result.stderr);
+        expect(result.stdout).toMatch(/jest/);
+        expect(result.stderr).toMatch(/Ran all test suites/);
+      })
+      .code(0)
+      .end(done);
+  });
 });
