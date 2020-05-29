@@ -61,14 +61,19 @@ exports.createFixtureIfDoesntExist = function (
           if (err) {
             fail(err);
           } else {
-            console.log(
-              `Linking create-single-spa packages to ${name} fixture`
-            );
-            nixt()
-              .cwd(path.join(cwd, name))
-              .run(`yarn link ${fixturePackagesToLink.join(" ")}`)
-              .code(0)
-              .end(done);
+            if (fixturePackagesToLink && fixturePackagesToLink.length > 0) {
+              console.log(
+                `Linking create-single-spa packages to ${name} fixture`
+              );
+              nixt()
+                .cwd(path.join(cwd, name))
+                .run(`yarn link ${fixturePackagesToLink.join(" ")}`)
+                .code(0)
+                .end(done);
+            } else {
+              console.log("No fixture packages to link");
+              done();
+            }
           }
         });
     });
