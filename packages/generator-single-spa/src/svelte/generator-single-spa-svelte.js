@@ -108,11 +108,11 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
       this.destinationPath(".gitignore"),
       this.options
     );
-    // this.fs.copyTpl(
-    //   this.templatePath(".prettierignore"),
-    //   this.destinationPath(".prettierignore"),
-    //   this.options
-    // );
+    this.fs.copyTpl(
+      this.templatePath(".prettierignore"),
+      this.destinationPath(".prettierignore"),
+      this.options
+    );
     this.fs.copyTpl(
       this.templatePath("rollup.config.js"),
       this.destinationPath("rollup.config.js"),
@@ -123,15 +123,25 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
       projectName: this.options.projectName,
     });
     this.fs.copyTpl(
+      this.templatePath(`jest.config.js`),
+      this.destinationPath(`jest.config.js`),
+      this.options
+    );
+    this.fs.copyTpl(
+      this.templatePath(`babel.config.js`),
+      this.destinationPath(`babel.config.js`),
+      this.options
+    );
+    this.fs.copyTpl(
       this.templatePath("src/App.svelte"),
       this.destinationPath(`src/App.svelte`),
       this.options
     );
-    // this.fs.copyTpl(
-    //   this.templatePath("src/root.component.test.js"),
-    //   this.destinationPath(`src/root.component.test.${srcFileExtension}`),
-    //   this.options
-    // );
+    this.fs.copyTpl(
+      this.templatePath("src/App.test.js"),
+      this.destinationPath(`src/App.test.${srcFileExtension}`),
+      this.options
+    );
     this.fs.copyTpl(
       this.templatePath("src/main.js"),
       this.destinationPath(
