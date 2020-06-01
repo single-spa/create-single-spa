@@ -57,7 +57,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
       command += ".cmd";
     }
 
-    const cwd = this.options.dir || ".";
+    this.cwd = this.options.dir || ".";
 
     const { status, signal } = spawnSync(
       command,
