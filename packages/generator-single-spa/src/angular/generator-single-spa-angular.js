@@ -2,6 +2,7 @@ const Generator = require("yeoman-generator");
 const { spawnSync } = require("child_process");
 const util = require("util");
 const commandExists = util.promisify(require("command-exists"));
+const chalk = require("chalk");
 
 module.exports = class SingleSpaAngularGenerator extends Generator {
   constructor(args, opts) {
@@ -87,5 +88,22 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
         "For further routing setup, see https://single-spa.js.org/docs/ecosystem-angular#configure-routes"
       );
     }
+  }
+
+  async finished() {
+    const { defaultProject: appName } = await this.fs.readJSON(
+      `${this.cwd}/angular.json`
+    );
+
+    console.log(
+      chalk.bgWhite.black(
+        `Project setup complete!
+Steps to test your Angular single-spa application:
+1. Run '${this.options.packageManager}${
+          this.options.packageManager === "npm" ? " run" : ""
+        } serve:single-spa:${appName}'
+2. Go to http://single-spa-playground.org/playground/instant-test?name=${appName}&url=%2F%2Flocalhost%3A4200%2Fmain.js to see it working!`
+      )
+    );
   }
 };
