@@ -191,24 +191,15 @@ module.exports = class SingleSpaReactGenerator extends Generator {
   }
   finished() {
     this.on(`${this.options.packageManager}Install:end`, () => {
-      const coloredFinalInstructions = chalk.bgWhite.black;
-      console.log(coloredFinalInstructions("Project setup complete!"));
       console.log(
-        coloredFinalInstructions(
-          "Steps to test your React single-spa application:"
-        )
-      );
-      console.log(
-        coloredFinalInstructions(
-          `1. Run '${this.options.packageManager} start${
-            this.options.packageManager === "npm" ? " --" : ""
-          } --port 8500'`
-        )
-      );
-      console.log(
-        coloredFinalInstructions(
-          `2. Go to http://single-spa-playground.org/playground/instant-test?name=@${this.options.orgName}/${this.options.projectName}&url=8500 to see it working!`
-        )
+        chalk.bgWhite.black(`Project setup complete!
+Steps to test your React single-spa application:
+1. Run '${this.options.packageManager} start${
+          this.options.packageManager === "npm" ? " --" : ""
+        } --port 8500'
+2. Go to http://single-spa-playground.org/playground/instant-test?name=@${
+          this.options.orgName
+        }/${this.options.projectName}&url=8500 to see it working!`)
       );
     });
   }
