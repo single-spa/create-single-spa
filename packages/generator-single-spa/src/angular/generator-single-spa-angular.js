@@ -4,6 +4,43 @@ const util = require("util");
 const commandExists = util.promisify(require("command-exists"));
 
 module.exports = class SingleSpaAngularGenerator extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.option("packageManager", {
+      type: String,
+    });
+
+    this.option("projectName", {
+      type: String,
+    });
+  }
+  async getOptions() {
+    if (!this.options.packageManager) {
+      this.options.packageManager = (
+        await this.prompt([
+          {
+            type: "list",
+            name: "packageManager",
+            message: "Which package manager do you want to use?",
+            choices: ["yarn", "npm"],
+          },
+        ])
+      ).packageManager;
+    }
+
+    if (!this.options.projectName) {
+      this.options.projectName = (
+        await this.prompt([
+          {
+            type: "input",
+            name: "projectName",
+            message: "Project name (use lowercase and dashes)",
+          },
+        ])
+      ).projectName;
+    }
+  }
   async runAngularCli() {
     const globalInstallation = await commandExists("ng");
 
