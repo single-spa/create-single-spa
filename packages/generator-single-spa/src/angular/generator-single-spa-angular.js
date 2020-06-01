@@ -124,7 +124,7 @@ Steps to test your Angular single-spa application:
         } serve:single-spa:${this.options.projectName}'
 2. Go to http://single-spa-playground.org/playground/instant-test?name=${
           this.options.projectName
-        }&url=%2F%2Flocalhost%3A4200%2Fmain.js to see it working!`
+        }&url=%2F%2Flocalhost%3A4200%2Fmain.js&framework=angular to see it working!`
       )
     );
   }
