@@ -58,15 +58,13 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
       command += ".cmd";
     }
 
-    this.cwd = this.options.dir || ".";
-
     const { status, signal } = spawnSync(
       command,
       args.concat([
         "new",
         this.options.projectName, // name of the new workspace and initial project
         "--directory",
-        this.cwd,
+        this.options.dir || ".",
         "--package-manager",
         this.options.packageManager,
         // "--routing", false, TODO: Figure out how to interop with single-spa-angular's routing option so that we don't ask the user twice with opposite defaults
@@ -115,18 +113,16 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
   }
 
   async finished() {
-    const { defaultProject: appName } = await this.fs.readJSON(
-      `${this.cwd}/angular.json`
-    );
-
     console.log(
       chalk.bgWhite.black(
         `Project setup complete!
 Steps to test your Angular single-spa application:
 1. Run '${this.options.packageManager}${
           this.options.packageManager === "npm" ? " run" : ""
-        } serve:single-spa:${appName}'
-2. Go to http://single-spa-playground.org/playground/instant-test?name=${appName}&url=%2F%2Flocalhost%3A4200%2Fmain.js to see it working!`
+        } serve:single-spa:${this.options.projectName}'
+2. Go to http://single-spa-playground.org/playground/instant-test?name=${
+          this.options.projectName
+        }&url=%2F%2Flocalhost%3A4200%2Fmain.js to see it working!`
       )
     );
   }
