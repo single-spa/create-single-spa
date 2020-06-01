@@ -58,7 +58,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
       command += ".cmd";
     }
 
-    const cwd = this.options.dir || ".";
+    this.cwd = this.options.dir || ".";
 
     const { status, signal } = spawnSync(
       command,
@@ -66,7 +66,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
         "new",
         this.options.projectName, // name of the new workspace and initial project
         "--directory",
-        cwd,
+        this.cwd,
         "--package-manager",
         this.options.packageManager,
         // "--routing", false, TODO: Figure out how to interop with single-spa-angular's routing option so that we don't ask the user twice with opposite defaults
@@ -81,7 +81,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
     } else {
       spawnSync(command, args.concat(["add", "single-spa-angular"]), {
         stdio: "inherit",
-        cwd,
+        cwd: this.cwd,
       });
 
       console.log(
