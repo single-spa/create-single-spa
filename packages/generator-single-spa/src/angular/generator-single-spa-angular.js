@@ -61,7 +61,15 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
 
     const { status, signal } = spawnSync(
       command,
-      args.concat(["new", "--directory", cwd]),
+      args.concat([
+        "new",
+        this.options.projectName, // name of the new workspace and initial project
+        "--directory",
+        this.cwd,
+        "--package-manager",
+        this.options.packageManager,
+        // "--routing", false, TODO: Figure out how to interop with single-spa-angular's routing option so that we don't ask the user twice with opposite defaults
+      ]),
       { stdio: "inherit" }
     );
 
