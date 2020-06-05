@@ -62,12 +62,13 @@ module.exports = class SingleSpaVueGenerator extends Generator {
     } else if (status !== 0) {
       process.exit(status);
     } else {
+      // We purposely do not attempt to install in one command using presets to avoid being too restrictive with application configuration
       spawnSync(command, args.concat(["add", "single-spa"]), {
         stdio: "inherit",
         cwd,
         env: Object.assign({}, process.env, {
-          VUE_CLI_SKIP_DIRTY_GIT_PROMPT: true
-        })
+          VUE_CLI_SKIP_DIRTY_GIT_PROMPT: true,
+        }),
       });
     }
   }
