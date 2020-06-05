@@ -5,27 +5,6 @@ const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
 
 module.exports = class SingleSpaVueGenerator extends Generator {
-  constructor(args, opts) {
-    super(args, opts);
-
-    this.option("packageManager", {
-      type: String,
-    });
-  }
-  async getOptions() {
-    if (!this.options.packageManager) {
-      this.options.packageManager = (
-        await this.prompt([
-          {
-            type: "list",
-            name: "packageManager",
-            message: "Which package manager do you want to use?",
-            choices: ["yarn", "npm"],
-          },
-        ])
-      ).packageManager;
-    }
-  }
   async runVueCli() {
     const globalInstallation = await commandExists("vue");
 
@@ -42,17 +21,11 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       command += ".cmd";
     }
 
-    const cwd = this.options.dir || ".";
+    this.cwd = this.options.dir || ".";
 
     const { status, signal } = spawnSync(
       command,
-      args.concat([
-        "create",
-        cwd,
-        "--packageManager",
-        this.options.packageManager,
-        "--skipGetStarted",
-      ]),
+      args.concat(["create", this.cwd, "--skipGetStarted"]),
       {
         stdio: "inherit",
       }
@@ -66,7 +39,7 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       // We purposely do not attempt to install in one command using presets to avoid being too restrictive with application configuration
       spawnSync(command, args.concat(["add", "single-spa"]), {
         stdio: "inherit",
-        cwd,
+        cwd: this.cwd,
         env: Object.assign({}, process.env, {
           VUE_CLI_SKIP_DIRTY_GIT_PROMPT: true,
         }),
