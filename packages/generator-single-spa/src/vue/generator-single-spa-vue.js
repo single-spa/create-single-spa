@@ -45,9 +45,14 @@ module.exports = class SingleSpaVueGenerator extends Generator {
 
     const { status, signal } = spawnSync(
       command,
-      args.concat(["create", cwd]),
+      args.concat([
+        "create",
+        cwd,
+        "--packageManager",
+        this.options.packageManager,
+      ]),
       {
-        stdio: "inherit"
+        stdio: "inherit",
       }
     );
 
