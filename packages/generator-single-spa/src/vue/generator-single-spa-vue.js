@@ -4,6 +4,27 @@ const util = require("util");
 const commandExists = util.promisify(require("command-exists"));
 
 module.exports = class SingleSpaVueGenerator extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.option("packageManager", {
+      type: String,
+    });
+  }
+  async getOptions() {
+    if (!this.options.packageManager) {
+      this.options.packageManager = (
+        await this.prompt([
+          {
+            type: "list",
+            name: "packageManager",
+            message: "Which package manager do you want to use?",
+            choices: ["yarn", "npm"],
+          },
+        ])
+      ).packageManager;
+    }
+  }
   async runVueCli() {
     const globalInstallation = await commandExists("vue");
 
