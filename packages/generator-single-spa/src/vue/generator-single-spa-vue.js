@@ -3,6 +3,7 @@ const { spawnSync } = require("child_process");
 const util = require("util");
 const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
+const path = require("path");
 
 module.exports = class SingleSpaVueGenerator extends Generator {
   async runVueCli() {
@@ -48,13 +49,12 @@ module.exports = class SingleSpaVueGenerator extends Generator {
   }
 
   async finished() {
+    const usedYarn = this.fs.exists(path.resolve(this.cwd, "yarn.lock"));
     console.log(
       chalk.bgWhite.black(
         `Project setup complete!
 Steps to test your Vue single-spa application:
-1. Run '${this.options.packageManager}${
-          this.options.packageManager === "npm" ? " run" : ""
-        } serve'
+1. Run '${usedYarn ? "yarn" : "npm run"} serve'
 2. Go to http://single-spa-playground.org/playground/instant-test?name=${
           this.options.dir
         }&url=%2F%2Flocalhost%3A8080%2Fjs%2Fapp.js&framework=vue to see it working!`
