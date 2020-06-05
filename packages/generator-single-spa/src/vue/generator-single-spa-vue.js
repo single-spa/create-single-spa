@@ -50,6 +50,7 @@ module.exports = class SingleSpaVueGenerator extends Generator {
         cwd,
         "--packageManager",
         this.options.packageManager,
+        "--skipGetStarted",
       ]),
       {
         stdio: "inherit",
