@@ -82,9 +82,9 @@ Steps to test your Vue single-spa application:
 1. Run '${this.options.packageManager}${
           this.options.packageManager === "npm" ? " run" : ""
         } serve'
-2. Go to http://single-spa-playground.org/playground/instant-test?name=${encodeURIComponent(
+2. Go to http://single-spa-playground.org/playground/instant-test?name=${
           this.options.dir
-        )}&url=%2F%2Flocalhost%3A8080%2Fjs%2Fapp.js&framework=vue to see it working!`
+        }&url=%2F%2Flocalhost%3A8080%2Fjs%2Fapp.js&framework=vue to see it working!`
       )
     );
   }
