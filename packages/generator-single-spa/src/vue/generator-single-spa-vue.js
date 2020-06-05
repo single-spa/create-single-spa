@@ -2,6 +2,7 @@ const Generator = require("yeoman-generator");
 const { spawnSync } = require("child_process");
 const util = require("util");
 const commandExists = util.promisify(require("command-exists"));
+const chalk = require("chalk");
 
 module.exports = class SingleSpaVueGenerator extends Generator {
   constructor(args, opts) {
@@ -71,5 +72,20 @@ module.exports = class SingleSpaVueGenerator extends Generator {
         }),
       });
     }
+  }
+
+  async finished() {
+    console.log(
+      chalk.bgWhite.black(
+        `Project setup complete!
+Steps to test your Vue single-spa application:
+1. Run '${this.options.packageManager}${
+          this.options.packageManager === "npm" ? " run" : ""
+        } serve'
+2. Go to http://single-spa-playground.org/playground/instant-test?name=${encodeURIComponent(
+          this.options.dir
+        )}&url=%2F%2Flocalhost%3A8080%2Fjs%2Fapp.js&framework=vue to see it working!`
+      )
+    );
   }
 };
