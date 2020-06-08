@@ -1,0 +1,33 @@
+{
+  "name": "rollup-config-single-spa",
+  "version": "0.0.1",
+  "description": "A Rollup config for in-browser modules used with single-spa",
+  "author": "Single-spa core team",
+  "homepage": "https://github.com/single-spa/create-single-spa",
+  "license": "MIT",
+  "main": "lib/rollup-config-single-spa.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/single-spa/create-single-spa.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/single-spa/create-single-spa/issues"
+  },
+  "dependencies": {
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-unused": "^0.0.2"
+  }
+}
