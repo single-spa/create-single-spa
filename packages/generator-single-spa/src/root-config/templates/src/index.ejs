@@ -45,6 +45,15 @@
       }
     }
   </script>
+  <% } %>
+
+  <!--
+    If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
+    Learn more about why at https://single-spa.js.org/docs/ecosystem-angular/#zonejs
+  -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/zone.js@0.10.3/dist/zone.min.js"></script> -->
+
+  <% if (isLocal) { %>
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.14.6/dist/import-map-overrides.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.3.1/dist/system.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.3.1/dist/extras/amd.js"></script>
