@@ -29,16 +29,17 @@ export default function rollupConfigSingleSpa(opts) {
     typeof opts.production === "boolean"
       ? opts.production
       : !process.env.ROLLUP_WATCH;
-  const { outputDir = "dist" } = opts
+  const { outputDir = "dist" } = opts;
   const orgModule = new RegExp(`^@${opts.orgName}/`);
 
   return {
     input: "src/<%= orgName %>-<%= projectName %>.js",
     output: {
-      sourcemap: true,
+      dir: outputDir,
+      file: "<%= orgName %>-<%= projectName %>.js",
       format: "system",
       name: null, // ensure anonymous System.register
-      file: "dist/<%= orgName %>-<%= projectName %>.js",
+      sourcemap: true,
     },
     // Do not bundle in shared dependencies
     external: ["single-spa", (id) => id.search(orgModule) !== -1],
@@ -61,7 +62,7 @@ export default function rollupConfigSingleSpa(opts) {
       // https://github.com/rollup/plugins/tree/master/packages/commonjs
       resolve({
         browser: true,
-        dedupe: ["svelte"],
+        dedupe: ["svelte", "react", "react-dom", "single-spa"],
       }),
       commonjs(),
 
@@ -71,7 +72,7 @@ export default function rollupConfigSingleSpa(opts) {
 
       // Watch the `dist` directory and refresh the
       // browser on changes when not in production
-      !production && livereload("dist"),
+      !production && livereload(outputDir),
 
       // If we're building for production (npm run build
       // instead of npm run dev), minify
@@ -82,4 +83,3 @@ export default function rollupConfigSingleSpa(opts) {
     },
   };
 }
-
