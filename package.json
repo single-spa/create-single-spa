@@ -28,5 +28,8 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "rollup-plugin-serve": "^1.0.1"
+  }
 }

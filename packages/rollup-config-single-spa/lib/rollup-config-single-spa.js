@@ -1,5 +1,6 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 
@@ -66,7 +67,7 @@ export default function rollupConfigSingleSpa(opts) {
 
       // In dev mode, call `npm run start` once
       // the bundle has been generated
-      !production && serve(),
+      !production && serve(outputDir),
 
       // Watch the `dist` directory and refresh the
       // browser on changes when not in production
@@ -82,19 +83,3 @@ export default function rollupConfigSingleSpa(opts) {
   };
 }
 
-function serve() {
-  let started = false;
-
-  return {
-    writeBundle() {
-      if (!started) {
-        started = true;
-
-        require("child_process").spawn("npm", ["run", "serve", "--", "--dev"], {
-          stdio: ["ignore", "inherit", "inherit"],
-          shell: true,
-        });
-      }
-    },
-  };
-}
