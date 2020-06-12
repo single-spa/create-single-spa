@@ -3,16 +3,24 @@ import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 
+/**
+ * Base Rollup config for single-spa applications
+ * @param {Object} opts - An object containing options used to create a single-spa Rollup config
+ * @param {string} opts.orgName - The namespace of your organization, used a prefix for your modules
+ * @param {string} opts.projectName - The name of the project (module)
+ * @param {boolean} opts.production - A boolean representing whether to run in production mode
+ * @param {string} opts.outputDir - The directory to output the build files to
+ */
 export default function rollupConfigSingleSpa(opts) {
   if (typeof opts !== "object") {
     throw Error(`rollup-config-single-spa requires an opts object`);
   }
 
-  if (typeof opts.orgName !== "string") {
+  if (typeof opts.orgName !== "string" && !!opts.orgName) {
     throw Error(`rollup-config-single-spa requires an opts.orgName string`);
   }
 
-  if (typeof opts.projectName !== "string") {
+  if (typeof opts.projectName !== "string" && !!opts.projectName) {
     throw Error(`rollup-config-single-spa requires an opts.projectName string`);
   }
 
@@ -20,6 +28,7 @@ export default function rollupConfigSingleSpa(opts) {
     typeof opts.production === "boolean"
       ? opts.production
       : !process.env.ROLLUP_WATCH;
+  const { outputDir = "dist" } = opts
   const orgModule = new RegExp(`^@${opts.orgName}/`);
 
   return {
