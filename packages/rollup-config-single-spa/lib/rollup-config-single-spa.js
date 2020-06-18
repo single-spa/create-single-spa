@@ -10,7 +10,7 @@ import { terser } from "rollup-plugin-terser";
  * @param {string} opts.orgName - The namespace of your organization, used a prefix for your modules
  * @param {string} opts.projectName - The name of the project (module)
  * @param {boolean} opts.production - A boolean representing whether to run in production mode
- * @param {string} opts.outputDir - The directory to output the build files to
+ * @param {string} opts.dir - The directory to output the build files to
  */
 export default function rollupConfigSingleSpa(opts) {
   if (typeof opts !== "object") {
@@ -29,14 +29,12 @@ export default function rollupConfigSingleSpa(opts) {
     typeof opts.production === "boolean"
       ? opts.production
       : !process.env.ROLLUP_WATCH;
-  const { outputDir = "dist" } = opts;
-  const orgModule = new RegExp(`^@${opts.orgName}/`);
+  const { dir = "dist" } = opts;
 
   return {
     input: "src/<%= orgName %>-<%= projectName %>.js",
     output: {
-      dir: outputDir,
-      file: "<%= orgName %>-<%= projectName %>.js",
+      dir,
       format: "system",
       name: null, // ensure anonymous System.register
       sourcemap: true,
@@ -68,11 +66,11 @@ export default function rollupConfigSingleSpa(opts) {
 
       // In dev mode, call `npm run start` once
       // the bundle has been generated
-      !production && serve(outputDir),
+      !production && serve(dir),
 
       // Watch the `dist` directory and refresh the
       // browser on changes when not in production
-      !production && livereload(outputDir),
+      !production && livereload(dir),
 
       // If we're building for production (npm run build
       // instead of npm run dev), minify
