@@ -11,6 +11,7 @@ import { terser } from "rollup-plugin-terser";
  * @param {string} opts.projectName - The name of the project (module)
  * @param {boolean} opts.production - A boolean representing whether to run in production mode
  * @param {string} opts.dir - The directory to output the build files to
+ * @param {string[]} opts.external - An array of module names as strings to exclude from the final bundle
  */
 export default function rollupConfigSingleSpa(opts) {
   if (typeof opts !== "object") {
@@ -31,6 +32,7 @@ export default function rollupConfigSingleSpa(opts) {
       : !process.env.ROLLUP_WATCH;
   const { dir = "dist" } = opts;
   const file = `${opts.orgName}-${opts.projectName}.js`;
+  const org = new RegExp(`^@${opts.orgName}/`);
 
   return {
     input: `src/${file}`,
@@ -42,7 +44,7 @@ export default function rollupConfigSingleSpa(opts) {
       sourcemap: true,
     },
     // Do not bundle in shared dependencies
-    external: ["single-spa", (id) => id.search(orgModule) !== -1],
+    external: (id) => ["single-spa", ...external].includes(id) || org.test(id),
     plugins: [
       findUnused({
         exclude: [
