@@ -80,7 +80,14 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       // Extend with react-specific package json for typescript
       this.fs.extendJSON(
         this.destinationPath("package.json"),
-        this.fs.readJSON(this.templatePath("typescript/package.json"))
+        this.fs.readJSON(this.templatePath("typescript/package.json")),
+        (key, value) => {
+          if (key === "devDependencies") {
+            // Remove standard eslint configuration in favor of react specific
+            delete value["eslint-config-ts-important-stuff"];
+          }
+          return value;
+        }
       );
     }
   }
