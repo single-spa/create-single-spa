@@ -30,11 +30,13 @@ export default function rollupConfigSingleSpa(opts) {
       ? opts.production
       : !process.env.ROLLUP_WATCH;
   const { dir = "dist" } = opts;
+  const file = `${opts.orgName}-${opts.projectName}.js`;
 
   return {
-    input: "src/<%= orgName %>-<%= projectName %>.js",
+    input: `src/${file}`,
     output: {
       dir,
+      file,
       format: "system",
       name: null, // ensure anonymous System.register
       sourcemap: true,
