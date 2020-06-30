@@ -3,8 +3,9 @@ const singleSpaDefaults = require("webpack-config-single-spa<% if (typescript) {
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (webpackConfigEnv) => {
+  const orgName = "<%= orgName %>";
   const defaultConfig = singleSpaDefaults({
-    orgName: "<%= orgName %>",
+    orgName,
     projectName: "root-config",
     webpackConfigEnv,
   });
@@ -20,6 +21,7 @@ module.exports = (webpackConfigEnv) => {
         template: "src/index.ejs",
         templateParameters: {
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal === "true",
+          orgName,
         },
       }),
     ],
