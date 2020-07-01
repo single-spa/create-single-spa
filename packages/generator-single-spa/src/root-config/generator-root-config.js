@@ -152,7 +152,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
 
     const parentPath = `src${this.options.layout ? "/layout" : ""}`;
     this.fs.copyTpl(
-      this.templatePath(`${parentPath}/root-config.js`),
+      this.templatePath(`${parentPath}/root-config.ejs`),
       this.destinationPath(
         `src/${this.options.orgName}-root-config.${srcFileExtension}`
       ),
