@@ -5,7 +5,7 @@ import {
   constructLayoutEngine,
 } from "single-spa-layout";
 
-const routes = constructRoutes(document.querySelector("#single-spa-layout"));
+const routes = constructRoutes(document.querySelector("#single-spa-layout")<% if(typescript) { %> as HTMLTemplateElement<% } %>);
 const applications = constructApplications({
   routes,
   loadApp({ name }) {
