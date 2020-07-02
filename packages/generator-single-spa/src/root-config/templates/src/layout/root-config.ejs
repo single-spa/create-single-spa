@@ -5,13 +5,13 @@ import {
   constructLayoutEngine,
 } from "single-spa-layout";
 
-<% if(typescript) { %> 
+<% if(typescript) { -%>
 const routes = constructRoutes(
   document.querySelector("#single-spa-layout") as HTMLTemplateElement
 );
-<% } else { %>
+<% } else { -%>
 const routes = constructRoutes(document.querySelector("#single-spa-layout"));
-<% } %>
+<% } -%>
 const applications = constructApplications({
   routes,
   loadApp({ name }) {
