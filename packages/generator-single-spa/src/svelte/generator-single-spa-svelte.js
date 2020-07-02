@@ -47,16 +47,18 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
     //   ).typescript;
     // }
 
-    if (!this.options.orgName) {
-      this.options.orgName = (
-        await this.prompt([
-          {
-            type: "input",
-            name: "orgName",
-            message: "Organization name (use lowercase and dashes)",
-          },
-        ])
-      ).orgName;
+    while (!this.options.orgName) {
+      let { orgName } = await this.prompt([
+        {
+          type: "input",
+          name: "orgName",
+          message: "Organization name (use lowercase and dashes)",
+        },
+      ]);
+
+      orgName = orgName && orgName.trim();
+      if (!orgName) console.log(chalk.red("orgName must be provided!"));
+      this.options.orgName = orgName;
     }
 
     if (!this.options.projectName) {
