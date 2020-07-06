@@ -121,7 +121,7 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath(".eslintrc"),
+      this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
       this.options
     );
