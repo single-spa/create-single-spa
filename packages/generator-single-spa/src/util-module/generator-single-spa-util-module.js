@@ -23,7 +23,7 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
       type: String,
     });
   }
-  async createPackageJson() {
+  async getOptions() {
     if (!this.options.packageManager) {
       this.options.packageManager = (
         await this.prompt([
@@ -50,6 +50,33 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
       ).typescript;
     }
 
+    if (!this.options.orgName) {
+      this.options.orgName = (
+        await this.prompt([
+          {
+            type: "input",
+            name: "orgName",
+            message: "Organization name (use lowercase and dashes)",
+          },
+        ])
+      ).orgName;
+    }
+
+    if (!this.options.projectName) {
+      this.options.projectName = (
+        await this.prompt([
+          {
+            type: "input",
+            name: "projectName",
+            message: "Project name (use lowercase and dashes)",
+          },
+        ])
+      ).projectName;
+    }
+
+    this.options.framework = "none";
+  }
+  async createPackageJson() {
     const packageJsonTemplate = await fs.readFile(
       this.templatePath("package.json"),
       { encoding: "utf-8" }
@@ -82,32 +109,6 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
     }
   }
   async copyOtherFiles() {
-    if (!this.options.orgName) {
-      this.options.orgName = (
-        await this.prompt([
-          {
-            type: "input",
-            name: "orgName",
-            message: "Organization name (use lowercase and dashes)",
-          },
-        ])
-      ).orgName;
-    }
-
-    if (!this.options.projectName) {
-      this.options.projectName = (
-        await this.prompt([
-          {
-            type: "input",
-            name: "projectName",
-            message: "Project name (use lowercase and dashes)",
-          },
-        ])
-      ).projectName;
-    }
-
-    this.options.framework = "none";
-
     const srcFileExtension = this.options.typescript ? "ts" : "js";
 
     this.fs.copyTpl(

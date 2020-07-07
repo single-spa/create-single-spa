@@ -20,7 +20,7 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
       type: String,
     });
   }
-  async createPackageJson() {
+  async getOptions() {
     if (!this.options.packageManager) {
       this.options.packageManager = (
         await this.prompt([
@@ -72,7 +72,8 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
         ])
       ).projectName;
     }
-
+  }
+  async createPackageJson() {
     const packageJsonTemplate = await fs.readFile(
       this.templatePath("package.json"),
       { encoding: "utf-8" }

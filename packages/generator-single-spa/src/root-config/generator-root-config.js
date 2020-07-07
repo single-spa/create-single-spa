@@ -64,6 +64,23 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       ).layout;
     }
 
+    while (!this.options.orgName) {
+      let { orgName } = await this.prompt([
+        {
+          type: "input",
+          name: "orgName",
+          message: "Organization name (use lowercase and dashes)",
+        },
+      ]);
+
+      orgName = orgName && orgName.trim();
+      if (!orgName) console.log(chalk.red("orgName must be provided!"));
+      this.options.orgName = orgName;
+    }
+
+    this.options.framework = "none";
+  }
+  async copyFiles() {
     const packageJsonTemplate = await fs.readFile(
       this.templatePath("package.json"),
       { encoding: "utf-8" }
@@ -94,21 +111,6 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
         )
       );
     }
-  }
-  async copyFiles() {
-    if (!this.options.orgName) {
-      this.options.orgName = (
-        await this.prompt([
-          {
-            type: "input",
-            name: "orgName",
-            message: "Organization name (use lowercase and dashes)",
-          },
-        ])
-      ).orgName;
-    }
-
-    this.options.framework = "none";
 
     const srcFileExtension = this.options.typescript ? "ts" : "js";
 
