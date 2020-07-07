@@ -10,6 +10,7 @@ describe(`typescript root config usage`, () => {
     --packageManager yarn
     --orgName org
     --typescript
+    --layout=false
   `
   );
 
