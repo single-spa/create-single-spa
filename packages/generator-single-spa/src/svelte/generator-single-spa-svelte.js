@@ -72,6 +72,8 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
         ])
       ).projectName;
     }
+
+    this.options.framework = "svelte";
   }
   async createPackageJson() {
     const packageJsonTemplate = await fs.readFile(
@@ -102,8 +104,6 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
     // }
   }
   async copyOtherFiles() {
-    this.options.framework = "svelte";
-
     const srcFileExtension = /* this.options.typescript ? "tsx" : */ "js";
 
     this.fs.copyTpl(
