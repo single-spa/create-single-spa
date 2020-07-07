@@ -18,6 +18,8 @@ describe("generator-single-spa-react", () => {
       })
       .withPrompts({
         packageManager: "yarn",
+        orgName: "org",
+        projectName: "react-project",
       });
 
     return runContext.then((dir) => {
@@ -41,6 +43,8 @@ describe("generator-single-spa-react", () => {
       })
       .withPrompts({
         packageManager: "npm",
+        orgName: "org",
+        projectName: "react-project",
       });
 
     return runContext.then((dir) => {
@@ -64,6 +68,8 @@ describe("generator-single-spa-react", () => {
       })
       .withPrompts({
         packageManager: "npm",
+        orgName: "org",
+        projectName: "react-project",
       });
 
     return runContext.then((dir) => {

@@ -19,6 +19,8 @@ describe("generator-single-spa-util-module", () => {
       })
       .withPrompts({
         packageManager: "yarn",
+        orgName: "org",
+        projectName: "util-module-project",
       });
 
     return runContext.then((dir) => {
@@ -42,6 +44,8 @@ describe("generator-single-spa-util-module", () => {
       })
       .withPrompts({
         packageManager: "npm",
+        orgName: "org",
+        projectName: "util-module-project",
       });
 
     return runContext.then((dir) => {
@@ -65,6 +69,8 @@ describe("generator-single-spa-util-module", () => {
       })
       .withPrompts({
         packageManager: "npm",
+        orgName: "org",
+        projectName: "util-module-project",
       });
 
     return runContext.then((dir) => {

@@ -18,6 +18,8 @@ describe("generator-single-spa-svelte", () => {
       })
       .withPrompts({
         packageManager: "yarn",
+        orgName: "org",
+        projectName: "svelte-project",
       });
 
     return runContext.then((dir) => {
@@ -33,6 +35,8 @@ describe("generator-single-spa-svelte", () => {
       })
       .withPrompts({
         packageManager: "npm",
+        orgName: "org",
+        projectName: "svelte-project",
       });
 
     return runContext.then((dir) => {
@@ -48,6 +52,8 @@ describe("generator-single-spa-svelte", () => {
       })
       .withPrompts({
         packageManager: "npm",
+        orgName: "org",
+        projectName: "svelte-project",
       });
 
     return runContext.then((dir) => {

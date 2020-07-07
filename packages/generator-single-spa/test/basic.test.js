@@ -18,6 +18,8 @@ describe("generator-single-spa", () => {
       })
       .withPrompts({
         packageManager: "yarn",
+        orgName: "org",
+        projectName: "basic-test",
       });
 
     return runContext.then((dir) => {
