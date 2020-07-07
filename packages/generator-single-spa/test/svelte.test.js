@@ -5,22 +5,25 @@ const assert = require("yeoman-assert");
 
 describe("generator-single-spa-svelte", () => {
   let runContext;
+  const generateRunContext = (prompts) =>
+    helpers
+      .run(generator)
+      .withOptions({
+        framework: "svelte",
+      })
+      .withPrompts({
+        packageManager: "npm",
+        orgName: "org",
+        projectName: "svelte-project",
+        ...prompts,
+      });
 
   afterEach(() => {
     runContext.cleanTestDirectory();
   });
 
   it("handles yarn option properly", () => {
-    runContext = helpers
-      .run(generator)
-      .withOptions({
-        framework: "svelte",
-      })
-      .withPrompts({
-        packageManager: "yarn",
-        orgName: "org",
-        projectName: "svelte-project",
-      });
+    runContext = generateRunContext({ packageManager: "yarn" });
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "package.json"));
@@ -28,16 +31,7 @@ describe("generator-single-spa-svelte", () => {
   });
 
   it("handles npm option properly", () => {
-    runContext = helpers
-      .run(generator)
-      .withOptions({
-        framework: "react",
-      })
-      .withPrompts({
-        packageManager: "npm",
-        orgName: "org",
-        projectName: "svelte-project",
-      });
+    runContext = generateRunContext();
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "package.json"));
@@ -45,16 +39,7 @@ describe("generator-single-spa-svelte", () => {
   });
 
   it("copies the correct files over", () => {
-    runContext = helpers
-      .run(generator)
-      .withOptions({
-        framework: "svelte",
-      })
-      .withPrompts({
-        packageManager: "npm",
-        orgName: "org",
-        projectName: "svelte-project",
-      });
+    runContext = generateRunContext();
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "rollup.config.js"));
