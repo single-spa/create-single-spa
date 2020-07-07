@@ -18,6 +18,10 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     this.option("orgName", {
       type: String,
     });
+
+    this.option("layout", {
+      type: Boolean,
+    });
   }
   async createPackageJson() {
     if (!this.options.packageManager) {
@@ -44,6 +48,20 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
           },
         ])
       ).typescript;
+    }
+
+    if (this.options.layout === undefined) {
+      this.options.layout = (
+        await this.prompt([
+          {
+            type: "confirm",
+            name: "layout",
+            message:
+              "Would you like to use single-spa Layout Engine (currently in beta)?",
+            default: false,
+          },
+        ])
+      ).layout;
     }
 
     const packageJsonTemplate = await fs.readFile(
@@ -132,8 +150,9 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       );
     }
 
+    const parentPath = `src${this.options.layout ? "/layout" : ""}`;
     this.fs.copyTpl(
-      this.templatePath("src/root-config.js"),
+      this.templatePath(`${parentPath}/root-config.ejs`),
       this.destinationPath(
         `src/${this.options.orgName}-root-config.${srcFileExtension}`
       ),
@@ -141,13 +160,18 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath("src/index.ejs"),
+      this.templatePath(`${parentPath}/index.ejs`),
       this.destinationPath(`src/index.ejs`),
       this.options,
       { delimiter: "?" }
     );
   }
   install() {
+    if (this.options.packageManager === "npm")
+      this.npmInstall(["single-spa-layout@beta"]);
+    if (this.options.packageManager === "yarn")
+      this.yarnInstall(["single-spa-layout@beta"]);
+
     this.installDependencies({
       npm: this.options.packageManager === "npm",
       yarn: this.options.packageManager === "yarn",
@@ -156,12 +180,9 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
   }
   finished() {
     this.on(`${this.options.packageManager}Install:end`, () => {
-      const coloredFinalInstructions = chalk.bgWhite.black;
-      console.log(coloredFinalInstructions("Project setup complete!"));
       console.log(
-        coloredFinalInstructions(
-          `Run '${this.options.packageManager} start' to boot up your single-spa root config`
-        )
+        chalk.bgWhite.black(`Project setup complete!
+Run '${this.options.packageManager} start' to boot up your single-spa root config`)
       );
     });
   }

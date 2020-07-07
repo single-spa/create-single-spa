@@ -1,16 +1,16 @@
 const { createFixtureIfDoesntExist } = require("../test-helpers.js");
 const nixt = require("nixt");
 
-describe(`typescript root config usage`, () => {
+describe(`js root config with layout usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
     __filename,
-    ["webpack-config-single-spa", "webpack-config-single-spa-ts"],
+    ["webpack-config-single-spa"],
     `
     --moduleType root-config
     --packageManager yarn
     --orgName org
-    --typescript
-    --layout=false
+    --typescript=false
+    --layout=true
   `
   );
 
