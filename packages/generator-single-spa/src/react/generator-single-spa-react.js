@@ -2,6 +2,7 @@ const Generator = require("yeoman-generator");
 const ejs = require("ejs");
 const fs = require("fs").promises;
 const chalk = require("chalk");
+const isValidName = require("../naming");
 
 module.exports = class SingleSpaReactGenerator extends Generator {
   constructor(args, opts) {
@@ -58,6 +59,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
 
       orgName = orgName && orgName.trim();
       if (!orgName) console.log(chalk.red("orgName must be provided!"));
+      if (!isValidName(orgName))
+        console.log(chalk.red("orgName must use lowercase and dashes!"));
       this.options.orgName = orgName;
     }
 
@@ -72,6 +75,8 @@ module.exports = class SingleSpaReactGenerator extends Generator {
 
       projectName = projectName && projectName.trim();
       if (!projectName) console.log(chalk.red("projectName must be provided!"));
+      if (!isValidName(projectName))
+        console.log(chalk.red("projectName must use lowercase and dashes!"));
       this.options.projectName = projectName;
     }
 

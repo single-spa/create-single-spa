@@ -2,6 +2,7 @@ const Generator = require("yeoman-generator");
 const fs = require("fs").promises;
 const ejs = require("ejs");
 const chalk = require("chalk");
+const isValidName = require("../naming");
 
 module.exports = class SingleSpaRootConfigGenerator extends Generator {
   constructor(args, opts) {
@@ -75,6 +76,8 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
 
       orgName = orgName && orgName.trim();
       if (!orgName) console.log(chalk.red("orgName must be provided!"));
+      if (!isValidName(orgName))
+        console.log(chalk.red("orgName must use lowercase and dashes!"));
       this.options.orgName = orgName;
     }
 
