@@ -6,6 +6,8 @@ const SingleSpaVueGenerator = require("./vue/generator-single-spa-vue");
 const SingleSpaAngularGenerator = require("./angular/generator-single-spa-angular");
 const SingleSpaUtilModuleGenerator = require("./util-module/generator-single-spa-util-module");
 const SingleSpaSvelteGenerator = require("./svelte/generator-single-spa-svelte");
+const { version } = require("../package.json");
+const chalk = require("chalk");
 
 module.exports = class SingleSpaGenerator extends Generator {
   constructor(args, opts) {
@@ -30,6 +32,35 @@ module.exports = class SingleSpaGenerator extends Generator {
     Object.keys(this.options).forEach((optionKey) => {
       if (this.options[optionKey] === "false") this.options[optionKey] = false;
     });
+  }
+  initializing() {
+    const { stdout } = this.spawnCommandSync(
+      "npm",
+      ["view", "create-single-spa@latest", "version"],
+      { stdio: "pipe" }
+    );
+    const latestVersion = stdout.toString("utf8").trim();
+    const [latestMajor, latestMinor, latestPatch] = latestVersion.split(".");
+    const [currentMajor, currentMinor, currentPatch] = version.split(".");
+    const majorUpdate = currentMajor < latestMajor;
+    const minorUpdate = currentMinor < latestMinor;
+    const patchUpdate = currentPatch < latestPatch;
+
+    if (majorUpdate | minorUpdate | patchUpdate) {
+      let msg = `${version} → ${latestVersion}`;
+      if (majorUpdate) {
+        msg = chalk.red(msg);
+      } else if (minorUpdate) {
+        msg = chalk.yellow(msg);
+      } else {
+        msg = chalk.green(msg);
+      }
+      console.log(
+        chalk.underline(
+          `\nA newer version of create-single-spa is available: ${msg}\n`
+        )
+      );
+    }
   }
   async chooseDestinationDir() {
     if (!this.options.dir) {
