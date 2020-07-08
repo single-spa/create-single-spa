@@ -65,7 +65,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     }
 
     while (!this.options.projectName) {
-      let { projectName } = await await this.prompt([
+      let { projectName } = await this.prompt([
         {
           type: "input",
           name: "projectName",
