@@ -6,6 +6,8 @@ const SingleSpaVueGenerator = require("./vue/generator-single-spa-vue");
 const SingleSpaAngularGenerator = require("./angular/generator-single-spa-angular");
 const SingleSpaUtilModuleGenerator = require("./util-module/generator-single-spa-util-module");
 const SingleSpaSvelteGenerator = require("./svelte/generator-single-spa-svelte");
+const versionUpdateCheck = require("./version-update-check");
+const { version } = require("../package.json");
 
 module.exports = class SingleSpaGenerator extends Generator {
   constructor(args, opts) {
@@ -30,6 +32,15 @@ module.exports = class SingleSpaGenerator extends Generator {
     Object.keys(this.options).forEach((optionKey) => {
       if (this.options[optionKey] === "false") this.options[optionKey] = false;
     });
+  }
+  initializing() {
+    const { stdout } = this.spawnCommandSync(
+      "npm",
+      ["view", "create-single-spa@latest", "version"],
+      { stdio: "pipe" }
+    );
+
+    versionUpdateCheck(version, stdout.toString("utf8").trim());
   }
   async chooseDestinationDir() {
     if (!this.options.dir) {
