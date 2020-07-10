@@ -6,20 +6,25 @@ const assert = require("yeoman-assert");
 
 describe("generator-single-spa-util-module", () => {
   let runContext;
+  const generateRunContext = (prompts) =>
+    helpers
+      .run(generator)
+      .withOptions({
+        moduleType: "util-module",
+      })
+      .withPrompts({
+        packageManager: "npm",
+        orgName: "org",
+        projectName: "util-module-project",
+        ...prompts,
+      });
 
   afterEach(() => {
     runContext.cleanTestDirectory();
   });
 
   it("handles yarn option properly", () => {
-    runContext = helpers
-      .run(generator)
-      .withOptions({
-        moduleType: "util-module",
-      })
-      .withPrompts({
-        packageManager: "yarn",
-      });
+    runContext = generateRunContext({ packageManager: "yarn" });
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "package.json"));
@@ -35,14 +40,7 @@ describe("generator-single-spa-util-module", () => {
   });
 
   it("handles npm option properly", () => {
-    runContext = helpers
-      .run(generator)
-      .withOptions({
-        moduleType: "util-module",
-      })
-      .withPrompts({
-        packageManager: "npm",
-      });
+    runContext = generateRunContext();
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "package.json"));
@@ -58,14 +56,7 @@ describe("generator-single-spa-util-module", () => {
   });
 
   it("copies the correct files over", () => {
-    runContext = helpers
-      .run(generator)
-      .withOptions({
-        framework: "react",
-      })
-      .withPrompts({
-        packageManager: "npm",
-      });
+    runContext = generateRunContext();
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "jest.config.js"));

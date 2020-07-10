@@ -2,6 +2,7 @@ const Generator = require("yeoman-generator");
 const ejs = require("ejs");
 const fs = require("fs").promises;
 const chalk = require("chalk");
+const isValidName = require("../naming");
 
 module.exports = class SingleSpaReactGenerator extends Generator {
   constructor(args, opts) {
@@ -20,7 +21,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       type: String,
     });
   }
-  async createPackageJson() {
+  async getOptions() {
     if (!this.options.packageManager) {
       this.options.packageManager = (
         await this.prompt([
@@ -47,6 +48,41 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       ).typescript;
     }
 
+    while (!this.options.orgName) {
+      let { orgName } = await this.prompt([
+        {
+          type: "input",
+          name: "orgName",
+          message: "Organization name (use lowercase and dashes)",
+        },
+      ]);
+
+      orgName = orgName && orgName.trim();
+      if (!orgName) console.log(chalk.red("orgName must be provided!"));
+      if (!isValidName(orgName))
+        console.log(chalk.red("orgName must use lowercase and dashes!"));
+      this.options.orgName = orgName;
+    }
+
+    while (!this.options.projectName) {
+      let { projectName } = await this.prompt([
+        {
+          type: "input",
+          name: "projectName",
+          message: "Project name (use lowercase and dashes)",
+        },
+      ]);
+
+      projectName = projectName && projectName.trim();
+      if (!projectName) console.log(chalk.red("projectName must be provided!"));
+      if (!isValidName(projectName))
+        console.log(chalk.red("projectName must use lowercase and dashes!"));
+      this.options.projectName = projectName;
+    }
+
+    this.options.framework = "react";
+  }
+  async createPackageJson() {
     const packageJsonTemplate = await fs.readFile(
       this.templatePath("package.json"),
       { encoding: "utf-8" }
@@ -92,32 +128,6 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     }
   }
   async copyOtherFiles() {
-    if (!this.options.orgName) {
-      this.options.orgName = (
-        await this.prompt([
-          {
-            type: "input",
-            name: "orgName",
-            message: "Organization name (use lowercase and dashes)",
-          },
-        ])
-      ).orgName;
-    }
-
-    if (!this.options.projectName) {
-      this.options.projectName = (
-        await this.prompt([
-          {
-            type: "input",
-            name: "projectName",
-            message: "Project name (use lowercase and dashes)",
-          },
-        ])
-      ).projectName;
-    }
-
-    this.options.framework = "react";
-
     const srcFileExtension = this.options.typescript ? "tsx" : "js";
 
     this.fs.copyTpl(
