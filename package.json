@@ -21,7 +21,7 @@
     "test:e2e": "jest",
     "lint": "lerna run lint",
     "publish-all": "lerna publish",
-    "format": "prettier './**/*' --write"
+    "format": "prettier \"./**/*\" --write"
   },
   "husky": {
     "hooks": {
