@@ -6,6 +6,30 @@ const chalk = require("chalk");
 const path = require("path");
 
 module.exports = class SingleSpaVueGenerator extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.option("orgName", {
+      type: String,
+    });
+  }
+  async getOptions() {
+    while (!this.options.orgName) {
+      let { orgName } = await this.prompt([
+        {
+          type: "input",
+          name: "orgName",
+          message: "Organization name (use lowercase and dashes)",
+        },
+      ]);
+
+      orgName = orgName && orgName.trim();
+      if (!orgName) console.log(chalk.red("orgName must be provided!"));
+      if (!isValidName(orgName))
+        console.log(chalk.red("orgName must use lowercase and dashes!"));
+      this.options.orgName = orgName;
+    }
+  }
   async runVueCli() {
     const globalInstallation = await commandExists("vue");
 
