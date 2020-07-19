@@ -69,30 +69,31 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       process.exit(status);
     }
 
-    const projectPath = path.resolve(dir, name);
-    const pkgJsonPath = path.resolve(projectPath, "package.json");
+    const pkgJsonPath = path.resolve(this.options.dir, "package.json");
     const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath));
-    pkgJson.name = this.projectName = `@${this.options.orgName}/${name}`;
+    this.projectName = pkgJson.name = `@${this.options.orgName}/${name}`;
     fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
 
     // We purposely do not attempt to install in one command using presets to avoid being too restrictive with application configuration
     spawnSync(command, args.concat(["add", "single-spa"]), {
       stdio: "inherit",
-      cwd: projectPath,
+      cwd: this.options.dir,
       env: Object.assign({}, process.env, {
         VUE_CLI_SKIP_DIRTY_GIT_PROMPT: true,
       }),
     });
   }
   async finished() {
-    const usedYarn = this.fs.exists(path.resolve(this.cwd, "yarn.lock"));
+    const usedYarn = this.fs.exists(
+      path.resolve(this.options.dir, "yarn.lock")
+    );
     console.log(
       chalk.bgWhite.black(
         `Project setup complete!
 Steps to test your Vue single-spa application:
 1. Run '${usedYarn ? "yarn" : "npm run"} serve'
 2. Go to http://single-spa-playground.org/playground/instant-test?name=${
-          this.options.dir
+          this.projectName
         }&url=%2F%2Flocalhost%3A8080%2Fjs%2Fapp.js&framework=vue to see it working!`
       )
     );
