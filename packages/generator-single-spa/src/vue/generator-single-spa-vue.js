@@ -4,6 +4,7 @@ const util = require("util");
 const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
 const path = require("path");
+const fs = require("fs");
 const isValidName = require("../naming");
 
 module.exports = class SingleSpaVueGenerator extends Generator {
@@ -66,18 +67,23 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       process.exit(1);
     } else if (status !== 0) {
       process.exit(status);
-    } else {
-      // We purposely do not attempt to install in one command using presets to avoid being too restrictive with application configuration
-      spawnSync(command, args.concat(["add", "single-spa"]), {
-        stdio: "inherit",
-        cwd: this.cwd,
-        env: Object.assign({}, process.env, {
-          VUE_CLI_SKIP_DIRTY_GIT_PROMPT: true,
-        }),
-      });
     }
-  }
 
+    const projectPath = path.resolve(dir, name);
+    const pkgJsonPath = path.resolve(projectPath, "package.json");
+    const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath));
+    pkgJson.name = this.projectName = `@${this.options.orgName}/${name}`;
+    fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
+
+    // We purposely do not attempt to install in one command using presets to avoid being too restrictive with application configuration
+    spawnSync(command, args.concat(["add", "single-spa"]), {
+      stdio: "inherit",
+      cwd: projectPath,
+      env: Object.assign({}, process.env, {
+        VUE_CLI_SKIP_DIRTY_GIT_PROMPT: true,
+      }),
+    });
+  }
   async finished() {
     const usedYarn = this.fs.exists(path.resolve(this.cwd, "yarn.lock"));
     console.log(
