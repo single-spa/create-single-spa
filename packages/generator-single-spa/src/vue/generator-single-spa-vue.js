@@ -4,6 +4,7 @@ const util = require("util");
 const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
 const path = require("path");
+const isValidName = require("../naming");
 
 module.exports = class SingleSpaVueGenerator extends Generator {
   constructor(args, opts) {
@@ -46,12 +47,17 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       command += ".cmd";
     }
 
-    this.cwd = this.options.dir || ".";
+    // Derrive projectName value
+    const { dir, name } = path.parse(this.options.dir || ".");
+    if (!name) throw new Error("projectName must be provided!");
+    if (!isValidName(name))
+      throw new Error("projectName must use lowercase and dashes!");
 
     const { status, signal } = spawnSync(
       command,
-      args.concat(["create", this.cwd, "--skipGetStarted"]),
+      args.concat(["create", name, "--skipGetStarted"]),
       {
+        cwd: dir,
         stdio: "inherit",
       }
     );
