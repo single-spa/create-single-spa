@@ -48,7 +48,7 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       command += ".cmd";
     }
 
-    // Derrive projectName value
+    // Derive projectName value
     const { dir, name } = path.parse(this.options.dir || ".");
     if (!name) throw new Error("projectName must be provided!");
     if (!isValidName(name))
