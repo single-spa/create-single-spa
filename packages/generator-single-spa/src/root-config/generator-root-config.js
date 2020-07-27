@@ -193,6 +193,12 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
         chalk.bgWhite.black(`Project setup complete!
 Run '${this.options.packageManager} start' to boot up your single-spa root config`)
       );
+
+      if (this.options.layout) {
+        console.log(
+          `\nPlease report single-spa-layout issues and bugs on GitHub https://github.com/single-spa/single-spa-layout/issues/new`
+        );
+      }
     });
   }
 };
