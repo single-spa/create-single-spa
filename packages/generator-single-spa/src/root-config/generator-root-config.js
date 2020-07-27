@@ -170,18 +170,22 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       this.options,
       { delimiter: "?" }
     );
-  }
-  install() {
-    if (this.options.packageManager === "npm")
-      this.npmInstall(["single-spa-layout@beta"]);
-    if (this.options.packageManager === "yarn")
-      this.yarnInstall(["single-spa-layout@beta"]);
 
-    this.installDependencies({
-      npm: this.options.packageManager === "npm",
-      yarn: this.options.packageManager === "yarn",
-      bower: false,
-    });
+    if (this.options.layout) {
+      const { stdout } = this.spawnCommandSync(
+        "npm",
+        ["view", "single-spa-layout@beta", "version"],
+        { stdio: "pipe" }
+      );
+
+      const singleSpaLayoutBetaVersion = stdout.toString("utf8").trim();
+
+      this.fs.extendJSON(this.destinationPath("package.json"), {
+        dependencies: {
+          "single-spa-layout": singleSpaLayoutBetaVersion,
+        },
+      });
+    }
   }
   finished() {
     this.on(`${this.options.packageManager}Install:end`, () => {
