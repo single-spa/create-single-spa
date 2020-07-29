@@ -1,6 +1,6 @@
 {
   "name": "single-spa-welcome",
-  "version": "1.10.0",
+  "version": "1.12.0",
   "description": "A welcome application to guide users with next steps after creating their first root config.",
   "author": "Single-spa core team",
   "homepage": "https://github.com/single-spa/create-single-spa",
@@ -63,7 +63,7 @@
     "ts-config-single-spa": "^1.9.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-config-single-spa-react": "^1.10.0",
+    "webpack-config-single-spa-react": "^1.12.0",
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2"
   },

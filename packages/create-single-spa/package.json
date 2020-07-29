@@ -1,6 +1,6 @@
 {
   "name": "create-single-spa",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "",
   "bin": {
     "create-single-spa": "bin/create-single-spa.js"
@@ -8,7 +8,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "generator-single-spa": "^1.11.0",
+    "generator-single-spa": "^1.12.0",
     "yargs": "^14.2.0",
     "yeoman-environment": "^2.6.0"
   }
