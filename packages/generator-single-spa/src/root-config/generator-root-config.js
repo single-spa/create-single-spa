@@ -187,6 +187,13 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       });
     }
   }
+  install() {
+    this.installDependencies({
+      npm: this.options.packageManager === "npm",
+      yarn: this.options.packageManager === "yarn",
+      bower: false,
+    });
+  }
   finished() {
     this.on(`${this.options.packageManager}Install:end`, () => {
       console.log(
