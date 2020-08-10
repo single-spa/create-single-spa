@@ -11,6 +11,10 @@ module.exports = class SingleSpaVueGenerator extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
+    this.option("projectName", {
+      type: String,
+    });
+
     this.option("orgName", {
       type: String,
     });
@@ -31,6 +35,30 @@ module.exports = class SingleSpaVueGenerator extends Generator {
         console.log(chalk.red("orgName must use lowercase and dashes!"));
       this.options.orgName = orgName;
     }
+
+    let { dir, name } = path.parse(this.options.dir);
+
+    if (!isValidName(name)) {
+      while (!this.options.projectName) {
+        let { projectName } = await this.prompt([
+          {
+            type: "input",
+            name: "projectName",
+            message: "Project name (use lowercase and dashes)",
+          },
+        ]);
+
+        projectName = projectName && projectName.trim();
+        if (!projectName)
+          console.log(chalk.red("projectName must be provided!"));
+        if (!isValidName(projectName))
+          console.log(chalk.red("projectName must use lowercase and dashes!"));
+        this.options.projectName = projectName;
+      }
+    } else {
+      this.options.dir = dir;
+      this.options.projectName = name;
+    }
   }
   async runVueCli() {
     const globalInstallation = await commandExists("vue");
@@ -48,17 +76,11 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       command += ".cmd";
     }
 
-    // Derive projectName value
-    const { dir, name } = path.parse(this.options.dir || ".");
-    if (!name) throw new Error("projectName must be provided!");
-    if (!isValidName(name))
-      throw new Error("projectName must use lowercase and dashes!");
-
     const { status, signal } = spawnSync(
       command,
-      args.concat(["create", name, "--skipGetStarted"]),
+      args.concat(["create", this.options.projectName, "--skipGetStarted"]),
       {
-        cwd: dir,
+        cwd: this.options.dir,
         stdio: "inherit",
       }
     );
@@ -69,15 +91,19 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       process.exit(status);
     }
 
-    const pkgJsonPath = path.resolve(this.options.dir, "package.json");
+    const pkgJsonPath = path.resolve(
+      this.options.dir,
+      this.options.projectName,
+      "package.json"
+    );
     const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath));
-    this.projectName = pkgJson.name = `@${this.options.orgName}/${name}`;
+    this.projectName = pkgJson.name = `@${this.options.orgName}/${this.options.projectName}`;
     fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
 
     // We purposely do not attempt to install in one command using presets to avoid being too restrictive with application configuration
     spawnSync(command, args.concat(["add", "single-spa"]), {
       stdio: "inherit",
-      cwd: this.options.dir,
+      cwd: path.resolve(this.options.dir, this.options.projectName),
       env: Object.assign({}, process.env, {
         VUE_CLI_SKIP_DIRTY_GIT_PROMPT: true,
       }),
@@ -85,7 +111,7 @@ module.exports = class SingleSpaVueGenerator extends Generator {
   }
   async finished() {
     const usedYarn = this.fs.exists(
-      path.resolve(this.options.dir, "yarn.lock")
+      path.resolve(this.options.dir, this.options.projectName, "yarn.lock")
     );
     console.log(
       chalk.bgWhite.black(
