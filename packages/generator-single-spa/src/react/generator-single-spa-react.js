@@ -58,10 +58,13 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       ]);
 
       orgName = orgName && orgName.trim();
-      if (!orgName) console.log(chalk.red("orgName must be provided!"));
-      if (!isValidName(orgName))
+      if (!orgName) {
+        console.log(chalk.red("orgName must be provided!"));
+      } else if (!isValidName(orgName)) {
         console.log(chalk.red("orgName must use lowercase and dashes!"));
-      this.options.orgName = orgName;
+      } else {
+        this.options.orgName = orgName;
+      }
     }
 
     while (!this.options.projectName) {
@@ -74,10 +77,13 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       ]);
 
       projectName = projectName && projectName.trim();
-      if (!projectName) console.log(chalk.red("projectName must be provided!"));
-      if (!isValidName(projectName))
+      if (!projectName) {
+        console.log(chalk.red("projectName must be provided!"));
+      } else if (!isValidName(projectName)) {
         console.log(chalk.red("projectName must use lowercase and dashes!"));
-      this.options.projectName = projectName;
+      } else {
+        this.options.projectName = projectName;
+      }
     }
 
     this.options.framework = "react";
