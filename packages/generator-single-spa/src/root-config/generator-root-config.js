@@ -75,10 +75,13 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       ]);
 
       orgName = orgName && orgName.trim();
-      if (!orgName) console.log(chalk.red("orgName must be provided!"));
-      if (!isValidName(orgName))
+      if (!orgName) {
+        console.log(chalk.red("orgName must be provided!"));
+      } else if (!isValidName(orgName)) {
         console.log(chalk.red("orgName must use lowercase and dashes!"));
-      this.options.orgName = orgName;
+      } else {
+        this.options.orgName = orgName;
+      }
     }
 
     this.options.framework = "none";
