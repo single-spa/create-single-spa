@@ -7333,10 +7333,10 @@ symbol-tree@^3.2.2:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
-systemjs-webpack-interop@^1.1.2:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/systemjs-webpack-interop/-/systemjs-webpack-interop-1.2.1.tgz#70cce64a93ff646f52344eb560288d83362c9695"
-  integrity sha512-tNj9dACkQlNSAC+7d0MKwebXNt7M/3WDiQ0uj/1stBK061eSyaAlMcgp9t3EkYYrDp1ivxzAM4YhDCqPoai8Gg==
+systemjs-webpack-interop@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/systemjs-webpack-interop/-/systemjs-webpack-interop-2.1.2.tgz#b575afa4bf3b62c5cb7b49d4ef69eaf7064aacdc"
+  integrity sha512-ddoBSbZUfMxKoaS/JqCv4EHrildEfHrmwYF8R/Co/NqDxdvT6uYIrdHwBvY4PuYk+p9/BwQEtN5M5Aw2IHZdHQ==
 
 table@^5.2.3:
   version "5.4.6"
@@ -7834,17 +7834,17 @@ webpack-cli@^3.3.10:
     v8-compile-cache "2.0.3"
     yargs "13.2.4"
 
-webpack-config-single-spa-react@^1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/webpack-config-single-spa-react/-/webpack-config-single-spa-react-1.10.0.tgz#421889ae6911697d8e9e9abbe459d3381c8e0b7e"
-  integrity sha512-3SCNe9iy0krB0BOK1y4MWmx48/4joMWE8r8RHxQiXAdt3N8K/Z1PC8wK8a7nkFDPFpjD3uTiD6NZgn2KRbqtUQ==
+webpack-config-single-spa-react@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/webpack-config-single-spa-react/-/webpack-config-single-spa-react-1.12.0.tgz#97ff3613676f8975d89cca29baa02d1922bc12ad"
+  integrity sha512-xQtKTWYIXB8821aBk3r0yT7tjIVTbLRbPfmwQrZ/kFsS1crUX66z21k5QjRAaLMmUHBX9hSkXLjJ+7A/ebNCug==
   dependencies:
-    webpack-config-single-spa "^1.10.0"
+    webpack-config-single-spa "^1.12.0"
 
-webpack-config-single-spa@^1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/webpack-config-single-spa/-/webpack-config-single-spa-1.10.0.tgz#6b34fc17fe057cbaa709e3a757cf39c802bc2f8b"
-  integrity sha512-cD/X8IpObbEjZzBH2OpbZW+2y16GUsHA5AmL2THOTJ631L7o71vVZRtvl8sGXEmhZba10hyNp9m6TvG9Wb4Z7Q==
+webpack-config-single-spa@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/webpack-config-single-spa/-/webpack-config-single-spa-1.12.0.tgz#367f7618be2772bbe3cdde22c3142577c19dcbf6"
+  integrity sha512-BO1nI7LqmHQ/oDYR11AEmFssHjFijt2O1UQO0c4QVr/w9fuVDvPo0Qei7WrfexxrudReQbURk5v/UEGAP306aA==
   dependencies:
     babel-loader "^8.1.0"
     clean-webpack-plugin "^3.0.0"
