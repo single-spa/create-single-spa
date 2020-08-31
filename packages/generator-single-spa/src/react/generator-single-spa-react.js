@@ -119,6 +119,15 @@ module.exports = class SingleSpaReactGenerator extends Generator {
         )
       );
 
+      this.fs.extendJSON(
+        this.destinationPath("package.json"),
+        this.fs.readJSON(
+          this.templatePath(
+            "../../common-templates/typescript/react.package.json"
+          )
+        )
+      );
+
       // Extend with react-specific package json for typescript
       this.fs.extendJSON(
         this.destinationPath("package.json"),

@@ -8,8 +8,6 @@
   },
   "dependencies": {
     "@types/jest": "^25.2.1",
-    "@types/react": "^16.9.32",
-    "@types/react-dom": "^16.9.6",
     "@types/systemjs": "^6.1.0",
     "@types/webpack-env": "^1.15.1"
   }
