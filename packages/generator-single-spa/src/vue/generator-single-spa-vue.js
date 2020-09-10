@@ -39,7 +39,7 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       }
     }
 
-    let { dir, name } = path.parse(this.options.dir);
+    let { dir, name } = path.parse(path.resolve(this.options.dir));
 
     if (!isValidName(name)) {
       while (!this.options.projectName) {
