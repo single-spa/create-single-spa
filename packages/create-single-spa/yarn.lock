@@ -643,10 +643,10 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
-generator-single-spa@^1.11.0:
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/generator-single-spa/-/generator-single-spa-1.11.0.tgz#3cbf7ec5f02b4c0100d04faff1955d53f17e50f2"
-  integrity sha512-hpffyE5fXs1jXOGPn8qX2TcI+lvWNrsqXYt/AQ4kd7EAe/K+F9Gvp8d4eGQiYuH2LUdXN2w8xAoXbmYhw/TglQ==
+generator-single-spa@^1.12.4:
+  version "1.12.4"
+  resolved "https://registry.yarnpkg.com/generator-single-spa/-/generator-single-spa-1.12.4.tgz#d1686e882d27fa6eaa780d3546ff524edfc0c3ea"
+  integrity sha512-cyA1gY5LX6xtuFUEgt+hLBA4v/EBxhTtqIad779qsdiLuUDN7EHHYR+wggfatGvWD26iGfkbxX7NXUN41+J5UA==
   dependencies:
     command-exists "^1.2.8"
     yeoman-generator "^4.2.0"
@@ -2061,9 +2061,9 @@ y18n@^4.0.0:
   integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
 
 yargs-parser@^15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-15.0.0.tgz#cdd7a97490ec836195f59f3f4dbe5ea9e8f75f08"
-  integrity sha512-xLTUnCMc4JhxrPEPUYD5IBR1mWCK/aT6+RJ/K29JY2y1vD+FhtgKK0AXRWvI262q3QSffAQuTouFIKUuHX89wQ==
+  version "15.0.1"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-15.0.1.tgz#54786af40b820dcb2fb8025b11b4d659d76323b3"
+  integrity sha512-0OAMV2mAZQrs3FkNpDQcBk1x5HXb8X4twADss4S0Iuk+2dGnLOE/fRHrsYm542GduMveyA77OF4wrNJuanRCWw==
   dependencies:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
