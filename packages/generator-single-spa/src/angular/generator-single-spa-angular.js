@@ -90,30 +90,6 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
     }
   }
 
-  // Including single-spa as a dependency has not been fully resolved.
-  // It is now included in the Angular schematic https://github.com/single-spa/single-spa-angular/pull/193
-  // but that has only been released as an alpha version https://github.com/single-spa/single-spa-angular/releases/tag/v4.1.0-alpha.0
-  async validateSingleSpaDependency() {
-    const { dependencies } = await this.fs.readJSON(`${this.cwd}/package.json`);
-    if (dependencies && !dependencies["single-spa"]) {
-      const install = (cmd, opts) =>
-        spawnSync(cmd, opts, {
-          stdio: "inherit",
-          cwd: this.cwd,
-        });
-      switch (this.options.packageManager) {
-        case "npm":
-          install("npm", ["install", "single-spa"]);
-          break;
-        case "yarn":
-          install("yarn", ["add", "single-spa"]);
-          break;
-        default:
-          break;
-      }
-    }
-  }
-
   async finished() {
     console.log(
       chalk.bgWhite.black(
