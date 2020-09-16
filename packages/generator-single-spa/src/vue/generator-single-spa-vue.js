@@ -5,7 +5,7 @@ const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
 const path = require("path");
 const fs = require("fs");
-const isValidName = require("../naming");
+const validate = require("../validate-naming");
 
 module.exports = class SingleSpaVueGenerator extends Generator {
   constructor(args, opts) {
@@ -20,46 +20,31 @@ module.exports = class SingleSpaVueGenerator extends Generator {
     });
   }
   async getOptions() {
-    while (!this.options.orgName) {
-      let { orgName } = await this.prompt([
+    this.options.orgName = (
+      await this.prompt([
         {
           type: "input",
           name: "orgName",
-          message: "Organization name (use lowercase and dashes)",
+          message: "Organization name",
+          suffix: " (can use lowercase letters, numbers, dash or underscore)",
+          validate,
         },
-      ]);
-
-      orgName = orgName && orgName.trim();
-      if (!orgName) {
-        console.log(chalk.red("orgName must be provided!"));
-      } else if (!isValidName(orgName)) {
-        console.log(chalk.red("orgName must use lowercase and dashes!"));
-      } else {
-        this.options.orgName = orgName;
-      }
-    }
+      ])
+    ).orgName;
 
     let { dir, name } = path.parse(path.resolve(this.options.dir));
 
-    if (!isValidName(name)) {
-      while (!this.options.projectName) {
-        let { projectName } = await this.prompt([
+    if (validate(name) !== true) {
+      this.options.projectName = (
+        await this.prompt([
           {
             type: "input",
             name: "projectName",
-            message: "Project name (use lowercase and dashes)",
+            message: "Project name",
+            validate,
           },
-        ]);
-
-        projectName = projectName && projectName.trim();
-        if (!projectName) {
-          console.log(chalk.red("projectName must be provided!"));
-        } else if (!isValidName(projectName)) {
-          console.log(chalk.red("projectName must use lowercase and dashes!"));
-        } else {
-          this.options.projectName = projectName;
-        }
-      }
+        ])
+      ).projectName;
     } else {
       this.options.dir = dir;
       this.options.projectName = name;
