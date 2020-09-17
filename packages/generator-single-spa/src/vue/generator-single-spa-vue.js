@@ -41,6 +41,7 @@ module.exports = class SingleSpaVueGenerator extends Generator {
             type: "input",
             name: "projectName",
             message: "Project name",
+            suffix: " (can use lowercase letters, numbers, dash or underscore)",
             validate,
           },
         ])
