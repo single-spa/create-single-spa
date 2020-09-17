@@ -8,7 +8,7 @@ module.exports = function validateNaming(input) {
   } else if (!BEGIN_WITH_LETTER.test(input)) {
     return `Must begin with a letter`;
   } else if (!ALLOWED_CHARACTERS.test(input)) {
-    return `May only contain letters, numbers, underscores, and dashes`;
+    return `May only contain letters, numbers, dash or underscore`;
   } else {
     return true;
   }

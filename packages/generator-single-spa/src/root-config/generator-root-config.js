@@ -52,7 +52,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
         type: "input",
         name: "orgName",
         message: "Organization name",
-        suffix: " (can use lowercase letters, numbers, dash or underscore)",
+        suffix: " (can use letters, numbers, dash or underscore)",
         when: !this.options.orgName,
         validate,
       },
