@@ -2,7 +2,7 @@ const Generator = require("yeoman-generator");
 const ejs = require("ejs");
 const fs = require("fs").promises;
 const chalk = require("chalk");
-const isValidName = require("../naming");
+const validate = require("../validate-naming");
 
 module.exports = class SingleSpaSvelteGenerator extends Generator {
   constructor(args, opts) {
@@ -48,43 +48,29 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
     //   ).typescript;
     // }
 
-    while (!this.options.orgName) {
-      let { orgName } = await this.prompt([
+    this.options.orgName = (
+      await this.prompt([
         {
           type: "input",
           name: "orgName",
-          message: "Organization name (use lowercase and dashes)",
+          message: "Organization name",
+          suffix: " (can use lowercase letters, numbers, dash or underscore)",
+          validate,
         },
-      ]);
+      ])
+    ).orgName;
 
-      orgName = orgName && orgName.trim();
-      if (!orgName) {
-        console.log(chalk.red("orgName must be provided!"));
-      } else if (!isValidName(orgName)) {
-        console.log(chalk.red("orgName must use lowercase and dashes!"));
-      } else {
-        this.options.orgName = orgName;
-      }
-    }
-
-    while (!this.options.projectName) {
-      let { projectName } = await this.prompt([
+    this.options.projectName = (
+      await this.prompt([
         {
           type: "input",
           name: "projectName",
-          message: "Project name (use lowercase and dashes)",
+          message: "Project name",
+          suffix: " (can use lowercase letters, numbers, dash or underscore)",
+          validate,
         },
-      ]);
-
-      projectName = projectName && projectName.trim();
-      if (!projectName) {
-        console.log(chalk.red("projectName must be provided!"));
-      } else if (!isValidName(projectName)) {
-        console.log(chalk.red("projectName must use lowercase and dashes!"));
-      } else {
-        this.options.projectName = projectName;
-      }
-    }
+      ])
+    ).projectName;
 
     this.options.framework = "svelte";
   }
