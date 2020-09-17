@@ -1,5 +1,5 @@
-const BEGIN_WITH_LETTER = /^[a-z]/;
-const ALLOWED_CHARACTERS = /^[a-z0-9\-]+$/;
+const BEGIN_WITH_LETTER = /^[a-zA-Z]/;
+const ALLOWED_CHARACTERS = /^[a-zA-Z0-9\-]+$/;
 
 module.exports = function validateNaming(input) {
   input = input && input.trim();
@@ -8,7 +8,7 @@ module.exports = function validateNaming(input) {
   } else if (!BEGIN_WITH_LETTER.test(input)) {
     return `Must begin with a letter`;
   } else if (!ALLOWED_CHARACTERS.test(input)) {
-    return `May only use lowercase letters, numbers, underscores, or dashes!`;
+    return `May only contain letters, numbers, underscores, and dashes`;
   } else {
     return true;
   }
