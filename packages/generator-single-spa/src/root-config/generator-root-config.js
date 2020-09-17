@@ -2,7 +2,7 @@ const Generator = require("yeoman-generator");
 const fs = require("fs").promises;
 const ejs = require("ejs");
 const chalk = require("chalk");
-const isValidName = require("../naming");
+const validate = require("../validate-naming");
 
 module.exports = class SingleSpaRootConfigGenerator extends Generator {
   constructor(args, opts) {
@@ -65,24 +65,17 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       ).layout;
     }
 
-    while (!this.options.orgName) {
-      let { orgName } = await this.prompt([
+    this.options.orgName = (
+      await this.prompt([
         {
           type: "input",
           name: "orgName",
-          message: "Organization name (use lowercase and dashes)",
+          message: "Organization name",
+          suffix: " (can use lowercase letters, numbers, dash or underscore)",
+          validate,
         },
-      ]);
-
-      orgName = orgName && orgName.trim();
-      if (!orgName) {
-        console.log(chalk.red("orgName must be provided!"));
-      } else if (!isValidName(orgName)) {
-        console.log(chalk.red("orgName must use lowercase and dashes!"));
-      } else {
-        this.options.orgName = orgName;
-      }
-    }
+      ])
+    ).orgName;
 
     this.options.framework = "none";
   }
