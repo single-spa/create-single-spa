@@ -49,6 +49,10 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       this.options.dir = dir;
       this.options.projectName = name;
     }
+
+    if (!fs.existsSync(this.options.dir)) {
+      fs.mkdirSync(this.options.dir);
+    }
   }
   async runVueCli() {
     const globalInstallation = await commandExists("vue");
