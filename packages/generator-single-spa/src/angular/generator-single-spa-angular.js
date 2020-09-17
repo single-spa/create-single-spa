@@ -18,32 +18,26 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
     });
   }
   async getOptions() {
-    if (!this.options.packageManager) {
-      this.options.packageManager = (
-        await this.prompt([
-          {
-            type: "list",
-            name: "packageManager",
-            message: "Which package manager do you want to use?",
-            choices: ["yarn", "npm"],
-          },
-        ])
-      ).packageManager;
-    }
+    const answers = await this.prompt([
+      {
+        type: "input",
+        name: "orgName",
+        message: "Organization name",
+        suffix: " (can use lowercase letters, numbers, dash or underscore)",
+        when: !this.options.orgName,
+        validate,
+      },
+      {
+        type: "input",
+        name: "projectName",
+        message: "Project name",
+        suffix: " (can use lowercase letters, numbers, dash or underscore)",
+        when: !this.options.projectName,
+        validate,
+      },
+    ]);
 
-    if (!this.options.projectName) {
-      this.options.projectName = (
-        await this.prompt([
-          {
-            type: "input",
-            name: "projectName",
-            message: "Project name",
-            suffix: " (can use lowercase letters, numbers, dash or underscore)",
-            validate,
-          },
-        ])
-      ).projectName;
-    }
+    Object.assign(this.options, answers, { framework: "angular" });
   }
   async runAngularCli() {
     const globalInstallation = await commandExists("ng");

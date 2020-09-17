@@ -22,57 +22,40 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     });
   }
   async getOptions() {
-    if (!this.options.packageManager) {
-      this.options.packageManager = (
-        await this.prompt([
-          {
-            type: "list",
-            name: "packageManager",
-            message: "Which package manager do you want to use?",
-            choices: ["yarn", "npm"],
-          },
-        ])
-      ).packageManager;
-    }
+    const answers = await this.prompt([
+      {
+        type: "list",
+        name: "packageManager",
+        message: "Which package manager do you want to use?",
+        choices: ["yarn", "npm"],
+        when: !this.options.packageManager,
+      },
+      {
+        type: "confirm",
+        name: "typescript",
+        message: "Will this project use Typescript?",
+        default: false,
+        when: this.options.typescript === undefined,
+      },
+      {
+        type: "input",
+        name: "orgName",
+        message: "Organization name",
+        suffix: " (can use lowercase letters, numbers, dash or underscore)",
+        when: !this.options.orgName,
+        validate,
+      },
+      {
+        type: "input",
+        name: "projectName",
+        message: "Project name",
+        suffix: " (can use lowercase letters, numbers, dash or underscore)",
+        when: !this.options.projectName,
+        validate,
+      },
+    ]);
 
-    if (this.options.typescript === undefined) {
-      this.options.typescript = (
-        await this.prompt([
-          {
-            type: "confirm",
-            name: "typescript",
-            message: "Will this project use Typescript?",
-            default: false,
-          },
-        ])
-      ).typescript;
-    }
-
-    this.options.orgName = (
-      await this.prompt([
-        {
-          type: "input",
-          name: "orgName",
-          message: "Organization name",
-          suffix: " (can use lowercase letters, numbers, dash or underscore)",
-          validate,
-        },
-      ])
-    ).orgName;
-
-    this.options.projectName = (
-      await this.prompt([
-        {
-          type: "input",
-          name: "projectName",
-          message: "Project name",
-          suffix: " (can use lowercase letters, numbers, dash or underscore)",
-          validate,
-        },
-      ])
-    ).projectName;
-
-    this.options.framework = "react";
+    Object.assign(this.options, answers, { framework: "react" });
   }
   async createPackageJson() {
     const packageJsonTemplate = await fs.readFile(

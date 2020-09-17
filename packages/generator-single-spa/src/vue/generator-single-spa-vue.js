@@ -20,36 +20,31 @@ module.exports = class SingleSpaVueGenerator extends Generator {
     });
   }
   async getOptions() {
-    this.options.orgName = (
-      await this.prompt([
-        {
-          type: "input",
-          name: "orgName",
-          message: "Organization name",
-          suffix: " (can use lowercase letters, numbers, dash or underscore)",
-          validate,
-        },
-      ])
-    ).orgName;
+    const { dir, name } = path.parse(path.resolve(this.options.dir));
+    const hasValidName = validate(name) === true;
 
-    let { dir, name } = path.parse(path.resolve(this.options.dir));
+    const { orgName, projectName = name } = await this.prompt([
+      {
+        type: "input",
+        name: "orgName",
+        message: "Organization name",
+        suffix: " (can use lowercase letters, numbers, dash or underscore)",
+        when: !this.options.orgName,
+        validate,
+      },
+      {
+        type: "input",
+        name: "projectName",
+        message: "Project name",
+        suffix: " (can use lowercase letters, numbers, dash or underscore)",
+        when: !hasValidName,
+        validate,
+      },
+    ]);
 
-    if (validate(name) !== true) {
-      this.options.projectName = (
-        await this.prompt([
-          {
-            type: "input",
-            name: "projectName",
-            message: "Project name",
-            suffix: " (can use lowercase letters, numbers, dash or underscore)",
-            validate,
-          },
-        ])
-      ).projectName;
-    } else {
-      this.options.dir = dir;
-      this.options.projectName = name;
-    }
+    this.options.orgName = orgName;
+    this.options.projectName = projectName;
+    if (hasValidName) this.options.dir = dir;
 
     if (!fs.existsSync(this.options.dir)) {
       fs.mkdirSync(this.options.dir);

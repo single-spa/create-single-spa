@@ -25,59 +25,40 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     });
   }
   async createPackageJson() {
-    if (!this.options.packageManager) {
-      this.options.packageManager = (
-        await this.prompt([
-          {
-            type: "list",
-            name: "packageManager",
-            message: "Which package manager do you want to use?",
-            choices: ["yarn", "npm"],
-          },
-        ])
-      ).packageManager;
-    }
+    const answers = await this.prompt([
+      {
+        type: "list",
+        name: "packageManager",
+        message: "Which package manager do you want to use?",
+        choices: ["yarn", "npm"],
+        when: !this.options.packageManager,
+      },
+      {
+        type: "confirm",
+        name: "typescript",
+        message: "Will this project use Typescript?",
+        default: false,
+        when: this.options.typescript === undefined,
+      },
+      {
+        type: "confirm",
+        name: "layout",
+        message:
+          "Would you like to use single-spa Layout Engine (currently in beta)?",
+        default: false,
+        when: this.options.layout === undefined,
+      },
+      {
+        type: "input",
+        name: "orgName",
+        message: "Organization name",
+        suffix: " (can use lowercase letters, numbers, dash or underscore)",
+        when: !this.options.orgName,
+        validate,
+      },
+    ]);
 
-    if (this.options.typescript === undefined) {
-      this.options.typescript = (
-        await this.prompt([
-          {
-            type: "confirm",
-            name: "typescript",
-            message: "Will this project use Typescript?",
-            default: false,
-          },
-        ])
-      ).typescript;
-    }
-
-    if (this.options.layout === undefined) {
-      this.options.layout = (
-        await this.prompt([
-          {
-            type: "confirm",
-            name: "layout",
-            message:
-              "Would you like to use single-spa Layout Engine (currently in beta)?",
-            default: false,
-          },
-        ])
-      ).layout;
-    }
-
-    this.options.orgName = (
-      await this.prompt([
-        {
-          type: "input",
-          name: "orgName",
-          message: "Organization name",
-          suffix: " (can use lowercase letters, numbers, dash or underscore)",
-          validate,
-        },
-      ])
-    ).orgName;
-
-    this.options.framework = "none";
+    Object.assign(this.options, answers, { framework: "none" });
   }
   async copyFiles() {
     const packageJsonTemplate = await fs.readFile(
