@@ -3,6 +3,7 @@ const { spawnSync } = require("child_process");
 const util = require("util");
 const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
+const validate = require("../validate-naming");
 
 module.exports = class SingleSpaAngularGenerator extends Generator {
   constructor(args, opts) {
@@ -36,7 +37,9 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
           {
             type: "input",
             name: "projectName",
-            message: "Project name (use lowercase and dashes)",
+            message: "Project name",
+            suffix: " (can use lowercase letters, numbers, dash or underscore)",
+            validate,
           },
         ])
       ).projectName;
