@@ -2,7 +2,7 @@ const Generator = require("yeoman-generator");
 const ejs = require("ejs");
 const fs = require("fs").promises;
 const chalk = require("chalk");
-const isValidName = require("../naming");
+const validate = require("../validate-naming");
 
 module.exports = class SingleSpaUtilModuleGenerator extends Generator {
   constructor(args, opts) {
@@ -25,71 +25,40 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
     });
   }
   async getOptions() {
-    if (!this.options.packageManager) {
-      this.options.packageManager = (
-        await this.prompt([
-          {
-            type: "list",
-            name: "packageManager",
-            message: "Which package manager do you want to use?",
-            choices: ["yarn", "npm"],
-          },
-        ])
-      ).packageManager;
-    }
+    const answers = await this.prompt([
+      {
+        type: "list",
+        name: "packageManager",
+        message: "Which package manager do you want to use?",
+        choices: ["yarn", "npm"],
+        when: !this.options.packageManager,
+      },
+      {
+        type: "confirm",
+        name: "typescript",
+        message: "Will this project use Typescript?",
+        default: false,
+        when: this.options.typescript === undefined,
+      },
+      {
+        type: "input",
+        name: "orgName",
+        message: "Organization name",
+        suffix: " (can use letters, numbers, dash or underscore)",
+        when: !this.options.orgName,
+        validate,
+      },
+      {
+        type: "input",
+        name: "projectName",
+        message: "Project name",
+        suffix: " (can use letters, numbers, dash or underscore)",
+        when: !this.options.projectName,
+        validate,
+      },
+    ]);
 
-    if (this.options.typescript === undefined) {
-      this.options.typescript = (
-        await this.prompt([
-          {
-            type: "confirm",
-            name: "typescript",
-            message: "Will this project use Typescript?",
-            default: false,
-          },
-        ])
-      ).typescript;
-    }
-
-    while (!this.options.orgName) {
-      let { orgName } = await this.prompt([
-        {
-          type: "input",
-          name: "orgName",
-          message: "Organization name (use lowercase and dashes)",
-        },
-      ]);
-
-      orgName = orgName && orgName.trim();
-      if (!orgName) {
-        console.log(chalk.red("orgName must be provided!"));
-      } else if (!isValidName(orgName)) {
-        console.log(chalk.red("orgName must use lowercase and dashes!"));
-      } else {
-        this.options.orgName = orgName;
-      }
-    }
-
-    while (!this.options.projectName) {
-      let { projectName } = await this.prompt([
-        {
-          type: "input",
-          name: "projectName",
-          message: "Project name (use lowercase and dashes)",
-        },
-      ]);
-
-      projectName = projectName && projectName.trim();
-      if (!projectName) {
-        console.log(chalk.red("projectName must be provided!"));
-      } else if (!isValidName(projectName)) {
-        console.log(chalk.red("projectName must use lowercase and dashes!"));
-      } else {
-        this.options.projectName = projectName;
-      }
-    }
-
-    this.options.framework = "none";
+    Object.assign(this.options, answers, { framework: "none" });
   }
   async createPackageJson() {
     const packageJsonTemplate = await fs.readFile(

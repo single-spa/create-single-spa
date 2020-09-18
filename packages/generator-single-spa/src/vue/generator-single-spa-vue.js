@@ -5,7 +5,7 @@ const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
 const path = require("path");
 const fs = require("fs");
-const isValidName = require("../naming");
+const validate = require("../validate-naming");
 
 module.exports = class SingleSpaVueGenerator extends Generator {
   constructor(args, opts) {
@@ -20,49 +20,34 @@ module.exports = class SingleSpaVueGenerator extends Generator {
     });
   }
   async getOptions() {
-    while (!this.options.orgName) {
-      let { orgName } = await this.prompt([
-        {
-          type: "input",
-          name: "orgName",
-          message: "Organization name (use lowercase and dashes)",
-        },
-      ]);
+    const { dir, name } = path.parse(path.resolve(this.options.dir));
+    const hasValidName = validate(name) === true;
 
-      orgName = orgName && orgName.trim();
-      if (!orgName) {
-        console.log(chalk.red("orgName must be provided!"));
-      } else if (!isValidName(orgName)) {
-        console.log(chalk.red("orgName must use lowercase and dashes!"));
-      } else {
-        this.options.orgName = orgName;
-      }
-    }
+    const { orgName, projectName = name } = await this.prompt([
+      {
+        type: "input",
+        name: "orgName",
+        message: "Organization name",
+        suffix: " (can use letters, numbers, dash or underscore)",
+        when: !this.options.orgName,
+        validate,
+      },
+      {
+        type: "input",
+        name: "projectName",
+        message: "Project name",
+        suffix: " (can use letters, numbers, dash or underscore)",
+        when: !hasValidName,
+        validate,
+      },
+    ]);
 
-    let { dir, name } = path.parse(path.resolve(this.options.dir));
+    this.options.orgName = orgName;
+    this.options.projectName = projectName;
+    if (hasValidName) this.options.dir = dir;
 
-    if (!isValidName(name)) {
-      while (!this.options.projectName) {
-        let { projectName } = await this.prompt([
-          {
-            type: "input",
-            name: "projectName",
-            message: "Project name (use lowercase and dashes)",
-          },
-        ]);
-
-        projectName = projectName && projectName.trim();
-        if (!projectName) {
-          console.log(chalk.red("projectName must be provided!"));
-        } else if (!isValidName(projectName)) {
-          console.log(chalk.red("projectName must use lowercase and dashes!"));
-        } else {
-          this.options.projectName = projectName;
-        }
-      }
-    } else {
-      this.options.dir = dir;
-      this.options.projectName = name;
+    if (!fs.existsSync(this.options.dir)) {
+      fs.mkdirSync(this.options.dir);
     }
   }
   async runVueCli() {
