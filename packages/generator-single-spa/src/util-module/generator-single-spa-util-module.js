@@ -164,7 +164,7 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
         coloredFinalInstructions(
           `1. Run '${this.options.packageManager} start${
             this.options.packageManager === "npm" ? " --" : ""
-          } --port 8500`
+          } --port 8500'`
         )
       );
       console.log(
