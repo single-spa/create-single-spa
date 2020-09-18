@@ -1,4 +1,5 @@
 {
+  "name": "<%= name %>",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --mode=production",

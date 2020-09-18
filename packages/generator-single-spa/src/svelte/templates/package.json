@@ -1,4 +1,5 @@
 {
+  "name": "<%= name %>",
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",

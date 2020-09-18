@@ -1,4 +1,5 @@
 {
+  "name": "<%= name %>",
   "scripts": {
     "start": "webpack-dev-server --mode=development --port 9000 --env.isLocal=true",
     "lint": "eslint src --ext js<% if (typescript) { %>,ts,tsx<% } %>",
