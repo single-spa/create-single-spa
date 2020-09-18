@@ -63,8 +63,7 @@ module.exports = class SingleSpaSvelteGenerator extends Generator {
       { encoding: "utf-8" }
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
-      orgName: this.options.orgName,
-      projectName: this.options.projectName,
+      name: `@${this.options.orgName}/${this.options.projectName}`,
     });
 
     const packageJson = JSON.parse(packageJsonStr);

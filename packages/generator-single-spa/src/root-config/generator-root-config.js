@@ -66,6 +66,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       { encoding: "utf-8" }
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
+      name: `@${this.options.orgName}/root-config`,
       packageManager: this.options.packageManager,
       typescript: this.options.typescript,
     });

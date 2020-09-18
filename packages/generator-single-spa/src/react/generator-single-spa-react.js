@@ -63,6 +63,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       { encoding: "utf-8" }
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
+      name: `@${this.options.orgName}/${this.options.projectName}`,
       packageManager: this.options.packageManager,
       typescript: this.options.typescript,
     });

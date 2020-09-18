@@ -20,12 +20,11 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
   async getOptions() {
     const answers = await this.prompt([
       {
-        type: "input",
-        name: "orgName",
-        message: "Organization name",
-        suffix: " (can use letters, numbers, dash or underscore)",
-        when: !this.options.orgName,
-        validate,
+        type: "list",
+        name: "packageManager",
+        message: "Which package manager do you want to use?",
+        choices: ["yarn", "npm"],
+        when: !this.options.packageManager,
       },
       {
         type: "input",
