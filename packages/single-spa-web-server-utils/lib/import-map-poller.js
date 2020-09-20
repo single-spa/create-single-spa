@@ -45,7 +45,9 @@ export function getImportMaps({
             return r.json();
           } else {
             throw Error(
-              `Import Map at ${url} did not respond with correct content-type response header. Should be application/importmap+json`
+              `Import Map at ${url} did not respond with correct content-type response header. Should be application/importmap+json, but was ${r.headers.get(
+                "content-type"
+              )}`
             );
           }
         } else {
