@@ -1,11 +1,5 @@
 # `single-spa-web-server-utils`
 
-> TODO: description
+A set of web server utilities for single-spa's recommended setup.
 
-## Usage
-
-```
-const singleSpaWebServerUtils = require('single-spa-web-server-utils');
-
-// TODO: DEMONSTRATE API
-```
+[Full Documentation](https://single-spa.js.org/docs/create-single-spa#single-spa-web-server-utils)

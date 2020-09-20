@@ -2,7 +2,7 @@
   "name": "single-spa-web-server-utils",
   "version": "1.13.0",
   "type": "module",
-  "description": "single-spa web server utils import maps ssr",
+  "description": "Utility functions for single-spa's recommended setup",
   "keywords": [
     "single-spa",
     "import",
@@ -34,7 +34,6 @@
   "dependencies": {
     "import-map-overrides": "^2.0.0",
     "lodash": "^4.17.20",
-    "node-fetch": "^2.6.1",
-    "single-spa-layout": "^1.0.0-beta.10"
+    "node-fetch": "^2.6.1"
   }
 }
