@@ -1,0 +1,38 @@
+{
+  "name": "single-spa-web-server-utils",
+  "version": "1.13.0",
+  "type": "module",
+  "description": "Utility functions for single-spa's recommended setup",
+  "keywords": [
+    "single-spa",
+    "import",
+    "maps",
+    "ssr",
+    "server"
+  ],
+  "author": "Joel Denning <joeldenning@gmail.com>",
+  "homepage": "https://single-spa.js.org/docs/create-single-spa#single-spa-web-server-utils",
+  "license": "MIT",
+  "main": "lib/single-spa-web-server-utils.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/single-spa/create-single-spa.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 0"
+  },
+  "bugs": {
+    "url": "https://github.com/single-spa/create-single-spa/issues"
+  },
+  "dependencies": {
+    "import-map-overrides": "^2.0.0",
+    "lodash": "^4.17.20",
+    "node-fetch": "^2.6.1"
+  }
+}
