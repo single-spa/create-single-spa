@@ -9,23 +9,12 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.option("packageManager", {
-      type: String,
-    });
-
     this.option("projectName", {
       type: String,
     });
   }
   async getOptions() {
     const answers = await this.prompt([
-      {
-        type: "list",
-        name: "packageManager",
-        message: "Which package manager do you want to use?",
-        choices: ["yarn", "npm"],
-        when: !this.options.packageManager,
-      },
       {
         type: "input",
         name: "projectName",
@@ -63,8 +52,6 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
         this.options.projectName, // name of the new workspace and initial project
         "--directory",
         this.cwd,
-        "--package-manager",
-        this.options.packageManager,
         // "--routing", false, TODO: Figure out how to interop with single-spa-angular's routing option so that we don't ask the user twice with opposite defaults
       ]),
       { stdio: "inherit" }
@@ -91,12 +78,8 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
       chalk.bgWhite.black(
         `Project setup complete!
 Steps to test your Angular single-spa application:
-1. Run '${this.options.packageManager}${
-          this.options.packageManager === "npm" ? " run" : ""
-        } serve:single-spa:${this.options.projectName}'
-2. Go to http://single-spa-playground.org/playground/instant-test?name=${
-          this.options.projectName
-        }&url=%2F%2Flocalhost%3A4200%2Fmain.js&framework=angular to see it working!`
+1. Run 'npm run serve:single-spa:${this.options.projectName}'
+2. Go to http://single-spa-playground.org/playground/instant-test?name=${this.options.projectName}&url=%2F%2Flocalhost%3A4200%2Fmain.js&framework=angular to see it working!`
       )
     );
   }
