@@ -128,7 +128,11 @@ export default function Root(props) {
             Import Maps
           </a>
         </li>
-        <li>Single-spa ecosystem</li>
+        <li>
+          <a href="https://single-spa.js.org/docs/ecosystem/">
+            Single-spa ecosystem
+          </a>
+        </li>
       </ul>
       <h2 id="contribute">Contribute</h2>
       <ul>
