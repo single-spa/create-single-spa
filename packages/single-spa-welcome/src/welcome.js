@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./welcome.css";
 
 export default function Root(props) {
-  const [isUsingSingleSpaLayout] = useState(() => {
+  const isUsingSingleSpaLayout = useState(() => {
     // Search the dom for a single-spa-router element
     // While this won't work for SSR, the goal of this app is to help
     // beginners, which likely won't use SSR before running their
@@ -17,7 +17,7 @@ export default function Root(props) {
       );
       return hasSingleSpaRouter;
     });
-  });
+  })[0];
 
   return (
     <section id="welcome">
