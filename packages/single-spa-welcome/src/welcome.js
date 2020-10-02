@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./welcome.css";
 
 export default function Root(props) {
+  const [isUsingSingleSpaLayout] = useState(() => {
+    // Search the dom for a single-spa-router element
+    // While this won't work for SSR, the goal of this app is to help
+    // beginners, which likely won't use SSR before running their
+    // first root-config.
+    const templates = Array.prototype.slice.call(
+      document.querySelectorAll("template")
+    );
+
+    return templates.some((template) => {
+      const hasSingleSpaRouter = !!template.content.querySelector(
+        "single-spa-router"
+      );
+      return hasSingleSpaRouter;
+    });
+  });
+
   return (
     <section id="welcome">
       <div className="banner">
@@ -30,7 +47,7 @@ export default function Root(props) {
       <h3>1. Add shared dependencies</h3>
       <ul>
         <li>
-          Locate the importmap in <code>src/index.ejs</code>
+          Locate the import map in <code>src/index.ejs</code>
         </li>
         <li>
           <p>
@@ -46,18 +63,45 @@ export default function Root(props) {
       </ul>
       <h3>2. Create your next single-spa application</h3>
       <ul>
-        <li>Generate a single-spa application with create-single-spa</li>
         <li>
-          Update the importmap in <code>src/index.ejs</code>
+          Generate a single-spa application with create-single-spa and follow
+          the prompts until it is running locally
         </li>
         <li>
-          Open <code>src/root-config.js</code> and remove the code for
-          registering this application
+          Return to the root-config and update the import map in{" "}
+          <code>src/index.ejs</code> with your project's name
+          <aside>
+            It's recommended to use the application's package.json name field
+          </aside>
         </li>
-        <li>
-          Uncomment the <code>registerApplication</code> code and update it with
-          your new application's name
-        </li>
+        {isUsingSingleSpaLayout ? (
+          <>
+            <li>
+              Locate the{" "}
+              <code>
+                &lt;application
+                name="@single-spa/welcome"&gt;&lt;/application&gt;
+              </code>{" "}
+              element and remove it
+            </li>
+            <li>
+              Using the name of your new application, add your own{" "}
+              <code>&lt;application name=""&gt;&lt;/application&gt;</code>{" "}
+              element to the single-spa layout
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              Open <code>src/root-config.js</code> and remove the code for
+              registering this application
+            </li>
+            <li>
+              Uncomment the <code>registerApplication</code> code and update it
+              with your new application's name
+            </li>
+          </>
+        )}
       </ul>
       <p>
         After this, you should no longer see this welcome page but should
