@@ -43,8 +43,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       {
         type: "confirm",
         name: "layout",
-        message:
-          "Would you like to use single-spa Layout Engine (currently in beta)?",
+        message: "Would you like to use single-spa Layout Engine",
         default: false,
         when: this.options.layout === undefined,
       },
@@ -152,15 +151,15 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     if (this.options.layout) {
       const { stdout } = this.spawnCommandSync(
         "npm",
-        ["view", "single-spa-layout@beta", "version"],
+        ["view", "single-spa-layout", "version"],
         { stdio: "pipe" }
       );
 
-      const singleSpaLayoutBetaVersion = stdout.toString("utf8").trim();
+      const singleSpaLayoutVersion = stdout.toString("utf8").trim();
 
       this.fs.extendJSON(this.destinationPath("package.json"), {
         dependencies: {
-          "single-spa-layout": singleSpaLayoutBetaVersion,
+          "single-spa-layout": singleSpaLayoutVersion,
         },
       });
     }
