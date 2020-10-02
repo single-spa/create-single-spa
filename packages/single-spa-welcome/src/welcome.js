@@ -51,16 +51,24 @@ export default function Root(props) {
         </li>
         <li>
           <p>
-            Add an entry for modules that you would like to have shared across
-            your dependencies. For example, to share React, add this to your
-            importmap.
+            Add an entry for modules that will be shared across your
+            dependencies. For example, a React application generated with
+            create-single-spa will need to add React and ReactDOM to the import
+            map.
           </p>
           <pre>
-            <code>{`"react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
-"react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js"`}</code>
+            <code>{`"react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
+"react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js"`}</code>
           </pre>
         </li>
       </ul>
+      <p>
+        Refer to the corresponding{" "}
+        <a href="https://single-spa.js.org/docs/ecosystem/#help-for-frameworks">
+          single-spa framework helpers
+        </a>{" "}
+        for more specific information.
+      </p>
       <h3>2. Create your next single-spa application</h3>
       <ul>
         <li>
