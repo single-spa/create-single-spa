@@ -49,6 +49,7 @@ module.exports = class SingleSpaHtmlGenerator extends Generator {
   }
   async copyTemplateFiles() {
     const name = `@${this.options.orgName}/${this.options.projectName}`;
+    const filename = `${this.options.orgName}-${this.options.projectName}`;
     // Config files
     this.fs.copyTpl(
       this.templatePath("package.json"),
@@ -75,12 +76,15 @@ module.exports = class SingleSpaHtmlGenerator extends Generator {
       this.destinationPath(".gitignore"),
       this.options
     );
+    this.fs.copyTpl(
+      this.templatePath("jest.config.js"),
+      this.destinationPath("jest.config.js"),
+      this.options
+    );
     // Source files
     this.fs.copyTpl(
       this.templatePath("src/orgName-projectName.js"),
-      this.destinationPath(
-        `src/${this.options.orgName}-${this.options.projectName}.js`
-      ),
+      this.destinationPath(`src/${filename}.js`),
       this.options
     );
     this.fs.copyTpl(
@@ -92,6 +96,14 @@ module.exports = class SingleSpaHtmlGenerator extends Generator {
       this.templatePath("src/template.html"),
       this.destinationPath(`src/template.html`),
       { name }
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/orgName-projectName.test.js"),
+      this.destinationPath(`src/${filename}.test.js`),
+      {
+        filename,
+        name,
+      }
     );
 
     const childGitInitProcess = this.spawnCommandSync("git", ["init"]);

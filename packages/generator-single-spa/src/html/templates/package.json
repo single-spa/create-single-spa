@@ -2,7 +2,8 @@
   "name": "<%= name %>",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test": "jest"
   },
   "dependencies": {
     "single-spa-html": "^1.1.2"
@@ -10,11 +11,16 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
+    "@testing-library/dom": "^7.24.5",
+    "@testing-library/jest-dom": "^5.11.4",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
     "cssnano": "^4.1.10",
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
+    "html-loader-jest": "^0.2.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.5.2",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
     "style-loader": "^1.2.1",
