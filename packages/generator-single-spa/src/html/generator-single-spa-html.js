@@ -1,6 +1,4 @@
 const Generator = require("yeoman-generator");
-const ejs = require("ejs");
-const fs = require("fs").promises;
 const chalk = require("chalk");
 const validate = require("../validate-naming");
 
