@@ -23,7 +23,6 @@ function webpackConfigSingleSpa(opts) {
   }
 
   let webpackConfigEnv = opts.webpackConfigEnv || {};
-  console.log(webpackConfigEnv);
 
   return {
     entry: path.resolve(

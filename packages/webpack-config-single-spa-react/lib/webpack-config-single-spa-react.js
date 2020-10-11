@@ -3,7 +3,6 @@ const webpackConfigSingleSpa = require("webpack-config-single-spa");
 module.exports = webpackConfigSingleSpaReact;
 
 function webpackConfigSingleSpaReact(opts) {
-  console.log(opts);
   const webpackConfigEnv = opts.webpackConfigEnv || {};
 
   opts.react = true;
