@@ -66,11 +66,14 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       command += ".cmd";
     }
 
+    const dirPath = path.resolve(this.options.dir);
+    const projectPath = path.resolve(dirPath, this.options.projectName);
+
     const { status, signal } = spawnSync(
       command,
       args.concat(["create", this.options.projectName, "--skipGetStarted"]),
       {
-        cwd: this.options.dir,
+        cwd: dirPath,
         stdio: "inherit",
       }
     );
@@ -81,11 +84,7 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       process.exit(status);
     }
 
-    const pkgJsonPath = path.resolve(
-      this.options.dir,
-      this.options.projectName,
-      "package.json"
-    );
+    const pkgJsonPath = path.resolve(projectPath, "package.json");
     const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath));
     this.projectName = pkgJson.name = `@${this.options.orgName}/${this.options.projectName}`;
     fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
@@ -93,16 +92,14 @@ module.exports = class SingleSpaVueGenerator extends Generator {
     // We purposely do not attempt to install in one command using presets to avoid being too restrictive with application configuration
     spawnSync(command, args.concat(["add", "single-spa"]), {
       stdio: "inherit",
-      cwd: path.resolve(this.options.dir, this.options.projectName),
+      cwd: projectPath,
       env: Object.assign({}, process.env, {
         VUE_CLI_SKIP_DIRTY_GIT_PROMPT: true,
       }),
     });
   }
   async finished() {
-    const usedYarn = this.fs.exists(
-      path.resolve(this.options.dir, this.options.projectName, "yarn.lock")
-    );
+    const usedYarn = this.fs.exists(path.resolve(projectPath, "yarn.lock"));
     console.log(
       chalk.bgWhite.black(
         `Project setup complete!
