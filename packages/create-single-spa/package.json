@@ -11,5 +11,6 @@
     "generator-single-spa": "^1.16.0",
     "yargs": "^14.2.0",
     "yeoman-environment": "^2.6.0"
-  }
+  },
+  "gitHead": "a05f191ac95da9f977fe7964ff3b7d6ad8eaec4f"
 }
