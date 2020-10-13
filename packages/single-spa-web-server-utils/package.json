@@ -34,6 +34,5 @@
     "import-map-overrides": "^2.0.0",
     "lodash": "^4.17.20",
     "node-fetch": "^2.6.1"
-  },
-  "gitHead": "a05f191ac95da9f977fe7964ff3b7d6ad8eaec4f"
+  }
 }

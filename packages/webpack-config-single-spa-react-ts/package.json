@@ -32,6 +32,5 @@
   "dependencies": {
     "webpack-config-single-spa-react": "^1.16.0",
     "webpack-config-single-spa-ts": "^1.16.0"
-  },
-  "gitHead": "a05f191ac95da9f977fe7964ff3b7d6ad8eaec4f"
+  }
 }

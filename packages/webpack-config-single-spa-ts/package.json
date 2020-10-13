@@ -35,6 +35,5 @@
   },
   "peerDependencies": {
     "typescript": ">=3"
-  },
-  "gitHead": "a05f191ac95da9f977fe7964ff3b7d6ad8eaec4f"
+  }
 }

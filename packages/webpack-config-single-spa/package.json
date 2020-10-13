@@ -28,6 +28,5 @@
     "style-loader": "^1.2.1",
     "unused-files-webpack-plugin": "^3.4.0",
     "webpack-bundle-analyzer": "^3.6.0"
-  },
-  "gitHead": "a05f191ac95da9f977fe7964ff3b7d6ad8eaec4f"
+  }
 }
