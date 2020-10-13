@@ -99,7 +99,9 @@ module.exports = class SingleSpaVueGenerator extends Generator {
     });
   }
   async finished() {
-    const usedYarn = this.fs.exists(path.resolve(projectPath, "yarn.lock"));
+    const usedYarn = this.fs.exists(
+      path.resolve(this.options.dir, this.options.projectName, "yarn.lock")
+    );
     console.log(
       chalk.bgWhite.black(
         `Project setup complete!
