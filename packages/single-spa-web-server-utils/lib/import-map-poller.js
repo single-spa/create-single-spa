@@ -4,6 +4,18 @@ import { applyOverrides, getOverridesFromCookies } from "import-map-overrides";
 
 let importMapPromises = {};
 
+/**
+ *
+ * @typedef {{
+ * url: string;
+ * pollInterval: number;
+ * req: import('http').IncomingMessage;
+ * allowOverrides: boolean;
+ * nodeKeyFilter?(importSpecifier: string): boolean;
+ * }} GetImportMapOptions
+ *
+ * @param {GetImportMapOptions} options
+ */
 export function getImportMaps({
   url,
   pollInterval = 30000,
@@ -22,11 +34,13 @@ export function getImportMaps({
       : originalMap;
     const nodeImportMap = _.cloneDeep(browserImportMap);
 
-    Object.keys(nodeImportMap.imports).forEach((key) => {
-      if (!nodeKeyFilter(key)) {
-        delete nodeImportMap.imports[key];
-      }
-    });
+    if (nodeKeyFilter) {
+      Object.keys(nodeImportMap.imports).forEach((key) => {
+        if (!nodeKeyFilter(key)) {
+          delete nodeImportMap.imports[key];
+        }
+      });
+    }
 
     return {
       browserImportMap,
