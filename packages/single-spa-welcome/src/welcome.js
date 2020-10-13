@@ -7,7 +7,7 @@ export default function Root(props) {
     // While this won't work for SSR, the goal of this app is to help
     // beginners, which likely won't use SSR before running their
     // first root-config.
-    const templates = Array.prototype.slice.call(
+    const templates = Array.from(
       document.querySelectorAll("template")
     );
 
