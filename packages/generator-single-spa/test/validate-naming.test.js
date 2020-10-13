@@ -22,12 +22,14 @@ describe("validate-naming", () => {
       expect(validateNaming("@org")).toEqual(invalidMsg);
       expect(validateNaming("1234")).toEqual(invalidMsg);
       expect(validateNaming("123-org")).toEqual(invalidMsg);
+      expect(validateNaming("  org")).toEqual(invalidMsg);
     });
     test("contains invalid characters", () => {
       const invalidMsg = expect.stringContaining("May only contain");
 
       expect(validateNaming("org_123")).toEqual(invalidMsg);
       expect(validateNaming("org@123")).toEqual(invalidMsg);
+      expect(validateNaming("org  ")).toEqual(invalidMsg);
     });
   });
 });
