@@ -7,9 +7,7 @@ export default function Root(props) {
     // While this won't work for SSR, the goal of this app is to help
     // beginners, which likely won't use SSR before running their
     // first root-config.
-    const templates = Array.from(
-      document.querySelectorAll("template")
-    );
+    const templates = Array.from(document.querySelectorAll("template"));
 
     return templates.some((template) => {
       const hasSingleSpaRouter = !!template.content.querySelector(
