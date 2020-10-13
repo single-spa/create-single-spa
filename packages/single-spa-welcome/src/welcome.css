@@ -39,6 +39,13 @@ a:visited {
   color: #02a;
 }
 
+aside {
+  border-left: 3px solid #01f;
+  font-size: 0.9rem;
+  margin-top: 0.4em;
+  padding-left: 1ch;
+}
+
 .logo {
   display: block;
   margin-right: 1rem;
