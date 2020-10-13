@@ -20,6 +20,10 @@ function webpackConfigSingleSpa(opts) {
     );
   }
 
+  if (opts.orgPackagesAsExternal !== false) {
+    opts.orgPackagesAsExternal = true;
+  }
+
   let webpackConfigEnv = opts.webpackConfigEnv || {};
 
   return {
@@ -72,7 +76,9 @@ function webpackConfigSingleSpa(opts) {
       },
       disableHostCheck: true,
     },
-    externals: ["single-spa", new RegExp(`^@${opts.orgName}/`)],
+    externals: opts.orgPackagesAsExternal
+      ? ["single-spa", new RegExp(`^@${opts.orgName}/`)]
+      : ["single-spa"],
     plugins: [
       new CleanWebpackPlugin(),
       new BundleAnalyzerPlugin({
