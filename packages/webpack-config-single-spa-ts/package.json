@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-single-spa-ts",
-  "version": "1.12.0",
+  "version": "1.16.0",
   "description": "webpack-config for single-spa + typescript",
   "keywords": [
     "single-spa",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "fork-ts-checker-webpack-plugin": "^4.1.3",
-    "webpack-config-single-spa": "^1.12.0",
+    "webpack-config-single-spa": "^1.16.0",
     "webpack-merge": "^4.2.2"
   },
   "peerDependencies": {
