@@ -3208,10 +3208,10 @@ ssri@^6.0.1:
   dependencies:
     figgy-pudding "^3.5.1"
 
-standalone-single-spa-webpack-plugin@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/standalone-single-spa-webpack-plugin/-/standalone-single-spa-webpack-plugin-1.0.0.tgz#1a520f9e96cc229fe4aed9fc4ea857c8b4e5f86e"
-  integrity sha512-w+glulEMP9HDHYYiNuYJHtZdEansBAl0Lstg4pVv5MlZBnnSYiALOxfZaTAJWKrJuhxcRjrIPGxByGpJvwHO4g==
+standalone-single-spa-webpack-plugin@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/standalone-single-spa-webpack-plugin/-/standalone-single-spa-webpack-plugin-1.0.1.tgz#4c614ce7a03921ceab9470367fac24e303037f90"
+  integrity sha512-UwBUtkevg37whG12hUgeGzClZ2z73ZRn6WIWp2B/pC/Wn0g7XdmgFX2GY+2Q7dEcy17jH2Iw+veevpKDKcIZLA==
   dependencies:
     safe-require "^1.0.4"
   optionalDependencies:
