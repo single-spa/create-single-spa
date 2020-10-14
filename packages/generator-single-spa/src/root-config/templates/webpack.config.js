@@ -10,20 +10,30 @@ module.exports = (webpackConfigEnv) => {
     webpackConfigEnv,
   });
 
-  return webpackMerge.smart(defaultConfig, {
-    // modify the webpack config however you'd like to by adding to this object
-    devServer: {
-      historyApiFallback: true,
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        inject: false,
-        template: "src/index.ejs",
-        templateParameters: {
-          isLocal: webpackConfigEnv && webpackConfigEnv.isLocal === "true",
-          orgName,
-        },
-      }),
-    ],
+  const merge = webpackMerge({
+    customizeArray: webpackMerge.unique(
+      "plugins",
+      ["HtmlWebpackPlugin"],
+      (plugin) => plugin.constructor && plugin.constructor.name
+    ),
   });
+
+  return merge(
+    {
+      plugins: [
+        new HtmlWebpackPlugin({
+          inject: false,
+          template: "src/index.ejs",
+          templateParameters: {
+            isLocal: webpackConfigEnv && webpackConfigEnv.isLocal === "true",
+            orgName,
+          },
+        }),
+      ],
+    },
+    defaultConfig,
+    {
+      // modify the webpack config however you'd like to by adding to this object
+    }
+  );
 };

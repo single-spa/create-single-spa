@@ -2,7 +2,7 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { UnusedFilesWebpackPlugin } = require("unused-files-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const _HtmlWebpackPlugin = require("html-webpack-plugin");
 const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
 
 module.exports = webpackConfigSingleSpa;
@@ -23,6 +23,8 @@ function webpackConfigSingleSpa(opts) {
   }
 
   let webpackConfigEnv = opts.webpackConfigEnv || {};
+
+  let HtmlWebpackPlugin = opts.HtmlWebpackPlugin || _HtmlWebpackPlugin;
 
   return {
     entry: path.resolve(
