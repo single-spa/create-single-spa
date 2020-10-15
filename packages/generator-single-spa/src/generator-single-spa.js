@@ -40,7 +40,10 @@ module.exports = class SingleSpaGenerator extends Generator {
       { stdio: "pipe" }
     );
 
-    versionUpdateCheck(version, stdout.toString("utf8").trim());
+    const remoteVersion =
+      stdout && stdout.toString && stdout.toString("utf8").trim();
+
+    if (remoteVersion) versionUpdateCheck(version, remoteVersion);
   }
   async chooseDestinationDir() {
     if (!this.options.dir) {
