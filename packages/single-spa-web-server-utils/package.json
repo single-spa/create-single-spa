@@ -1,6 +1,6 @@
 {
   "name": "single-spa-web-server-utils",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "type": "module",
   "description": "Utility functions for single-spa's recommended setup",
   "keywords": [
