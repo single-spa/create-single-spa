@@ -25,7 +25,9 @@ export function getImportMaps({
 }) {
   if (!importMapPromises[url]) {
     importMapPromises[url] = fetchImportMap();
-    setInterval(fetchImportMap, pollInterval);
+    setInterval(() => {
+      importMapPromises[url] = fetchImportMap();
+    }, pollInterval);
   }
 
   return importMapPromises[url].then((originalMap) => {
