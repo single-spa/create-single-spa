@@ -44,18 +44,16 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
       command += ".cmd";
     }
 
-    const cwd = path.resolve(this.options.dir || ".");
+    const cwd = path.resolve(this.options.dir);
 
     const { status, signal } = spawnSync(
       command,
       args.concat([
         "new",
         this.options.projectName, // name of the new workspace and initial project
-        "--directory",
-        cwd,
         // "--routing", false, TODO: Figure out how to interop with single-spa-angular's routing option so that we don't ask the user twice with opposite defaults
       ]),
-      { stdio: "inherit" }
+      { stdio: "inherit", cwd }
     );
 
     if (signal) {
@@ -65,7 +63,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
     } else {
       spawnSync(command, args.concat(["add", "single-spa-angular"]), {
         stdio: "inherit",
-        cwd,
+        cwd: path.resolve(cwd, this.options.projectName),
       });
 
       console.log(
