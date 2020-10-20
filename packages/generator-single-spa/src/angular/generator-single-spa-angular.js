@@ -1,6 +1,7 @@
 const Generator = require("yeoman-generator");
 const { spawnSync } = require("child_process");
 const util = require("util");
+const path = require("path");
 const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
 const validate = require("../validate-naming");
