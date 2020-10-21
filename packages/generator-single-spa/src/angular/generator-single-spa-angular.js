@@ -2,6 +2,7 @@ const Generator = require("yeoman-generator");
 const { spawnSync } = require("child_process");
 const util = require("util");
 const path = require("path");
+const fs = require("fs");
 const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
 const validate = require("../validate-naming");
@@ -45,6 +46,9 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
     }
 
     const cwd = path.resolve(this.options.dir);
+
+    // `ng new` fails if cwd doesn't already exist
+    if (!fs.existsSync(cwd)) fs.mkdirSync(cwd);
 
     const { status, signal } = spawnSync(
       command,
