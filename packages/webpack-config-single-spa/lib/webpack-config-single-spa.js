@@ -28,6 +28,10 @@ function webpackConfigSingleSpa(opts) {
 
   let webpackConfigEnv = opts.webpackConfigEnv || {};
 
+  let argv = opts.argv || {};
+
+  let isProduction = argv.p || argv.mode === "production";
+
   let HtmlWebpackPlugin = opts.HtmlWebpackPlugin || _HtmlWebpackPlugin;
 
   return {
@@ -101,14 +105,15 @@ function webpackConfigSingleSpa(opts) {
           ],
         },
       }),
-      new HtmlWebpackPlugin(),
-      new StandaloneSingleSpaPlugin({
-        appOrParcelName: `@${opts.orgName}/${opts.projectName}`,
-        disabled: !webpackConfigEnv.standalone,
-        HtmlWebpackPlugin,
-        ...opts.standaloneOptions,
-      }),
-    ],
+      !isProduction && new HtmlWebpackPlugin(),
+      !isProduction &&
+        new StandaloneSingleSpaPlugin({
+          appOrParcelName: `@${opts.orgName}/${opts.projectName}`,
+          disabled: !webpackConfigEnv.standalone,
+          HtmlWebpackPlugin,
+          ...opts.standaloneOptions,
+        }),
+    ].filter(Boolean),
     resolve: {
       extensions: [".js", ".mjs", ".jsx", ".wasm", ".json"],
     },
