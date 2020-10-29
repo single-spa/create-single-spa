@@ -40,6 +40,7 @@ function webpackConfigSingleSpa(opts) {
       libraryTarget: "system",
       path: path.resolve(process.cwd(), "dist"),
       jsonpFunction: `webpackJsonp_${opts.projectName}`,
+      devtoolNamespace: `${opts.projectName}`,
     },
     module: {
       rules: [
