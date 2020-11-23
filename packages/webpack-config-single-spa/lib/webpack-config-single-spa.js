@@ -1,7 +1,6 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const { UnusedFilesWebpackPlugin } = require("unused-files-webpack-plugin");
 const _HtmlWebpackPlugin = require("html-webpack-plugin");
 const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
 
@@ -33,8 +32,8 @@ function webpackConfigSingleSpa(opts) {
   let isProduction = argv.p || argv.mode === "production";
 
   let HtmlWebpackPlugin = opts.HtmlWebpackPlugin || _HtmlWebpackPlugin;
-
   return {
+    mode: isProduction ? "production" : "development",
     entry: path.resolve(
       process.cwd(),
       `src/${opts.orgName}-${opts.projectName}.js`
@@ -43,8 +42,9 @@ function webpackConfigSingleSpa(opts) {
       filename: `${opts.orgName}-${opts.projectName}.js`,
       libraryTarget: "system",
       path: path.resolve(process.cwd(), "dist"),
-      jsonpFunction: `webpackJsonp_${opts.projectName}`,
+      // jsonpFunction: `webpackJsonp_${opts.projectName}`,
       devtoolNamespace: `${opts.projectName}`,
+      publicPath: "",
     },
     module: {
       rules: [
@@ -77,14 +77,17 @@ function webpackConfigSingleSpa(opts) {
         },
       ],
     },
-    devtool: "sourcemap",
+    devtool: "source-map",
     devServer: {
       compress: true,
       historyApiFallback: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
-      disableHostCheck: true,
+      firewall: false,
+      client: {
+        port: 8080,
+      },
     },
     externals: opts.orgPackagesAsExternal
       ? ["single-spa", new RegExp(`^@${opts.orgName}/`)]
@@ -93,18 +96,6 @@ function webpackConfigSingleSpa(opts) {
       new CleanWebpackPlugin(),
       new BundleAnalyzerPlugin({
         analyzerMode: webpackConfigEnv.analyze ? "server" : "disabled",
-      }),
-      new UnusedFilesWebpackPlugin({
-        globOptions: {
-          cwd: path.resolve(process.cwd(), "src"),
-          ignore: [
-            "**/*.test.*",
-            "**/*.spec.*",
-            "**/*.*.snap",
-            "**/test-setup.*",
-            "**/*.stories.*",
-          ],
-        },
       }),
       !isProduction && new HtmlWebpackPlugin(),
       !isProduction &&
