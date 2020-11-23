@@ -32,6 +32,7 @@ function webpackConfigSingleSpa(opts) {
   let isProduction = argv.p || argv.mode === "production";
 
   let HtmlWebpackPlugin = opts.HtmlWebpackPlugin || _HtmlWebpackPlugin;
+
   return {
     mode: isProduction ? "production" : "development",
     entry: path.resolve(
