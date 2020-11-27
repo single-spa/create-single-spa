@@ -18,10 +18,8 @@ export default {
     svelte({
       // enable run-time checks when not in production
       dev: !production,
-      // TODO: extract CSS, dynamically import it onMount, and remove onUnmount; maybe a new plugin?
-      // css: (css) => {
-      //   css.write("dist/style.css");
-      // },
+
+      emitCss: false,
     }),
 
     // If you have external dependencies installed from
