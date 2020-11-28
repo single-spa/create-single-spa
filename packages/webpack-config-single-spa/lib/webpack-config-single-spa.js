@@ -43,7 +43,7 @@ function webpackConfigSingleSpa(opts) {
       filename: `${opts.orgName}-${opts.projectName}.js`,
       libraryTarget: "system",
       path: path.resolve(process.cwd(), "dist"),
-      // jsonpFunction: `webpackJsonp_${opts.projectName}`,
+      uniqueName: opts.projectName,
       devtoolNamespace: `${opts.projectName}`,
       publicPath: "",
     },
@@ -87,6 +87,7 @@ function webpackConfigSingleSpa(opts) {
       },
       firewall: false,
       client: {
+        host: "localhost",
         port: 8080,
       },
     },
