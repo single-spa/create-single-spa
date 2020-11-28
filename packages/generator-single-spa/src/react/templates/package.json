@@ -2,9 +2,9 @@
   "name": "<%= name %>",
   "scripts": {
     "start": "webpack serve",
-    "start:standalone": "webpack serve --env.standalone",
+    "start:standalone": "webpack serve --env standalone",
     "build": "webpack --mode=production",
-    "analyze": "webpack --mode=production --env.analyze=true",
+    "analyze": "webpack --mode=production --env analyze=true",
     "lint": "eslint src --ext js<% if (typescript) { %>,ts,tsx<% } %>",
     "format": "prettier --write \"./**\"",
     "test": "cross-env BABEL_ENV=test jest",
