@@ -50,11 +50,6 @@ function webpackConfigSingleSpa(opts) {
     module: {
       rules: [
         {
-          parser: {
-            system: false,
-          },
-        },
-        {
           test: /\.(js|ts)x?$/,
           exclude: /node_modules/,
           use: {
