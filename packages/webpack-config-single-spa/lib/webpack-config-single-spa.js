@@ -88,7 +88,6 @@ function webpackConfigSingleSpa(opts) {
       firewall: false,
       client: {
         host: "localhost",
-        port: 8080,
       },
     },
     externals: opts.orgPackagesAsExternal
