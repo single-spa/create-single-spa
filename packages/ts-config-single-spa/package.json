@@ -1,6 +1,6 @@
 {
   "name": "ts-config-single-spa",
-  "version": "1.17.6",
+  "version": "2.0.0-alpha.0",
   "description": "typescript config for single-spa",
   "keywords": [
     "single-spa",
