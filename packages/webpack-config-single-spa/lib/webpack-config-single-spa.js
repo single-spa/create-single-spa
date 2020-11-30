@@ -4,6 +4,7 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { UnusedFilesWebpackPlugin } = require("unused-files-webpack-plugin");
 const _HtmlWebpackPlugin = require("html-webpack-plugin");
 const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
+const SystemJSPublicPathWebpackPlugin = require("systemjs-webpack-interop/SystemJSPublicPathWebpackPlugin");
 
 module.exports = webpackConfigSingleSpa;
 
@@ -105,6 +106,10 @@ function webpackConfigSingleSpa(opts) {
             "**/*.stories.*",
           ],
         },
+      }),
+      new SystemJSPublicPathWebpackPlugin({
+        systemjsModuleName: `@${opts.orgName}/${opts.projectName}`,
+        rootDirectoryLevel: opts.rootDirectoryLevel,
       }),
       !isProduction && new HtmlWebpackPlugin(),
       !isProduction &&
