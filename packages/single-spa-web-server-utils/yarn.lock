@@ -7,10 +7,10 @@ cookie@^0.4.1:
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.1.tgz#afd713fe26ebd21ba95ceb61f9a8116e50a537d1"
   integrity sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==
 
-import-map-overrides@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/import-map-overrides/-/import-map-overrides-2.0.0.tgz#0510a34fc1aae3c27b3f61d4a6d2b19c6330e2f7"
-  integrity sha512-Cv3sWdTAfHguNrK2MxPiVfiGcCiRdOx2ImjbxQNiPMK8SFrSXjqyhVVE437lwQIWAR8mFNlozkKczSkjwTRzSA==
+import-map-overrides@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/import-map-overrides/-/import-map-overrides-2.2.0.tgz#6dea9ed7e51092f46c9903d78f30b0a6b9755d8f"
+  integrity sha512-MEH8daGWyPYwWxqzmuR9jndwYZ6g6cDL86VUnbqcupPZVRqFcuAzUAfns2nczlTrlC+Wc3aoHVnpWswfhbiuDQ==
   dependencies:
     cookie "^0.4.1"
 
