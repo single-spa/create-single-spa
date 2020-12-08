@@ -1,5 +1,4 @@
 const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const _HtmlWebpackPlugin = require("html-webpack-plugin");
 const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
@@ -89,7 +88,6 @@ function webpackConfigSingleSpa(opts) {
       ? ["single-spa", new RegExp(`^@${opts.orgName}/`)]
       : ["single-spa"],
     plugins: [
-      new CleanWebpackPlugin(),
       new BundleAnalyzerPlugin({
         analyzerMode: webpackConfigEnv.analyze ? "server" : "disabled",
       }),

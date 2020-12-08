@@ -1,4 +1,4 @@
-const webpackMerge = require("webpack-merge");
+const { merge }  = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react<% if (typescript) { %>-ts<% } %>");
 
 module.exports = (webpackConfigEnv, argv) => {
@@ -9,7 +9,7 @@ module.exports = (webpackConfigEnv, argv) => {
     argv,
   });
 
-  return webpackMerge.smart(defaultConfig, {
+  return merge(defaultConfig, {
     // modify the webpack config however you'd like to by adding to this object
   });
 };

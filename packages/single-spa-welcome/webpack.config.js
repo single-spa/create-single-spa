@@ -1,4 +1,4 @@
-const webpackMerge = require("webpack-merge");
+const { mergeWithCustomize } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react");
 
 module.exports = (webpackConfigEnv, argv) => {
@@ -9,12 +9,17 @@ module.exports = (webpackConfigEnv, argv) => {
     argv,
   });
 
-  const config = webpackMerge.smartStrategy({ externals: "replace" })(
-    defaultConfig,
-    {
-      externals: ["single-spa"], // bundle all other dependencies
-    }
-  );
+  const merge = mergeWithCustomize({
+    customizeArray(first, second, key) {
+      if (key === "externals") {
+        return second;
+      }
+    },
+  });
+
+  const config = merge(defaultConfig, {
+    externals: ["single-spa"], // bundle all other dependencies
+  });
 
   return config;
 };
