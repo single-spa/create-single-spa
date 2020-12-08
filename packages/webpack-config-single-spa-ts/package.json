@@ -31,7 +31,7 @@
   "dependencies": {
     "fork-ts-checker-webpack-plugin": "^6.0.5",
     "webpack-config-single-spa": "^2.0.0-beta.1",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^5.4.0"
   },
   "peerDependencies": {
     "typescript": ">=4"

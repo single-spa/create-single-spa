@@ -46,7 +46,7 @@
     "webpack-cli": "^4.2.0",
     "webpack-config-single-spa-react": "^2.0.0-beta.0",
     "webpack-dev-server": "^4.0.0-beta.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^5.4.0"
   },
   "dependencies": {
     "react": "^17.0.1",
