@@ -3355,6 +3355,11 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
+systemjs-webpack-interop@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/systemjs-webpack-interop/-/systemjs-webpack-interop-2.3.1.tgz#06d3d806daf2e66b57930bad1c40a2ffc0d36fb1"
+  integrity sha512-9oGeHedLJi3NrRR0OAzC6t03xhTIvb+QcMS752XACaskZQJFw6NVyi62a6+54YsrNj0oo4ejIOge1ZvLmE8ixQ==
+
 tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"

@@ -126,11 +126,6 @@ module.exports = class SingleSpaUtilModuleGenerator extends Generator {
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath("src/set-public-path.js"),
-      this.destinationPath(`src/set-public-path.${srcFileExtension}`),
-      this.options
-    );
-    this.fs.copyTpl(
       this.templatePath("src/main.js"),
       this.destinationPath(
         `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`

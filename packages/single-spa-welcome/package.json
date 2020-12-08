@@ -60,7 +60,6 @@
     "pretty-quick": "^2.0.1",
     "single-spa-react": "^2.14.0",
     "style-loader": "^1.0.1",
-    "systemjs-webpack-interop": "^2.1.2",
     "ts-config-single-spa": "^1.17.6",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
