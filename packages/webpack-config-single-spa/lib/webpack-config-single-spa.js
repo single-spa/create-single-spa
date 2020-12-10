@@ -93,8 +93,9 @@ function webpackConfigSingleSpa(opts) {
       new BundleAnalyzerPlugin({
         analyzerMode: webpackConfigEnv.analyze ? "server" : "disabled",
       }),
-      !isProduction && new HtmlWebpackPlugin(),
+      !isProduction && !opts.disableHtmlGeneration && new HtmlWebpackPlugin(),
       !isProduction &&
+        !opts.disableHtmlGeneration &&
         new StandaloneSingleSpaPlugin({
           appOrParcelName: `@${opts.orgName}/${opts.projectName}`,
           disabled: !webpackConfigEnv.standalone,
