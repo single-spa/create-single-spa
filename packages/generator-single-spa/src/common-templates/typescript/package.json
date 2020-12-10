@@ -1,14 +1,14 @@
 {
   "devDependencies": {
-    "@babel/preset-typescript": "^7.9.0",
-    "eslint-config-ts-important-stuff": "^1.0.0",
-    "typescript": "^3.8.3",
-    "webpack-config-single-spa-ts": "^1.4.2",
-    "ts-config-single-spa": "^1.7.0"
+    "@babel/preset-typescript": "^7.12.7",
+    "eslint-config-ts-important-stuff": "^1.1.0",
+    "typescript": "^4.1.2",
+    "webpack-config-single-spa-ts": "^2.0.0-beta.1",
+    "ts-config-single-spa": "^2.0.0-beta.1"
   },
   "dependencies": {
-    "@types/jest": "^25.2.1",
+    "@types/jest": "^26.0.16",
     "@types/systemjs": "^6.1.0",
-    "@types/webpack-env": "^1.15.1"
+    "@types/webpack-env": "^1.16.0"
   }
 }

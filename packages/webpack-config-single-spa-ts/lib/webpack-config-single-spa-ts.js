@@ -1,17 +1,15 @@
 const webpackConfigSingleSpa = require("webpack-config-single-spa");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const merge = require("webpack-merge");
+const { mergeWithCustomize } = require("webpack-merge");
 
 const modifyConfig = (opts, webpackConfig) => {
-  const typescriptPath =
-    opts.typescriptPath ||
-    require.resolve("typescript", { paths: [process.cwd()] });
+  const merge = mergeWithCustomize({
+    customizeArray(first, second, key) {
+      return first.concat(second);
+    },
+  });
 
-  return merge.strategy({
-    entry: "replace",
-    plugins: "append",
-    "resolve.extensions": "append",
-  })(webpackConfig, {
+  return merge(webpackConfig, {
     entry: webpackConfig.entry.replace(
       ".js",
       opts.framework === "react" ? ".tsx" : ".ts"
@@ -19,7 +17,7 @@ const modifyConfig = (opts, webpackConfig) => {
     plugins: [
       opts.webpackConfigEnv && opts.webpackConfigEnv.analyze
         ? false
-        : new ForkTsCheckerWebpackPlugin({ typescript: typescriptPath }),
+        : new ForkTsCheckerWebpackPlugin({}),
     ].filter(Boolean),
     resolve: {
       extensions: [".ts", ".tsx"],

@@ -1,4 +1,4 @@
-const webpackMerge = require("webpack-merge");
+const { mergeWithCustomize, unique } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa<% if (typescript) { %>-ts<% } %>");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -11,8 +11,8 @@ module.exports = (webpackConfigEnv, argv) => {
     argv,
   });
 
-  const merge = webpackMerge({
-    customizeArray: webpackMerge.unique(
+  const merge = mergeWithCustomize({
+    customizeArray: unique(
       "plugins",
       ["HtmlWebpackPlugin"],
       (plugin) => plugin.constructor && plugin.constructor.name
