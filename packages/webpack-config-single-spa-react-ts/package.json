@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-single-spa-react-ts",
-  "version": "1.17.4",
+  "version": "1.17.6",
   "description": "Shareable webpack config for single-spa react projects that use typescript",
   "keywords": [
     "single-spa",
@@ -30,7 +30,7 @@
     "url": "https://github.com/single-spa/create-single-spa/issues"
   },
   "dependencies": {
-    "webpack-config-single-spa-react": "^1.17.4",
-    "webpack-config-single-spa-ts": "^1.17.4"
+    "webpack-config-single-spa-react": "^1.17.6",
+    "webpack-config-single-spa-ts": "^1.17.6"
   }
 }

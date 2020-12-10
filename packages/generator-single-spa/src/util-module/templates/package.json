@@ -36,7 +36,6 @@
     "jest-cli": "^25.2.7",
     "prettier": "^2.0.4",
     "pretty-quick": "^2.0.1",
-    "systemjs-webpack-interop": "^2.1.2",
     "webpack": "^4.41.2",
     "webpack-config-single-spa": "^1.0.7",
     "webpack-merge": "^4.2.2",
