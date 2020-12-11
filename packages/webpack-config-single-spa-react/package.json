@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-single-spa-react",
-  "version": "1.17.6",
+  "version": "1.18.0",
   "description": "A helper for creating webpack configs for react single-spa applications",
   "keywords": [
     "single-spa",
@@ -27,6 +27,6 @@
     "url": "https://github.com/single-spa/create-single-spa/issues"
   },
   "dependencies": {
-    "webpack-config-single-spa": "^1.17.6"
+    "webpack-config-single-spa": "^1.18.0"
   }
 }
