@@ -111,8 +111,9 @@ function webpackConfigSingleSpa(opts) {
         systemjsModuleName: `@${opts.orgName}/${opts.projectName}`,
         rootDirectoryLevel: opts.rootDirectoryLevel,
       }),
-      !isProduction && new HtmlWebpackPlugin(),
+      !isProduction && !opts.disableHtmlGeneration && new HtmlWebpackPlugin(),
       !isProduction &&
+        !opts.disableHtmlGeneration &&
         new StandaloneSingleSpaPlugin({
           appOrParcelName: `@${opts.orgName}/${opts.projectName}`,
           disabled: !webpackConfigEnv.standalone,
