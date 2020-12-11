@@ -14,15 +14,15 @@
   "main": "src/generator-single-spa.js",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^3.0.0",
-    "command-exists": "^1.2.8",
+    "chalk": "^4.1.0",
+    "command-exists": "^1.2.9",
     "ejs": "^3.1.5",
-    "yeoman-generator": "^4.2.0"
+    "yeoman-generator": "^4.12.0"
   },
   "devDependencies": {
-    "jest": "^24.9.0",
+    "jest": "^26.6.3",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^2.0.0"
+    "yeoman-test": "^3.0.0"
   },
   "jest": {
     "testPathIgnorePatterns": [

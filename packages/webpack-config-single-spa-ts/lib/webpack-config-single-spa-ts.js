@@ -3,9 +3,11 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const { mergeWithCustomize } = require("webpack-merge");
 
 const modifyConfig = (opts, webpackConfig) => {
-  const typescriptPath =
-    opts.typescriptPath ||
-    require.resolve("typescript", { paths: [process.cwd()] });
+  const merge = mergeWithCustomize({
+    customizeArray(first, second, key) {
+      return first.concat(second);
+    },
+  });
 
   const merge = mergeWithCustomize({
     customizeArray(a, b, key) {
@@ -23,7 +25,7 @@ const modifyConfig = (opts, webpackConfig) => {
     plugins: [
       opts.webpackConfigEnv && opts.webpackConfigEnv.analyze
         ? false
-        : new ForkTsCheckerWebpackPlugin({ typescript: typescriptPath }),
+        : new ForkTsCheckerWebpackPlugin({}),
     ].filter(Boolean),
     resolve: {
       extensions: [".ts", ".tsx"],
