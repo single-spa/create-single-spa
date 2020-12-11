@@ -9,6 +9,14 @@ const modifyConfig = (opts, webpackConfig) => {
     },
   });
 
+  const merge = mergeWithCustomize({
+    customizeArray(a, b, key) {
+      if (key === "plugins" || key === "resolve.extensions") {
+        return a.concat(b);
+      }
+    },
+  });
+
   return merge(webpackConfig, {
     entry: webpackConfig.entry.replace(
       ".js",

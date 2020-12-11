@@ -37,7 +37,7 @@
     "webpack-cli": "^4.2.0",
     "webpack-config-single-spa": "^2.0.0-beta.1",
     "webpack-dev-server": "^4.0.0-beta.0",
-    "webpack-merge": "^5.4.0"
+    "webpack-merge": "^5.5.0"
   },
   "dependencies": {
     "single-spa": "^5.8.2"
