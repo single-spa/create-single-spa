@@ -27,6 +27,7 @@
     "html-webpack-plugin": "^5.0.0-alpha.14",
     "standalone-single-spa-webpack-plugin": "^1.1.0",
     "style-loader": "^2.0.0",
+    "systemjs-webpack-interop": "^2.3.2",
     "unused-files-webpack-plugin": "^3.4.0",
     "webpack-bundle-analyzer": "^4.2.0"
   },

@@ -2,6 +2,7 @@ const path = require("path");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const _HtmlWebpackPlugin = require("html-webpack-plugin");
 const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
+const SystemJSPublicPathPlugin = require("systemjs-webpack-interop/SystemJSPublicPathWebpackPlugin");
 
 module.exports = webpackConfigSingleSpa;
 
@@ -90,6 +91,10 @@ function webpackConfigSingleSpa(opts) {
     plugins: [
       new BundleAnalyzerPlugin({
         analyzerMode: webpackConfigEnv.analyze ? "server" : "disabled",
+      }),
+      new SystemJSPublicPathPlugin({
+        systemjsModuleName: `@${opts.orgName}/${opts.projectName}`,
+        rootDirectoryLevel: opts.rootDirectoryLevel,
       }),
       !isProduction && !opts.disableHtmlGeneration && new HtmlWebpackPlugin(),
       !isProduction &&
