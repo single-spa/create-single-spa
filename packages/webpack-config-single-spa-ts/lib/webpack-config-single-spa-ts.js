@@ -4,12 +4,6 @@ const { mergeWithCustomize } = require("webpack-merge");
 
 const modifyConfig = (opts, webpackConfig) => {
   const merge = mergeWithCustomize({
-    customizeArray(first, second, key) {
-      return first.concat(second);
-    },
-  });
-
-  const merge = mergeWithCustomize({
     customizeArray(a, b, key) {
       if (key === "plugins" || key === "resolve.extensions") {
         return a.concat(b);
