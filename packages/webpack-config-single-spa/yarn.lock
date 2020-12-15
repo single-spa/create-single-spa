@@ -1695,6 +1695,11 @@ supports-color@^7.0.0, supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
+systemjs-webpack-interop@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/systemjs-webpack-interop/-/systemjs-webpack-interop-2.3.2.tgz#7e0deb484792189a1f9af0eec10a13c24bf2c110"
+  integrity sha512-Cw29GlNnICwreWwcKisla9w1tdjiWvdcJ+X112RkAIGB0W/sHcs0hyRZZYPzFIFfhqgdzs+I27diQKv7jLXVpg==
+
 tapable@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.0.0.tgz#a49c3d6a8a2bb606e7db372b82904c970d537a08"
