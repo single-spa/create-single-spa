@@ -16,5 +16,12 @@ module.exports = (webpackConfigEnv, argv) => {
     }
   );
 
+  const standalonePluginIndex = config.plugins.findIndex(
+    (plugin) => plugin.constructor.name === "SystemJSPublicPathWebpackPlugin"
+  );
+  if (standalonePluginIndex >= 0) {
+    config.plugins.splice(standalonePluginIndex, 1);
+  }
+
   return config;
 };
