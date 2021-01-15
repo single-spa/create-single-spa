@@ -107,7 +107,7 @@ function webpackConfigSingleSpa(opts) {
         }),
     ].filter(Boolean),
     resolve: {
-      extensions: [".js", ".mjs", ".jsx", ".wasm", ".json"],
+      extensions: [".mjs", ".js", ".jsx", ".wasm", ".json"],
     },
   };
 }
