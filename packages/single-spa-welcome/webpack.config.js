@@ -21,5 +21,12 @@ module.exports = (webpackConfigEnv, argv) => {
     externals: ["single-spa"], // bundle all other dependencies
   });
 
+  const publicPathPluginIndex = config.plugins.findIndex(
+    (plugin) => plugin.constructor.name === "SystemJSPublicPathWebpackPlugin"
+  );
+  if (publicPathPluginIndex >= 0) {
+    config.plugins.splice(publicPathPluginIndex, 1);
+  }
+
   return config;
 };
