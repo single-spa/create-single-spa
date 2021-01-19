@@ -7,3 +7,4 @@ tests/fixtures
 .DS_Store
 *.svelte
 *.js.map
+coverage
