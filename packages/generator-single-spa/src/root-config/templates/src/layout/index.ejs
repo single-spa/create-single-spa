@@ -34,11 +34,11 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.8.2/lib/system/single-spa.min.js"
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
       }
     }
   </script>
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.8.2/lib/system/single-spa.min.js" as="script">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
   <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
@@ -62,12 +62,11 @@
 
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
   <% if (isLocal) { %>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.2/dist/system.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.2/dist/extras/amd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
   <% } else { %>
-  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.16.0/dist/import-map-overrides.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.2/dist/system.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.2/dist/extras/amd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   <% } %>
 
   <template id="single-spa-layout">
