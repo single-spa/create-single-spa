@@ -1,64 +1,62 @@
-body {
+#single-spa-welcome {
   font-family: sans-serif;
   margin: 0 auto;
   max-width: 550px;
 }
-
-h1,
-h2,
-h3,
-p,
-ul,
-ol,
-pre {
+#single-spa-welcome h2,
+#single-spa-welcome h3,
+#single-spa-welcome p,
+#single-spa-welcome ul,
+#single-spa-welcome ol,
+#single-spa-welcome pre {
   margin: 0;
   margin-bottom: 0.6em;
 }
 
-li {
+#single-spa-welcome li {
   margin-bottom: 0.4em;
 }
 
-pre {
+#single-spa-welcome pre {
   background: #eef;
   overflow-y: scroll;
   padding: 0.6em;
 }
 
-a {
+#single-spa-welcome a {
   color: #01f;
   font-weight: bold;
   text-decoration: none;
 }
 
-a:hover {
+#single-spa-welcome a:hover {
   text-decoration: underline;
 }
 
-a:visited {
+#single-spa-welcome a:visited {
   color: #02a;
 }
 
-aside {
+#single-spa-welcome aside {
   border-left: 3px solid #01f;
   font-size: 0.9rem;
   margin-top: 0.4em;
   padding-left: 1ch;
 }
 
-.logo {
+#single-spa-welcome .logo {
   display: block;
   margin-right: 1rem;
   width: 60px;
 }
 
-.banner {
+#single-spa-welcome .banner {
   align-items: center;
   justify-content: center;
   display: flex;
   margin: 1rem 0;
 }
 
-.center {
+#single-spa-welcome .center {
   text-align: center;
 }
