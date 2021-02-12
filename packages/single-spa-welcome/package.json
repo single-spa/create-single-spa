@@ -58,7 +58,7 @@
     "jest-cli": "^26.6.3",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
-    "single-spa-react": "^3.2.0",
+    "single-spa-react": "^4.0.0",
     "style-loader": "^2.0.0",
     "ts-config-single-spa": "^2.0.0",
     "webpack": "^5.8.0",
