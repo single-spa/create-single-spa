@@ -19,7 +19,6 @@ jobs:
         with:
           version: 5.17.2
       - run: git checkout main && git checkout GITHUB_SHA
-      - run: git checkout pnpm-github-actions
       - run: pnpm install --frozen-lockfile
       - run: pnpm changeset status
       - run: pnpm run build
