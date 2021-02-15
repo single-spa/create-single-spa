@@ -6476,10 +6476,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-single-spa-react@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/single-spa-react/-/single-spa-react-3.2.0.tgz#97bfcb03e418f7daa2b1bd05eab1c62632351d91"
-  integrity sha512-s8K7AuS26WvN9n81z1NBlnZIe/Hin423P8jYLuG/DCNTYo5JbJMS5+Cb/wQd4ikG6YqoedpV4cb7nAcxvlLyhg==
+single-spa-react@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/single-spa-react/-/single-spa-react-4.0.0.tgz#7b962f8661de0f5011d9d6a134bdc8f53f301737"
+  integrity sha512-iRl3zTBy4k26Cm4v0YGSdQfUYF0XewU2ElsUs0RN0Xw+BJ5YcF2ippNpejdh33r2o2GFBV3BPM9jjUnTy1gv8w==
 
 sirv@^1.0.7:
   version "1.0.10"
