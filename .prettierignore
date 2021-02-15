@@ -8,3 +8,4 @@ tests/fixtures
 *.svelte
 *.js.map
 coverage
+pnpm-lock.yaml

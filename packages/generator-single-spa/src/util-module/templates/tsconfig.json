@@ -1,4 +1,4 @@
 {
   "extends": "ts-config-single-spa",
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "node_modules/@types"]
 }

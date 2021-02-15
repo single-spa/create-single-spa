@@ -4,10 +4,9 @@ const nixt = require("nixt");
 describe(`basic svelte usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
     __filename,
-    [],
     `
     --framework svelte
-    --packageManager yarn
+    --packageManager pnpm
     --orgName org
     --projectName project
   `
@@ -15,21 +14,21 @@ describe(`basic svelte usage`, () => {
 
   console.log("fixtureDir", fixtureDir);
 
-  it(`Can yarn build`, (done) => {
-    console.log("yarn build");
+  it(`Can pnpm run build`, (done) => {
+    console.log("pnpm run build");
     nixt()
       .cwd(fixtureDir)
-      .run(`yarn build`)
+      .run(`pnpm run build`)
       .stdout(/rollup/) // Unable to capture the result beyond that it is executing the bundler
       .code(0)
       .end(done);
   });
 
-  // it(`Can yarn lint`, done => {
-  //   console.log("yarn lint");
+  // it(`Can pnpm run lint`, done => {
+  //   console.log("pnpm run lint");
   //   nixt()
   //     .cwd(fixtureDir)
-  //     .run(`yarn lint`)
+  //     .run(`pnpm run lint`)
   //     .expect(result => {
   //       console.log(result.stdout);
   //       console.log(result.stderr);
@@ -39,21 +38,21 @@ describe(`basic svelte usage`, () => {
   //     .end(done);
   // });
 
-  it(`Can yarn format`, (done) => {
-    console.log("yarn format");
+  it(`Can pnpm run format`, (done) => {
+    console.log("pnpm run format");
     nixt()
       .cwd(fixtureDir)
-      .run(`yarn format`)
+      .run(`pnpm run format`)
       .stdout(/prettier/)
       .code(0)
       .end(done);
   });
 
-  it(`Can yarn test`, (done) => {
-    console.log("yarn test");
+  it(`Can pnpm test`, (done) => {
+    console.log("pnpm test");
     nixt()
       .cwd(fixtureDir)
-      .run(`yarn test`)
+      .run(`pnpm test`)
       .expect((result) => {
         console.log(result.stdout);
         console.log(result.stderr);

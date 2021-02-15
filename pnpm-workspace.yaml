@@ -1,0 +1,4 @@
+packages:
+  - "packages/**"
+  - "tests/fixtures/**"
+prefer-workspace-packages: true

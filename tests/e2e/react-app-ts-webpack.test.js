@@ -4,26 +4,20 @@ const nixt = require("nixt");
 describe(`typescript react usage`, () => {
   const fixtureDir = createFixtureIfDoesntExist(
     __filename,
-    [
-      "webpack-config-single-spa",
-      "webpack-config-single-spa-react",
-      "webpack-config-single-spa-ts",
-      "webpack-config-single-spa-react-ts",
-    ],
     `
     --framework react
-    --packageManager yarn
+    --packageManager pnpm
     --orgName org
     --projectName project
     --typescript
   `
   );
 
-  it(`Can yarn build`, (done) => {
-    console.log("yarn build");
+  it(`Can pnpm run build`, (done) => {
+    console.log("pnpm run build");
     nixt()
       .cwd(fixtureDir)
-      .run(`yarn build`)
+      .run(`pnpm run build`)
       .expect((result) => {
         console.log(result.stdout);
         console.log(result.stderr);
@@ -34,11 +28,11 @@ describe(`typescript react usage`, () => {
       .end(done);
   });
 
-  it(`Can yarn lint`, (done) => {
-    console.log("yarn lint");
+  it(`Can pnpm run lint`, (done) => {
+    console.log("pnpm run lint");
     nixt()
       .cwd(fixtureDir)
-      .run(`yarn lint`)
+      .run(`pnpm run lint`)
       .expect((result) => {
         console.log(result.stdout);
         console.log(result.stderr);
@@ -48,11 +42,11 @@ describe(`typescript react usage`, () => {
       .end(done);
   });
 
-  it(`Can yarn format`, (done) => {
-    console.log("yarn format");
+  it(`Can pnpm run format`, (done) => {
+    console.log("pnpm run format");
     nixt()
       .cwd(fixtureDir)
-      .run(`yarn format`)
+      .run(`pnpm run format`)
       .expect((result) => {
         console.log(result.stdout);
         console.log(result.stderr);
@@ -63,11 +57,11 @@ describe(`typescript react usage`, () => {
       .end(done);
   });
 
-  it(`Can yarn test`, (done) => {
-    console.log("yarn test");
+  it(`Can pnpm test`, (done) => {
+    console.log("pnpm test");
     nixt()
       .cwd(fixtureDir)
-      .run(`yarn test`)
+      .run(`pnpm test`)
       .expect((result) => {
         console.log(result.stdout);
         console.log(result.stderr);

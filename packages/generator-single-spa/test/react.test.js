@@ -56,6 +56,22 @@ describe("generator-single-spa-react", () => {
     });
   });
 
+  it("handles pnpm option properly", () => {
+    runContext = generateRunContext();
+
+    return runContext.then((dir) => {
+      assert.file(path.join(dir, "package.json"));
+      assert.jsonFileContent(path.join(dir, "package.json"), {
+        husky: {
+          hooks: {
+            "pre-commit":
+              "pretty-quick --staged && concurrently pnpm:test pnpm:lint",
+          },
+        },
+      });
+    });
+  });
+
   it("copies the correct files over", () => {
     runContext = generateRunContext();
 

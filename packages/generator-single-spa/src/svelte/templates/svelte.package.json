@@ -5,7 +5,8 @@
     "start": "rollup -c -w",
     "serve": "sirv dist -c",
     "test": "jest",
-    "format": "prettier --write ./**/*.{svelte,js}"
+    "format": "prettier --write --plugin-search-dir=. .",
+    "check-format": "prettier --plugin-search-dir=. --check ."
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

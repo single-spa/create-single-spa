@@ -39,6 +39,22 @@ describe("generator-single-spa-util-module", () => {
     });
   });
 
+  it("handles pnpm option properly", () => {
+    runContext = generateRunContext({ packageManager: "pnpm" });
+
+    return runContext.then((dir) => {
+      assert.file(path.join(dir, "package.json"));
+      assert.jsonFileContent(path.join(dir, "package.json"), {
+        husky: {
+          hooks: {
+            "pre-commit":
+              "pretty-quick --staged && concurrently pnpm:test pnpm:lint",
+          },
+        },
+      });
+    });
+  });
+
   it("handles npm option properly", () => {
     runContext = generateRunContext();
 
