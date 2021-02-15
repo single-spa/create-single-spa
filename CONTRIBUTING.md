@@ -9,6 +9,14 @@ We're using [lerna](https://lerna.js.org/).
 
 Note that create-single-spa can run in the current directory by default, but you can provide a different destination directory through the CLI (as shown above with `some-test-dir`).
 
+## Add changeset for each PR
+
+This project uses [changesets](https://github.com/atlassian/changesets) to manage versioning of each of the packages. Before you create a pull request, run the following:
+
+```sh
+pnpm run changeset
+```
+
 ## Tests
 
 There are two kinds of tests - end-to-end (e2e) and package-specific tests. The package-specific tests reside inside of each package and can be run with `pnpm test --recursive`. The end-to-end tests can be run with `pnpm run test:e2e`.
