@@ -18,7 +18,7 @@ jobs:
       - uses: pnpm/action-setup@v1.2.1
         with:
           version: 5.17.2
-      - run: git checkout main && git checkout GITHUB_SHA
+      - run: git checkout main && git checkout $GITHUB_SHA
       - run: pnpm install --frozen-lockfile
       - run: pnpm changeset status
       - run: pnpm run build
