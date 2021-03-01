@@ -2,7 +2,7 @@
 
 ## Running the create-single-spa CLI
 
-We're using [lerna](https://lerna.js.org/).
+We're using [pnpm workspaces](https://pnpm.js.org/en/workspaces).
 
 1. `pnpm install`
 2. `node packages/create-single-spa/bin/create-single-spa.js ../some-test-dir`
