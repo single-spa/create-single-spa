@@ -15,7 +15,7 @@
   },
   "scripts": {
     "clean-tests": "rimraf tests/fixtures",
-    "test": "yarn clean-tests && yarn test:e2e",
+    "test": "pnpm run clean-tests && pnpm run test:e2e",
     "test:e2e": "jest",
     "format": "prettier . --write"
   },
