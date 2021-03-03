@@ -53,13 +53,6 @@ importers:
       yeoman-assert: ^3.1.1
       yeoman-generator: ^4.12.0
       yeoman-test: ^3.0.0
-  packages/generator-single-spa/src/react/templates/typescript:
-    devDependencies:
-      eslint-config-ts-react-important-stuff: 3.0.0
-      webpack-config-single-spa-react-ts: link:../../../../../webpack-config-single-spa-react-ts
-    specifiers:
-      eslint-config-ts-react-important-stuff: ^3.0.0
-      webpack-config-single-spa-react-ts: ^2.0.0
   packages/single-spa-web-server-utils:
     dependencies:
       import-map-overrides: 2.3.0
@@ -3068,7 +3061,7 @@ packages:
       integrity: sha512-V+Nq70NxKhYt89ArVcaNL9FDryB3vQOd+BFXZIfO3RP6rwtj+2yqqqdHEkacutglPaZLkJeuXKCjCJDMGPtPqg==
   /axios/0.21.1_debug@3.2.7:
     dependencies:
-      follow-redirects: 1.13.2
+      follow-redirects: 1.13.2_debug@3.2.7
     peerDependencies:
       debug: '*'
     resolution:
@@ -5224,6 +5217,19 @@ packages:
     resolution:
       integrity: sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
   /follow-redirects/1.13.2:
+    dev: true
+    engines:
+      node: '>=4.0'
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    resolution:
+      integrity: sha512-6mPTgLxYm3r6Bkkg0vNM0HTjfGrOEtsfbhagQvbxDEsEkpNhw582upBaoRZylzen6krEmxXJgt9Ju6HiI4O7BA==
+  /follow-redirects/1.13.2_debug@3.2.7:
+    dependencies:
+      debug: 3.2.7
     engines:
       node: '>=4.0'
     peerDependencies:
