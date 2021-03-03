@@ -3,42 +3,12 @@ const fs = require("fs");
 const path = require("path");
 const mkdirp = require("mkdirp");
 
-const packagesToLink = [
-  "webpack-config-single-spa",
-  "webpack-config-single-spa-ts",
-  "webpack-config-single-spa-react",
-  "webpack-config-single-spa-react-ts",
-];
-
-beforeAll(() => {
-  console.log("setting up yarn links");
-  Promise.all(packagesToLink.map(linkPackage));
-});
-
-function linkPackage(packageName) {
-  return new Promise((resolve, reject) => {
-    nixt()
-      .cwd(path.join(process.cwd(), `packages/${packageName}`))
-      .run(`yarn link`)
-      .code(0)
-      .end((err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
-  });
-}
-
-exports.createFixtureIfDoesntExist = function (
-  fileName,
-  fixturePackagesToLink,
-  args
-) {
+exports.createFixtureIfDoesntExist = function (fileName, args) {
   const name = fileName
     .replace(__dirname + path.sep + "e2e" + path.sep, "")
     .replace(".test.js", "");
+
+  const dir = path.join(__dirname, `./fixtures/${name}`);
 
   if (!fs.existsSync(path.join(__dirname, `./fixtures/${name}/package.json`))) {
     const cwd = path.join(__dirname, "./fixtures");
@@ -61,19 +31,20 @@ exports.createFixtureIfDoesntExist = function (
           if (err) {
             fail(err);
           } else {
-            if (fixturePackagesToLink && fixturePackagesToLink.length > 0) {
-              console.log(
-                `Linking create-single-spa packages to ${name} fixture`
-              );
-              nixt()
-                .cwd(path.join(cwd, name))
-                .run(`yarn link ${fixturePackagesToLink.join(" ")}`)
-                .code(0)
-                .end(done);
-            } else {
-              console.log("No fixture packages to link");
-              done();
-            }
+            const packageJsonPath = path.join(dir, "package.json");
+            const packageJson = JSON.parse(
+              fs.readFileSync(packageJsonPath, "utf-8")
+            );
+            packageJson.private = true;
+            fs.writeFileSync(
+              packageJsonPath,
+              JSON.stringify(packageJson, null, 2),
+              "utf-8"
+            );
+
+            // pnpm install seems to exit slightly before the node_modules are actually ready to use.
+            // Because of this, we have to guess how long to wait before we try to use them.
+            setTimeout(done, 200);
           }
         });
     });
@@ -81,5 +52,5 @@ exports.createFixtureIfDoesntExist = function (
     console.log(`Reusing existing fixture for ${name}`);
   }
 
-  return path.join(__dirname, `./fixtures/${name}`);
+  return dir;
 };

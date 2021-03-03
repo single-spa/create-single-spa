@@ -30,7 +30,7 @@
     "url": "https://github.com/single-spa/create-single-spa/issues"
   },
   "dependencies": {
-    "webpack-config-single-spa-react": "^2.1.1",
-    "webpack-config-single-spa-ts": "^2.1.1"
+    "webpack-config-single-spa-react": "workspace:*",
+    "webpack-config-single-spa-ts": "workspace:*"
   }
 }

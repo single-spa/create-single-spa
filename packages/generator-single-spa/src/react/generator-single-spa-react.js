@@ -1,10 +1,10 @@
-const Generator = require("yeoman-generator");
+const PnpmGenerator = require("../PnpmGenerator");
 const ejs = require("ejs");
 const fs = require("fs").promises;
 const chalk = require("chalk");
 const validate = require("../validate-naming");
 
-module.exports = class SingleSpaReactGenerator extends Generator {
+module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
   constructor(args, opts) {
     super(args, opts);
 
@@ -27,7 +27,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
         type: "list",
         name: "packageManager",
         message: "Which package manager do you want to use?",
-        choices: ["yarn", "npm"],
+        choices: ["yarn", "npm", "pnpm"],
         when: !this.options.packageManager,
       },
       {
@@ -59,7 +59,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
   }
   async createPackageJson() {
     const packageJsonTemplate = await fs.readFile(
-      this.templatePath("package.json"),
+      this.templatePath("react.package.json"),
       { encoding: "utf-8" }
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
@@ -87,7 +87,9 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       this.fs.extendJSON(
         this.destinationPath("package.json"),
         this.fs.readJSON(
-          this.templatePath("../../common-templates/typescript/package.json")
+          this.templatePath(
+            "../../common-templates/typescript/typescript.package.json"
+          )
         )
       );
 
@@ -103,7 +105,9 @@ module.exports = class SingleSpaReactGenerator extends Generator {
       // Extend with react-specific package json for typescript
       this.fs.extendJSON(
         this.destinationPath("package.json"),
-        this.fs.readJSON(this.templatePath("typescript/package.json")),
+        this.fs.readJSON(
+          this.templatePath("typescript/typescript-react.package.json")
+        ),
         (key, value) => {
           if (key === "devDependencies") {
             // Remove standard eslint configuration in favor of react specific
@@ -185,6 +189,7 @@ module.exports = class SingleSpaReactGenerator extends Generator {
     this.installDependencies({
       npm: this.options.packageManager === "npm",
       yarn: this.options.packageManager === "yarn",
+      pnpm: this.options.packageManager === "pnpm",
       bower: false,
     });
   }
