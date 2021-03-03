@@ -17,7 +17,6 @@
     "clean-tests": "rimraf tests/fixtures",
     "test": "yarn clean-tests && yarn test:e2e",
     "test:e2e": "jest",
-    "changeset": "changeset",
     "format": "prettier . --write"
   },
   "husky": {
