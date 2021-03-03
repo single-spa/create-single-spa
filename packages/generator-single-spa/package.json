@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest"
   },
-  "version": "2.0.3",
+  "version": "2.1.1",
   "main": "src/generator-single-spa.js",
   "license": "MIT",
   "dependencies": {
