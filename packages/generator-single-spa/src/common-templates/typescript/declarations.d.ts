@@ -1,3 +1,4 @@
 declare module "*.html" {
-  export = "";
+  const rawHtmlFile: string;
+  export = rawHtmlFile;
 }
