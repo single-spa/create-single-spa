@@ -63,8 +63,6 @@ function webpackConfigSingleSpa(opts) {
     httpsDevServerConfig = false;
   }
 
-  console.log(httpsDevServerConfig);
-
   return {
     mode: isProduction ? "production" : "development",
     entry: path.resolve(
