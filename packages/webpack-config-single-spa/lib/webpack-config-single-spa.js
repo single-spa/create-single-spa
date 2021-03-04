@@ -33,6 +33,38 @@ function webpackConfigSingleSpa(opts) {
 
   let HtmlWebpackPlugin = opts.HtmlWebpackPlugin || _HtmlWebpackPlugin;
 
+  const isHttps = webpackConfigEnv.https;
+
+  let httpsDevServerConfig;
+
+  if (isHttps) {
+    if (process.env.SINGLE_SPA_TLS_OPTIONS) {
+      try {
+        /* The SINGLE_SPA_TLS_OPTIONS env var is a file path of a js file that looks something like this:
+          const fs = require('fs');
+
+          module.exports = {
+            key: fs.readFileSync('~/.local-ssl/localhost.key'),
+            ca: fs.readFileSync('~/.local-ssl/localhost.pem')
+          };
+         */
+        httpsDevServerConfig = require(process.env.SINGLE_SPA_TLS_OPTIONS);
+      } catch (err) {
+        console.error(
+          `webpack-config-single-spa: the SINGLE_SPA_TLS_OPTIONS environment variable is set, but could not be loaded via require()`
+        );
+        throw err;
+      }
+    } else {
+      // Have webpack generate a cert that will not be trusted by the OS
+      httpsDevServerConfig = true;
+    }
+  } else {
+    httpsDevServerConfig = false;
+  }
+
+  console.log(httpsDevServerConfig);
+
   return {
     mode: isProduction ? "production" : "development",
     entry: path.resolve(
@@ -84,6 +116,7 @@ function webpackConfigSingleSpa(opts) {
       client: {
         host: "localhost",
       },
+      https: httpsDevServerConfig,
     },
     externals: opts.orgPackagesAsExternal
       ? ["single-spa", new RegExp(`^@${opts.orgName}/`)]
