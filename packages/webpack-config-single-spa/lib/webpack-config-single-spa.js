@@ -45,7 +45,7 @@ function webpackConfigSingleSpa(opts) {
 
           module.exports = {
             key: fs.readFileSync('~/.local-ssl/localhost.key'),
-            ca: fs.readFileSync('~/.local-ssl/localhost.pem')
+            cert: fs.readFileSync('~/.local-ssl/localhost.crt')
           };
          */
         httpsDevServerConfig = require(process.env.SINGLE_SPA_TLS_OPTIONS);
