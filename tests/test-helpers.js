@@ -44,7 +44,7 @@ exports.createFixtureIfDoesntExist = function (fileName, args) {
 
             // pnpm install seems to exit slightly before the node_modules are actually ready to use.
             // Because of this, we have to guess how long to wait before we try to use them.
-            setTimeout(done, 200);
+            setTimeout(done, 500);
           }
         });
     });
