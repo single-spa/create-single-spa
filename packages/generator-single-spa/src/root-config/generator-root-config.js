@@ -150,17 +150,13 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
       { delimiter: "?" }
     );
 
-    this.fs.copyTpl(
-      this.templatePath(`${parentPath}/microfrontend-layout.html`),
-      this.destinationPath(`src/microfrontend-layout.html`),
-      this.options
-    );
-
-    this.fs.copyTpl(
-      this.templatePath(`${parentPath}/microfrontend-layout.html`),
-      this.destinationPath(`src/microfrontend-layout.html`),
-      this.options
-    );
+    if (this.options.layout) {
+      this.fs.copyTpl(
+        this.templatePath(`${parentPath}/microfrontend-layout.html`),
+        this.destinationPath(`src/microfrontend-layout.html`),
+        this.options
+      );
+    }
 
     this.fs.copyTpl(
       this.templatePath(`../../common-templates/typescript/declarations.d.ts`),
