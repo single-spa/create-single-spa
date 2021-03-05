@@ -37,6 +37,12 @@ function webpackConfigSingleSpa(opts) {
 
   let httpsDevServerConfig;
 
+  if (argv.https) {
+    console.warn(
+      "webpack-config-single-spa: running 'npm start -- --https' makes it impossible to respect the SINGLE_SPA_TLS_OPTIONS config. Use 'npm start -- --env https' instead"
+    );
+  }
+
   if (isHttps) {
     if (process.env.SINGLE_SPA_TLS_OPTIONS) {
       try {
@@ -56,6 +62,9 @@ function webpackConfigSingleSpa(opts) {
         throw err;
       }
     } else {
+      console.warn(
+        "webpack-config-single-spa: An untrusted TLS certificate will be generated. Consider setting SINGLE_SPA_TLS_OPTIONS env variable, explained at https://single-spa.js.org/create-single-spa#tls"
+      );
       // Have webpack generate a cert that will not be trusted by the OS
       httpsDevServerConfig = true;
     }
@@ -116,6 +125,7 @@ function webpackConfigSingleSpa(opts) {
         "Access-Control-Allow-Origin": "*",
       },
       firewall: false,
+      host: "localhost",
       client: {
         host: "localhost",
       },
