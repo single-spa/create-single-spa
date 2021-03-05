@@ -101,6 +101,11 @@ function webpackConfigSingleSpa(opts) {
             },
           ],
         },
+        {
+          test: /\.html$/i,
+          exclude: /node_modules/,
+          use: [require.resolve("raw-loader", { paths: [__dirname] })],
+        },
       ],
     },
     devtool: "source-map",
