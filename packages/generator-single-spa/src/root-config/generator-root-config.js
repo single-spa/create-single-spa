@@ -109,7 +109,7 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
     );
 
     this.fs.copyTpl(
-      this.templatePath(".eslintrc"),
+      this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
       this.options
     );
