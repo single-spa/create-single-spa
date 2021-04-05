@@ -26,3 +26,17 @@ Note that the end-to-end tests run create-single-spa several times to create sev
 You can also run only one e2e test by specifying the name of the test in the cli `pnpm run test:e2e react-app-js-webpack`. Also, you can add `--watch` to any pnpm test:e2e command to get the jest watcher.
 
 If you're having trouble diagnosing why a test is failing, try running the tests manually in a command line. Change directories via `cd tests/fixtures/<fixture-name>` and then run `pnpm run build` (or whichever command is failing).
+
+## Publishing
+
+To publish to npm, run the following commands:
+
+```sh
+pnpx changeset version
+git commit -a "v2.0.0" -m "v2.0.0"
+pnpx publish
+git tag -a v2.0.0 -m v2.0.0
+git push
+```
+
+Then create a github release for the tag you created (v2.0.0 in the example). Copy + paste the changelogs from changelog.md in each package that was changed into the global release notes.
