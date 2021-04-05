@@ -1,0 +1,7 @@
+packages:
+  - "packages/**"
+  - "tests/fixtures/**"
+link-workspace-packages: "deep"
+prefer-workspace-packages: true
+shared-workspace-lockfile: true
+save-workspace-protocol: true

@@ -7,3 +7,5 @@ tests/fixtures
 .DS_Store
 *.svelte
 *.js.map
+coverage
+pnpm-lock.yaml

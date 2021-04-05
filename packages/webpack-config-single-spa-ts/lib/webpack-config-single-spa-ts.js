@@ -19,7 +19,11 @@ const modifyConfig = (opts, webpackConfig) => {
     plugins: [
       opts.webpackConfigEnv && opts.webpackConfigEnv.analyze
         ? false
-        : new ForkTsCheckerWebpackPlugin({}),
+        : new ForkTsCheckerWebpackPlugin({
+            typescript: {
+              mode: "write-references",
+            },
+          }),
     ].filter(Boolean),
     resolve: {
       extensions: [".ts", ".tsx"],

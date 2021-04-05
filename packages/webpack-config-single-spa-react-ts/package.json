@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-single-spa-react-ts",
-  "version": "2.0.0",
+  "version": "2.1.1",
   "description": "Shareable webpack config for single-spa react projects that use typescript",
   "keywords": [
     "single-spa",
@@ -30,7 +30,7 @@
     "url": "https://github.com/single-spa/create-single-spa/issues"
   },
   "dependencies": {
-    "webpack-config-single-spa-react": "^2.0.0",
-    "webpack-config-single-spa-ts": "^2.0.0"
+    "webpack-config-single-spa-react": "workspace:*",
+    "webpack-config-single-spa-ts": "workspace:*"
   }
 }

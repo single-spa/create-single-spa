@@ -14,7 +14,7 @@ describe("generator-single-spa", () => {
   it("can run the generator", () => {
     runContext = helpers.run(generator).withOptions({
       moduleType: "root-config",
-      packageManager: "yarn",
+      packageManager: "pnpm",
       orgName: "some-org-name",
       projectName: "some-project-name",
     });

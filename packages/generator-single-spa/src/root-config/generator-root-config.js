@@ -1,10 +1,10 @@
-const Generator = require("yeoman-generator");
+const PnpmGenerator = require("../PnpmGenerator");
 const fs = require("fs").promises;
 const ejs = require("ejs");
 const chalk = require("chalk");
 const validate = require("../validate-naming");
 
-module.exports = class SingleSpaRootConfigGenerator extends Generator {
+module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
   constructor(args, opts) {
     super(args, opts);
 
@@ -30,7 +30,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
         type: "list",
         name: "packageManager",
         message: "Which package manager do you want to use?",
-        choices: ["yarn", "npm"],
+        choices: ["yarn", "npm", "pnpm"],
         when: !this.options.packageManager,
       },
       {
@@ -61,7 +61,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
   }
   async copyFiles() {
     const packageJsonTemplate = await fs.readFile(
-      this.templatePath("package.json"),
+      this.templatePath("root-config.package.json"),
       { encoding: "utf-8" }
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
@@ -87,7 +87,9 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
       this.fs.extendJSON(
         this.destinationPath("package.json"),
         this.fs.readJSON(
-          this.templatePath("../../common-templates/typescript/package.json")
+          this.templatePath(
+            "../../common-templates/typescript/typescript.package.json"
+          )
         )
       );
     }
@@ -149,6 +151,20 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     );
 
     if (this.options.layout) {
+      this.fs.copyTpl(
+        this.templatePath(`${parentPath}/microfrontend-layout.html`),
+        this.destinationPath(`src/microfrontend-layout.html`),
+        this.options
+      );
+    }
+
+    this.fs.copyTpl(
+      this.templatePath(`../../common-templates/typescript/declarations.d.ts`),
+      this.destinationPath(`src/declarations.d.ts`),
+      this.options
+    );
+
+    if (this.options.layout) {
       const { stdout } = this.spawnCommandSync(
         "npm",
         ["view", "single-spa-layout", "version"],
@@ -168,6 +184,7 @@ module.exports = class SingleSpaRootConfigGenerator extends Generator {
     this.installDependencies({
       npm: this.options.packageManager === "npm",
       yarn: this.options.packageManager === "yarn",
+      pnpm: this.options.packageManager === "pnpm",
       bower: false,
     });
   }

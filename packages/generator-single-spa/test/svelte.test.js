@@ -30,6 +30,14 @@ describe("generator-single-spa-svelte", () => {
     });
   });
 
+  it("handles pnpm option properly", () => {
+    runContext = generateRunContext({ packageManager: "pnpm" });
+
+    return runContext.then((dir) => {
+      assert.file(path.join(dir, "package.json"));
+    });
+  });
+
   it("handles npm option properly", () => {
     runContext = generateRunContext();
 

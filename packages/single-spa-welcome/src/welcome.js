@@ -18,7 +18,7 @@ export default function Root(props) {
   })[0];
 
   return (
-    <section id="welcome">
+    <section id="single-spa-welcome">
       <div className="banner">
         <img
           className="logo"

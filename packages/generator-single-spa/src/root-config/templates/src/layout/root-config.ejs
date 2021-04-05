@@ -4,14 +4,9 @@ import {
   constructRoutes,
   constructLayoutEngine,
 } from "single-spa-layout";
+import microfrontendLayout from "./microfrontend-layout.html";
 
-<% if(typescript) { -%>
-const routes = constructRoutes(
-  document.querySelector("#single-spa-layout") as HTMLTemplateElement
-);
-<% } else { -%>
-const routes = constructRoutes(document.querySelector("#single-spa-layout"));
-<% } -%>
+const routes = constructRoutes(microfrontendLayout);
 const applications = constructApplications({
   routes,
   loadApp({ name }) {
