@@ -14,7 +14,7 @@ Note that create-single-spa can run in the current directory by default, but you
 This project uses [changesets](https://github.com/atlassian/changesets) to manage versioning of each of the packages. Before you create a pull request, run the following:
 
 ```sh
-pnpmx changeset
+pnpx changeset
 ```
 
 ## Tests
