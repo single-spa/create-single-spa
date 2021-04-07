@@ -18,7 +18,9 @@
   },
   "scripts": {
     "start": "webpack serve",
+    "start:https": "webpack serve --env https",
     "start:standalone": "webpack serve --env standalone",
+    "start:standalone:https": "webpack serve --env standalone --env https",
     "build": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
     "lint": "eslint src --ext js",

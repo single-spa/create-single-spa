@@ -331,7 +331,7 @@ importers:
     dependencies:
       '@types/jest': 26.0.20
       '@types/systemjs': 6.1.0
-      single-spa: 5.9.1
+      single-spa: 5.9.2
     devDependencies:
       '@babel/core': 7.12.16
       '@babel/eslint-parser': 7.13.8_442e1696da38772be2d58fc500f0ec59
@@ -385,7 +385,7 @@ importers:
     dependencies:
       '@types/jest': 26.0.20
       '@types/systemjs': 6.1.0
-      single-spa: 5.9.1
+      single-spa: 5.9.2
       single-spa-layout: 1.5.0
     devDependencies:
       '@babel/core': 7.12.16
@@ -442,7 +442,7 @@ importers:
       '@types/jest': 26.0.20
       '@types/systemjs': 6.1.0
       '@types/webpack-env': 1.16.0
-      single-spa: 5.9.1
+      single-spa: 5.9.2
     devDependencies:
       '@babel/core': 7.12.16
       '@babel/eslint-parser': 7.13.8_442e1696da38772be2d58fc500f0ec59
@@ -504,7 +504,7 @@ importers:
       '@types/jest': 26.0.20
       '@types/systemjs': 6.1.0
       '@types/webpack-env': 1.16.0
-      single-spa: 5.9.1
+      single-spa: 5.9.2
       single-spa-layout: 1.5.0
     devDependencies:
       '@babel/core': 7.12.16
@@ -9203,10 +9203,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-9g1Mqt4QPmpetqQRhKPUnqXVAjbrvQCSA/kowcUj7nmYeyPWJvxzNC7vOkVZBsSo8GVJlNKmss+UvK5cc3UoGg==
-  /single-spa/5.9.1:
+  /single-spa/5.9.2:
     dev: false
     resolution:
-      integrity: sha512-RaIRLShmw5g8D5tYhZLT6qRJIc/33eAGhlM93HY3v/UWLQ9lq6bRhou3W8DPKYmwKV35IINbRYX36LlPbY1Jvg==
+      integrity: sha512-XYl0rWAuTsdz8juLVMk7jjFZPIpv0TVECUh3+SNzReFJ8OfjndnUNvCSF6e5jAd7/8CNnKItpPgIsAvKvDvpHw==
   /sinon/9.2.4:
     dependencies:
       '@sinonjs/commons': 1.8.2

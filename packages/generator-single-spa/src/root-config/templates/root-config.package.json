@@ -2,6 +2,7 @@
   "name": "<%= name %>",
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal",
+    "start:https": "webpack --serve --port 9000 --env isLocal --env https",
     "lint": "eslint src --ext js<% if (typescript) { %>,ts,tsx<% } %>",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "format": "prettier --write .",
