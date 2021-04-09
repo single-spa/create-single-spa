@@ -158,11 +158,15 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
       );
     }
 
-    this.fs.copyTpl(
-      this.templatePath(`../../common-templates/typescript/declarations.d.ts`),
-      this.destinationPath(`src/declarations.d.ts`),
-      this.options
-    );
+    if (this.options.typescript) {
+      this.fs.copyTpl(
+        this.templatePath(
+          `../../common-templates/typescript/declarations.d.ts`
+        ),
+        this.destinationPath(`src/declarations.d.ts`),
+        this.options
+      );
+    }
 
     if (this.options.layout) {
       const { stdout } = this.spawnCommandSync(
