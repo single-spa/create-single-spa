@@ -72,9 +72,14 @@ function webpackConfigSingleSpa(opts) {
           ],
         },
         {
+          test: /\.(bmp|png|svg|jpg|jpeg|gif|webp)$/i,
+          exclude: /node_modules/,
+          type: "asset/resource",
+        },
+        {
           test: /\.html$/i,
           exclude: /node_modules/,
-          use: [require.resolve("raw-loader", { paths: [__dirname] })],
+          type: "asset/source",
         },
       ],
     },
