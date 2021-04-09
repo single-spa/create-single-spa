@@ -44,7 +44,7 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
         type: "confirm",
         name: "layout",
         message: "Would you like to use single-spa Layout Engine",
-        default: false,
+        default: true,
         when: this.options.layout === undefined,
       },
       {
