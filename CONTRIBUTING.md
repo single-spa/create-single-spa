@@ -32,9 +32,9 @@ If you're having trouble diagnosing why a test is failing, try running the tests
 To publish to npm, run the following commands:
 
 ```sh
-pnpx changeset version
+GITHUB_TOKEN=... pnpx changeset version
 git commit -a "v2.0.0" -m "v2.0.0"
-pnpx publish
+pnpm publish -r
 git tag -a v2.0.0 -m v2.0.0
 git push
 ```

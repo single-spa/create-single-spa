@@ -1,5 +1,13 @@
 # webpack-config-single-spa-react-ts
 
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - webpack-config-single-spa-react@2.2.1
+  - webpack-config-single-spa-ts@2.2.1
+
 ## 2.2.0
 
 ### Minor Changes

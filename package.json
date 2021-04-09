@@ -1,6 +1,7 @@
 {
   "name": "root",
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.0",
     "@changesets/cli": "^2.14.1",
     "@types/jest": "^26.0.16",
     "husky": "^4.3.8",

@@ -1,5 +1,17 @@
 # generator-single-spa
 
+## 2.3.0
+
+### Minor Changes
+
+- [#280](https://github.com/single-spa/create-single-spa/pull/280) [`2e79c7f`](https://github.com/single-spa/create-single-spa/commit/2e79c7f7ef842336a886af472ac001d71dfe23c5) Thanks [@joeldenning](https://github.com/joeldenning)! - Use single-spa-layout by default in root configs
+
+### Patch Changes
+
+- [#279](https://github.com/single-spa/create-single-spa/pull/279) [`2793ffd`](https://github.com/single-spa/create-single-spa/commit/2793ffd2cda5709d03f6aaf7b17244175fe03ce3) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix issue with typescript declarations for file loading
+
+* [#276](https://github.com/single-spa/create-single-spa/pull/276) [`337d8dd`](https://github.com/single-spa/create-single-spa/commit/337d8dd103aee59c486d7f57cd4fa214d115fa21) Thanks [@PieterBoeren](https://github.com/PieterBoeren)! - Added support for images in the webpack config
+
 ## 2.2.0
 
 ### Minor Changes
