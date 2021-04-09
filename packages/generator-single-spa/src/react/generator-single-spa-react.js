@@ -208,7 +208,7 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
         chalk.bgWhite.black(`Project setup complete!
 Steps to test your React single-spa application:
 1. Run '${this.options.packageManager} start${
-          this.options.packageManager === "npm" ? " --" : ""
+          this.options.packageManager === "yarn" ? "" : " --"
         } --port 8500'
 2. Go to http://single-spa-playground.org/playground/instant-test?name=@${
           this.options.orgName
