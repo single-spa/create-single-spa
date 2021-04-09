@@ -1,6 +1,11 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@1.5.0/schema.json",
-  "changelog": "@changesets/cli/changelog-github",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "single-spa/create-single-spa"
+    }
+  ],
   "commit": false,
   "linked": [],
   "access": "public",

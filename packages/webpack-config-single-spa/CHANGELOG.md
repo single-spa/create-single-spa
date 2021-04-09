@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 2.2.1
+
+### Patch Changes
+
+- [#276](https://github.com/single-spa/create-single-spa/pull/276) [`337d8dd`](https://github.com/single-spa/create-single-spa/commit/337d8dd103aee59c486d7f57cd4fa214d115fa21) Thanks [@PieterBoeren](https://github.com/PieterBoeren)! - Added support for images in the webpack config
+
 ## 2.2.0
 
 ### Minor Changes

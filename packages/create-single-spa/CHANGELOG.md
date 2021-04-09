@@ -1,5 +1,12 @@
 # create-single-spa
 
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [[`2793ffd`](https://github.com/single-spa/create-single-spa/commit/2793ffd2cda5709d03f6aaf7b17244175fe03ce3), [`337d8dd`](https://github.com/single-spa/create-single-spa/commit/337d8dd103aee59c486d7f57cd4fa214d115fa21), [`2e79c7f`](https://github.com/single-spa/create-single-spa/commit/2e79c7f7ef842336a886af472ac001d71dfe23c5)]:
+  - generator-single-spa@2.3.0
+
 ## 2.2.0
 
 ### Minor Changes

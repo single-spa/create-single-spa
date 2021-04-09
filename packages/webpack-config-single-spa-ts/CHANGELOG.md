@@ -1,5 +1,12 @@
 # webpack-config-single-spa-ts
 
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [[`337d8dd`](https://github.com/single-spa/create-single-spa/commit/337d8dd103aee59c486d7f57cd4fa214d115fa21)]:
+  - webpack-config-single-spa@2.2.1
+
 ## 2.2.0
 
 ### Minor Changes
