@@ -1,5 +1,15 @@
 # webpack-config-single-spa-react-ts
 
+## 2.2.2
+
+### Patch Changes
+
+- [#282](https://github.com/single-spa/create-single-spa/pull/282) [`4c95b1b`](https://github.com/single-spa/create-single-spa/commit/4c95b1b97acd7ee42965ea853d1bd8dce239c017) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade webpack-config-single-spa's upstream dependencies
+
+- Updated dependencies [[`4c95b1b`](https://github.com/single-spa/create-single-spa/commit/4c95b1b97acd7ee42965ea853d1bd8dce239c017)]:
+  - webpack-config-single-spa-react@2.2.2
+  - webpack-config-single-spa-ts@2.2.2
+
 ## 2.2.1
 
 ### Patch Changes

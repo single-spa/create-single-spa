@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 2.3.1
+
+### Patch Changes
+
+- [#281](https://github.com/single-spa/create-single-spa/pull/281) [`77d9e53`](https://github.com/single-spa/create-single-spa/commit/77d9e538d3f1be8565ef0545aa20056c913ab3e5) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix start instructions for pnpm
+
 ## 2.3.0
 
 ### Minor Changes
