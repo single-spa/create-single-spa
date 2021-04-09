@@ -171,7 +171,7 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
       console.log(
         coloredFinalInstructions(
           `1. Run '${this.options.packageManager} start${
-            this.options.packageManager === "npm" ? " --" : ""
+            this.options.packageManager === "yarn" ? "" : " --"
           } --port 8500'`
         )
       );
