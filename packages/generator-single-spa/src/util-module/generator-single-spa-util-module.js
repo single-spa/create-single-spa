@@ -108,6 +108,15 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
       this.destinationPath("babel.config.json"),
       this.options
     );
+    if (this.options.typescript) {
+      this.fs.copyTpl(
+        this.templatePath(
+          `../../common-templates/typescript/declarations.d.ts`
+        ),
+        this.destinationPath(`src/declarations.d.ts`),
+        this.options
+      );
+    }
     this.fs.copyTpl(
       this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
