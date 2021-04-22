@@ -1,5 +1,5 @@
 {
-  "extends": "ts-config-single-spa",
+  "extends": "ts-config-single-spa/tsconfig.json",
   "include": ["src/**/*", "node_modules/@types"],
   "exclude": ["src/**/*.test*"]
 }
