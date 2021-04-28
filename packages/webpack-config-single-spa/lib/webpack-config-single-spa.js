@@ -46,6 +46,7 @@ function webpackConfigSingleSpa(opts) {
       uniqueName: opts.projectName,
       devtoolNamespace: `${opts.projectName}`,
       publicPath: "",
+      jsonpFunction = `webpackJsonp_${opts.projectName}`;
     },
     module: {
       rules: [
