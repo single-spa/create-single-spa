@@ -27,6 +27,15 @@ describe("Checks for version update", () => {
     expect(message).toEqual(expect.stringContaining(patchVersionUpdate));
   });
 
+  test(`patch update edge case`, () => {
+    const patchVersionUpdate = "1.0.2";
+    checkForVersionUpdate(currentVersion, patchVersionUpdate);
+    expect(console.log).not.toHaveBeenCalled();
+
+    checkForVersionUpdate("2.0.1", "1.0.2");
+    expect(console.log).not.toHaveBeenCalled();
+  });
+
   test("minor update", () => {
     const minorVersionUpdate = "1.2.1";
     checkForVersionUpdate(currentVersion, minorVersionUpdate);
@@ -35,6 +44,10 @@ describe("Checks for version update", () => {
     expect(message).toEqual(expect.stringContaining("minor update"));
     expect(message).toEqual(expect.stringContaining(currentVersion));
     expect(message).toEqual(expect.stringContaining(minorVersionUpdate));
+  });
+
+  test(`minor update edge case`, () => {
+    checkForVersionUpdate("1.2.0", "2.1.0");
   });
 
   test("major update", () => {

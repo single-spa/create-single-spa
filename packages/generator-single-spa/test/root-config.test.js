@@ -17,6 +17,7 @@ describe("generator-single-spa", () => {
       packageManager: "pnpm",
       orgName: "some-org-name",
       projectName: "some-project-name",
+      layout: false,
     });
 
     return runContext.then((dir) => {
@@ -50,7 +51,7 @@ describe("generator-single-spa", () => {
         path.join(dir, "src/some-org-name-root-config.js"),
         { encoding: "utf-8" }
       );
-      expect(rootConfigStr.includes("some-org-name")).toBe(true);
+      expect(rootConfigStr).toMatch("some-org-name");
     });
   });
 });

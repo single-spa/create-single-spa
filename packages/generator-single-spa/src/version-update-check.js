@@ -7,10 +7,14 @@ module.exports = function versionUpdateCheck(currentVersion, latestVersion) {
       "."
     );
     const majorUpdate = currentMajor < latestMajor;
-    const minorUpdate = currentMinor < latestMinor;
-    const patchUpdate = currentPatch < latestPatch;
+    const minorUpdate =
+      currentMajor === latestMajor && currentMinor < latestMinor;
+    const patchUpdate =
+      currentMajor === latestMajor &&
+      currentMinor === latestMinor &&
+      currentPatch < latestPatch;
 
-    if (majorUpdate | minorUpdate | patchUpdate) {
+    if (majorUpdate || minorUpdate || patchUpdate) {
       let updateType;
       let msg = `${currentVersion} → ${latestVersion}`;
       if (majorUpdate) {
