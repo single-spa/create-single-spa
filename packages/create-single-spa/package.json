@@ -1,6 +1,6 @@
 {
   "name": "create-single-spa",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "",
   "bin": {
     "create-single-spa": "bin/create-single-spa.js"

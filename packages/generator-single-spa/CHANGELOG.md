@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 2.3.2
+
+### Patch Changes
+
+- [#290](https://github.com/single-spa/create-single-spa/pull/290) [`d2c09ec`](https://github.com/single-spa/create-single-spa/commit/d2c09ec255997f91fa969806d7d8dad82bcfd9d5) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix semver check when checking for updates
+
 ## 2.3.1
 
 ### Patch Changes
