@@ -1,7 +1,12 @@
 {
   "presets": [
     "@babel/preset-env",<% if (framework === 'react') { %>
-    "@babel/preset-react",<% } if (typescript) { %>
+    [
+      "@babel/preset-react", 
+      {
+        runtime: "automatic"
+      }
+    ],<% } if (typescript) { %>
     "@babel/preset-typescript"<% } %>
   ],
   "plugins": [
