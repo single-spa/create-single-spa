@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+<%= packageManager %> exec pretty-quick --staged && <%= packageManager %> exec concurrently <%= packageManager %>:test <%= packageManager %>:lint

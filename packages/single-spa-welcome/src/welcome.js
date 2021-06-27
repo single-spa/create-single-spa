@@ -10,9 +10,8 @@ export default function Root(props) {
     const templates = Array.from(document.querySelectorAll("template"));
 
     return templates.some((template) => {
-      const hasSingleSpaRouter = !!template.content.querySelector(
-        "single-spa-router"
-      );
+      const hasSingleSpaRouter =
+        !!template.content.querySelector("single-spa-router");
       return hasSingleSpaRouter;
     });
   })[0];

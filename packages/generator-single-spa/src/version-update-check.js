@@ -3,9 +3,8 @@ const chalk = require("chalk");
 module.exports = function versionUpdateCheck(currentVersion, latestVersion) {
   try {
     const [latestMajor, latestMinor, latestPatch] = latestVersion.split(".");
-    const [currentMajor, currentMinor, currentPatch] = currentVersion.split(
-      "."
-    );
+    const [currentMajor, currentMinor, currentPatch] =
+      currentVersion.split(".");
     const majorUpdate = currentMajor < latestMajor;
     const minorUpdate =
       currentMajor === latestMajor && currentMinor < latestMinor;

@@ -10,13 +10,11 @@ env.registerStub(require("generator-single-spa"), "single-spa");
 env.run("single-spa " + argv._.join(" "), argv);
 
 function checkNodeVersion() {
-  const minVersion = "10.4.0";
+  const minVersion = "12.13.0";
   const [minMajor, minMinor, minPatch] = minVersion.split(".").map(Number);
-  const [
-    currentMajor,
-    currentMinor,
-    currentPatch,
-  ] = process.versions.node.split(".").map(Number);
+  const [currentMajor, currentMinor, currentPatch] = process.versions.node
+    .split(".")
+    .map(Number);
 
   let validVersion = true;
 

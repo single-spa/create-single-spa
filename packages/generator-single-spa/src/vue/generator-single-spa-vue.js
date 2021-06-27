@@ -86,7 +86,8 @@ module.exports = class SingleSpaVueGenerator extends Generator {
 
     const pkgJsonPath = path.resolve(projectPath, "package.json");
     const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath));
-    this.projectName = pkgJson.name = `@${this.options.orgName}/${this.options.projectName}`;
+    this.projectName =
+      pkgJson.name = `@${this.options.orgName}/${this.options.projectName}`;
     fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
 
     // We purposely do not attempt to install in one command using presets to avoid being too restrictive with application configuration

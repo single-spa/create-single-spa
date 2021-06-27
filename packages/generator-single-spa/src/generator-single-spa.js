@@ -1,5 +1,12 @@
 const path = require("path");
 const Generator = require("yeoman-generator");
+
+// https://github.com/yeoman/generator/releases/tag/v5.0.0
+Object.assign(
+  Generator.prototype,
+  require("yeoman-generator/lib/actions/install")
+);
+
 const SingleSpaReactGenerator = require("./react/generator-single-spa-react");
 const SingleSpaRootConfigGenerator = require("./root-config/generator-root-config");
 const SingleSpaVueGenerator = require("./vue/generator-single-spa-vue");

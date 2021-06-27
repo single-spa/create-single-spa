@@ -28,46 +28,40 @@
     "coverage": "cross-env BABEL_ENV=test jest --coverage",
     "prepublishOnly": "pnpm run build"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && concurrently pnpm:test pnpm:lint"
-    }
-  },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/preset-env": "^7.12.7",
-    "@babel/preset-react": "^7.12.7",
-    "@babel/runtime": "^7.12.5",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@types/jest": "^26.0.16",
-    "babel-jest": "^26.6.3",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/runtime": "^7.14.6",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^26.0.23",
+    "babel-jest": "^27.0.5",
     "babel-loader": "^8.2.2",
-    "concurrently": "^5.3.0",
+    "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
-    "css-loader": "^5.0.1",
-    "eslint": "^7.15.0",
-    "eslint-config-prettier": "^7.0.0",
+    "css-loader": "^5.2.6",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-important-stuff": "^3.0.0",
-    "eslint-plugin-prettier": "^3.2.0",
-    "husky": "^4.3.5",
+    "eslint-plugin-prettier": "^3.4.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.6.3",
-    "jest-cli": "^26.6.3",
-    "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
-    "single-spa-react": "^4.0.0",
-    "style-loader": "^2.0.0",
+    "jest": "^27.0.5",
+    "jest-cli": "^27.0.5",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
+    "single-spa-react": "^4.2.0",
+    "style-loader": "^3.0.0",
     "ts-config-single-spa": "workspace:*",
-    "webpack": "^5.8.0",
-    "webpack-cli": "^4.2.0",
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2",
     "webpack-config-single-spa-react": "workspace:*",
     "webpack-dev-server": "^4.0.0-beta.0",
-    "webpack-merge": "^5.4.0"
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
