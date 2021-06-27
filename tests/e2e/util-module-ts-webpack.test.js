@@ -1,18 +1,9 @@
-const { createFixtureIfDoesntExist } = require("../test-helpers.js");
 const nixt = require("nixt");
+const { getFixtureDir } = require("../test-helpers");
+
+const fixtureDir = getFixtureDir(__filename);
 
 describe(`typescript util module usage`, () => {
-  const fixtureDir = createFixtureIfDoesntExist(
-    __filename,
-    `
-    --moduleType util-module
-    --packageManager pnpm
-    --orgName org
-    --projectName project
-    --typescript
-  `
-  );
-
   it(`Can pnpm run build`, (done) => {
     console.log("pnpm run build");
     nixt()

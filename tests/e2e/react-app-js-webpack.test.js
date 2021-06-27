@@ -1,18 +1,9 @@
-const { createFixtureIfDoesntExist } = require("../test-helpers.js");
+const { getFixtureDir } = require("../test-helpers.js");
 const nixt = require("nixt");
 
-describe(`basic react usage`, () => {
-  const fixtureDir = createFixtureIfDoesntExist(
-    __filename,
-    `
-    --framework react
-    --packageManager pnpm
-    --orgName org
-    --projectName project
-    --typescript=false
-  `
-  );
+const fixtureDir = getFixtureDir(__filename);
 
+describe(`basic react usage`, () => {
   it(`Can pnpm run build`, (done) => {
     console.log("pnpm run build");
     nixt()

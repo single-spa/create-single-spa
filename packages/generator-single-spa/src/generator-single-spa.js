@@ -25,6 +25,10 @@ module.exports = class SingleSpaGenerator extends Generator {
       type: String,
     });
 
+    this.option("skipInstall", {
+      type: Boolean,
+    });
+
     if (args.length > 0 && !this.options.dir) {
       this.options.dir = args[0];
     }

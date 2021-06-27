@@ -151,12 +151,14 @@ module.exports = class SingleSpaSvelteGenerator extends PnpmGenerator {
     }
   }
   install() {
-    this.installDependencies({
-      npm: this.options.packageManager === "npm",
-      yarn: this.options.packageManager === "yarn",
-      pnpm: this.options.packageManager === "pnpm",
-      bower: false,
-    });
+    if (!this.skipInstall) {
+      this.installDependencies({
+        npm: this.options.packageManager === "npm",
+        yarn: this.options.packageManager === "yarn",
+        pnpm: this.options.packageManager === "pnpm",
+        bower: false,
+      });
+    }
   }
   finished() {
     this.on(`${this.options.packageManager}Install:end`, () => {

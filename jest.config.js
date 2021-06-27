@@ -4,4 +4,5 @@ module.exports = {
   testTimeout: 120000,
   testRegex: "tests\\/e2e\\/.+test.js",
   watchPathIgnorePatterns: ["<rootDir>/tests/fixtures/"],
+  globalSetup: "<rootDir>/tests/create-fixtures.js",
 };
