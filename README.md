@@ -6,6 +6,8 @@ A project to make creating single-spa applications easy as `yarn create single-s
 
 [Full Documentation](https://single-spa.js.org/docs/create-single-spa)
 
+Release Notes / Changelogs are in the individual packages. For example, packages/webpack-config-single-spa/CHANGELOG.md
+
 ## Developing / Contributing
 
 [Contributing](/CONTRIBUTING.md)
