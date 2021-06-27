@@ -1,6 +1,6 @@
 {
   "name": "single-spa-welcome",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A welcome application to guide users with next steps after creating their first root config.",
   "author": "Single-spa core team",
   "homepage": "https://github.com/single-spa/create-single-spa",

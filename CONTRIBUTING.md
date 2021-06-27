@@ -33,7 +33,8 @@ To publish to npm, run the following commands:
 
 ```sh
 GITHUB_TOKEN=... pnpx changeset version
-git commit -a "v2.0.0" -m "v2.0.0"
+git add .
+git commit -m "NPM Publish"
 pnpm publish -r
 git tag -a v2.0.0 -m v2.0.0
 git push

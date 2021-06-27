@@ -1,5 +1,12 @@
 # webpack-config-single-spa-react
 
+## 2.2.3
+
+### Patch Changes
+
+- Updated dependencies [[`0ca13bb`](https://github.com/single-spa/create-single-spa/commit/0ca13bb8de64b2329bae04f7bf92b1e9fcb5c47a)]:
+  - webpack-config-single-spa@3.0.0
+
 ## 2.2.2
 
 ### Patch Changes
