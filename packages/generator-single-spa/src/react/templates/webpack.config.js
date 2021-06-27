@@ -1,4 +1,4 @@
-const { merge }  = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react<% if (typescript) { %>-ts<% } %>");
 
 module.exports = (webpackConfigEnv, argv) => {
