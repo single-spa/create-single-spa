@@ -1,18 +1,10 @@
-const path = require("path");
 const generator = require("../src/generator-single-spa");
 const helpers = require("yeoman-test");
-const assert = require("yeoman-assert");
 
 describe("generator-single-spa", () => {
-  let runContext;
-
-  afterEach(() => {
-    runContext.cleanTestDirectory();
-  });
-
-  it("can run the generator", () => {
-    runContext = helpers
-      .run(generator)
+  it("can run the generator", async () => {
+    const runResult = await helpers
+      .create(generator)
       .withOptions({
         framework: "react",
       })
@@ -20,10 +12,9 @@ describe("generator-single-spa", () => {
         packageManager: "yarn",
         orgName: "org",
         projectName: "basic-test",
-      });
+      })
+      .run();
 
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
+    return runResult.assertFile("package.json");
   });
 });

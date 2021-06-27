@@ -1,14 +1,10 @@
-const path = require("path");
-const fs = require("fs");
 const generator = require("../src/generator-single-spa");
 const helpers = require("yeoman-test");
-const assert = require("yeoman-assert");
 
 describe("generator-single-spa-util-module", () => {
-  let runContext;
   const generateRunContext = (prompts) =>
     helpers
-      .run(generator)
+      .create(generator)
       .withOptions({
         moduleType: "util-module",
       })
@@ -17,43 +13,28 @@ describe("generator-single-spa-util-module", () => {
         orgName: "org",
         projectName: "util-module-project",
         ...prompts,
-      });
+      })
+      .run();
 
-  afterEach(() => {
-    runContext.cleanTestDirectory();
+  it("handles yarn option properly", async () => {
+    const runResult = await generateRunContext({ packageManager: "yarn" });
+    runResult.assertFile("package.json");
   });
 
-  it("handles yarn option properly", () => {
-    runContext = generateRunContext({ packageManager: "yarn" });
-
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
+  it("handles pnpm option properly", async () => {
+    const runResult = await generateRunContext({ packageManager: "pnpm" });
+    runResult.assertFile("package.json");
   });
 
-  it("handles pnpm option properly", () => {
-    runContext = generateRunContext({ packageManager: "pnpm" });
-
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
+  it("handles npm option properly", async () => {
+    const runResult = await generateRunContext();
+    runResult.assertFile("package.json");
   });
 
-  it("handles npm option properly", () => {
-    runContext = generateRunContext();
-
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
-  });
-
-  it("copies the correct files over", () => {
-    runContext = generateRunContext();
-
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "jest.config.js"));
-      assert.file(path.join(dir, "babel.config.json"));
-      assert.file(path.join(dir, "webpack.config.js"));
-    });
+  it("copies the correct files over", async () => {
+    const runResult = await generateRunContext({ packageManager: "yarn" });
+    runResult.assertFile("jest.config.js");
+    runResult.assertFile("babel.config.json");
+    runResult.assertFile("webpack.config.js");
   });
 });

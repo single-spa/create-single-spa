@@ -47,7 +47,6 @@ importers:
       ejs: ^3.1.6
       jest: ^27.0.5
       lodash: ^4.17.21
-      yeoman-assert: ^3.1.1
       yeoman-generator: ^5.3.0
       yeoman-test: ^6.1.0
     dependencies:
@@ -58,7 +57,6 @@ importers:
       yeoman-generator: 5.3.0
     devDependencies:
       jest: 27.0.5
-      yeoman-assert: 3.1.1
       yeoman-test: 6.1.0_yeoman-generator@5.3.0
 
   packages/single-spa-web-server-utils:
@@ -10663,11 +10661,6 @@ packages:
       y18n: 5.0.5
       yargs-parser: 20.2.5
     dev: false
-
-  /yeoman-assert/3.1.1:
-    resolution: {integrity: sha512-bCuLb/j/WzpvrJZCTdJJLFzm7KK8IYQJ3+dF9dYtNs2CUYyezFJDuULiZ2neM4eqjf45GN1KH/MzCTT3i90wUQ==}
-    engines: {node: '>=4'}
-    dev: true
 
   /yeoman-environment/3.4.1:
     resolution: {integrity: sha512-Bu3kN5sTOyAcbO/cKEQf6KOxsLta9oRF59saLOKnt3OQM+hXapnWaAHcrat3dygd6l34KjxwM5AMJp09TDa8yw==}

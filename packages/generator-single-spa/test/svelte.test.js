@@ -1,13 +1,10 @@
-const path = require("path");
 const generator = require("../src/generator-single-spa");
 const helpers = require("yeoman-test");
-const assert = require("yeoman-assert");
 
 describe("generator-single-spa-svelte", () => {
-  let runContext;
-  const generateRunContext = (prompts) =>
+  const runWithPrompts = (prompts) =>
     helpers
-      .run(generator)
+      .create(generator)
       .withOptions({
         framework: "svelte",
       })
@@ -16,42 +13,27 @@ describe("generator-single-spa-svelte", () => {
         orgName: "org",
         projectName: "svelte-project",
         ...prompts,
-      });
+      })
+      .run();
 
-  afterEach(() => {
-    runContext.cleanTestDirectory();
+  it("handles yarn option properly", async () => {
+    const runResult = await runWithPrompts({ packageManager: "yarn" });
+    runResult.assertFile("package.json");
   });
 
-  it("handles yarn option properly", () => {
-    runContext = generateRunContext({ packageManager: "yarn" });
-
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
+  it("handles pnpm option properly", async () => {
+    const runResult = await runWithPrompts({ packageManager: "pnpm" });
+    runResult.assertFile("package.json");
   });
 
-  it("handles pnpm option properly", () => {
-    runContext = generateRunContext({ packageManager: "pnpm" });
-
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
+  it("handles npm option properly", async () => {
+    const runResult = await runWithPrompts();
+    runResult.assertFile("package.json");
   });
 
-  it("handles npm option properly", () => {
-    runContext = generateRunContext();
-
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
-  });
-
-  it("copies the correct files over", () => {
-    runContext = generateRunContext();
-
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "rollup.config.js"));
-      assert.file(path.join(dir, "src/App.svelte"));
-    });
+  it("copies the correct files over", async () => {
+    const runResult = await runWithPrompts({ packageManager: "yarn" });
+    runResult.assertFile("rollup.config.js");
+    runResult.assertFile("src/App.svelte");
   });
 });

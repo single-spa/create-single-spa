@@ -1,13 +1,10 @@
-const path = require("path");
 const generator = require("../src/generator-single-spa");
 const helpers = require("yeoman-test");
-const assert = require("yeoman-assert");
 
 describe("generator-single-spa-react", () => {
-  let runContext;
-  const generateRunContext = (prompts) =>
+  const runGenerator = (prompts) =>
     helpers
-      .run(generator)
+      .create(generator)
       .withOptions({
         framework: "react",
       })
@@ -16,46 +13,37 @@ describe("generator-single-spa-react", () => {
         orgName: "org",
         projectName: "react-project",
         ...prompts,
-      });
+      })
+      .run();
 
-  afterEach(() => {
-    runContext.cleanTestDirectory();
-  });
-
-  it("handles yarn option properly", () => {
-    runContext = generateRunContext({
+  it("handles yarn option properly", async () => {
+    const runResult = await runGenerator({
       packageManager: "yarn",
     });
 
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
+    runResult.assertFile("package.json");
   });
 
-  it("handles npm option properly", () => {
-    runContext = generateRunContext();
+  it("handles npm option properly", async () => {
+    const runResult = await runGenerator();
 
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
+    runResult.assertFile("package.json");
   });
 
-  it("handles pnpm option properly", () => {
-    runContext = generateRunContext({
+  it("handles pnpm option properly", async () => {
+    const runResult = await runGenerator({
       packageManager: "pnpm",
     });
 
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "package.json"));
-    });
+    runResult.assertFile("package.json");
   });
 
-  it("copies the correct files over", () => {
-    runContext = generateRunContext();
-
-    return runContext.then((dir) => {
-      assert.file(path.join(dir, "jest.config.js"));
-      assert.file(path.join(dir, "babel.config.json"));
+  it("copies the correct files over", async () => {
+    const runResult = await runGenerator({
+      packageManager: "pnpm",
     });
+    runResult.assertFile("jest.config.js");
+    runResult.assertFile("babel.config.json");
+    runResult.assertFile(".husky/pre-commit");
   });
 });
