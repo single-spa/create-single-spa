@@ -133,6 +133,11 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
       this.options
     );
     this.fs.copyTpl(
+      this.templatePath(`../../common-templates/.husky/pre-commit`),
+      this.destinationPath(`.husky/pre-commit`),
+      this.options
+    );
+    this.fs.copyTpl(
       this.templatePath("webpack.config.js"),
       this.destinationPath("webpack.config.js"),
       this.options
@@ -151,6 +156,15 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
         this.destinationPath("tsconfig.json"),
         this.options
       );
+    }
+
+    const childGitInitProcess = this.spawnCommandSync("git", ["init"]);
+    if (childGitInitProcess.error) {
+      console.log(chalk.red("\n************"));
+      console.log(chalk.red("Cannot initialize git repository"));
+      console.log(chalk.red("************\n"));
+    } else {
+      console.log(chalk.green("\nInitialized git repository\n"));
     }
   }
   install() {

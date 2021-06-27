@@ -28,14 +28,6 @@ describe("generator-single-spa-util-module", () => {
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "package.json"));
-      assert.jsonFileContent(path.join(dir, "package.json"), {
-        husky: {
-          hooks: {
-            "pre-commit":
-              "pretty-quick --staged && concurrently yarn:test yarn:lint",
-          },
-        },
-      });
     });
   });
 
@@ -44,14 +36,6 @@ describe("generator-single-spa-util-module", () => {
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "package.json"));
-      assert.jsonFileContent(path.join(dir, "package.json"), {
-        husky: {
-          hooks: {
-            "pre-commit":
-              "pretty-quick --staged && concurrently pnpm:test pnpm:lint",
-          },
-        },
-      });
     });
   });
 
@@ -60,14 +44,6 @@ describe("generator-single-spa-util-module", () => {
 
     return runContext.then((dir) => {
       assert.file(path.join(dir, "package.json"));
-      assert.jsonFileContent(path.join(dir, "package.json"), {
-        husky: {
-          hooks: {
-            "pre-commit":
-              "pretty-quick --staged && concurrently npm:test npm:lint",
-          },
-        },
-      });
     });
   });
 

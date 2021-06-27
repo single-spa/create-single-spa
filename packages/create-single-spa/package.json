@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "generator-single-spa": "workspace:*",
-    "yargs": "^16.2.0",
-    "yeoman-environment": "^2.10.3"
+    "yargs": "^17.0.1",
+    "yeoman-environment": "^3.4.1"
   }
 }

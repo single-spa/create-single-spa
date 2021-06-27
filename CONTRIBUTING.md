@@ -40,3 +40,12 @@ git push
 ```
 
 Then create a github release for the tag you created (v2.0.0 in the example). Copy + paste the changelogs from changelog.md in each package that was changed into the global release notes.
+
+## Upgrading dependencies
+
+Run the following:
+
+```sh
+./scripts/upgrade-dependencies.sh
+pnpm install
+```

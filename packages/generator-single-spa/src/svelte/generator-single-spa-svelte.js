@@ -93,6 +93,11 @@ module.exports = class SingleSpaSvelteGenerator extends PnpmGenerator {
       this.options
     );
     this.fs.copyTpl(
+      this.templatePath(`../../common-templates/.husky/pre-commit`),
+      this.destinationPath(`.husky/pre-commit`),
+      this.options
+    );
+    this.fs.copyTpl(
       this.templatePath(`.prettierignore`),
       this.destinationPath(`.prettierignore`),
       this.options

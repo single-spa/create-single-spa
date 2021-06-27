@@ -109,6 +109,12 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
     );
 
     this.fs.copyTpl(
+      this.templatePath(`../../common-templates/.husky/pre-commit`),
+      this.destinationPath(`.husky/pre-commit`),
+      this.options
+    );
+
+    this.fs.copyTpl(
       this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
       this.options
@@ -182,6 +188,15 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
           "single-spa-layout": singleSpaLayoutVersion,
         },
       });
+    }
+
+    const childGitInitProcess = this.spawnCommandSync("git", ["init"]);
+    if (childGitInitProcess.error) {
+      console.log(chalk.red("\n************"));
+      console.log(chalk.red("Cannot initialize git repository"));
+      console.log(chalk.red("************\n"));
+    } else {
+      console.log(chalk.green("\nInitialized git repository\n"));
     }
   }
   install() {
