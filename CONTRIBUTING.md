@@ -36,11 +36,10 @@ GITHUB_TOKEN=... pnpx changeset version
 git add .
 git commit -m "NPM Publish"
 pnpm publish -r
-git tag -a v2.0.0 -m v2.0.0
 git push
 ```
 
-Then create a github release for the tag you created (v2.0.0 in the example). Copy + paste the changelogs from changelog.md in each package that was changed into the global release notes.
+Then create Github releases for each new Git tag. Copy from CHANGELOG.md within each project for the release notes.
 
 ## Upgrading dependencies
 
