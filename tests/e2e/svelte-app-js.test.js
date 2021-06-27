@@ -1,19 +1,9 @@
-const { createFixtureIfDoesntExist } = require("../test-helpers.js");
 const nixt = require("nixt");
+const { getFixtureDir } = require("../test-helpers");
+
+const fixtureDir = getFixtureDir(__filename);
 
 describe(`basic svelte usage`, () => {
-  const fixtureDir = createFixtureIfDoesntExist(
-    __filename,
-    `
-    --framework svelte
-    --packageManager pnpm
-    --orgName org
-    --projectName project
-  `
-  );
-
-  console.log("fixtureDir", fixtureDir);
-
   it(`Can pnpm run build`, (done) => {
     console.log("pnpm run build");
     nixt()

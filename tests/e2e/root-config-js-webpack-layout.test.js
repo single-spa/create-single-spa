@@ -1,18 +1,9 @@
-const { createFixtureIfDoesntExist } = require("../test-helpers.js");
 const nixt = require("nixt");
+const { getFixtureDir } = require("../test-helpers");
+
+const fixtureDir = getFixtureDir(__filename);
 
 describe(`js root config with layout usage`, () => {
-  const fixtureDir = createFixtureIfDoesntExist(
-    __filename,
-    `
-    --moduleType root-config
-    --packageManager pnpm
-    --orgName org
-    --typescript=false
-    --layout=true
-  `
-  );
-
   it(`Can pnpm run build`, (done) => {
     console.log("pnpm run build");
     nixt()
