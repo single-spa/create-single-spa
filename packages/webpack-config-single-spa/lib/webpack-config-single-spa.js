@@ -37,7 +37,7 @@ function webpackConfigSingleSpa(opts) {
     mode: isProduction ? "production" : "development",
     entry: path.resolve(
       process.cwd(),
-      `src/${opts.orgName}-${opts.projectName}.js`
+      `src/${opts.orgName}-${opts.projectName}`
     ),
     output: {
       filename: `${opts.orgName}-${opts.projectName}.js`,
