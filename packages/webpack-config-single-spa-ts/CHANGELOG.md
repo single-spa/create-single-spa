@@ -1,5 +1,12 @@
 # webpack-config-single-spa-ts
 
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies [[`a380ce4`](https://github.com/single-spa/create-single-spa/commit/a380ce4d381c651d5df671aee4826bf0dcca9004)]:
+  - webpack-config-single-spa@3.1.0
+
 ## 2.2.3
 
 ### Patch Changes

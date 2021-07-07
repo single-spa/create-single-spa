@@ -32,6 +32,7 @@ If you're having trouble diagnosing why a test is failing, try running the tests
 To publish to npm, run the following commands:
 
 ```sh
+rm -rf tests/fixtures
 GITHUB_TOKEN=... pnpm exec changeset version
 git add .
 git commit -m "NPM Publish"

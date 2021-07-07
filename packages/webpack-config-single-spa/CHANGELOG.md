@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 3.1.0
+
+### Minor Changes
+
+- [#306](https://github.com/single-spa/create-single-spa/pull/306) [`a380ce4`](https://github.com/single-spa/create-single-spa/commit/a380ce4d381c651d5df671aee4826bf0dcca9004) Thanks [@joeldenning](https://github.com/joeldenning)! - Support for entry files with non .js extensions
+
 ## 3.0.0
 
 ### Major Changes
