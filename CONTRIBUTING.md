@@ -14,7 +14,7 @@ Note that create-single-spa can run in the current directory by default, but you
 This project uses [changesets](https://github.com/atlassian/changesets) to manage versioning of each of the packages. Before you create a pull request, run the following:
 
 ```sh
-pnpx changeset
+pnpm exec changeset
 ```
 
 ## Tests
@@ -32,7 +32,7 @@ If you're having trouble diagnosing why a test is failing, try running the tests
 To publish to npm, run the following commands:
 
 ```sh
-GITHUB_TOKEN=... pnpx changeset version
+GITHUB_TOKEN=... pnpm exec changeset version
 git add .
 git commit -m "NPM Publish"
 pnpm publish -r
