@@ -17,6 +17,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/svelte": "^3.0.3",
     "babel-jest": "^27.0.5",
+    "husky": "^6.0.0",
     "jest": "^27.0.5",
     "prettier": "^2.3.2",
     "prettier-plugin-svelte": "^2.3.1",
