@@ -85,15 +85,16 @@ function webpackConfigSingleSpa(opts) {
     },
     devtool: "source-map",
     devServer: {
-      compress: true,
       historyApiFallback: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
-      firewall: false,
       client: {
-        host: "localhost",
+        webSocketURL: {
+          hostname: "localhost",
+        },
       },
+      allowedHosts: "all",
     },
     externals: opts.orgPackagesAsExternal
       ? ["single-spa", new RegExp(`^@${opts.orgName}/`)]
