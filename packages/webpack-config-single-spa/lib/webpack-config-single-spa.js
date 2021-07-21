@@ -89,6 +89,11 @@ function webpackConfigSingleSpa(opts) {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
+      client: {
+        webSocketURL: {
+          hostname: "localhost",
+        },
+      },
       allowedHosts: "all",
     },
     externals: opts.orgPackagesAsExternal
