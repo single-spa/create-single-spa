@@ -1,5 +1,20 @@
 # webpack-config-single-spa-ts
 
+## 3.0.0
+
+### Major Changes
+
+- [#310](https://github.com/single-spa/create-single-spa/pull/310) [`5dc82a6`](https://github.com/single-spa/create-single-spa/commit/5dc82a6ce97a72a53dc2533fe45d2f02504be4e9) Thanks [@alexristich](https://github.com/alexristich)! - Upgrade to latest config from webpack-dev-server v4.0.0-rc.0
+
+  The [release candidate](https://github.com/webpack/webpack-dev-server/releases/tag/v4.0.0-rc.0) introduced some breaking changes which prevented the local server from running in new applications created with `create-single-spa`.
+
+  This also simplfies the configuration to take advantage of new default values.
+
+### Patch Changes
+
+- Updated dependencies [[`5dc82a6`](https://github.com/single-spa/create-single-spa/commit/5dc82a6ce97a72a53dc2533fe45d2f02504be4e9)]:
+  - webpack-config-single-spa@4.0.0
+
 ## 2.2.4
 
 ### Patch Changes
