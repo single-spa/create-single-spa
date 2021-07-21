@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 3.1.0
+
+### Minor Changes
+
+- [#312](https://github.com/single-spa/create-single-spa/pull/312) [`dcc5a02`](https://github.com/single-spa/create-single-spa/commit/dcc5a02b91b01418ee5304060b18f022763700ed) Thanks [@joeldenning](https://github.com/joeldenning)! - Use webpack-dev-server@4.0.0-rc.0
+
 ## 3.0.0
 
 ### Major Changes
