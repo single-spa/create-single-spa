@@ -190,69 +190,6 @@ importers:
       webpack-config-single-spa: link:../webpack-config-single-spa
       webpack-merge: 5.8.0
 
-  tests/fixtures/hi:
-    specifiers:
-      '@babel/core': ^7.14.6
-      '@babel/eslint-parser': ^7.14.7
-      '@babel/plugin-transform-runtime': ^7.14.5
-      '@babel/preset-env': ^7.14.7
-      '@babel/preset-react': ^7.14.5
-      '@babel/runtime': ^7.14.6
-      '@testing-library/jest-dom': ^5.14.1
-      '@testing-library/react': ^12.0.0
-      babel-jest: ^27.0.5
-      concurrently: ^6.2.0
-      cross-env: ^7.0.3
-      eslint: ^7.29.0
-      eslint-config-prettier: ^8.3.0
-      eslint-config-react-important-stuff: ^3.0.0
-      eslint-plugin-prettier: ^3.4.0
-      husky: ^6.0.0
-      identity-obj-proxy: ^3.0.0
-      jest: ^27.0.5
-      jest-cli: ^27.0.5
-      prettier: ^2.3.2
-      pretty-quick: ^3.1.1
-      react: ^17.0.2
-      react-dom: ^17.0.2
-      single-spa-react: ^4.2.0
-      webpack: ^5.40.0
-      webpack-cli: ^4.7.2
-      webpack-config-single-spa-react: ^2.2.2
-      webpack-dev-server: ^4.0.0-rc.0
-      webpack-merge: ^5.8.0
-    dependencies:
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      single-spa-react: 4.2.0_react@17.0.2
-    devDependencies:
-      '@babel/core': 7.14.6
-      '@babel/eslint-parser': 7.14.7_@babel+core@7.14.6+eslint@7.29.0
-      '@babel/plugin-transform-runtime': 7.14.5_@babel+core@7.14.6
-      '@babel/preset-env': 7.14.7_@babel+core@7.14.6
-      '@babel/preset-react': 7.14.5_@babel+core@7.14.6
-      '@babel/runtime': 7.14.6
-      '@testing-library/jest-dom': 5.14.1
-      '@testing-library/react': 12.0.0_react-dom@17.0.2+react@17.0.2
-      babel-jest: 27.0.5_@babel+core@7.14.6
-      concurrently: 6.2.0
-      cross-env: 7.0.3
-      eslint: 7.29.0
-      eslint-config-prettier: 8.3.0_eslint@7.29.0
-      eslint-config-react-important-stuff: 3.0.0_eslint@7.29.0
-      eslint-plugin-prettier: 3.4.0_4e72879372edbffcbdaf0fa17b22c203
-      husky: 6.0.0
-      identity-obj-proxy: 3.0.0
-      jest: 27.0.5
-      jest-cli: 27.0.5
-      prettier: 2.3.2
-      pretty-quick: 3.1.1_prettier@2.3.2
-      webpack: 5.40.0_webpack-cli@4.7.2
-      webpack-cli: 4.7.2_cac7de03784b6ba5c8e61eb9c890ad26
-      webpack-config-single-spa-react: link:../../../packages/webpack-config-single-spa-react
-      webpack-dev-server: 4.0.0-rc.0_webpack-cli@4.7.2+webpack@5.40.0
-      webpack-merge: 5.8.0
-
 packages:
 
   /@babel/code-frame/7.12.11:
@@ -286,27 +223,13 @@ packages:
       '@babel/traverse': 7.14.7
       '@babel/types': 7.14.5
       convert-source-map: 1.7.0
-      debug: 4.3.1
+      debug: 4.3.2
       gensync: 1.0.0-beta.2
       json5: 2.2.0
       semver: 6.3.0
       source-map: 0.5.7
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@babel/eslint-parser/7.14.7_@babel+core@7.14.6+eslint@7.29.0:
-    resolution: {integrity: sha512-6WPwZqO5priAGIwV6msJcdc9TsEPzYeYdS/Xuoap+/ihkgN6dzHp2bcAAwyWZ5bLzk0vvjDmKvRwkqNaiJ8BiQ==}
-    engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
-    peerDependencies:
-      '@babel/core': '>=7.11.0'
-      eslint: '>=7.5.0'
-    dependencies:
-      '@babel/core': 7.14.6
-      eslint: 7.29.0
-      eslint-scope: 5.1.1
-      eslint-visitor-keys: 2.1.0
-      semver: 6.3.0
     dev: true
 
   /@babel/generator/7.14.5:
@@ -384,7 +307,7 @@ packages:
       '@babel/helper-module-imports': 7.14.5
       '@babel/helper-plugin-utils': 7.14.5
       '@babel/traverse': 7.14.7
-      debug: 4.3.1
+      debug: 4.3.2
       lodash.debounce: 4.0.8
       resolve: 1.20.0
       semver: 6.3.0
@@ -1482,7 +1405,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.14.5
       '@babel/parser': 7.14.7
       '@babel/types': 7.14.5
-      debug: 4.3.1
+      debug: 4.3.2
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -1695,7 +1618,7 @@ packages:
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.1
+      debug: 4.3.2
       espree: 7.3.1
       globals: 13.9.0
       ignore: 4.0.6
@@ -1909,7 +1832,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.3
       '@types/istanbul-reports': 3.0.0
-      '@types/node': 14.14.31
+      '@types/node': 16.4.0
       '@types/yargs': 15.0.13
       chalk: 4.1.1
     dev: true
@@ -2324,7 +2247,7 @@ packages:
     resolution: {integrity: sha512-I+1sYH+NPQ3/tVqCeUSBwTE/0heyvtXqpIopUUArlBm0Kpocb8FbMa3AZ/ASKIFpN3rnEx932TTXDbt9OXsNDw==}
     dependencies:
       '@types/estree': 0.0.47
-      '@types/json-schema': 7.0.7
+      '@types/json-schema': 7.0.8
     dev: true
 
   /@types/estree/0.0.47:
@@ -4176,10 +4099,10 @@ packages:
       function-bind: 1.1.1
       get-intrinsic: 1.1.1
       has: 1.0.3
-      has-symbols: 1.0.1
+      has-symbols: 1.0.2
       is-callable: 1.2.3
       is-negative-zero: 2.0.1
-      is-regex: 1.1.2
+      is-regex: 1.1.3
       object-inspect: 1.9.0
       object-keys: 1.1.1
       object.assign: 4.1.2
@@ -4195,7 +4118,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       is-callable: 1.2.3
-      is-date-object: 1.0.2
+      is-date-object: 1.0.4
       is-symbol: 1.0.3
 
   /escalade/3.1.1:
@@ -4336,7 +4259,7 @@ packages:
       ajv: 6.12.6
       chalk: 4.1.1
       cross-spawn: 7.0.3
-      debug: 4.3.1
+      debug: 4.3.2
       doctrine: 3.0.0
       enquirer: 2.3.6
       escape-string-regexp: 4.0.0
@@ -5031,6 +4954,7 @@ packages:
   /has-symbols/1.0.1:
     resolution: {integrity: sha512-PLcsoqu++dmEIZB+6totNFKq/7Do+Z0u4oT0zKOJNl3lYK6vGwwu2hjHs+68OEZbTjiUE9bgOABXbP/GvrS0Kg==}
     engines: {node: '>= 0.4'}
+    dev: false
 
   /has-symbols/1.0.2:
     resolution: {integrity: sha512-chXa79rL/UC2KlX17jo3vRGz0azaWEx5tGqZg5pO3NUyEJVB17dMruQlzCCOfUvElghKcm5194+BCRvi2Rv/Gw==}
@@ -5439,14 +5363,9 @@ packages:
     dependencies:
       has: 1.0.3
 
-  /is-date-object/1.0.2:
-    resolution: {integrity: sha512-USlDT524woQ08aoZFzh3/Z6ch9Y/EWXEHQ/AaRN0SkKq4t2Jw2R2339tSXmwuVoY7LLlBCbOIlx2myP/L5zk0g==}
-    engines: {node: '>= 0.4'}
-
   /is-date-object/1.0.4:
     resolution: {integrity: sha512-/b4ZVsG7Z5XVtIxs/h9W8nvfLgSAyKYdtGWQLbqy6jA1icmgjf8WCoTKgeS4wy5tYaPePouzFMANbnj94c2Z+A==}
     engines: {node: '>= 0.4'}
-    dev: true
 
   /is-docker/2.2.1:
     resolution: {integrity: sha512-F+i2BKsFrH66iaUFc0woD8sLy8getkwTwtOBjvs56Cx4CgJDeKQeqfz8wAYiSb8JOprWhHH5p77PbmYCvvUuXQ==}
@@ -5542,20 +5461,12 @@ packages:
     resolution: {integrity: sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==}
     dev: true
 
-  /is-regex/1.1.2:
-    resolution: {integrity: sha512-axvdhb5pdhEVThqJzYXwMlVuZwC+FF2DpcOhTS+y/8jVq4trxyPgfcwIxIKiyeuLlSQYKkmUaPQJ8ZE4yNKXDg==}
-    engines: {node: '>= 0.4'}
-    dependencies:
-      call-bind: 1.0.2
-      has-symbols: 1.0.1
-
   /is-regex/1.1.3:
     resolution: {integrity: sha512-qSVXFz28HM7y+IWX6vLCsexdlvzT1PJNFSBuaQLQ5o0IEw8UDYW6/2+eCMVyIsbM8CNLX2a/QWmSpyxYEHY7CQ==}
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
       has-symbols: 1.0.2
-    dev: true
 
   /is-scoped/2.1.0:
     resolution: {integrity: sha512-Cv4OpPTHAK9kHYzkzCrof3VJh7H/PrG2MBUMvvJebaaUMbqhm0YAtXnvh0I3Hnj2tMZWwrRROWLSgfJrKqWmlQ==}
@@ -5589,7 +5500,7 @@ packages:
     resolution: {integrity: sha512-OwijhaRSgqvhm/0ZdAcXNZt9lYdKFpcRDT5ULUuYXPoT794UNOdU+gpT6Rzo7b4V2HUl/op6GqY894AZwv9faQ==}
     engines: {node: '>= 0.4'}
     dependencies:
-      has-symbols: 1.0.1
+      has-symbols: 1.0.2
 
   /is-typedarray/1.0.0:
     resolution: {integrity: sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=}
@@ -7100,7 +7011,7 @@ packages:
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.1.3
-      has-symbols: 1.0.1
+      has-symbols: 1.0.2
       object-keys: 1.1.1
 
   /object.getownpropertydescriptors/2.1.1:
@@ -8222,6 +8133,7 @@ packages:
       react: '*'
     dependencies:
       react: 17.0.2
+    dev: true
 
   /sinon/10.0.0:
     resolution: {integrity: sha512-XAn5DxtGVJBlBWYrcYKEhWCz7FLwZGdyvANRyK06419hyEpdT0dMc5A8Vcxg5SCGHc40CsqoKsc1bt1CbJPfNw==}
@@ -8694,7 +8606,7 @@ packages:
     dependencies:
       jest-worker: 27.0.2
       p-limit: 3.1.0
-      schema-utils: 3.0.0
+      schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       source-map: 0.6.1
       terser: 5.7.0
@@ -8726,7 +8638,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       '@istanbuljs/schema': 0.1.3
-      glob: 7.1.6
+      glob: 7.1.7
       minimatch: 3.0.4
     dev: true
 
@@ -9197,7 +9109,7 @@ packages:
       '@webpack-cli/serve': 1.5.1_f799508a50c1c78eacb7a6b680dc4aee
       colorette: 1.2.2
       commander: 7.1.0
-      execa: 5.0.0
+      execa: 5.1.1
       fastest-levenshtein: 1.0.12
       import-local: 3.0.2
       interpret: 2.2.0
@@ -9310,9 +9222,9 @@ packages:
       graceful-fs: 4.2.6
       json-parse-better-errors: 1.0.2
       loader-runner: 4.2.0
-      mime-types: 2.1.28
+      mime-types: 2.1.31
       neo-async: 2.6.2
-      schema-utils: 3.0.0
+      schema-utils: 3.1.1
       tapable: 2.2.0
       terser-webpack-plugin: 5.1.4_webpack@5.40.0
       watchpack: 2.2.0
@@ -9345,9 +9257,9 @@ packages:
       graceful-fs: 4.2.6
       json-parse-better-errors: 1.0.2
       loader-runner: 4.2.0
-      mime-types: 2.1.28
+      mime-types: 2.1.31
       neo-async: 2.6.2
-      schema-utils: 3.0.0
+      schema-utils: 3.1.1
       tapable: 2.2.0
       terser-webpack-plugin: 5.1.4_webpack@5.40.0
       watchpack: 2.2.0
