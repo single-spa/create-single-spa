@@ -7,6 +7,7 @@ describe("generator-single-spa", () => {
       .create(generator)
       .withOptions({
         framework: "react",
+        skipInstall: true,
       })
       .withPrompts({
         packageManager: "yarn",
