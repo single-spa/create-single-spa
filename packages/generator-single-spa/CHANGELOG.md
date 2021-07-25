@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 3.1.2
+
+### Patch Changes
+
+- [#313](https://github.com/single-spa/create-single-spa/pull/313) [`24bf588`](https://github.com/single-spa/create-single-spa/commit/24bf5886bf2f3e4e76f063abfe4d42eba4a2e9eb) Thanks [@joeldenning](https://github.com/joeldenning)! - Use latest version of webpack-config-single-spa-ts
+
 ## 3.1.1
 
 ### Patch Changes
