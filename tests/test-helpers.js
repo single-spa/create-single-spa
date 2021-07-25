@@ -55,6 +55,7 @@ exports.ensureInstall = () => {
     nixt()
       .cwd(process.cwd())
       .run("pnpm install")
+      .code(0)
       .end((err) => {
         if (err) {
           reject(err);
