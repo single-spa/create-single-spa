@@ -7,6 +7,7 @@ describe("generator-single-spa-svelte", () => {
       .create(generator)
       .withOptions({
         framework: "svelte",
+        skipInstall: true,
       })
       .withPrompts({
         packageManager: "npm",

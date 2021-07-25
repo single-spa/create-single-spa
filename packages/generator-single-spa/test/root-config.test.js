@@ -11,6 +11,7 @@ describe("generator-single-spa", () => {
         orgName: "some-org-name",
         projectName: "some-project-name",
         layout: false,
+        skipInstall: true,
       })
       .run();
 
