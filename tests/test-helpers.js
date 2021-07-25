@@ -55,7 +55,7 @@ exports.ensureInstall = () => {
     nixt()
       .cwd(process.cwd())
       .run("pnpm install")
-      .stdin(/Done/)
+      .stdin("Done")
       .code(0)
       .end((err) => {
         if (err) {
