@@ -15,6 +15,7 @@ const SingleSpaUtilModuleGenerator = require("./util-module/generator-single-spa
 const SingleSpaSvelteGenerator = require("./svelte/generator-single-spa-svelte");
 const versionUpdateCheck = require("./version-update-check");
 const { version } = require("../package.json");
+const ReactUtilModuleGenerator = require("./util-module/generator-react-util-module");
 
 module.exports = class SingleSpaGenerator extends Generator {
   constructor(args, opts) {
@@ -112,17 +113,50 @@ module.exports = class SingleSpaGenerator extends Generator {
     } else if (moduleType === "util-module") {
       this._setDestinationDir();
 
-      this.composeWith(
-        {
-          Generator: SingleSpaUtilModuleGenerator,
-          path: require.resolve(
-            "./util-module/generator-single-spa-util-module.js"
-          ),
-        },
-        this.options
-      );
+      if (!this.options.framework) {
+        const answers = await this.prompt([
+          {
+            type: "list",
+            name: "framework",
+            message: "Which framework do you want to use?",
+            choices: ["none", "react", "vue", "angular", "svelte", "other"],
+          },
+        ]);
+        this.options.framework = answers.framework;
+      }
+
+      switch (this.options.framework) {
+        case "none":
+          this.composeWith(
+            {
+              Generator: SingleSpaUtilModuleGenerator,
+              path: require.resolve(
+                "./util-module/generator-single-spa-util-module.js"
+              ),
+            },
+            this.options
+          );
+          break;
+        case "react":
+          this.composeWith(
+            {
+              Generator: ReactUtilModuleGenerator,
+              path: require.resolve(
+                "./util-module/generator-react-util-module.js"
+              ),
+            },
+            this.options
+          );
+          break;
+        default:
+          throw Error(
+            `Framework '${this.options.framework}' is not yet supported for utility microfrontends. Try creating a vanilla utility module (no framework) in the meantime, which are usable by all frameworks.`
+          );
+      }
     } else {
-      throw Error(`unknown moduleType option ${moduleType}`);
+      throw Error(
+        `unknown moduleType option ${moduleType}. Valid values are root-config, app-parcel, util-module`
+      );
     }
   }
   _setDestinationDir() {

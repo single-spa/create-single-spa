@@ -14,7 +14,7 @@ exports.createFixtureIfDoesntExist = function (name, args) {
     return new Promise((resolve, reject) => {
       const argsStr = args.replace(/\s+/g, " ");
 
-      console.log(`Creating '${name}' fixture. This could take a while...`);
+      console.log(`Creating '${name}' fixture.`);
 
       const command = `node ../../packages/create-single-spa/bin/create-single-spa.js --dir ${name} ${argsStr}`;
 

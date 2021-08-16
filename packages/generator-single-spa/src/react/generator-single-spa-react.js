@@ -20,6 +20,9 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
     this.option("projectName", {
       type: String,
     });
+    this.option("skipMainFile", {
+      type: Boolean,
+    });
   }
   async getOptions() {
     const answers = await this.prompt([
@@ -176,13 +179,16 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
       this.destinationPath(`src/root.component.test.${srcFileExtension}`),
       this.options
     );
-    this.fs.copyTpl(
-      this.templatePath("src/main.js"),
-      this.destinationPath(
-        `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`
-      ),
-      this.options
-    );
+    if (!this.options.skipMainFile) {
+      console.log("Creating main file", this.options);
+      this.fs.copyTpl(
+        this.templatePath("src/main.js"),
+        this.destinationPath(
+          `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`
+        ),
+        this.options
+      );
+    }
     if (this.options.typescript) {
       this.fs.copyTpl(
         this.templatePath("tsconfig.json"),
