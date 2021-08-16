@@ -7,6 +7,7 @@ describe("generator-single-spa-util-module", () => {
       .create(generator)
       .withOptions({
         moduleType: "util-module",
+        framework: "none",
         skipInstall: true,
       })
       .withPrompts({
