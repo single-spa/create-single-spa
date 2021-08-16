@@ -64,10 +64,15 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
       this.templatePath("root-config.package.json"),
       { encoding: "utf-8" }
     );
+
+    const srcFileExtension = this.options.typescript ? "ts" : "js";
+    const mainFile = `src/${this.options.orgName}-root-config.${srcFileExtension}`;
+
     const packageJsonStr = ejs.render(packageJsonTemplate, {
       name: `@${this.options.orgName}/root-config`,
       packageManager: this.options.packageManager,
       typescript: this.options.typescript,
+      mainFile,
     });
 
     const packageJson = JSON.parse(packageJsonStr);
@@ -79,6 +84,7 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
       delete packageJson.devDependencies["eslint-config-important-stuff"];
       // Will be replaced by webpack-config-single-spa-ts
       delete packageJson.devDependencies["webpack-config-single-spa"];
+      packageJson.types = `dist/${this.options.orgName}-root-config.d.ts`;
     }
 
     this.fs.extendJSON(this.destinationPath("package.json"), packageJson);
@@ -93,8 +99,6 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
         )
       );
     }
-
-    const srcFileExtension = this.options.typescript ? "ts" : "js";
 
     this.fs.copyTpl(
       this.templatePath("../../common-templates/babel.config.json.ejs"),
@@ -136,16 +140,17 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
       this.fs.copyTpl(
         this.templatePath("tsconfig.json"),
         this.destinationPath("tsconfig.json"),
-        this.options
+        {
+          ...this.options,
+          mainFile,
+        }
       );
     }
 
     const parentPath = `src${this.options.layout ? "/layout" : ""}`;
     this.fs.copyTpl(
       this.templatePath(`${parentPath}/root-config.ejs`),
-      this.destinationPath(
-        `src/${this.options.orgName}-root-config.${srcFileExtension}`
-      ),
+      this.destinationPath(mainFile),
       this.options
     );
 

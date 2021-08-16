@@ -80,6 +80,8 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
       delete packageJson.devDependencies["eslint-config-important-stuff"];
       // Will be replaced by webpack-config-single-spa-ts
       delete packageJson.devDependencies["webpack-config-single-spa"];
+
+      packageJson.types = `dist/${this.options.orgName}-${this.options.projectName}.d.ts`;
     }
 
     this.fs.extendJSON(this.destinationPath("package.json"), packageJson);
@@ -142,11 +144,10 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
       this.destinationPath("webpack.config.js"),
       this.options
     );
+    const mainFile = `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`;
     this.fs.copyTpl(
       this.templatePath("src/main.js"),
-      this.destinationPath(
-        `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`
-      ),
+      this.destinationPath(mainFile),
       this.options
     );
 
@@ -154,7 +155,10 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
       this.fs.copyTpl(
         this.templatePath("tsconfig.json"),
         this.destinationPath("tsconfig.json"),
-        this.options
+        {
+          ...this.options,
+          mainFile,
+        }
       );
     }
 

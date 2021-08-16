@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build:types": "tsc"
+  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.14.5",
     "eslint-config-ts-important-stuff": "^1.1.0",
@@ -9,6 +12,7 @@
   "dependencies": {
     "@types/jest": "^26.0.23",
     "@types/systemjs": "^6.1.0",
-    "@types/webpack-env": "^1.16.0"
+    "@types/webpack-env": "^1.16.0",
+    "single-spa": "^5.9.3"
   }
 }
