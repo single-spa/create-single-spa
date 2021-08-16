@@ -57,7 +57,6 @@ module.exports = class ReactUtilModuleGenerator extends PnpmGenerator {
   }
   // This generator is just the react app or parcel, but with a different main file.
   async runReactGenerator() {
-    console.log("RUNNING REACT GENERATOR");
     this.composeWith(
       {
         Generator: SingleSpaReactGenerator,

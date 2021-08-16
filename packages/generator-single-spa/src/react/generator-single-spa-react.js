@@ -180,7 +180,6 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
       this.options
     );
     if (!this.options.skipMainFile) {
-      console.log("Creating main file", this.options);
       this.fs.copyTpl(
         this.templatePath("src/main.js"),
         this.destinationPath(
