@@ -1,5 +1,19 @@
 # webpack-config-single-spa-react-ts
 
+## 4.0.0
+
+### Major Changes
+
+- [#315](https://github.com/single-spa/create-single-spa/pull/315) [`729c6b1`](https://github.com/single-spa/create-single-spa/commit/729c6b1b537457fe8ec801b40c86c9eb7fb0fa84) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade to standalone-single-spa-webpack-plugin@3. For the majority of users, you can safely upgrade webpack-config-single-spa (-ts, -react, -react-ts) without any code changes.
+
+  See https://github.com/single-spa/standalone-single-spa-webpack-plugin/releases/tag/v3.0.0 for details about what was changed. It only impacts running projects in standalone mode.
+
+### Patch Changes
+
+- Updated dependencies [[`729c6b1`](https://github.com/single-spa/create-single-spa/commit/729c6b1b537457fe8ec801b40c86c9eb7fb0fa84)]:
+  - webpack-config-single-spa-react@4.0.0
+  - webpack-config-single-spa-ts@4.0.0
+
 ## 3.0.0
 
 ### Major Changes

@@ -1,5 +1,69 @@
 # generator-single-spa
 
+## 4.0.0
+
+### Major Changes
+
+- [#316](https://github.com/single-spa/create-single-spa/pull/316) [`6ca8cbc`](https://github.com/single-spa/create-single-spa/commit/6ca8cbcdd43748261e60372f4582ae28cda5302c) Thanks [@joeldenning](https://github.com/joeldenning)! - For typescript projects, automatically emit types during `build`.
+
+  # Migrating
+
+  The create-single-spa api for generating new typescript projects did not change. However, to upgrade existing projects, do the following:
+
+  1. Update your package.json. Make sure to replace `<%= packageManager %>` with either `npm`, `yarn`, or `pnpm`
+
+  ```diff
+  {
+    "scripts": {
+  -     "build": "webpack --mode=production",
+  +     "build": "concurrently <%= packageManager %>:build:*",
+  +     "build:webpack": "webpack --mode=production",
+  +     "build:types": "tsc"
+    }
+  }
+  ```
+
+  2. Update your tsconfig.json. Make sure to replace `<%= mainFile %>` with the proper value. This is in the format `org-project.ts`. React projects should have the `.tsx` file extension
+
+  ```diff
+  {
+    "compilerOptions": {
+  +     "declarationDir": "dist"
+    },
+  +   "files": ["src/<%= mainFile %>"]
+  -   "include": ["src/**/*", "node_modules/@types"],
+  +   "include": ["src/**/*"]
+  }
+  ```
+
+  3. Add the `"types"` property to your package.json:
+
+  ```diff
+  {
+  +  "types": "dist/<%= mainFile %>.d.ts"
+  }
+  ```
+
+  4. Upgrade `ts-config-single-spa` to the latest 3.x release, which has new configuration for emitting types.
+
+  ```sh
+  npm install --save-dev ts-config-single-spa@^3.0.0
+
+  pnpm install --save-dev ts-config-single-spa@^3.0.0
+
+  yarn add --dev ts-config-single-spa@^3.0.0
+  ```
+
+  5. Now run `npm run build` or `npm run build:types` and verify that a typescript declaration file is outputted to your `dist` directory. Verify that the output file name is the same as the `"types"` property in your package.json.
+
+* [#317](https://github.com/single-spa/create-single-spa/pull/317) [`9f5dfc8`](https://github.com/single-spa/create-single-spa/commit/9f5dfc8a4cbcc64d539f8e65c0f5077cdf59073f) Thanks [@joeldenning](https://github.com/joeldenning)! - Breaking changes:
+
+  Require new --framework option when creating utility microfrontends. This is a breaking change for CLI users who rely on non-interactivity when running create-single-spa, as there's a new option required when `--moduleType util-module` is set. For most cases, though (e.g. when a human can respond to CLI prompts), this change is not a breaking behavior.
+
+  Features:
+
+  React utility microfrontends are now supported. When you create a new utility microfrontend, it will now ask for which framework you want the framework to be authored in. See https://github.com/single-spa/create-single-spa/issues/264
+
 ## 3.1.2
 
 ### Patch Changes

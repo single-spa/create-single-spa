@@ -1,5 +1,22 @@
 # create-single-spa
 
+## 4.0.0
+
+### Major Changes
+
+- [#317](https://github.com/single-spa/create-single-spa/pull/317) [`9f5dfc8`](https://github.com/single-spa/create-single-spa/commit/9f5dfc8a4cbcc64d539f8e65c0f5077cdf59073f) Thanks [@joeldenning](https://github.com/joeldenning)! - Breaking changes:
+
+  Require new --framework option when creating utility microfrontends. This is a breaking change for CLI users who rely on non-interactivity when running create-single-spa, as there's a new option required when `--moduleType util-module` is set. For most cases, though (e.g. when a human can respond to CLI prompts), this change is not a breaking behavior.
+
+  Features:
+
+  React utility microfrontends are now supported. When you create a new utility microfrontend, it will now ask for which framework you want the framework to be authored in. See https://github.com/single-spa/create-single-spa/issues/264
+
+### Patch Changes
+
+- Updated dependencies [[`6ca8cbc`](https://github.com/single-spa/create-single-spa/commit/6ca8cbcdd43748261e60372f4582ae28cda5302c), [`9f5dfc8`](https://github.com/single-spa/create-single-spa/commit/9f5dfc8a4cbcc64d539f8e65c0f5077cdf59073f)]:
+  - generator-single-spa@4.0.0
+
 ## 3.0.3
 
 ### Patch Changes
