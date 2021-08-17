@@ -88,6 +88,7 @@ module.exports = async () => {
     "util-module-js-webpack",
     `
       --moduleType util-module
+      --framework=none
       --packageManager pnpm
       --orgName org
       --projectName project
@@ -100,6 +101,33 @@ module.exports = async () => {
     "util-module-ts-webpack",
     `
     --moduleType util-module
+    --framework=none
+    --packageManager pnpm
+    --orgName org
+    --projectName project
+    --typescript
+    --skipInstall
+  `
+  );
+
+  await createFixtureIfDoesntExist(
+    "util-react-js-webpack",
+    `
+    --moduleType util-module
+    --framework=react
+    --packageManager pnpm
+    --orgName org
+    --projectName project
+    --typescript=false
+    --skipInstall
+  `
+  );
+
+  await createFixtureIfDoesntExist(
+    "util-react-ts-webpack",
+    `
+    --moduleType util-module
+    --framework=react
     --packageManager pnpm
     --orgName org
     --projectName project
