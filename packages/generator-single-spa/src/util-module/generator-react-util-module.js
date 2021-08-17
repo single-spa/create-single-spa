@@ -69,7 +69,7 @@ module.exports = class ReactUtilModuleGenerator extends PnpmGenerator {
     );
   }
   async modifyMainFile() {
-    const srcFileExtension = this.options.typescript ? "ts" : "js";
+    const srcFileExtension = this.options.typescript ? "tsx" : "js";
     const mainFile = `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`;
     this.fs.copyTpl(
       this.templatePath("src/main.js"),
