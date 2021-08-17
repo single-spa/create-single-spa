@@ -64,6 +64,7 @@ module.exports = class SingleSpaSvelteGenerator extends PnpmGenerator {
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
       name: `@${this.options.orgName}/${this.options.projectName}`,
+      packageManager: this.options.packageManager,
     });
 
     const packageJson = JSON.parse(packageJsonStr);

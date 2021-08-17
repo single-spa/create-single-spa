@@ -1,5 +1,9 @@
 {
   "extends": "ts-config-single-spa",
-  "include": ["src/**/*", "node_modules/@types"],
+  "files": ["<%- mainFile %>"],
+  "compilerOptions": {
+    "declarationDir": "dist"
+  },
+  "include": ["src/**/*"],
   "exclude": ["src/**/*.test*"]
 }

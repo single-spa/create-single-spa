@@ -1,8 +1,10 @@
 {
   "extends": "ts-config-single-spa",
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "declarationDir": "dist"
   },
-  "include": ["src/**/*", "node_modules/@types"],
+  "files": ["<%- mainFile %>"],
+  "include": ["src/**/*"],
   "exclude": ["src/**/*.test*"]
 }
