@@ -146,7 +146,7 @@ importers:
       babel-loader: ^8.2.2
       css-loader: ^5.2.6
       html-webpack-plugin: ^5.3.2
-      standalone-single-spa-webpack-plugin: ^2.0.2
+      standalone-single-spa-webpack-plugin: ^3.0.0
       style-loader: ^3.0.0
       systemjs-webpack-interop: ^2.3.7
       unused-files-webpack-plugin: ^3.4.0
@@ -156,7 +156,7 @@ importers:
       babel-loader: 8.2.2_webpack@5.40.0
       css-loader: 5.2.6_webpack@5.40.0
       html-webpack-plugin: 5.3.2_webpack@5.40.0
-      standalone-single-spa-webpack-plugin: 2.0.2_d4c3353c3f85b77e9d7d7497be421c09
+      standalone-single-spa-webpack-plugin: 3.0.0_d4c3353c3f85b77e9d7d7497be421c09
       style-loader: 3.0.0_webpack@5.40.0
       systemjs-webpack-interop: 2.3.7_webpack@5.40.0
       unused-files-webpack-plugin: 3.4.0
@@ -9644,8 +9644,8 @@ packages:
       escape-string-regexp: 2.0.0
     dev: true
 
-  /standalone-single-spa-webpack-plugin/2.0.2_d4c3353c3f85b77e9d7d7497be421c09:
-    resolution: {integrity: sha512-TONJ+OT1fJr2rD4ukJqf0Is9qwomhVXeXHGQnMqS79ToXYIfHJtFo65gLsmOU16bdlcSBvydnCaI6EFlw+wm8g==}
+  /standalone-single-spa-webpack-plugin/3.0.0_d4c3353c3f85b77e9d7d7497be421c09:
+    resolution: {integrity: sha512-qj/iVNXMEWlwMnQbhZC7QqzifoWyps+zlIgbXS6/jvUMZVxD2U4psudPvWsjYw5Q9+HjM0WYdlgl69g9vEyw8w==}
     engines: {node: '>= 8.3.0'}
     peerDependencies:
       html-webpack-plugin: '*'

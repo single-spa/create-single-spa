@@ -61,6 +61,9 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
     Object.assign(this.options, answers, { framework: "react" });
   }
   async createPackageJson() {
+    this.srcFileExtension = this.options.typescript ? "tsx" : "js";
+    this.mainFile = `src/${this.options.orgName}-${this.options.projectName}.${this.srcFileExtension}`;
+
     const packageJsonTemplate = await fs.readFile(
       this.templatePath("react.package.json"),
       { encoding: "utf-8" }
@@ -69,6 +72,7 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
       name: `@${this.options.orgName}/${this.options.projectName}`,
       packageManager: this.options.packageManager,
       typescript: this.options.typescript,
+      mainFile: this.mainFile,
     });
 
     const packageJson = JSON.parse(packageJsonStr);
@@ -82,6 +86,8 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
       delete packageJson.devDependencies["webpack-config-single-spa"];
       // Will be replaced by webpack-config-single-spa-react-ts
       delete packageJson.devDependencies["webpack-config-single-spa-ts"];
+
+      packageJson.types = `dist/${this.options.orgName}-${this.options.projectName}.d.ts`;
     }
 
     this.fs.extendJSON(this.destinationPath("package.json"), packageJson);
@@ -122,8 +128,6 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
     }
   }
   async copyOtherFiles() {
-    const srcFileExtension = this.options.typescript ? "tsx" : "js";
-
     this.fs.copyTpl(
       this.templatePath("jest.config.js"),
       this.destinationPath("jest.config.js"),
@@ -171,20 +175,18 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
     );
     this.fs.copyTpl(
       this.templatePath("src/root.component.js"),
-      this.destinationPath(`src/root.component.${srcFileExtension}`),
+      this.destinationPath(`src/root.component.${this.srcFileExtension}`),
       this.options
     );
     this.fs.copyTpl(
       this.templatePath("src/root.component.test.js"),
-      this.destinationPath(`src/root.component.test.${srcFileExtension}`),
+      this.destinationPath(`src/root.component.test.${this.srcFileExtension}`),
       this.options
     );
     if (!this.options.skipMainFile) {
       this.fs.copyTpl(
         this.templatePath("src/main.js"),
-        this.destinationPath(
-          `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`
-        ),
+        this.destinationPath(this.mainFile),
         this.options
       );
     }
@@ -192,7 +194,10 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
       this.fs.copyTpl(
         this.templatePath("tsconfig.json"),
         this.destinationPath("tsconfig.json"),
-        this.options
+        {
+          ...this.options,
+          mainFile: this.mainFile,
+        }
       );
     }
 
