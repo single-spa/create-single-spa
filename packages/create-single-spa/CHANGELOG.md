@@ -1,5 +1,12 @@
 # create-single-spa
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`ecf5885`](https://github.com/single-spa/create-single-spa/commit/ecf58858b4188ed4e0f67710560cf8ca243dcd30)]:
+  - generator-single-spa@4.0.1
+
 ## 4.0.0
 
 ### Major Changes

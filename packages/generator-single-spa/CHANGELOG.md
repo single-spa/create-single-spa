@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 4.0.1
+
+### Patch Changes
+
+- [#320](https://github.com/single-spa/create-single-spa/pull/320) [`ecf5885`](https://github.com/single-spa/create-single-spa/commit/ecf58858b4188ed4e0f67710560cf8ca243dcd30) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade to ts-config-single-spa@3
+
 ## 4.0.0
 
 ### Major Changes
