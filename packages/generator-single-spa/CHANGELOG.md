@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 4.0.2
+
+### Patch Changes
+
+- [#319](https://github.com/single-spa/create-single-spa/pull/319) [`10c089d`](https://github.com/single-spa/create-single-spa/commit/10c089dc80675487a7f67a959311c24e9c8dfdf0) Thanks [@PieterBoeren](https://github.com/PieterBoeren)! - Fix quotes issue in babel config file
+
 ## 4.0.1
 
 ### Patch Changes
