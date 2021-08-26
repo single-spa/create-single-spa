@@ -78,7 +78,7 @@ function webpackConfigSingleSpa(opts) {
         },
         {
           test: /\.html$/i,
-          exclude: /node_modules/,
+          exclude: [/node_modules/, /\.vue\.html$/],
           type: "asset/source",
         },
       ],
