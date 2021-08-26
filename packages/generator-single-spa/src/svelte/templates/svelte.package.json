@@ -11,26 +11,26 @@
     "check-format": "prettier --plugin-search-dir=. --check ."
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/svelte": "^3.0.3",
-    "babel-jest": "^27.0.5",
+    "babel-jest": "^27.0.6",
     "concurrently": "^6.2.1",
-    "jest": "^27.0.5",
+    "jest": "^27.0.6",
     "prettier": "^2.3.2",
     "prettier-plugin-svelte": "^2.3.1",
-    "rollup": "^2.52.3",
-    "rollup-plugin-livereload": "^2.0.0",
+    "rollup": "^2.56.3",
+    "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
-    "svelte": "^3.38.3",
+    "svelte": "^3.42.3",
     "svelte-jester": "^1.7.0"
   },
   "dependencies": {
     "single-spa-svelte": "^2.1.1",
-    "sirv-cli": "^1.0.12"
+    "sirv-cli": "^1.0.14"
   }
 }

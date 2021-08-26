@@ -31,7 +31,7 @@
     "url": "https://github.com/single-spa/create-single-spa/issues"
   },
   "dependencies": {
-    "import-map-overrides": "^2.4.0",
+    "import-map-overrides": "^2.4.1",
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.1"
   }
