@@ -1,5 +1,12 @@
 # webpack-config-single-spa-react
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`f004685`](https://github.com/single-spa/create-single-spa/commit/f004685810e7634ccb1598b8c3cf8321b6833951), [`5c31d36`](https://github.com/single-spa/create-single-spa/commit/5c31d3639e8663be97e435366615f7553341d453)]:
+  - webpack-config-single-spa@5.1.0
+
 ## 4.0.0
 
 ### Major Changes
