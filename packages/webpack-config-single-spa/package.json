@@ -28,7 +28,6 @@
     "standalone-single-spa-webpack-plugin": "^3.0.0",
     "style-loader": "^3.2.1",
     "systemjs-webpack-interop": "^2.3.7",
-    "unused-files-webpack-plugin": "^3.4.0",
     "webpack-bundle-analyzer": "^4.4.2"
   },
   "devDependencies": {
