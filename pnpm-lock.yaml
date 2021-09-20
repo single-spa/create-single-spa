@@ -6733,7 +6733,7 @@ packages:
     resolution: {integrity: sha512-BXgQl9kf4WTCPCCpmFGoJkz/+uhvm7h7PFKUYxh7qarQd3ER33vHG//qaE8eN25l07YqZPpHXU9I09l/RD5aGQ==}
     engines: {node: '>=8'}
     dependencies:
-      '@babel/core': 7.14.6
+      '@babel/core': 7.15.0
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.0.0
       semver: 6.3.0
@@ -7248,15 +7248,6 @@ packages:
       '@types/node': 16.4.0
       merge-stream: 2.0.0
       supports-color: 7.2.0
-    dev: true
-
-  /jest-worker/27.0.2:
-    resolution: {integrity: sha512-EoBdilOTTyOgmHXtw/cPc+ZrCA0KJMrkXzkrPGNwLmnvvlN1nj7MPrxpT7m+otSv2e1TLaVffzDnE/LB14zJMg==}
-    engines: {node: '>= 10.13.0'}
-    dependencies:
-      '@types/node': 16.4.0
-      merge-stream: 2.0.0
-      supports-color: 8.1.1
     dev: true
 
   /jest-worker/27.0.6:
@@ -10022,7 +10013,7 @@ packages:
     peerDependencies:
       webpack: ^5.1.0
     dependencies:
-      jest-worker: 27.0.2
+      jest-worker: 27.0.6
       p-limit: 3.1.0
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
@@ -10635,7 +10626,7 @@ packages:
       '@webassemblyjs/wasm-parser': 1.11.1
       acorn: 8.4.1
       acorn-import-assertions: 1.7.6_acorn@8.4.1
-      browserslist: 4.16.6
+      browserslist: 4.16.8
       chrome-trace-event: 1.0.2
       enhanced-resolve: 5.8.2
       es-module-lexer: 0.7.1
@@ -10671,7 +10662,7 @@ packages:
       '@webassemblyjs/wasm-parser': 1.11.1
       acorn: 8.4.1
       acorn-import-assertions: 1.7.6_acorn@8.4.1
-      browserslist: 4.16.6
+      browserslist: 4.16.8
       chrome-trace-event: 1.0.2
       enhanced-resolve: 5.8.2
       es-module-lexer: 0.7.1

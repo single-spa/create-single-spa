@@ -3,7 +3,7 @@
   "scripts": {
     "start": "webpack serve",
     "start:standalone": "webpack serve --env standalone",
-    "build": "concurrently pnpm:build:*",
+    "build": "concurrently <%= packageManager %>:build:*",
     "build:webpack": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
     "lint": "eslint src --ext js<% if (typescript) { %>,ts,tsx<% } %>",
