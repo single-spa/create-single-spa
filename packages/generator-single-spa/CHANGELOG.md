@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 4.1.1
+
+### Patch Changes
+
+- [#333](https://github.com/single-spa/create-single-spa/pull/333) [`133e580`](https://github.com/single-spa/create-single-spa/commit/133e5803aebd1b205e9547e9bf02d89326fd94f5) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix package manager used in util module build script. Resolves #329
+
 ## 4.1.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 5.1.1
+
+### Patch Changes
+
+- [#335](https://github.com/single-spa/create-single-spa/pull/335) [`22c8fb9`](https://github.com/single-spa/create-single-spa/commit/22c8fb9f5a7056f1a24cc2c178897fefc7819843) Thanks [@joeldenning](https://github.com/joeldenning)! - Remove dependency on unused-files-webpack-plugin. Resolves #334
+
 ## 5.1.0
 
 ### Minor Changes

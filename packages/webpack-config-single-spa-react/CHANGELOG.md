@@ -1,5 +1,12 @@
 # webpack-config-single-spa-react
 
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`22c8fb9`](https://github.com/single-spa/create-single-spa/commit/22c8fb9f5a7056f1a24cc2c178897fefc7819843)]:
+  - webpack-config-single-spa@5.1.1
+
 ## 4.0.1
 
 ### Patch Changes
