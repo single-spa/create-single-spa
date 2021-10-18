@@ -32,11 +32,18 @@ If you're having trouble diagnosing why a test is failing, try running the tests
 To publish to npm, run the following commands:
 
 ```sh
+#
 GITHUB_TOKEN=... pnpm exec changeset version
 git add .
 git commit -m "NPM Publish"
+
+# Remove test packages from workspace to avoid attempts to publish them
+rm -rf tests/fixtures
 pnpm publish -r
 git push
+
+# Reinstate test packages to workspace so pnpm lock is correct
+pnpm run test:e2e
 ```
 
 Then create Github releases for each new Git tag. Copy from CHANGELOG.md within each project for the release notes.
