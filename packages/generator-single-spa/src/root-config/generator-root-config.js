@@ -180,19 +180,19 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
     }
 
     if (this.options.layout) {
-      const { stdout } = this.spawnCommandSync(
-        "npm",
-        ["view", "single-spa-layout", "version"],
-        { stdio: "pipe" }
+      const layoutTemplate = await fs.readFile(
+        this.templatePath("root-config-layout.package.json"),
+        { encoding: "utf-8" }
       );
-
-      const singleSpaLayoutVersion = stdout.toString("utf8").trim();
-
-      this.fs.extendJSON(this.destinationPath("package.json"), {
-        dependencies: {
-          "single-spa-layout": singleSpaLayoutVersion,
-        },
-      });
+      const layoutJson = JSON.parse(
+        ejs.render(layoutTemplate, {
+          name: `@${this.options.orgName}/root-config`,
+          packageManager: this.options.packageManager,
+          typescript: this.options.typescript,
+          mainFile,
+        })
+      );
+      this.fs.extendJSON(this.destinationPath("package.json"), layoutJson);
     }
 
     const childGitInitProcess = this.spawnCommandSync("git", ["init"]);
