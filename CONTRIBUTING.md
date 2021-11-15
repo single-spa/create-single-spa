@@ -32,10 +32,11 @@ If you're having trouble diagnosing why a test is failing, try running the tests
 To publish to npm, run the following commands:
 
 ```sh
-#
+# Create commit and tags for new versions
 GITHUB_TOKEN=... pnpm exec changeset version
 git add .
 git commit -m "NPM Publish"
+pnpm exec changeset version
 
 # Remove test packages from workspace to avoid attempts to publish them
 rm -rf tests/fixtures
