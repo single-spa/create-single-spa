@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 5.2.0
+
+### Minor Changes
+
+- [#338](https://github.com/single-spa/create-single-spa/pull/338) [`76d5857`](https://github.com/single-spa/create-single-spa/commit/76d585768b7625161d55c63663276845a7e9b1bb) Thanks [@joeldenning](https://github.com/joeldenning)! - Support for .module.css files
+
 ## 5.1.1
 
 ### Patch Changes
