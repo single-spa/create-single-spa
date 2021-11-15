@@ -59,6 +59,7 @@ function webpackConfigSingleSpa(opts) {
         {
           test: /\.css$/i,
           include: [/node_modules/, /src/],
+          exclude: [/\.module\.css$/],
           use: [
             {
               loader: require.resolve("style-loader", { paths: [__dirname] }),
@@ -67,6 +68,21 @@ function webpackConfigSingleSpa(opts) {
               loader: require.resolve("css-loader", { paths: [__dirname] }),
               options: {
                 modules: false,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.module\.css$/i,
+          exclude: [/node_modules/],
+          use: [
+            {
+              loader: require.resolve("style-loader", { paths: [__dirname] }),
+            },
+            {
+              loader: require.resolve("css-loader", { paths: [__dirname] }),
+              options: {
+                modules: true,
               },
             },
           ],
