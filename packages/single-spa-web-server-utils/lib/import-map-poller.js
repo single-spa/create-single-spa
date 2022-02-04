@@ -34,6 +34,11 @@ export function getImportMaps({
   }
 
   return importMapPromises[url].then((originalMap) => {
+    // We initially resolve Error objects rather than reject them,
+    // to avoid unhandled promise rejection crashes. So this check
+    // is to verify whether this resolution was a "real resolve"
+    // or just one to avoid an unhandled promise rejection.
+    // https://github.com/single-spa/create-single-spa/issues/343
     if (originalMap instanceof Error) {
       throw originalMap;
     }
@@ -91,6 +96,7 @@ export function getImportMaps({
         // So we instead catch the error to turn it into a resolved promise, but
         // then check the promise result later on to see if it's an error
         // before proceeding
+        // https://github.com/single-spa/create-single-spa/issues/343
         .catch((err) => {
           return err;
         })
