@@ -1,1 +1,5 @@
-export { getImportMaps } from "./import-map-poller.js";
+export {
+  getImportMaps,
+  reset,
+  clearAllIntervals,
+} from "./import-map-poller.js";
