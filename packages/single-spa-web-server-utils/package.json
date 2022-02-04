@@ -25,7 +25,7 @@
     "url": "git+https://github.com/single-spa/create-single-spa.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 0"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "bugs": {
     "url": "https://github.com/single-spa/create-single-spa/issues"
@@ -34,5 +34,12 @@
     "import-map-overrides": "^2.4.1",
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@jest/globals": "^27.4.6",
+    "@jest/types": "^27.4.2",
+    "cross-env": "^7.0.3",
+    "jest": "^27.4.7",
+    "jest-cli": "^27.4.7"
   }
 }
