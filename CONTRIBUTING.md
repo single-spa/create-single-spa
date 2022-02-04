@@ -36,10 +36,11 @@ To publish to npm, run the following commands:
 GITHUB_TOKEN=... pnpm exec changeset version
 git add .
 git commit -m "NPM Publish"
-pnpm exec changeset tag
 
 # Remove test packages from workspace to avoid attempts to publish them
 rm -rf tests/fixtures
+
+pnpm exec changeset tag
 pnpm publish -r
 git push
 
