@@ -1,5 +1,11 @@
 # single-spa-web-server-utils
 
+## 2.3.1
+
+### Patch Changes
+
+- [#348](https://github.com/single-spa/create-single-spa/pull/348) [`8caae1c`](https://github.com/single-spa/create-single-spa/commit/8caae1cb2f3df5cc2bfcb185dc10da141f21756d) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix bad publish - new functions are now exposed properly in API
+
 ## 2.3.0
 
 ### Minor Changes
