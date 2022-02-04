@@ -1,5 +1,15 @@
 # single-spa-web-server-utils
 
+## 2.3.0
+
+### Minor Changes
+
+- [#347](https://github.com/single-spa/create-single-spa/pull/347) [`98a6e0a`](https://github.com/single-spa/create-single-spa/commit/98a6e0a9ae52b3bda1dddae121098a88523207c7) Thanks [@joeldenning](https://github.com/joeldenning)! - Add new clearAllIntervals and reset functions
+
+### Patch Changes
+
+- [#347](https://github.com/single-spa/create-single-spa/pull/347) [`98a6e0a`](https://github.com/single-spa/create-single-spa/commit/98a6e0a9ae52b3bda1dddae121098a88523207c7) Thanks [@joeldenning](https://github.com/joeldenning)! - Catch all promises in getImportMaps, to avoid unhandled rejections
+
 ## 2.2.0
 
 ### Minor Changes
