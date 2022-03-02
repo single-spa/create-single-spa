@@ -3,5 +3,5 @@
     <%if (typescript) { %>"ts-important-stuff",<%} else { %>"important-stuff",<% } %>
     "plugin:prettier/recommended"
   ],
-  "parser": "@babel/eslint-parser"
+  "parser": <%if (typescript) { %>"@typescript-eslint/parser"<%} else { %>"@babel/eslint-parser"<% } %>
 }
