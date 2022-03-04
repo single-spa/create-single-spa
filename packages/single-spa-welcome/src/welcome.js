@@ -54,8 +54,8 @@ export default function Root(props) {
             map.
           </p>
           <pre>
-            <code>{`"react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
-"react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js"`}</code>
+            <code>{`"react": "https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js",
+"react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js"`}</code>
           </pre>
         </li>
       </ul>
