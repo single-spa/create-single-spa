@@ -87,7 +87,7 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
       // Will be replaced by webpack-config-single-spa-react-ts
       delete packageJson.devDependencies["webpack-config-single-spa-ts"];
 
-      packageJson.types = `dist/${this.options.orgName}-${this.options.projectName}.d.ts`;
+      packageJson.types = `dist/src/${this.options.orgName}-${this.options.projectName}.d.ts`;
     }
 
     this.fs.extendJSON(this.destinationPath("package.json"), packageJson);
