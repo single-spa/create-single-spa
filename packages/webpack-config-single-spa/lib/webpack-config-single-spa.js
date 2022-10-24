@@ -88,7 +88,13 @@ function webpackConfigSingleSpa(opts) {
           ],
         },
         {
-          test: /\.(bmp|png|svg|jpg|jpeg|gif|webp)$/i,
+          test: /\.(bmp|png|jpg|jpeg|gif|webp)$/i,
+          exclude: /node_modules/,
+          type: "asset/resource",
+        },
+        // svg has its own loader to allow easier overriding (eg. svg-loader for React components)
+        {
+          test: /\.svg$/i,
           exclude: /node_modules/,
           type: "asset/resource",
         },
