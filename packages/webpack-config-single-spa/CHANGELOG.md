@@ -1,5 +1,17 @@
 # webpack-config-single-spa
 
+## 5.3.0
+
+### Minor Changes
+
+- [#353](https://github.com/single-spa/create-single-spa/pull/353) [`a34fad7`](https://github.com/single-spa/create-single-spa/commit/a34fad7766002fc81100ba8e818f732d3c94404f) Thanks [@filoxo](https://github.com/filoxo)! - Extract svg into own loader for easier overrides
+
+### Patch Changes
+
+- [#367](https://github.com/single-spa/create-single-spa/pull/367) [`a287602`](https://github.com/single-spa/create-single-spa/commit/a287602d59cd6227ea8216d8e44872d650ebd1c6) Thanks [@joeldenning](https://github.com/joeldenning)! - - Upgrade standalone-single-spa-webpack-plugin to version 4, for multiple importMapUrls support
+  - Upgrade webpack to 5.75.0, for Node 18 support
+  - Fix typescript error with root configs related to System.import
+
 ## 5.2.0
 
 ### Minor Changes

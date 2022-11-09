@@ -1,5 +1,13 @@
 # generator-single-spa
 
+## 4.1.3
+
+### Patch Changes
+
+- [#367](https://github.com/single-spa/create-single-spa/pull/367) [`a287602`](https://github.com/single-spa/create-single-spa/commit/a287602d59cd6227ea8216d8e44872d650ebd1c6) Thanks [@joeldenning](https://github.com/joeldenning)! - - Upgrade standalone-single-spa-webpack-plugin to version 4, for multiple importMapUrls support
+  - Upgrade webpack to 5.75.0, for Node 18 support
+  - Fix typescript error with root configs related to System.import
+
 ## 4.1.2
 
 ### Patch Changes
