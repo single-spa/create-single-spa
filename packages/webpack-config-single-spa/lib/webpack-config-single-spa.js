@@ -53,7 +53,7 @@ function webpackConfigSingleSpa(opts) {
           test: /\.(js|ts)x?$/,
           exclude: /node_modules/,
           use: {
-            loader: require.resolve("babel-loader", { paths: [__dirname] }),
+            loader: require.resolve("esbuild-loader", { paths: [__dirname] }),
           },
         },
         {
