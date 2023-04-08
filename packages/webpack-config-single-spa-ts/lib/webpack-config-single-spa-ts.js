@@ -22,6 +22,7 @@ const modifyConfig = (opts, webpackConfig) => {
         : new ForkTsCheckerWebpackPlugin({
             typescript: {
               mode: "write-references",
+              build: true,
             },
           }),
     ].filter(Boolean),
