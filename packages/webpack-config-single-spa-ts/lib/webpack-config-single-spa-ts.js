@@ -23,6 +23,7 @@ const modifyConfig = (opts, webpackConfig) => {
             typescript: {
               mode: "write-references",
             },
+            build: true,
           }),
     ].filter(Boolean),
     resolve: {
