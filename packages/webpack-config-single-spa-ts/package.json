@@ -30,11 +30,9 @@
   },
   "dependencies": {
     "fork-ts-checker-webpack-plugin": "^6.3.2",
+    "typescript": "^4.1.2",
     "webpack-config-single-spa": "workspace:*",
     "webpack-merge": "^5.8.0"
-  },
-  "devDependencies": {
-    "typescript": "^4.1.2"
   },
   "peerDependencies": {
     "typescript": ">=4"
