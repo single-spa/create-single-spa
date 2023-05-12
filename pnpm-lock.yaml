@@ -195,9 +195,10 @@ importers:
       webpack-merge: ^5.8.0
     dependencies:
       fork-ts-checker-webpack-plugin: 6.3.2_typescript@4.1.5
-      typescript: 4.1.5
       webpack-config-single-spa: link:../webpack-config-single-spa
       webpack-merge: 5.8.0
+    devDependencies:
+      typescript: 4.1.5
 
   tests/fixtures/react-app-js-webpack:
     specifiers:
@@ -8211,7 +8212,7 @@ packages:
   /jsonfile/4.0.0:
     resolution: {integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=}
     optionalDependencies:
-      graceful-fs: 4.2.6
+      graceful-fs: 4.2.10
     dev: true
 
   /jsonfile/6.1.0:
@@ -11044,7 +11045,6 @@ packages:
     resolution: {integrity: sha512-6OSu9PTIzmn9TCDiovULTnET6BgXtDYL4Gg4szY+cGsc3JP1dQL8qvE8kShTRx1NIw4Q9IBHlwODjkjWEtMUyA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: false
 
   /typescript/4.8.4:
     resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
