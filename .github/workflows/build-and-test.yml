@@ -17,9 +17,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
-          version: 6.29.1
+          version: 6.35.1
       - run: git checkout main && git checkout $GITHUB_SHA
       - run: pnpm install --frozen-lockfile
       - run: pnpx changeset status
