@@ -19,9 +19,9 @@ jobs:
           node-version: "16"
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.29.1
+          version: 8.6.1
       - run: git checkout main && git checkout $GITHUB_SHA
       - run: pnpm install --frozen-lockfile
-      - run: pnpx changeset status
+      - run: pnpm changeset status
       - run: pnpm test --recursive
-      - run: pnpm run lint --recursive
+      - run: pnpm run --recursive lint
