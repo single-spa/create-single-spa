@@ -1,5 +1,11 @@
 # single-spa-welcome
 
+## 2.4.1
+
+### Patch Changes
+
+- [#383](https://github.com/single-spa/create-single-spa/pull/383) [`b3ed702`](https://github.com/single-spa/create-single-spa/commit/b3ed7021b4928bb3798e9f8e51aa8eb3e0a306bb) Thanks [@robmosca](https://github.com/robmosca)! - Updated webpack-cli to 4.10.0, pnpm to 8.6.1 and corresponding adjustments
+
 ## 2.4.0
 
 ### Minor Changes
