@@ -86,8 +86,13 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
       delete packageJson.devDependencies["webpack-config-single-spa"];
       // Will be replaced by webpack-config-single-spa-react-ts
       delete packageJson.devDependencies["webpack-config-single-spa-ts"];
+      // Will be replaced by @typescript-eslint/parser
+      delete packageJson.devDependencies["@babel/eslint-parser"];
 
       packageJson.types = `dist/${this.options.orgName}-${this.options.projectName}.d.ts`;
+    } else {
+      // Will be replaced by @babel/eslint-parser
+      delete packageJson.devDependencies["@typescript-eslint/parser"];
     }
 
     this.fs.extendJSON(this.destinationPath("package.json"), packageJson);
