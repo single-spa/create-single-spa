@@ -1,6 +1,6 @@
 {
   "name": "single-spa-welcome",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "A welcome application to guide users with next steps after creating their first root config.",
   "author": "Single-spa core team",
   "homepage": "https://github.com/single-spa/create-single-spa",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
