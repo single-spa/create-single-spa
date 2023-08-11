@@ -205,14 +205,7 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
     }
   }
   install() {
-    if (!this.skipInstall) {
-      this.installDependencies({
-        npm: this.options.packageManager === "npm",
-        yarn: this.options.packageManager === "yarn",
-        pnpm: this.options.packageManager === "pnpm",
-        bower: false,
-      });
-    }
+    super.install();
   }
   finished() {
     this.on(`${this.options.packageManager}Install:end`, () => {
