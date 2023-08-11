@@ -67,13 +67,11 @@ module.exports = class PnpmGenerator extends Generator {
     this.scheduleInstallTask("pnpm", pkgs, options, spawnOptions);
   }
   install() {
-    if (!this.skipInstall) {
-      this._installDependencies({
-        npm: this.options.packageManager === "npm",
-        yarn: this.options.packageManager === "yarn",
-        pnpm: this.options.packageManager === "pnpm",
-        bower: false,
-      });
-    }
+    this._installDependencies({
+      npm: this.options.packageManager === "npm",
+      yarn: this.options.packageManager === "yarn",
+      pnpm: this.options.packageManager === "pnpm",
+      bower: false,
+    });
   }
 };
