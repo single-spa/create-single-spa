@@ -73,5 +73,21 @@ module.exports = class PnpmGenerator extends Generator {
       pnpm: this.options.packageManager === "pnpm",
       bower: false,
     });
+    this._gitInit();
+  }
+  _gitInit() {
+    if (this.options.skipGit || this.options["skip-git"]) {
+      this.log("Skipping git initialization");
+      return;
+    } else {
+      const childGitInitProcess = this.spawnCommandSync("git", ["init"]);
+      if (childGitInitProcess.error) {
+        this.log(chalk.red("************"));
+        this.log(chalk.red("Cannot initialize git repository"));
+        this.log(chalk.red("************"));
+      } else {
+        this.log(chalk.green("Initialized git repository"));
+      }
+    }
   }
 };

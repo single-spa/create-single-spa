@@ -146,15 +146,6 @@ module.exports = class SingleSpaSvelteGenerator extends PnpmGenerator {
     //     this.options
     //   );
     // }
-
-    const childGitInitProcess = this.spawnCommandSync("git", ["init"]);
-    if (childGitInitProcess.error) {
-      console.log(chalk.red("\n************"));
-      console.log(chalk.red("Cannot initialize git repository"));
-      console.log(chalk.red("************\n"));
-    } else {
-      console.log(chalk.green("\nInitialized git repository\n"));
-    }
   }
   install() {
     super.install();
