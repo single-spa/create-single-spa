@@ -9,8 +9,13 @@ module.exports = class PnpmGenerator extends Generator {
   }
   // This overrides https://github.com/yeoman/generator/blob/9cd93ee0fe8babd26cce4e22a6f1db7637573801/lib/actions/install.js#L119
   // to include support for pnpm installations
-  _installDependencies(options) {
-    options = options || {};
+  _installDependencies() {
+    const options = {
+      npm: this.options.packageManager === "npm",
+      yarn: this.options.packageManager === "yarn",
+      pnpm: this.options.packageManager === "pnpm",
+      bower: false,
+    };
     const msg = {
       commands: [],
       template: _.template(
@@ -67,12 +72,7 @@ module.exports = class PnpmGenerator extends Generator {
     this.scheduleInstallTask("pnpm", pkgs, options, spawnOptions);
   }
   install() {
-    this._installDependencies({
-      npm: this.options.packageManager === "npm",
-      yarn: this.options.packageManager === "yarn",
-      pnpm: this.options.packageManager === "pnpm",
-      bower: false,
-    });
+    this._installDependencies();
     this._gitInit();
   }
   _gitInit() {
