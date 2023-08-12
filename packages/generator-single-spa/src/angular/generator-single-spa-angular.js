@@ -76,7 +76,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
     }
   }
 
-  async finished() {
+  async end() {
     console.log(
       chalk.bgWhite.black(
         `Project setup complete!

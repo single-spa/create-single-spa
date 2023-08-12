@@ -181,33 +181,29 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
       });
     }
   }
-  finished() {
-    this.on(`${this.options.packageManager}Install:end`, () => {
-      const coloredFinalInstructions = chalk.bgWhite.black;
-      console.log(coloredFinalInstructions("Project setup complete!"));
-      console.log(
-        coloredFinalInstructions("Steps to test your utility module:")
-      );
-      console.log(
-        coloredFinalInstructions(
-          `1. Run '${this.options.packageManager} start${
-            this.options.packageManager === "yarn" ? "" : " --"
-          } --port 8500'`
-        )
-      );
-      console.log(
-        coloredFinalInstructions(`2. Go to http://single-spa-playground.org`)
-      );
-      console.log(
-        coloredFinalInstructions(
-          `3. Run the following in the browser console: window.importMapOverrides.addOverride('@${this.options.orgName}/${this.options.projectName}', '8500')`
-        )
-      );
-      console.log(
-        coloredFinalInstructions(
-          `4. Run the following in the browser console: System.import('@${this.options.orgName}/${this.options.projectName}')`
-        )
-      );
-    });
+  end() {
+    const coloredFinalInstructions = chalk.bgWhite.black;
+    console.log(coloredFinalInstructions("Project setup complete!"));
+    console.log(coloredFinalInstructions("Steps to test your utility module:"));
+    console.log(
+      coloredFinalInstructions(
+        `1. Run '${this.options.packageManager} start${
+          this.options.packageManager === "yarn" ? "" : " --"
+        } --port 8500'`
+      )
+    );
+    console.log(
+      coloredFinalInstructions(`2. Go to http://single-spa-playground.org`)
+    );
+    console.log(
+      coloredFinalInstructions(
+        `3. Run the following in the browser console: window.importMapOverrides.addOverride('@${this.options.orgName}/${this.options.projectName}', '8500')`
+      )
+    );
+    console.log(
+      coloredFinalInstructions(
+        `4. Run the following in the browser console: System.import('@${this.options.orgName}/${this.options.projectName}')`
+      )
+    );
   }
 };
