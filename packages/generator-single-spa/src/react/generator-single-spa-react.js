@@ -66,7 +66,7 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
 
     const packageJsonTemplate = await fs.readFile(
       this.templatePath("react.package.json"),
-      { encoding: "utf-8" }
+      { encoding: "utf-8" },
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
       name: `@${this.options.orgName}/${this.options.projectName}`,
@@ -97,25 +97,25 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
         this.destinationPath("package.json"),
         this.fs.readJSON(
           this.templatePath(
-            "../../common-templates/typescript/typescript.package.json"
-          )
-        )
+            "../../common-templates/typescript/typescript.package.json",
+          ),
+        ),
       );
 
       this.fs.extendJSON(
         this.destinationPath("package.json"),
         this.fs.readJSON(
           this.templatePath(
-            "../../common-templates/typescript/react.package.json"
-          )
-        )
+            "../../common-templates/typescript/react.package.json",
+          ),
+        ),
       );
 
       // Extend with react-specific package json for typescript
       this.fs.extendJSON(
         this.destinationPath("package.json"),
         this.fs.readJSON(
-          this.templatePath("typescript/typescript-react.package.json")
+          this.templatePath("typescript/typescript-react.package.json"),
         ),
         (key, value) => {
           if (key === "devDependencies") {
@@ -123,7 +123,7 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
             delete value["eslint-config-ts-important-stuff"];
           }
           return value;
-        }
+        },
       );
     }
   }
@@ -131,63 +131,63 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
     this.fs.copyTpl(
       this.templatePath("jest.config.js"),
       this.destinationPath("jest.config.js"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath("../../common-templates/babel.config.json.ejs"),
       this.destinationPath("babel.config.json"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath("../../common-templates/gitignore"), // this is relative to /templates
       this.destinationPath(".gitignore"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath(`../../common-templates/.husky/pre-commit`),
       this.destinationPath(`.husky/pre-commit`),
-      this.options
+      this.options,
     );
 
     if (this.options.typescript) {
       this.fs.copyTpl(
         this.templatePath(
-          `../../common-templates/typescript/declarations.d.ts`
+          `../../common-templates/typescript/declarations.d.ts`,
         ),
         this.destinationPath(`src/declarations.d.ts`),
-        this.options
+        this.options,
       );
     }
     this.fs.copyTpl(
       this.templatePath(".prettierignore"),
       this.destinationPath(".prettierignore"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath("webpack.config.js"),
       this.destinationPath("webpack.config.js"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath("src/root.component.js"),
       this.destinationPath(`src/root.component.${this.srcFileExtension}`),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath("src/root.component.test.js"),
       this.destinationPath(`src/root.component.test.${this.srcFileExtension}`),
-      this.options
+      this.options,
     );
     if (!this.options.skipMainFile) {
       this.fs.copyTpl(
         this.templatePath("src/main.js"),
         this.destinationPath(this.mainFile),
-        this.options
+        this.options,
       );
     }
     if (this.options.typescript) {
@@ -197,7 +197,7 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
         {
           ...this.options,
           mainFile: this.mainFile,
-        }
+        },
       );
     }
 
@@ -230,7 +230,7 @@ Steps to test your React single-spa application:
         } --port 8500'
 2. Go to http://single-spa-playground.org/playground/instant-test?name=@${
           this.options.orgName
-        }/${this.options.projectName}&url=8500 to see it working!`)
+        }/${this.options.projectName}&url=8500 to see it working!`),
       );
     });
   }
