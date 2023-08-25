@@ -34,7 +34,7 @@ function checkNodeVersion() {
         minVersion +
         ", but you are using NodeJS " +
         process.versions.node +
-        "."
+        ".",
     );
   }
 }

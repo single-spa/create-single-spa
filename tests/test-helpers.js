@@ -30,13 +30,13 @@ exports.createFixtureIfDoesntExist = function (name, args) {
           } else {
             const packageJsonPath = path.join(dir, "package.json");
             const packageJson = JSON.parse(
-              fs.readFileSync(packageJsonPath, "utf-8")
+              fs.readFileSync(packageJsonPath, "utf-8"),
             );
             packageJson.private = true;
             fs.writeFileSync(
               packageJsonPath,
               JSON.stringify(packageJson, null, 2),
-              "utf-8"
+              "utf-8",
             );
 
             resolve(dir);

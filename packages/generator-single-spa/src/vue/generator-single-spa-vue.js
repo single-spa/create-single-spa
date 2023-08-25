@@ -75,7 +75,7 @@ module.exports = class SingleSpaVueGenerator extends Generator {
       {
         cwd: dirPath,
         stdio: "inherit",
-      }
+      },
     );
 
     if (signal) {
@@ -101,7 +101,7 @@ module.exports = class SingleSpaVueGenerator extends Generator {
   }
   async finished() {
     const usedYarn = this.fs.exists(
-      path.resolve(this.options.dir, this.options.projectName, "yarn.lock")
+      path.resolve(this.options.dir, this.options.projectName, "yarn.lock"),
     );
     console.log(
       chalk.bgWhite.black(
@@ -110,8 +110,8 @@ Steps to test your Vue single-spa application:
 1. Run '${usedYarn ? "yarn" : "npm run"} serve'
 2. Go to http://single-spa-playground.org/playground/instant-test?name=${
           this.projectName
-        }&url=%2F%2Flocalhost%3A8080%2Fjs%2Fapp.js&framework=vue to see it working!`
-      )
+        }&url=%2F%2Flocalhost%3A8080%2Fjs%2Fapp.js&framework=vue to see it working!`,
+      ),
     );
   }
 };

@@ -76,20 +76,20 @@ export function getImportMaps({
               } else {
                 throw Error(
                   `Import Map at ${url} did not respond with correct content-type response header. Should be application/importmap+json, but was ${r.headers.get(
-                    "content-type"
-                  )}`
+                    "content-type",
+                  )}`,
                 );
               }
             } else {
               throw Error(
-                `Import Map at ${url} responded with HTTP status ${r.status}`
+                `Import Map at ${url} responded with HTTP status ${r.status}`,
               );
             }
           },
           (err) => {
             console.error(err);
             throw Error(`Failed to fetch import map at url ${url}`);
-          }
+          },
         )
         // If we do not catch promise rejections here, they won't necessarily be caught at all,
         // which causes NodeJS to kill the entire program.
