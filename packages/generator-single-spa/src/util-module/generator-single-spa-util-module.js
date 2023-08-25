@@ -63,7 +63,7 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
   async createPackageJson() {
     const packageJsonTemplate = await fs.readFile(
       this.templatePath("util-module.package.json"),
-      { encoding: "utf-8" }
+      { encoding: "utf-8" },
     );
     const packageJsonStr = ejs.render(packageJsonTemplate, {
       name: `@${this.options.orgName}/${this.options.projectName}`,
@@ -91,9 +91,9 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
         this.destinationPath("package.json"),
         this.fs.readJSON(
           this.templatePath(
-            "../../common-templates/typescript/typescript.package.json"
-          )
-        )
+            "../../common-templates/typescript/typescript.package.json",
+          ),
+        ),
       );
     }
   }
@@ -103,52 +103,52 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
     this.fs.copyTpl(
       this.templatePath("jest.config.js"),
       this.destinationPath("jest.config.js"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath("../../common-templates/babel.config.json.ejs"),
       this.destinationPath("babel.config.json"),
-      this.options
+      this.options,
     );
     if (this.options.typescript) {
       this.fs.copyTpl(
         this.templatePath(
-          `../../common-templates/typescript/declarations.d.ts`
+          `../../common-templates/typescript/declarations.d.ts`,
         ),
         this.destinationPath(`src/declarations.d.ts`),
-        this.options
+        this.options,
       );
     }
     this.fs.copyTpl(
       this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath(".prettierignore"),
       this.destinationPath(".prettierignore"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath("../../common-templates/gitignore"), // this is relative to /templates
       this.destinationPath(".gitignore"),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath(`../../common-templates/.husky/pre-commit`),
       this.destinationPath(`.husky/pre-commit`),
-      this.options
+      this.options,
     );
     this.fs.copyTpl(
       this.templatePath("webpack.config.js"),
       this.destinationPath("webpack.config.js"),
-      this.options
+      this.options,
     );
     const mainFile = `src/${this.options.orgName}-${this.options.projectName}.${srcFileExtension}`;
     this.fs.copyTpl(
       this.templatePath("src/main.js"),
       this.destinationPath(mainFile),
-      this.options
+      this.options,
     );
 
     if (this.options.typescript) {
@@ -158,7 +158,7 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
         {
           ...this.options,
           mainFile,
-        }
+        },
       );
     }
 
@@ -186,27 +186,27 @@ module.exports = class SingleSpaUtilModuleGenerator extends PnpmGenerator {
       const coloredFinalInstructions = chalk.bgWhite.black;
       console.log(coloredFinalInstructions("Project setup complete!"));
       console.log(
-        coloredFinalInstructions("Steps to test your utility module:")
+        coloredFinalInstructions("Steps to test your utility module:"),
       );
       console.log(
         coloredFinalInstructions(
           `1. Run '${this.options.packageManager} start${
             this.options.packageManager === "yarn" ? "" : " --"
-          } --port 8500'`
-        )
+          } --port 8500'`,
+        ),
       );
       console.log(
-        coloredFinalInstructions(`2. Go to http://single-spa-playground.org`)
-      );
-      console.log(
-        coloredFinalInstructions(
-          `3. Run the following in the browser console: window.importMapOverrides.addOverride('@${this.options.orgName}/${this.options.projectName}', '8500')`
-        )
+        coloredFinalInstructions(`2. Go to http://single-spa-playground.org`),
       );
       console.log(
         coloredFinalInstructions(
-          `4. Run the following in the browser console: System.import('@${this.options.orgName}/${this.options.projectName}')`
-        )
+          `3. Run the following in the browser console: window.importMapOverrides.addOverride('@${this.options.orgName}/${this.options.projectName}', '8500')`,
+        ),
+      );
+      console.log(
+        coloredFinalInstructions(
+          `4. Run the following in the browser console: System.import('@${this.options.orgName}/${this.options.projectName}')`,
+        ),
       );
     });
   }

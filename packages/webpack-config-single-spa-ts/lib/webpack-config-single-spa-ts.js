@@ -14,7 +14,7 @@ const modifyConfig = (opts, webpackConfig) => {
   return merge(webpackConfig, {
     entry: webpackConfig.entry.replace(
       ".js",
-      opts.framework === "react" ? ".tsx" : ".ts"
+      opts.framework === "react" ? ".tsx" : ".ts",
     ),
     plugins: [
       opts.webpackConfigEnv && opts.webpackConfigEnv.analyze

@@ -4,7 +4,7 @@ registerApplication({
   name: "@single-spa/welcome",
   app: () =>
     System.import<% if (typescript) {%><LifeCycles><% } %>(
-      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
+      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
     ),
   activeWhen: ["/"],
 });

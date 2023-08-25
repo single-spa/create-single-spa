@@ -10,7 +10,7 @@ module.exports = async () => {
       --typescript
       --layout=false
       --skipInstall
-    `
+    `,
   );
 
   await createFixtureIfDoesntExist(
@@ -22,7 +22,7 @@ module.exports = async () => {
       --typescript
       --layout=true
       --skipInstall
-    `
+    `,
   );
 
   await createFixtureIfDoesntExist(
@@ -34,7 +34,7 @@ module.exports = async () => {
       --projectName project
       --typescript=false
       --skipInstall
-    `
+    `,
   );
 
   await createFixtureIfDoesntExist(
@@ -46,7 +46,7 @@ module.exports = async () => {
       --projectName project
       --typescript
       --skipInstall
-    `
+    `,
   );
 
   await createFixtureIfDoesntExist(
@@ -58,7 +58,7 @@ module.exports = async () => {
       --typescript=false
       --layout=true
       --skipInstall
-    `
+    `,
   );
 
   await createFixtureIfDoesntExist(
@@ -70,7 +70,7 @@ module.exports = async () => {
       --typescript=false
       --layout=false
       --skipInstall
-    `
+    `,
   );
 
   await createFixtureIfDoesntExist(
@@ -81,7 +81,7 @@ module.exports = async () => {
       --orgName org
       --projectName project
       --skipInstall
-    `
+    `,
   );
 
   await createFixtureIfDoesntExist(
@@ -94,7 +94,7 @@ module.exports = async () => {
       --projectName project
       --typescript=false
       --skipInstall
-    `
+    `,
   );
 
   await createFixtureIfDoesntExist(
@@ -107,7 +107,7 @@ module.exports = async () => {
     --projectName project
     --typescript
     --skipInstall
-  `
+  `,
   );
 
   await createFixtureIfDoesntExist(
@@ -120,7 +120,7 @@ module.exports = async () => {
     --projectName project
     --typescript=false
     --skipInstall
-  `
+  `,
   );
 
   await createFixtureIfDoesntExist(
@@ -133,7 +133,7 @@ module.exports = async () => {
     --projectName project
     --typescript
     --skipInstall
-  `
+  `,
   );
 
   await ensureInstall();

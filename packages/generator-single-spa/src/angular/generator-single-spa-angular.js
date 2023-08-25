@@ -57,7 +57,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
         this.options.projectName, // name of the new workspace and initial project
         // "--routing", false, TODO: Figure out how to interop with single-spa-angular's routing option so that we don't ask the user twice with opposite defaults
       ]),
-      { stdio: "inherit", cwd }
+      { stdio: "inherit", cwd },
     );
 
     if (signal) {
@@ -71,7 +71,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
       });
 
       console.log(
-        "For further routing setup, see https://single-spa.js.org/docs/ecosystem-angular#configure-routes"
+        "For further routing setup, see https://single-spa.js.org/docs/ecosystem-angular#configure-routes",
       );
     }
   }
@@ -82,8 +82,8 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
         `Project setup complete!
 Steps to test your Angular single-spa application:
 1. Run 'npm run serve:single-spa:${this.options.projectName}'
-2. Go to http://single-spa-playground.org/playground/instant-test?name=${this.options.projectName}&url=%2F%2Flocalhost%3A4200%2Fmain.js&framework=angular to see it working!`
-      )
+2. Go to http://single-spa-playground.org/playground/instant-test?name=${this.options.projectName}&url=%2F%2Flocalhost%3A4200%2Fmain.js&framework=angular to see it working!`,
+      ),
     );
   }
 };

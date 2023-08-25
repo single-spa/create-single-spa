@@ -17,7 +17,7 @@ function webpackConfigSingleSpa(opts) {
 
   if (typeof opts.projectName !== "string") {
     throw Error(
-      `webpack-config-single-spa requires an opts.projectName string`
+      `webpack-config-single-spa requires an opts.projectName string`,
     );
   }
 
@@ -37,7 +37,7 @@ function webpackConfigSingleSpa(opts) {
     mode: isProduction ? "production" : "development",
     entry: path.resolve(
       process.cwd(),
-      `src/${opts.orgName}-${opts.projectName}`
+      `src/${opts.orgName}-${opts.projectName}`,
     ),
     output: {
       filename: `${opts.orgName}-${opts.projectName}.js`,

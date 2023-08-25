@@ -65,7 +65,7 @@ module.exports = class ReactUtilModuleGenerator extends PnpmGenerator {
       {
         ...this.options,
         skipMainFile: true,
-      }
+      },
     );
   }
   async modifyMainFile() {
@@ -77,7 +77,7 @@ module.exports = class ReactUtilModuleGenerator extends PnpmGenerator {
       {
         ...this.options,
         mainFile,
-      }
+      },
     );
   }
 };

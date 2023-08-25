@@ -20,6 +20,7 @@
     "babel-jest": "^27.0.6",
     "concurrently": "^6.2.1",
     "jest": "^27.0.6",
+    "jest-environment-jsdom": "~27.0.6",
     "prettier": "^2.3.2",
     "prettier-plugin-svelte": "^2.3.1",
     "rollup": "^2.56.3",

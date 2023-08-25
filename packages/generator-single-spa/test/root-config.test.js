@@ -28,14 +28,14 @@ describe("generator-single-spa", () => {
     runResult.assertFile("src/index.ejs");
     runResult.assertFileContent(
       "src/index.ejs",
-      /\/\/localhost:9000\/some-org-name-root-config.js/
+      /\/\/localhost:9000\/some-org-name-root-config.js/,
     );
 
     // The root-config.js file should have their org name in it
     runResult.assertFile("src/some-org-name-root-config.js");
     runResult.assertFileContent(
       "src/some-org-name-root-config.js",
-      /some-org-name/
+      /some-org-name/,
     );
   });
 });

@@ -22,7 +22,7 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   const publicPathPluginIndex = config.plugins.findIndex(
-    (plugin) => plugin.constructor.name === "SystemJSPublicPathWebpackPlugin"
+    (plugin) => plugin.constructor.name === "SystemJSPublicPathWebpackPlugin",
   );
   if (publicPathPluginIndex >= 0) {
     config.plugins.splice(publicPathPluginIndex, 1);

@@ -62,7 +62,7 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
   async copyFiles() {
     const packageJsonTemplate = await fs.readFile(
       this.templatePath("root-config.package.json"),
-      { encoding: "utf-8" }
+      { encoding: "utf-8" },
     );
 
     const srcFileExtension = this.options.typescript ? "ts" : "js";
@@ -94,46 +94,46 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
         this.destinationPath("package.json"),
         this.fs.readJSON(
           this.templatePath(
-            "../../common-templates/typescript/typescript.package.json"
-          )
-        )
+            "../../common-templates/typescript/typescript.package.json",
+          ),
+        ),
       );
     }
 
     this.fs.copyTpl(
       this.templatePath("../../common-templates/babel.config.json.ejs"),
       this.destinationPath("babel.config.json"),
-      this.options
+      this.options,
     );
 
     this.fs.copyTpl(
       this.templatePath("../../common-templates/gitignore"), // this is relative to /templates
       this.destinationPath(".gitignore"),
-      this.options
+      this.options,
     );
 
     this.fs.copyTpl(
       this.templatePath(`../../common-templates/.husky/pre-commit`),
       this.destinationPath(`.husky/pre-commit`),
-      this.options
+      this.options,
     );
 
     this.fs.copyTpl(
       this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
-      this.options
+      this.options,
     );
 
     this.fs.copyTpl(
       this.templatePath(".prettierignore"),
       this.destinationPath(".prettierignore"),
-      this.options
+      this.options,
     );
 
     this.fs.copyTpl(
       this.templatePath("webpack.config.js"),
       this.destinationPath("webpack.config.js"),
-      this.options
+      this.options,
     );
 
     if (this.options.typescript) {
@@ -143,7 +143,7 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
         {
           ...this.options,
           mainFile,
-        }
+        },
       );
     }
 
@@ -151,38 +151,38 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
     this.fs.copyTpl(
       this.templatePath(`${parentPath}/root-config.ejs`),
       this.destinationPath(mainFile),
-      this.options
+      this.options,
     );
 
     this.fs.copyTpl(
       this.templatePath(`${parentPath}/index.ejs`),
       this.destinationPath(`src/index.ejs`),
       this.options,
-      { delimiter: "?" }
+      { delimiter: "?" },
     );
 
     if (this.options.layout) {
       this.fs.copyTpl(
         this.templatePath(`${parentPath}/microfrontend-layout.html`),
         this.destinationPath(`src/microfrontend-layout.html`),
-        this.options
+        this.options,
       );
     }
 
     if (this.options.typescript) {
       this.fs.copyTpl(
         this.templatePath(
-          `../../common-templates/typescript/declarations.d.ts`
+          `../../common-templates/typescript/declarations.d.ts`,
         ),
         this.destinationPath(`src/declarations.d.ts`),
-        this.options
+        this.options,
       );
     }
 
     if (this.options.layout) {
       const layoutTemplate = await fs.readFile(
         this.templatePath("root-config-layout.package.json"),
-        { encoding: "utf-8" }
+        { encoding: "utf-8" },
       );
       const layoutJson = JSON.parse(
         ejs.render(layoutTemplate, {
@@ -190,7 +190,7 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
           packageManager: this.options.packageManager,
           typescript: this.options.typescript,
           mainFile,
-        })
+        }),
       );
       this.fs.extendJSON(this.destinationPath("package.json"), layoutJson);
     }
@@ -218,12 +218,12 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
     this.on(`${this.options.packageManager}Install:end`, () => {
       console.log(
         chalk.bgWhite.black(`Project setup complete!
-Run '${this.options.packageManager} start' to boot up your single-spa root config`)
+Run '${this.options.packageManager} start' to boot up your single-spa root config`),
       );
 
       if (this.options.layout) {
         console.log(
-          `\nPlease report single-spa-layout issues and bugs on GitHub https://github.com/single-spa/single-spa-layout/issues/new`
+          `\nPlease report single-spa-layout issues and bugs on GitHub https://github.com/single-spa/single-spa-layout/issues/new`,
         );
       }
     });
