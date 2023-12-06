@@ -58,6 +58,10 @@ exports.ensureInstall = () => {
       .stdin("Done")
       .code(0)
       .end((err) => {
+        console.error(
+          "Error occurred while running pnpm install for all fixtures",
+          err
+        );
         if (err) {
           reject(err);
         } else {

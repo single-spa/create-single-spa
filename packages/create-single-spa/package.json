@@ -10,6 +10,6 @@
   "dependencies": {
     "generator-single-spa": "workspace:*",
     "yargs": "^17.1.1",
-    "yeoman-environment": "^3.6.0"
+    "yeoman-environment": "^3.19.3"
   }
 }
