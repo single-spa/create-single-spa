@@ -1,5 +1,14 @@
 # create-single-spa
 
+## 4.1.5
+
+### Patch Changes
+
+- [#393](https://github.com/single-spa/create-single-spa/pull/393) [`181da9a`](https://github.com/single-spa/create-single-spa/commit/181da9a5aecd7a9b8fc99dbb965d106d7b74b3de) Thanks [@ibacher](https://github.com/ibacher)! - Bump dependency versions to compatible versions without vulnerabilities
+
+- Updated dependencies [[`181da9a`](https://github.com/single-spa/create-single-spa/commit/181da9a5aecd7a9b8fc99dbb965d106d7b74b3de)]:
+  - generator-single-spa@4.1.5
+
 ## 4.1.4
 
 ### Patch Changes

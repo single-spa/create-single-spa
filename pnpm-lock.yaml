@@ -283,31 +283,31 @@ importers:
         version: 4.6.1(@types/react-dom@17.0.25)(@types/react@17.0.71)(react@17.0.2)
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/preset-react':
-        specifier: ^7.23.3
+        specifier: ^7.14.5
         version: 7.23.3(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       '@testing-library/jest-dom':
-        specifier: ^5.17.0
+        specifier: ^5.14.1
         version: 5.17.0
       '@testing-library/react':
         specifier: ^12.0.0
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
       babel-jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1(@babel/core@7.23.5)
       concurrently:
         specifier: ^6.2.1
@@ -334,10 +334,10 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -346,10 +346,10 @@ importers:
         specifier: ^3.1.1
         version: 3.1.3(prettier@2.8.8)
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa-react:
         specifier: ^4.0.0
@@ -392,34 +392,37 @@ importers:
         version: 4.6.1(@types/react-dom@17.0.25)(@types/react@17.0.71)(react@17.0.2)
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/preset-react':
-        specifier: ^7.23.3
+        specifier: ^7.14.5
         version: 7.23.3(@babel/core@7.23.5)
       '@babel/preset-typescript':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       '@testing-library/jest-dom':
-        specifier: ^5.17.0
+        specifier: ^5.14.1
         version: 5.17.0
       '@testing-library/react':
         specifier: ^12.0.0
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
+      '@types/testing-library__jest-dom':
+        specifier: ^5.14.1
+        version: 5.14.9
       babel-jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1(@babel/core@7.23.5)
       concurrently:
         specifier: ^6.2.1
@@ -446,10 +449,10 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -464,10 +467,10 @@ importers:
         specifier: ^4.3.5
         version: 4.9.5
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa-react:
         specifier: ^4.0.0
@@ -498,19 +501,19 @@ importers:
         version: 5.9.5
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       concurrently:
         specifier: ^6.2.1
@@ -537,10 +540,10 @@ importers:
         specifier: ^7.0.2
         version: 7.0.4
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -549,13 +552,13 @@ importers:
         specifier: ^3.1.1
         version: 3.1.3(prettier@2.8.8)
       serve:
-        specifier: ^13.0.0
-        version: 13.0.4
+        specifier: ^12.0.0
+        version: 12.0.1
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa:
         specifier: ^5.0.0
@@ -583,19 +586,19 @@ importers:
         version: 1.6.1
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       concurrently:
         specifier: ^6.2.1
@@ -622,10 +625,10 @@ importers:
         specifier: ^7.0.2
         version: 7.0.4
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -634,13 +637,13 @@ importers:
         specifier: ^3.1.1
         version: 3.1.3(prettier@2.8.8)
       serve:
-        specifier: ^13.0.0
-        version: 13.0.4
+        specifier: ^12.0.0
+        version: 12.0.1
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa:
         specifier: ^5.0.0
@@ -668,22 +671,22 @@ importers:
         version: 5.9.5
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/preset-typescript':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       concurrently:
         specifier: ^6.2.1
@@ -710,10 +713,10 @@ importers:
         specifier: ^7.0.2
         version: 7.0.4
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -722,8 +725,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.3(prettier@2.8.8)
       serve:
-        specifier: ^13.0.0
-        version: 13.0.4
+        specifier: ^12.0.0
+        version: 12.0.1
       ts-config-single-spa:
         specifier: ^3.0.0
         version: link:../../../packages/ts-config-single-spa
@@ -731,10 +734,10 @@ importers:
         specifier: ^4.3.5
         version: 4.9.5
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa-ts:
         specifier: ^4.0.0
@@ -765,22 +768,22 @@ importers:
         version: 1.6.1
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/preset-typescript':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       concurrently:
         specifier: ^6.2.1
@@ -807,10 +810,10 @@ importers:
         specifier: ^7.0.2
         version: 7.0.4
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -819,8 +822,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.3(prettier@2.8.8)
       serve:
-        specifier: ^13.0.0
-        version: 13.0.4
+        specifier: ^12.0.0
+        version: 12.0.1
       ts-config-single-spa:
         specifier: ^3.0.0
         version: link:../../../packages/ts-config-single-spa
@@ -828,10 +831,10 @@ importers:
         specifier: ^4.3.5
         version: 4.9.5
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa-ts:
         specifier: ^4.0.0
@@ -853,10 +856,10 @@ importers:
         version: 1.0.14
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@rollup/plugin-commonjs':
         specifier: ^20.0.0
@@ -865,19 +868,19 @@ importers:
         specifier: ^13.0.4
         version: 13.3.0(rollup@2.79.1)
       '@testing-library/jest-dom':
-        specifier: ^5.17.0
+        specifier: ^5.14.1
         version: 5.17.0
       '@testing-library/svelte':
         specifier: ^3.0.3
         version: 3.2.2(svelte@3.59.2)
       babel-jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1(@babel/core@7.23.5)
       concurrently:
         specifier: ^6.2.1
         version: 6.5.1
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -901,8 +904,8 @@ importers:
         specifier: ^3.42.3
         version: 3.59.2
       svelte-jester:
-        specifier: ^2.0.0
-        version: 2.3.2(jest@27.5.1)(svelte@3.59.2)
+        specifier: ^1.7.0
+        version: 1.8.2(jest@27.5.1)(svelte@3.59.2)
 
   tests/fixtures/util-module-js-webpack:
     dependencies:
@@ -914,22 +917,22 @@ importers:
         version: 6.13.5
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       babel-jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1(@babel/core@7.23.5)
       concurrently:
         specifier: ^6.2.1
@@ -956,10 +959,10 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -968,10 +971,10 @@ importers:
         specifier: ^3.1.1
         version: 3.1.3(prettier@2.8.8)
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa:
         specifier: ^5.0.0
@@ -999,25 +1002,25 @@ importers:
         version: 5.9.5
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/preset-typescript':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       babel-jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1(@babel/core@7.23.5)
       concurrently:
         specifier: ^6.2.1
@@ -1044,10 +1047,10 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -1062,10 +1065,10 @@ importers:
         specifier: ^4.3.5
         version: 4.9.5
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa-ts:
         specifier: ^4.0.0
@@ -1090,31 +1093,31 @@ importers:
         version: 4.6.1(@types/react-dom@17.0.25)(@types/react@17.0.71)(react@17.0.2)
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/preset-react':
-        specifier: ^7.23.3
+        specifier: ^7.14.5
         version: 7.23.3(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       '@testing-library/jest-dom':
-        specifier: ^5.17.0
+        specifier: ^5.14.1
         version: 5.17.0
       '@testing-library/react':
         specifier: ^12.0.0
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
       babel-jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1(@babel/core@7.23.5)
       concurrently:
         specifier: ^6.2.1
@@ -1141,10 +1144,10 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -1153,10 +1156,10 @@ importers:
         specifier: ^3.1.1
         version: 3.1.3(prettier@2.8.8)
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa-react:
         specifier: ^4.0.0
@@ -1199,34 +1202,37 @@ importers:
         version: 4.6.1(@types/react-dom@17.0.25)(@types/react@17.0.71)(react@17.0.2)
     devDependencies:
       '@babel/core':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)(eslint@7.32.0)
       '@babel/plugin-transform-runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.4(@babel/core@7.23.5)
       '@babel/preset-env':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.5(@babel/core@7.23.5)
       '@babel/preset-react':
-        specifier: ^7.23.3
+        specifier: ^7.14.5
         version: 7.23.3(@babel/core@7.23.5)
       '@babel/preset-typescript':
-        specifier: ^7.23.3
+        specifier: ^7.15.0
         version: 7.23.3(@babel/core@7.23.5)
       '@babel/runtime':
-        specifier: ^7.23.3
+        specifier: ^7.15.3
         version: 7.23.5
       '@testing-library/jest-dom':
-        specifier: ^5.17.0
+        specifier: ^5.14.1
         version: 5.17.0
       '@testing-library/react':
         specifier: ^12.0.0
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
+      '@types/testing-library__jest-dom':
+        specifier: ^5.14.1
+        version: 5.14.9
       babel-jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1(@babel/core@7.23.5)
       concurrently:
         specifier: ^6.2.1
@@ -1253,10 +1259,10 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       jest:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       jest-cli:
-        specifier: ^27.5.1
+        specifier: ^27.0.6
         version: 27.5.1
       prettier:
         specifier: ^2.3.2
@@ -1271,10 +1277,10 @@ importers:
         specifier: ^4.3.5
         version: 4.9.5
       webpack:
-        specifier: ^5.89.0
+        specifier: ^5.75.0
         version: 5.89.0(webpack-cli@4.10.0)
       webpack-cli:
-        specifier: ^4.10.0
+        specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.1)(webpack@5.89.0)
       webpack-config-single-spa-react:
         specifier: ^4.0.0
@@ -4183,10 +4189,10 @@ packages:
       require-from-string: 2.0.2
       uri-js: 4.4.1
 
-  /ansi-align@3.0.1:
-    resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
+  /ansi-align@2.0.0:
+    resolution: {integrity: sha512-TdlOggdA/zURfMYa7ABC66j+oqfMew58KpJMbUlH3bcZP1b+cBHIHDDn5uH9INsxrHBPjsqM0tDB4jPTF/vgJA==}
     dependencies:
-      string-width: 4.2.3
+      string-width: 2.1.1
     dev: true
 
   /ansi-colors@4.1.3:
@@ -4204,6 +4210,11 @@ packages:
     resolution: {integrity: sha512-1APHAyr3+PCamwNw3bXCPp4HFLONZt/yIH0sZp0/469KWNTEy+qN5jQ3GVX6DMZ1UXAi34yVwtTeaG/HpBuuzw==}
     engines: {'0': node >= 0.8.0}
     hasBin: true
+
+  /ansi-regex@3.0.1:
+    resolution: {integrity: sha512-+O9Jct8wf++lXxxFc4hc8LsjaSq0HFzzL7cVsw8pRDIPdjKD2mT4ytDZlLuSBZ4cLKZFXIrMGO7DbQCtMJJMKw==}
+    engines: {node: '>=4'}
+    dev: true
 
   /ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -4602,18 +4613,17 @@ packages:
   /boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
 
-  /boxen@5.1.2:
-    resolution: {integrity: sha512-9gYgQKXx+1nP8mP7CzFyaUARhg7D3n1dF/FnErWmu9l6JvGpNUN278h0aSb+QjoiKSWG+iZ3uHrcqk0qrY9RQQ==}
-    engines: {node: '>=10'}
+  /boxen@1.3.0:
+    resolution: {integrity: sha512-TNPjfTr432qx7yOjQyaXm3dSR0MH9vXp7eT1BFSl/C51g+EFnOR9hTg1IreahGBmDNCehscshe45f+C1TBZbLw==}
+    engines: {node: '>=4'}
     dependencies:
-      ansi-align: 3.0.1
-      camelcase: 6.3.0
-      chalk: 4.1.2
-      cli-boxes: 2.2.1
-      string-width: 4.2.3
-      type-fest: 0.20.2
-      widest-line: 3.1.0
-      wrap-ansi: 7.0.0
+      ansi-align: 2.0.0
+      camelcase: 4.1.0
+      chalk: 2.4.2
+      cli-boxes: 1.0.0
+      string-width: 2.1.1
+      term-size: 1.2.0
+      widest-line: 2.0.1
     dev: true
 
   /brace-expansion@1.1.11:
@@ -4791,6 +4801,11 @@ packages:
       quick-lru: 4.0.1
     dev: true
 
+  /camelcase@4.1.0:
+    resolution: {integrity: sha512-FxAv7HpHrXbh3aPo4o2qxHay2lkLY3x5Mw3KeE4KQE8ysVfziWeRZDwcjauvwBSGEC/nXUPzZy8zeh4HokqOnw==}
+    engines: {node: '>=4'}
+    dev: true
+
   /camelcase@5.3.1:
     resolution: {integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==}
     engines: {node: '>=6'}
@@ -4885,9 +4900,9 @@ packages:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
     engines: {node: '>=6'}
 
-  /cli-boxes@2.2.1:
-    resolution: {integrity: sha512-y4coMcylgSCdVinjiDBuR8PCC2bLjyGTwEmPb9NHR/QaNU6EUOXcTY/s6VjGMD6ENSEaeQYHCY0GNGS5jfMwPw==}
-    engines: {node: '>=6'}
+  /cli-boxes@1.0.0:
+    resolution: {integrity: sha512-3Fo5wu8Ytle8q9iCzS4D2MWVL2X7JVWRiS1BnXbTFDhS9c/REkM9vd1AmabsoZoY5/dGi5TT9iKL8Kb6DeBRQg==}
+    engines: {node: '>=0.10.0'}
     dev: true
 
   /cli-cursor@3.1.0:
@@ -6033,6 +6048,19 @@ packages:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
 
+  /execa@0.7.0:
+    resolution: {integrity: sha512-RztN09XglpYI7aBBrJCPW95jEH7YF1UEPOoX9yDhUTPdp7mK+CQvnLTuD10BNXZ3byLTu2uehZ8EcKT/4CGiFw==}
+    engines: {node: '>=4'}
+    dependencies:
+      cross-spawn: 5.1.0
+      get-stream: 3.0.0
+      is-stream: 1.1.0
+      npm-run-path: 2.0.2
+      p-finally: 1.0.0
+      signal-exit: 3.0.7
+      strip-eof: 1.0.0
+    dev: true
+
   /execa@1.0.0:
     resolution: {integrity: sha512-adbxcyWV46qiHyvSp50TKt05tB4tK3HcmF7/nxfAdhnox83seTDbwnaqKO4sXRy7roHAIFqJP/Rw/AuEbX61LA==}
     engines: {node: '>=6'}
@@ -6168,7 +6196,7 @@ packages:
     dev: true
 
   /fast-url-parser@1.1.3:
-    resolution: {integrity: sha512-5jOCVXADYNuRkKFzNJ0dCCewsZiYo0dz8QNYljkOpFC6r2U4OBmKtvm/Tsuh4w1YYdDqDb31a8TVhBJ2OJKdqQ==}
+    resolution: {integrity: sha1-9K8+qfNNiicc9YrSs3WfQx8LMY0=}
     dependencies:
       punycode: 1.4.1
     dev: true
@@ -6470,6 +6498,11 @@ packages:
     resolution: {integrity: sha512-x5UJKlgeUiNT8nyo/AcnwLnZuZNcSjSw0kogRB+Whd1fjjFq4B1hySFxSFWWSn4mIBzg3sRNUDFYc4g5gjPoLg==}
     engines: {node: '>=4'}
     dev: false
+
+  /get-stream@3.0.0:
+    resolution: {integrity: sha512-GlhdIUuVakc8SJ6kK0zAFbiGzRFzNnY4jUuEbV9UROo4Y+0Ny4fjvcZFVTeDA4odpFyOQzaw6hXukJSq/f28sQ==}
+    engines: {node: '>=4'}
+    dev: true
 
   /get-stream@4.1.0:
     resolution: {integrity: sha512-GMat4EJ5161kIy2HevLlr4luNjBgvmj413KaQA7jt4V8B4RDsfpHk7WQ9GVqfYyyx8OS/L66Kox+rJRNklLK7w==}
@@ -7065,6 +7098,11 @@ packages:
     resolution: {integrity: sha512-0by5vtUJs8iFQb5TYUHHPudOR+qXYIMKtiUzvLIZITZUjknFmziyBJuLhVRc+Ds0dREFlskDNJKYIdIzu/9pfw==}
     dependencies:
       call-bind: 1.0.5
+    dev: true
+
+  /is-fullwidth-code-point@2.0.0:
+    resolution: {integrity: sha512-VHskAKYM8RfSFXwee5t5cbN5PZeq1Wrh6qd5bkyiXIf6UQcN6w/A0eXM9r6t8d+GYOh+o6ZhiEnb88LN/Y8m2w==}
+    engines: {node: '>=4'}
     dev: true
 
   /is-fullwidth-code-point@3.0.0:
@@ -9156,7 +9194,7 @@ packages:
     engines: {node: '>=0.10.0'}
 
   /path-is-inside@1.0.2:
-    resolution: {integrity: sha512-DUWJr3+ULp4zXmol/SZkFf3JGsS9/SIv+Y3Rt93/UjPpDpklB5f1er4O3POIbUuUJ3FXgqte2Q7SrU6zAqwk8w==}
+    resolution: {integrity: sha1-NlQX3t5EQw0cEa9hAn+s8HS9/FM=}
     dev: true
 
   /path-key@2.0.1:
@@ -10026,14 +10064,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /serve@13.0.4:
-    resolution: {integrity: sha512-Lj8rhXmphJCRQVv5qwu0NQZ2h+0MrRyRJxDZu5y3qLH2i/XY6a0FPj/VmjMUdkJb672MBfE8hJ274PU6JzBd0Q==}
+  /serve@12.0.1:
+    resolution: {integrity: sha512-CQ4ikLpxg/wmNM7yivulpS6fhjRiFG6OjmP8ty3/c1SBnSk23fpKmLAV4HboTA2KrZhkUPlDfjDhnRmAjQ5Phw==}
     hasBin: true
     dependencies:
       '@zeit/schemas': 2.6.0
       ajv: 6.12.6
       arg: 2.0.0
-      boxen: 5.1.2
+      boxen: 1.3.0
       chalk: 2.4.1
       clipboardy: 2.3.0
       compression: 1.7.3
@@ -10448,6 +10486,14 @@ packages:
       strip-ansi: 6.0.1
     dev: true
 
+  /string-width@2.1.1:
+    resolution: {integrity: sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw==}
+    engines: {node: '>=4'}
+    dependencies:
+      is-fullwidth-code-point: 2.0.0
+      strip-ansi: 4.0.0
+    dev: true
+
   /string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
     engines: {node: '>=8'}
@@ -10498,6 +10544,13 @@ packages:
     resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
     dependencies:
       safe-buffer: 5.2.1
+
+  /strip-ansi@4.0.0:
+    resolution: {integrity: sha512-4XaJ2zQdCzROZDivEVIDPkcQn8LMFSa8kj8Gxb/Lnwzv9A8VctNZ+lfivC/sV3ivW8ElJTERXZoPBRrZKkNKow==}
+    engines: {node: '>=4'}
+    dependencies:
+      ansi-regex: 3.0.1
+    dev: true
 
   /strip-ansi@6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
@@ -10603,11 +10656,11 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /svelte-jester@2.3.2(jest@27.5.1)(svelte@3.59.2):
-    resolution: {integrity: sha512-JtxSz4FWAaCRBXbPsh4LcDs4Ua7zdXgLC0TZvT1R56hRV0dymmNP+abw67DTPF7sQPyNxWsOKd0Sl7Q8SnP8kg==}
-    engines: {node: '>=14'}
+  /svelte-jester@1.8.2(jest@27.5.1)(svelte@3.59.2):
+    resolution: {integrity: sha512-m2ZhsnBY8T8b1KFE9u8CzUzAt1YoBgKkPWIuzeIfKd9ImYfa/aoiOb3/JcnUQQI4m/j/cPjWMGUBsTXhkXB7HQ==}
+    engines: {node: '>= 14'}
     peerDependencies:
-      jest: '>= 27'
+      jest: <= 26
       svelte: '>= 3'
     dependencies:
       jest: 27.5.1
@@ -10660,6 +10713,13 @@ packages:
   /temp-dir@2.0.0:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
     engines: {node: '>=8'}
+    dev: true
+
+  /term-size@1.2.0:
+    resolution: {integrity: sha512-7dPUZQGy/+m3/wjVz3ZW5dobSoD/02NxJpoXUX0WIyjfVS3l0c+b/+9phIDFA7FHzkYtwtMFgeGZ/Y8jVTeqQQ==}
+    engines: {node: '>=4'}
+    dependencies:
+      execa: 0.7.0
     dev: true
 
   /term-size@2.2.1:
@@ -11469,11 +11529,11 @@ packages:
     dependencies:
       string-width: 4.2.3
 
-  /widest-line@3.1.0:
-    resolution: {integrity: sha512-NsmoXalsWVDMGupxZ5R08ka9flZjjiLvHVAWYOKtiKM8ujtZWr9cRffak+uSE48+Ob8ObalXpwyeUiyDD6QFgg==}
-    engines: {node: '>=8'}
+  /widest-line@2.0.1:
+    resolution: {integrity: sha512-Ba5m9/Fa4Xt9eb2ELXt77JxVDV8w7qQrH0zS/TWSJdLyAwQjWoOzpzj5lwVftDz6n/EOu3tNACS84v509qwnJA==}
+    engines: {node: '>=4'}
     dependencies:
-      string-width: 4.2.3
+      string-width: 2.1.1
     dev: true
 
   /wildcard@2.0.1:
