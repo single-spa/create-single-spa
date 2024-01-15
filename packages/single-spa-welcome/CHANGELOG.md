@@ -1,5 +1,11 @@
 # single-spa-welcome
 
+## 2.4.3
+
+### Patch Changes
+
+- [#394](https://github.com/single-spa/create-single-spa/pull/394) [`28a7c5f`](https://github.com/single-spa/create-single-spa/commit/28a7c5f8271085151ff499250108707375279d4d) Thanks [@ibacher](https://github.com/ibacher)! - Update version of single-spa-react
+
 ## 2.4.2
 
 ### Patch Changes
