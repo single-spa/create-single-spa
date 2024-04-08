@@ -113,12 +113,6 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
     );
 
     this.fs.copyTpl(
-      this.templatePath(`../../common-templates/.husky/pre-commit`),
-      this.destinationPath(`.husky/pre-commit`),
-      this.options
-    );
-
-    this.fs.copyTpl(
       this.templatePath(".eslintrc.ejs"),
       this.destinationPath(".eslintrc"),
       this.options

@@ -45,6 +45,5 @@ describe("generator-single-spa-react", () => {
     });
     runResult.assertFile("jest.config.js");
     runResult.assertFile("babel.config.json");
-    runResult.assertFile(".husky/pre-commit");
   });
 });
