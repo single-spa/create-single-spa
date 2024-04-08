@@ -50,26 +50,34 @@ exports.createFixtureIfDoesntExist = function (name, args) {
 };
 
 exports.ensureInstall = () => {
-  return new Promise((resolve, reject) => {
-    console.log("Running pnpm install for all fixtures");
-    nixt()
-      .cwd(process.cwd())
-      .run("pnpm install")
-      .stdin("Done")
-      .code(0)
-      .end((err) => {
-        console.error(
-          "Error occurred while running pnpm install for all fixtures",
-          err
-        );
-        if (err) {
-          reject(err);
-        } else {
-          console.log("pnpm install finished");
-          resolve();
-        }
+  const fixturesDir = path.join(__dirname, "fixtures");
+  const fixtures = fs.readdirSync(fixturesDir);
+
+  return Promise.all(
+    fixtures.map((fixture) => {
+      return new Promise((resolve, reject) => {
+        console.log(`Running pnpm install for ${fixture}`);
+        nixt()
+          .cwd(path.join(fixturesDir, fixture))
+          // pnpm install must be run with --ignore-workspace option, otherwise pnpm will treat the fixtures as part of the workspace
+          .run("pnpm install --ignore-workspace")
+          .stdin("Done")
+          .code(0)
+          .end((err) => {
+            if (err) {
+              console.error(
+                `Error occurred while running pnpm install for ${fixture}`,
+                err
+              );
+              reject(err);
+            } else {
+              console.log(`pnpm install finished for ${fixture}`);
+              resolve();
+            }
+          });
       });
-  });
+    })
+  );
 };
 
 function testName(fileName) {
