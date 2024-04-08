@@ -148,6 +148,11 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
       this.destinationPath(".gitignore"),
       this.options
     );
+    this.fs.copyTpl(
+      this.templatePath(`../../common-templates/.husky/pre-commit`),
+      this.destinationPath(`.husky/pre-commit`),
+      this.options
+    );
 
     if (this.options.typescript) {
       this.fs.copyTpl(
