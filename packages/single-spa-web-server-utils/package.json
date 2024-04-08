@@ -36,8 +36,10 @@
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.23.3",
     "@jest/globals": "^27.4.6",
     "@jest/types": "^27.4.2",
+    "babel-jest": "^27.5.1",
     "cross-env": "^7.0.3",
     "jest": "^27.4.7",
     "jest-cli": "^27.4.7"

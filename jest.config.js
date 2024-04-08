@@ -1,8 +1,10 @@
 module.exports = {
   testEnvironment: "node",
-  // Fun times waiting on pnpm installs inside of CI
   testTimeout: 120000,
-  testRegex: "tests\\/e2e\\/.+test.js",
+  testPathIgnorePatterns: ["<rootDir>/tests/fixtures/"],
   watchPathIgnorePatterns: ["<rootDir>/tests/fixtures/"],
-  globalSetup: "<rootDir>/tests/create-fixtures.js",
+  projects: [
+    "<rootDir>/packages/*/jest.config.js",
+    "<rootDir>/tests/jest.config.js",
+  ],
 };

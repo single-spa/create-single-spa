@@ -2,7 +2,7 @@ module.exports = {
   rootDir: "src",
   testEnvironment: "jsdom",
   transform: {
-    "^.+\\.(j|t)sx?$": "babel-jest",
+    "\\.[jt]sx?$": ["babel-jest", { cwd: __dirname }],
   },
   moduleNameMapper: {
     "\\.(css)$": "identity-obj-proxy",

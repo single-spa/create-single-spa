@@ -23,5 +23,5 @@ jobs:
       - run: git checkout main && git checkout $GITHUB_SHA
       - run: pnpm install --frozen-lockfile
       - run: pnpm changeset status
-      - run: pnpm test --recursive
+      - run: pnpm test
       - run: pnpm run --recursive lint

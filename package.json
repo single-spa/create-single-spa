@@ -4,6 +4,7 @@
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
     "@types/jest": "^27.0.1",
+    "cross-env": "^7.0.3",
     "husky": "^7.0.2",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
@@ -15,9 +16,8 @@
     "rimraf": "^3.0.2"
   },
   "scripts": {
-    "clean-tests": "rimraf tests/fixtures && pnpm install",
-    "test": "pnpm run clean-tests && pnpm run test:e2e",
-    "test:e2e": "jest",
+    "test:all": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --all",
+    "test": "rimraf tests/fixtures && pnpm run test:all",
     "format": "prettier . --write",
     "prepare": "husky install"
   },
