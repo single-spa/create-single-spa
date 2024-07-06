@@ -11,8 +11,11 @@ registerApplication({
 
 // registerApplication({
 //   name: "@<%- orgName %>/navbar",
-//   app: () => System.import("@<%- orgName %>/navbar"),
-//   activeWhen: ["/"]
+//   app: () =>
+//     System.import<% if (typescript) {%><LifeCycles><% } %>(
+//       "@<%- orgName %>/navbar"
+//     ),
+//   activeWhen: ["/"],
 // });
 
 start({
