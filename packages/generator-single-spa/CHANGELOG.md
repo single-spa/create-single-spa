@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 4.1.6
+
+### Patch Changes
+
+- [#410](https://github.com/single-spa/create-single-spa/pull/410) [`a9735bc`](https://github.com/single-spa/create-single-spa/commit/a9735bcf2bb5e443f9e11b1c3eaaaa95bfdf274f) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix typescript error in generated root configs
+
 ## 4.1.5
 
 ### Patch Changes
