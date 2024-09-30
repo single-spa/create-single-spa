@@ -41,7 +41,7 @@ function webpackConfigSingleSpa(opts) {
     ),
     output: {
       filename: `${opts.orgName}-${opts.projectName}.js`,
-      libraryTarget: "system",
+      libraryTarget: opts.outputSystemJS ? "system" : "module",
       path: path.resolve(process.cwd(), "dist"),
       uniqueName: opts.projectName,
       devtoolNamespace: `${opts.projectName}`,
@@ -141,6 +141,9 @@ function webpackConfigSingleSpa(opts) {
     ].filter(Boolean),
     resolve: {
       extensions: [".mjs", ".js", ".jsx", ".wasm", ".json"],
+    },
+    experiments: {
+      outputModule: !opts.outputSystemJS,
     },
   };
 }
