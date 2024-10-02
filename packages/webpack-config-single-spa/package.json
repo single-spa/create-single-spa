@@ -25,6 +25,7 @@
     "babel-loader": "^8.2.5",
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.4",
+    "import-map-externals-webpack-plugin": "^1.0.0",
     "standalone-single-spa-webpack-plugin": "^4.0.0",
     "style-loader": "^3.2.1",
     "systemjs-webpack-interop": "^2.3.7",

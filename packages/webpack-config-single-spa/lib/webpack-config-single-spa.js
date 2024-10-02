@@ -3,6 +3,9 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const _HtmlWebpackPlugin = require("html-webpack-plugin");
 const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
 const SystemJSPublicPathPlugin = require("systemjs-webpack-interop/SystemJSPublicPathWebpackPlugin");
+const {
+  ImportMapExternalsPlugin,
+} = require("import-map-externals-webpack-plugin");
 
 module.exports = webpackConfigSingleSpa;
 
@@ -137,6 +140,10 @@ function webpackConfigSingleSpa(opts) {
           disabled: !webpackConfigEnv.standalone,
           HtmlWebpackPlugin,
           ...opts.standaloneOptions,
+        }),
+      opts.importMapUrl &&
+        new ImportMapExternalsPlugin({
+          importMapUrl: opts.importMapUrl,
         }),
     ].filter(Boolean),
     resolve: {
