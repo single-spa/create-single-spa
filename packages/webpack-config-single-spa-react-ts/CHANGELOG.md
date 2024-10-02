@@ -1,5 +1,13 @@
 # webpack-config-single-spa-react-ts
 
+## 5.0.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - webpack-config-single-spa-react@5.0.2
+  - webpack-config-single-spa-ts@5.0.2
+
 ## 5.0.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 6.0.2
+
+### Patch Changes
+
+- [#416](https://github.com/single-spa/create-single-spa/pull/416) [`1cb1a10`](https://github.com/single-spa/create-single-spa/commit/1cb1a10e0f9ade39caaf868fea16dbcf8cd9dc66) Thanks [@joeldenning](https://github.com/joeldenning)! - Use webpack auto public path for native ES modules
+
 ## 6.0.1
 
 ### Patch Changes
