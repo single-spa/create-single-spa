@@ -223,6 +223,9 @@ importers:
       html-webpack-plugin:
         specifier: ^5.5.4
         version: 5.5.4(webpack@5.89.0)
+      import-map-externals-webpack-plugin:
+        specifier: ^1.0.0
+        version: 1.0.0
       standalone-single-spa-webpack-plugin:
         specifier: ^4.0.0
         version: 4.0.0(html-webpack-plugin@5.5.4(webpack@5.89.0))(webpack@5.89.0)
@@ -3090,6 +3093,9 @@ packages:
     resolution: {integrity: sha512-ASB07uLtnDs1o6EHjKpX34BKYDSqnFerfTOJL2HvMqF70LnxpjkzDB8J44oT9pu4AMPkQwf8jl6szgvNd2tRIg==}
     engines: {node: '>=8'}
     hasBin: true
+
+  import-map-externals-webpack-plugin@1.0.0:
+    resolution: {integrity: sha512-zBI1VliWjO4DY0KtL5pofzuSeOcLJw8oGzuRBuo8qRBIaV2N2v0a8jPSsO17IvZiemhK2VLULfzsmhe6QK2LZg==}
 
   import-map-overrides@3.1.1:
     resolution: {integrity: sha512-NgET1tr18FQa+/7y6TPGU1U+EhmxluzsVtwwuE0t1OiTBXwwWstHm2hMOH1MSwlmIiDf6ztjArQmVjv3eVJKAw==}
@@ -9169,6 +9175,8 @@ snapshots:
     dependencies:
       pkg-dir: 4.2.0
       resolve-cwd: 3.0.0
+
+  import-map-externals-webpack-plugin@1.0.0: {}
 
   import-map-overrides@3.1.1:
     dependencies:
