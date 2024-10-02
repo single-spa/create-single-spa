@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 6.0.1
+
+### Patch Changes
+
+- [#415](https://github.com/single-spa/create-single-spa/pull/415) [`4ad86d6`](https://github.com/single-spa/create-single-spa/commit/4ad86d642ac659c65d983e9cd62df82f6075774b) Thanks [@joeldenning](https://github.com/joeldenning)! - Disable SystemJSPublicPathPlugin when not outputting to SystemJS format
+
 ## 6.0.0
 
 ### Major Changes
