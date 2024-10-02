@@ -1,5 +1,44 @@
 # webpack-config-single-spa-react-ts
 
+## 5.0.0
+
+### Major Changes
+
+- [#412](https://github.com/single-spa/create-single-spa/pull/412) [`f9edeef`](https://github.com/single-spa/create-single-spa/commit/f9edeef57e5230df78efe7deaea2dec159db89a3) Thanks [@joeldenning](https://github.com/joeldenning)! - Output to native ES modules by default. Add new outputSystemJS option.
+
+#### Upgrading
+
+To upgrade without switching to native ES modules, add the `outputSystemJS` option to your webpack.config.js:
+
+```js
+const { merge } = require("webpack-merge");
+const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
+
+module.exports = (webpackConfigEnv, argv) => {
+  const defaultConfig = singleSpaDefaults({
+    orgName: "org",
+    projectName: "project",
+    webpackConfigEnv,
+    argv,
+
+    // This is the new option that preserves backwards compatibility
+    outputSystemJS: true,
+  });
+
+  return merge(defaultConfig, {
+    // modify the webpack config however you'd like to by adding to this object
+  });
+};
+```
+
+The single-spa core team plans to release a full SystemJS -> ESM migration guide on single-spa.js.org.
+
+### Patch Changes
+
+- Updated dependencies [[`f9edeef`](https://github.com/single-spa/create-single-spa/commit/f9edeef57e5230df78efe7deaea2dec159db89a3)]:
+  - webpack-config-single-spa-react@5.0.0
+  - webpack-config-single-spa-ts@5.0.0
+
 ## 4.0.5
 
 ### Patch Changes

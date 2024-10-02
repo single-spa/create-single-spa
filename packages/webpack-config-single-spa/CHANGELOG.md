@@ -1,5 +1,42 @@
 # webpack-config-single-spa
 
+## 6.0.0
+
+### Major Changes
+
+- [#412](https://github.com/single-spa/create-single-spa/pull/412) [`f9edeef`](https://github.com/single-spa/create-single-spa/commit/f9edeef57e5230df78efe7deaea2dec159db89a3) Thanks [@joeldenning](https://github.com/joeldenning)! - Output to native ES modules by default. Add new outputSystemJS option.
+
+  #### Upgrading
+
+  To upgrade without switching to native ES modules, add the `outputSystemJS` option to your webpack.config.js:
+
+  ```js
+  const { merge } = require("webpack-merge");
+  const singleSpaDefaults = require("webpack-config-single-spa");
+
+  module.exports = (webpackConfigEnv, argv) => {
+    const defaultConfig = singleSpaDefaults({
+      orgName: "org",
+      projectName: "project",
+      webpackConfigEnv,
+      argv,
+
+      // This is the new option that preserves backwards compatibility
+      outputSystemJS: true,
+    });
+
+    return merge(defaultConfig, {
+      // modify the webpack config however you'd like to by adding to this object
+    });
+  };
+  ```
+
+  The single-spa core team plans to release a full SystemJS -> ESM migration guide on single-spa.js.org.
+
+### Minor Changes
+
+- [#414](https://github.com/single-spa/create-single-spa/pull/414) [`5e19bc1`](https://github.com/single-spa/create-single-spa/commit/5e19bc1b9dd069de995b249e99d19a241b7c8f8c) Thanks [@joeldenning](https://github.com/joeldenning)! - Support for importMapUrl option, via import-map-externals-webpack-plugin
+
 ## 5.3.1
 
 ### Patch Changes
