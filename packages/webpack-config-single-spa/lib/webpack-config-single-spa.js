@@ -128,10 +128,11 @@ function webpackConfigSingleSpa(opts) {
       new BundleAnalyzerPlugin({
         analyzerMode: webpackConfigEnv.analyze ? "server" : "disabled",
       }),
-      new SystemJSPublicPathPlugin({
-        systemjsModuleName: `@${opts.orgName}/${opts.projectName}`,
-        rootDirectoryLevel: opts.rootDirectoryLevel,
-      }),
+      opts.outputSystemJS &&
+        new SystemJSPublicPathPlugin({
+          systemjsModuleName: `@${opts.orgName}/${opts.projectName}`,
+          rootDirectoryLevel: opts.rootDirectoryLevel,
+        }),
       !isProduction && !opts.disableHtmlGeneration && new HtmlWebpackPlugin(),
       !isProduction &&
         !opts.disableHtmlGeneration &&
