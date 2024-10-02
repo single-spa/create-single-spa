@@ -48,7 +48,7 @@ function webpackConfigSingleSpa(opts) {
       path: path.resolve(process.cwd(), "dist"),
       uniqueName: opts.projectName,
       devtoolNamespace: `${opts.projectName}`,
-      publicPath: "",
+      publicPath: opts.outputSystemJS ? "" : "auto",
     },
     module: {
       rules: [
