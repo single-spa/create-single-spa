@@ -53,10 +53,16 @@ export default function Root(props) {
             create-single-spa will need to add React and ReactDOM to the import
             map.
           </p>
-          <pre>
-            <code>{`"react": "https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js",
-"react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js"`}</code>
-          </pre>
+          <p>
+            You can use{" "}
+            <a
+              href="https://generator.jspm.io/#U2VhYGBkDM0rySzJSU1hKEpNTC5xMLTQM9YzBADlj3RUGwA"
+              target="_blank"
+            >
+              JSPM Generator
+            </a>{" "}
+            to generate an import map with shared dependencies from NPM.
+          </p>
         </li>
       </ul>
       <p>
