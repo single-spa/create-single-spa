@@ -1,5 +1,13 @@
 # single-spa-welcome
 
+## 3.0.0
+
+### Major Changes
+
+- [#417](https://github.com/single-spa/create-single-spa/pull/417) [`d518ae4`](https://github.com/single-spa/create-single-spa/commit/d518ae43fe67e71245a9245367fa2bba6b019c91) Thanks [@joeldenning](https://github.com/joeldenning)! - Output to ESM format rather than SystemJS format. Upgrade webpack-config-single-spa.
+
+  Newly generated root-configs, single-spa applications, and utility modules will now output to ESM format rather than SystemJS format. To revert to SystemJS format, add the `outputSystemJS: true` option to options passed to webpack-config-single-spa within the webpack.config.js
+
 ## 2.4.3
 
 ### Patch Changes
