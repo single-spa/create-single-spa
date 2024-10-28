@@ -6,17 +6,23 @@ const fs = require("fs");
 const commandExists = util.promisify(require("command-exists"));
 const chalk = require("chalk");
 const validate = require("../validate-naming");
+const validateCLIVersion = require("./validate-cli-version");
 
 module.exports = class SingleSpaAngularGenerator extends Generator {
+  _globalInstallation = false;
   constructor(args, opts) {
     super(args, opts);
 
     this.option("projectName", {
       type: String,
     });
+    this.option("angularCLIVersion", {
+      type: String,
+    });
   }
   async getOptions() {
-    const answers = await this.prompt([
+    this._globalInstallation = await commandExists("ng");
+    const questions = [
       {
         type: "input",
         name: "projectName",
@@ -25,20 +31,30 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
         when: !this.options.projectName,
         validate,
       },
-    ]);
+    ];
+    if (!this._globalInstallation) {
+      questions.push({
+        type: "input",
+        name: "angularCLIVersion",
+        message: "Angular CLI version",
+        suffix: " (can use letters, numbers, dash or underscore)",
+        default: "latest",
+        when: !this.options.angularCLIVersion,
+        validateCLIVersion,
+      });
+    }
+    const answers = await this.prompt(questions);
 
     Object.assign(this.options, answers, { framework: "angular" });
   }
   async runAngularCli() {
-    const globalInstallation = await commandExists("ng");
-
     let command,
       args = [];
-    if (globalInstallation) {
+    if (this._globalInstallation) {
       command = "ng";
     } else {
       command = "npx";
-      args.push("@angular/cli");
+      args.push(["@angular/cli", "@", this.options.angularCLIVersion].join(""));
     }
 
     if (process.platform === "win32") {
