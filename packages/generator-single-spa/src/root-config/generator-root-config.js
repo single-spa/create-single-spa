@@ -155,7 +155,7 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
     );
 
     this.fs.copyTpl(
-      this.templatePath(`${parentPath}/index.ejs`),
+      this.templatePath(`src/index.ejs`),
       this.destinationPath(`src/index.ejs`),
       this.options,
       { delimiter: "?" }
