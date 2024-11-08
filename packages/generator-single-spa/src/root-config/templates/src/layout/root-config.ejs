@@ -10,7 +10,7 @@ const routes = constructRoutes(microfrontendLayout);
 const applications = constructApplications({
   routes,
   loadApp({ name }) {
-    return System.import(name);
+    return import(/* webpackIgnore: true */ name);
   },
 });
 const layoutEngine = constructLayoutEngine({ routes, applications });
