@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 5.0.1
+
+### Patch Changes
+
+- [#419](https://github.com/single-spa/create-single-spa/pull/419) [`56da695`](https://github.com/single-spa/create-single-spa/commit/56da695c5e18c34f51f0b084a91c42f7aac05479) Thanks [@joeldenning](https://github.com/joeldenning)! - Load layout root config microfrontends with browser rather than SystemJS
+
 ## 5.0.0
 
 ### Major Changes
