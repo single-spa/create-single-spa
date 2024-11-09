@@ -4,8 +4,9 @@
 
 We're using [pnpm workspaces](https://pnpm.js.org/en/workspaces).
 
+1. `corepack enable && corepack install`
 1. `pnpm install`
-2. `node packages/create-single-spa/bin/create-single-spa.js ../some-test-dir`
+1. `node packages/create-single-spa/bin/create-single-spa.js ../some-test-dir`
 
 Note that create-single-spa can run in the current directory by default, but you can provide a different destination directory through the CLI (as shown above with `some-test-dir`).
 
