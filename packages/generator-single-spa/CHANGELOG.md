@@ -1,5 +1,13 @@
 # generator-single-spa
 
+## 5.0.2
+
+### Patch Changes
+
+- [#422](https://github.com/single-spa/create-single-spa/pull/422) [`f14cfa1`](https://github.com/single-spa/create-single-spa/commit/f14cfa1fcf3ad7a779bc668f9a4ca67316203e14) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix react typescript webpack config version
+
+- [#422](https://github.com/single-spa/create-single-spa/pull/422) [`f14cfa1`](https://github.com/single-spa/create-single-spa/commit/f14cfa1fcf3ad7a779bc668f9a4ca67316203e14) Thanks [@joeldenning](https://github.com/joeldenning)! - Remove unused webpack-config-single-spa-ts from react typescript package.json
+
 ## 5.0.1
 
 ### Patch Changes
