@@ -37,6 +37,10 @@ module.exports = class SingleSpaGenerator extends Generator {
       type: Boolean,
     });
 
+    this.option("skipGit", {
+      type: Boolean,
+    });
+
     if (args.length > 0 && !this.options.dir) {
       this.options.dir = args[0];
     }
