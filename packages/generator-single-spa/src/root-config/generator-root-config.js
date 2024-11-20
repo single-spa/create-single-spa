@@ -214,18 +214,16 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
       });
     }
   }
-  finished() {
-    this.on(`${this.options.packageManager}Install:end`, () => {
-      console.log(
-        chalk.bgWhite.black(`Project setup complete!
+  end() {
+    console.log(
+      chalk.bgWhite.black(`Project setup complete!
 Run '${this.options.packageManager} start' to boot up your single-spa root config`)
-      );
+    );
 
-      if (this.options.layout) {
-        console.log(
-          `\nPlease report single-spa-layout issues and bugs on GitHub https://github.com/single-spa/single-spa-layout/issues/new`
-        );
-      }
-    });
+    if (this.options.layout) {
+      console.log(
+        `\nPlease report single-spa-layout issues and bugs on GitHub https://github.com/single-spa/single-spa-layout/issues/new`
+      );
+    }
   }
 };
