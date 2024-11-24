@@ -120,6 +120,7 @@ function webpackConfigSingleSpa(opts) {
         },
       },
       allowedHosts: "all",
+      hot: opts.outputSystemJS,
     },
     externals: opts.orgPackagesAsExternal
       ? ["single-spa", new RegExp(`^@${opts.orgName}/`)]
