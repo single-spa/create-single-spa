@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 6.0.3
+
+### Patch Changes
+
+- [#426](https://github.com/single-spa/create-single-spa/pull/426) [`b600a88`](https://github.com/single-spa/create-single-spa/commit/b600a88039d0f3ad0fbafc727751d81ce2b7c694) Thanks [@joeldenning](https://github.com/joeldenning)! - Disable hot reloading for native es modules
+
 ## 6.0.2
 
 ### Patch Changes
