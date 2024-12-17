@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 6.0.1
+
+### Patch Changes
+
+- [#429](https://github.com/single-spa/create-single-spa/pull/429) [`bac7241`](https://github.com/single-spa/create-single-spa/commit/bac724117ed58be08e60c3961bd309a1658da18d) Thanks [@joeldenning](https://github.com/joeldenning)! - Use latest version of webpack-config-single-spa-react
+
 ## 6.0.0
 
 ### Major Changes
