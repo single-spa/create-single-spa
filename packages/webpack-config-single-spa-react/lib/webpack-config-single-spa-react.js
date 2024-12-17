@@ -9,7 +9,7 @@ function webpackConfigSingleSpaReact(opts) {
   const config = webpackConfigSingleSpa(opts);
 
   if (!webpackConfigEnv.standalone) {
-    config.externals.push("react", "react-dom");
+    config.externals.push("react", "react-dom", "react-dom/client");
   }
 
   return config;
