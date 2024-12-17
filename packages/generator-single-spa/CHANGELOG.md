@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 6.0.0
+
+### Major Changes
+
+- [#428](https://github.com/single-spa/create-single-spa/pull/428) [`317a5c5`](https://github.com/single-spa/create-single-spa/commit/317a5c5b1c25d6edb6269a05618563895fe7d2b8) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade to single-spa-react@6 and react@19
+
 ## 5.0.2
 
 ### Patch Changes
