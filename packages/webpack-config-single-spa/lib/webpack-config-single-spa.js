@@ -32,7 +32,10 @@ function webpackConfigSingleSpa(opts) {
 
   let argv = opts.argv || {};
 
-  let isProduction = argv.p || argv.mode === "production";
+  let isProduction =
+    argv.p || argv.mode === "production" || webpackConfigEnv.WEBPACK_BUILD;
+
+  const isStandalone = webpackConfigEnv.standalone;
 
   let HtmlWebpackPlugin = opts.HtmlWebpackPlugin || _HtmlWebpackPlugin;
 
@@ -135,7 +138,7 @@ function webpackConfigSingleSpa(opts) {
           rootDirectoryLevel: opts.rootDirectoryLevel,
         }),
       !isProduction && !opts.disableHtmlGeneration && new HtmlWebpackPlugin(),
-      !isProduction &&
+      isStandalone &&
         !opts.disableHtmlGeneration &&
         new StandaloneSingleSpaPlugin({
           appOrParcelName: `@${opts.orgName}/${opts.projectName}`,
