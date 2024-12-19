@@ -1,5 +1,15 @@
 # generator-single-spa
 
+## 6.0.2
+
+### Patch Changes
+
+- [#430](https://github.com/single-spa/create-single-spa/pull/430) [`1cdc37e`](https://github.com/single-spa/create-single-spa/commit/1cdc37ea0cc3fd170b1db6a16b05121f8a27d0ac) Thanks [@joeldenning](https://github.com/joeldenning)! - Remove unneeded ReactDOM
+
+- [#432](https://github.com/single-spa/create-single-spa/pull/432) [`ef46e40`](https://github.com/single-spa/create-single-spa/commit/ef46e40874e694556ab02a14802131cb313b4c1a) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix typescript error in no-layout root configs
+
+- [#432](https://github.com/single-spa/create-single-spa/pull/432) [`ef46e40`](https://github.com/single-spa/create-single-spa/commit/ef46e40874e694556ab02a14802131cb313b4c1a) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade @testing-library/react and @testing-library/jest-dom in react microfrontends
+
 ## 6.0.1
 
 ### Patch Changes

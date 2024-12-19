@@ -1,5 +1,11 @@
 # single-spa-welcome
 
+## 3.0.1
+
+### Patch Changes
+
+- [#432](https://github.com/single-spa/create-single-spa/pull/432) [`ef46e40`](https://github.com/single-spa/create-single-spa/commit/ef46e40874e694556ab02a14802131cb313b4c1a) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade to react 19
+
 ## 3.0.0
 
 ### Major Changes

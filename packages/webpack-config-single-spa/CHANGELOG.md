@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 7.0.0
+
+### Major Changes
+
+- [#431](https://github.com/single-spa/create-single-spa/pull/431) [`f3fcb82`](https://github.com/single-spa/create-single-spa/commit/f3fcb8223ee42ba6912e5211ba4dd44e959244fb) Thanks [@joeldenning](https://github.com/joeldenning)! - Disable standalone mode unless explicitly set
+
 ## 6.0.3
 
 ### Patch Changes
