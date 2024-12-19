@@ -3,8 +3,13 @@ import {
   clearAllIntervals,
   getImportMaps,
 } from "./import-map-poller.js";
-import fetch from "node-fetch";
 import { jest } from "@jest/globals";
+
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({ test: 100 }),
+  })
+);
 
 const successResponse = Promise.resolve({
   ok: true,

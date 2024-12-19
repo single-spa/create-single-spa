@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import _ from "lodash";
 import { applyOverrides, getOverridesFromCookies } from "import-map-overrides";
 
