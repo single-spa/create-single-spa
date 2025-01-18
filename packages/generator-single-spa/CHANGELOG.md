@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 6.1.0
+
+### Minor Changes
+
+- [#435](https://github.com/single-spa/create-single-spa/pull/435) [`daddec1`](https://github.com/single-spa/create-single-spa/commit/daddec1451067fffc38209a574b7aa52bcc9d624) Thanks [@joeldenning](https://github.com/joeldenning)! - Add support for moduleFormat (esm or systemjs) option in react apps/parcels and utility microfrontends
+
 ## 6.0.2
 
 ### Patch Changes
