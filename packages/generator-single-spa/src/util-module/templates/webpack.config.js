@@ -7,6 +7,7 @@ module.exports = (webpackConfigEnv, argv) => {
     projectName: "<%= projectName %>",
     webpackConfigEnv,
     argv,
+    outputSystemJS: <% if (moduleFormat === 'systemjs') { %>true<% } else {%>false<%}%>,
   });
 
   return merge(defaultConfig, {

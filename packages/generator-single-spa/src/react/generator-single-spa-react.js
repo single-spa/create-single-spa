@@ -23,6 +23,9 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
     this.option("skipMainFile", {
       type: Boolean,
     });
+    this.option("moduleFormat", {
+      type: String,
+    });
   }
   async getOptions() {
     const answers = await this.prompt([
@@ -39,6 +42,13 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
         message: "Will this project use Typescript?",
         default: false,
         when: this.options.typescript === undefined,
+      },
+      {
+        type: "list",
+        name: "moduleFormat",
+        message: "What module format should this microfrontend be bundled to?",
+        choices: ["esm", "systemjs"],
+        when: !this.options.moduleFormat,
       },
       {
         type: "input",
