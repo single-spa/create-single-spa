@@ -1,5 +1,11 @@
 # generator-single-spa
 
+## 6.1.1
+
+### Patch Changes
+
+- [#439](https://github.com/single-spa/create-single-spa/pull/439) [`f129c87`](https://github.com/single-spa/create-single-spa/commit/f129c8704765938935590a710533b486ddfe828d) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade import-map-overrides and import-map-injector
+
 ## 6.1.0
 
 ### Minor Changes

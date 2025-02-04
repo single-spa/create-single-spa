@@ -1,5 +1,12 @@
 # webpack-config-single-spa-react
 
+## 7.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`011ed65`](https://github.com/single-spa/create-single-spa/commit/011ed65c1c3e5758ebc39d56b5a4eb258f8b9909)]:
+  - webpack-config-single-spa@7.0.1
+
 ## 7.0.0
 
 ### Major Changes
