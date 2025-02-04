@@ -39,6 +39,8 @@ function webpackConfigSingleSpa(opts) {
 
   let HtmlWebpackPlugin = opts.HtmlWebpackPlugin || _HtmlWebpackPlugin;
 
+  const outputSystemJS = !!opts.outputSystemJS;
+
   return {
     mode: isProduction ? "production" : "development",
     entry: path.resolve(
@@ -51,7 +53,7 @@ function webpackConfigSingleSpa(opts) {
       path: path.resolve(process.cwd(), "dist"),
       uniqueName: opts.projectName,
       devtoolNamespace: `${opts.projectName}`,
-      publicPath: opts.outputSystemJS ? "" : "auto",
+      publicPath: outputSystemJS ? "" : "auto",
     },
     module: {
       rules: [
@@ -123,7 +125,7 @@ function webpackConfigSingleSpa(opts) {
         },
       },
       allowedHosts: "all",
-      hot: opts.outputSystemJS,
+      hot: outputSystemJS,
     },
     externals: opts.orgPackagesAsExternal
       ? ["single-spa", new RegExp(`^@${opts.orgName}/`)]
@@ -132,7 +134,7 @@ function webpackConfigSingleSpa(opts) {
       new BundleAnalyzerPlugin({
         analyzerMode: webpackConfigEnv.analyze ? "server" : "disabled",
       }),
-      opts.outputSystemJS &&
+      outputSystemJS &&
         new SystemJSPublicPathPlugin({
           systemjsModuleName: `@${opts.orgName}/${opts.projectName}`,
           rootDirectoryLevel: opts.rootDirectoryLevel,
@@ -155,7 +157,7 @@ function webpackConfigSingleSpa(opts) {
       extensions: [".mjs", ".js", ".jsx", ".wasm", ".json"],
     },
     experiments: {
-      outputModule: !opts.outputSystemJS,
+      outputModule: !outputSystemJS,
     },
   };
 }
