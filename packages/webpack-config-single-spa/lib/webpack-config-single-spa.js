@@ -1,4 +1,5 @@
 const path = require("path");
+const { readFileSync } = require("fs");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const _HtmlWebpackPlugin = require("html-webpack-plugin");
 const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
@@ -120,6 +121,15 @@ function webpackConfigSingleSpa(opts) {
         },
       },
       allowedHosts: "all",
+      hot: outputSystemJS,
+      setupMiddlewares: (middlewares, devServer) => {
+        const htmlDevServer = readFileSync(
+          path.join(__dirname, "index.html"),
+          "utf8"
+        );
+        devServer.app.get("/", (_, res) => res.send(htmlDevServer));
+        return middlewares;
+      },
     },
     externals: opts.orgPackagesAsExternal
       ? ["single-spa", new RegExp(`^@${opts.orgName}/`)]

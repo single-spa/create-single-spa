@@ -1,0 +1,46 @@
+<h2>How do I develop this microfrontend?</h2>
+<ol>
+  <li>
+    Copy the URL to your microfrontend entrypoint from
+    <a href="/webpack-dev-server" target="_blank" rel="noopener"
+      >webpack-dev-server assets</a
+    >
+    to your clipboard
+  </li>
+  <li>
+    In a new browser tab, go to the your single-spa web app. This is where your
+    "root config" is running. You do not have to run the root config locally if
+    it is already running on a deployed environment - go to the deployed
+    environment directly.
+  </li>
+  <li>
+    In the browser console, run
+    <code>localStorage.setItem('devtools', true);</code> Refresh the page.
+  </li>
+  <li>
+    A yellowish rectangle should appear at the bottom right of your screen.
+    Click on it. Find the name @emoney/home and click on it. If it is not
+    present, click on Add New Module.
+  </li>
+  <li>Paste the URL above into the input that appears. Refresh the page.</li>
+  <li>Congrats, your local code is now being used!</li>
+</ol>
+<p>For further information about "integrated" mode, see the following links:</p>
+<ul>
+  <li>
+    <a
+      target="_blank"
+      rel="noopener"
+      href="https://single-spa.js.org/docs/recommended-setup#local-development"
+      >Local Development Overview</a
+    >
+  </li>
+  <li>
+    <a
+      target="_blank"
+      rel="noopener"
+      href="https://github.com/joeldenning/import-map-overrides"
+      >Import Map Overrides Documentation</a
+    >
+  </li>
+</ul>
