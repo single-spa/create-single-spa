@@ -1,5 +1,23 @@
 # webpack-config-single-spa
 
+## 7.0.1
+
+### Patch Changes
+
+- [#440](https://github.com/single-spa/create-single-spa/pull/440) [`011ed65`](https://github.com/single-spa/create-single-spa/commit/011ed65c1c3e5758ebc39d56b5a4eb258f8b9909) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix bug where HMR was mistakenly enabled when outputSystemJS option was omitted
+
+## 7.0.0
+
+### Major Changes
+
+- [#431](https://github.com/single-spa/create-single-spa/pull/431) [`f3fcb82`](https://github.com/single-spa/create-single-spa/commit/f3fcb8223ee42ba6912e5211ba4dd44e959244fb) Thanks [@joeldenning](https://github.com/joeldenning)! - Disable standalone mode unless explicitly set
+
+## 6.0.3
+
+### Patch Changes
+
+- [#426](https://github.com/single-spa/create-single-spa/pull/426) [`b600a88`](https://github.com/single-spa/create-single-spa/commit/b600a88039d0f3ad0fbafc727751d81ce2b7c694) Thanks [@joeldenning](https://github.com/joeldenning)! - Disable hot reloading for native es modules
+
 ## 6.0.2
 
 ### Patch Changes

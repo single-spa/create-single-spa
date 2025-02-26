@@ -1,5 +1,47 @@
 # generator-single-spa
 
+## 6.1.1
+
+### Patch Changes
+
+- [#439](https://github.com/single-spa/create-single-spa/pull/439) [`f129c87`](https://github.com/single-spa/create-single-spa/commit/f129c8704765938935590a710533b486ddfe828d) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade import-map-overrides and import-map-injector
+
+## 6.1.0
+
+### Minor Changes
+
+- [#435](https://github.com/single-spa/create-single-spa/pull/435) [`daddec1`](https://github.com/single-spa/create-single-spa/commit/daddec1451067fffc38209a574b7aa52bcc9d624) Thanks [@joeldenning](https://github.com/joeldenning)! - Add support for moduleFormat (esm or systemjs) option in react apps/parcels and utility microfrontends
+
+## 6.0.2
+
+### Patch Changes
+
+- [#430](https://github.com/single-spa/create-single-spa/pull/430) [`1cdc37e`](https://github.com/single-spa/create-single-spa/commit/1cdc37ea0cc3fd170b1db6a16b05121f8a27d0ac) Thanks [@joeldenning](https://github.com/joeldenning)! - Remove unneeded ReactDOM
+
+- [#432](https://github.com/single-spa/create-single-spa/pull/432) [`ef46e40`](https://github.com/single-spa/create-single-spa/commit/ef46e40874e694556ab02a14802131cb313b4c1a) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix typescript error in no-layout root configs
+
+- [#432](https://github.com/single-spa/create-single-spa/pull/432) [`ef46e40`](https://github.com/single-spa/create-single-spa/commit/ef46e40874e694556ab02a14802131cb313b4c1a) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade @testing-library/react and @testing-library/jest-dom in react microfrontends
+
+## 6.0.1
+
+### Patch Changes
+
+- [#429](https://github.com/single-spa/create-single-spa/pull/429) [`bac7241`](https://github.com/single-spa/create-single-spa/commit/bac724117ed58be08e60c3961bd309a1658da18d) Thanks [@joeldenning](https://github.com/joeldenning)! - Use latest version of webpack-config-single-spa-react
+
+## 6.0.0
+
+### Major Changes
+
+- [#428](https://github.com/single-spa/create-single-spa/pull/428) [`317a5c5`](https://github.com/single-spa/create-single-spa/commit/317a5c5b1c25d6edb6269a05618563895fe7d2b8) Thanks [@joeldenning](https://github.com/joeldenning)! - Upgrade to single-spa-react@6 and react@19
+
+## 5.0.2
+
+### Patch Changes
+
+- [#422](https://github.com/single-spa/create-single-spa/pull/422) [`f14cfa1`](https://github.com/single-spa/create-single-spa/commit/f14cfa1fcf3ad7a779bc668f9a4ca67316203e14) Thanks [@joeldenning](https://github.com/joeldenning)! - Fix react typescript webpack config version
+
+- [#422](https://github.com/single-spa/create-single-spa/pull/422) [`f14cfa1`](https://github.com/single-spa/create-single-spa/commit/f14cfa1fcf3ad7a779bc668f9a4ca67316203e14) Thanks [@joeldenning](https://github.com/joeldenning)! - Remove unused webpack-config-single-spa-ts from react typescript package.json
+
 ## 5.0.1
 
 ### Patch Changes

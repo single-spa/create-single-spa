@@ -1,5 +1,11 @@
 # single-spa-web-server-utils
 
+## 3.0.0
+
+### Major Changes
+
+- [#432](https://github.com/single-spa/create-single-spa/pull/432) [`ef46e40`](https://github.com/single-spa/create-single-spa/commit/ef46e40874e694556ab02a14802131cb313b4c1a) Thanks [@joeldenning](https://github.com/joeldenning)! - Switch to native fetch rather than node-fetch
+
 ## 2.3.2
 
 ### Patch Changes

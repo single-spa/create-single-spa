@@ -1,5 +1,47 @@
 # create-single-spa
 
+## 5.0.7
+
+### Patch Changes
+
+- Updated dependencies [[`f129c87`](https://github.com/single-spa/create-single-spa/commit/f129c8704765938935590a710533b486ddfe828d)]:
+  - generator-single-spa@6.1.1
+
+## 5.0.6
+
+### Patch Changes
+
+- Updated dependencies [[`daddec1`](https://github.com/single-spa/create-single-spa/commit/daddec1451067fffc38209a574b7aa52bcc9d624)]:
+  - generator-single-spa@6.1.0
+
+## 5.0.5
+
+### Patch Changes
+
+- Updated dependencies [[`1cdc37e`](https://github.com/single-spa/create-single-spa/commit/1cdc37ea0cc3fd170b1db6a16b05121f8a27d0ac), [`ef46e40`](https://github.com/single-spa/create-single-spa/commit/ef46e40874e694556ab02a14802131cb313b4c1a), [`ef46e40`](https://github.com/single-spa/create-single-spa/commit/ef46e40874e694556ab02a14802131cb313b4c1a)]:
+  - generator-single-spa@6.0.2
+
+## 5.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`bac7241`](https://github.com/single-spa/create-single-spa/commit/bac724117ed58be08e60c3961bd309a1658da18d)]:
+  - generator-single-spa@6.0.1
+
+## 5.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`317a5c5`](https://github.com/single-spa/create-single-spa/commit/317a5c5b1c25d6edb6269a05618563895fe7d2b8)]:
+  - generator-single-spa@6.0.0
+
+## 5.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`f14cfa1`](https://github.com/single-spa/create-single-spa/commit/f14cfa1fcf3ad7a779bc668f9a4ca67316203e14), [`f14cfa1`](https://github.com/single-spa/create-single-spa/commit/f14cfa1fcf3ad7a779bc668f9a4ca67316203e14)]:
+  - generator-single-spa@5.0.2
+
 ## 5.0.1
 
 ### Patch Changes

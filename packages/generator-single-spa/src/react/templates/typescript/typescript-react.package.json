@@ -1,6 +1,6 @@
 {
   "devDependencies": {
     "eslint-config-ts-react-important-stuff": "^3.0.0",
-    "webpack-config-single-spa-react-ts": "^4.0.0"
+    "webpack-config-single-spa-react-ts": "^6.0.0"
   }
 }

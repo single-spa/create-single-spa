@@ -33,9 +33,14 @@ function webpackConfigSingleSpa(opts) {
 
   let argv = opts.argv || {};
 
-  let isProduction = argv.p || argv.mode === "production";
+  let isProduction =
+    argv.p || argv.mode === "production" || webpackConfigEnv.WEBPACK_BUILD;
+
+  const isStandalone = webpackConfigEnv.standalone;
 
   let HtmlWebpackPlugin = opts.HtmlWebpackPlugin || _HtmlWebpackPlugin;
+
+  const outputSystemJS = !!opts.outputSystemJS;
 
   return {
     mode: isProduction ? "production" : "development",
@@ -49,7 +54,7 @@ function webpackConfigSingleSpa(opts) {
       path: path.resolve(process.cwd(), "dist"),
       uniqueName: opts.projectName,
       devtoolNamespace: `${opts.projectName}`,
-      publicPath: opts.outputSystemJS ? "" : "auto",
+      publicPath: outputSystemJS ? "" : "auto",
     },
     module: {
       rules: [
@@ -138,13 +143,13 @@ function webpackConfigSingleSpa(opts) {
       new BundleAnalyzerPlugin({
         analyzerMode: webpackConfigEnv.analyze ? "server" : "disabled",
       }),
-      opts.outputSystemJS &&
+      outputSystemJS &&
         new SystemJSPublicPathPlugin({
           systemjsModuleName: `@${opts.orgName}/${opts.projectName}`,
           rootDirectoryLevel: opts.rootDirectoryLevel,
         }),
       !isProduction && !opts.disableHtmlGeneration && new HtmlWebpackPlugin(),
-      !isProduction &&
+      isStandalone &&
         !opts.disableHtmlGeneration &&
         new StandaloneSingleSpaPlugin({
           appOrParcelName: `@${opts.orgName}/${opts.projectName}`,
@@ -161,7 +166,7 @@ function webpackConfigSingleSpa(opts) {
       extensions: [".mjs", ".js", ".jsx", ".wasm", ".json"],
     },
     experiments: {
-      outputModule: !opts.outputSystemJS,
+      outputModule: !outputSystemJS,
     },
   };
 }

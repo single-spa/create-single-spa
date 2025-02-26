@@ -3,8 +3,8 @@ import { registerApplication, start<% if (typescript) {%>, LifeCycles<% }%> } fr
 registerApplication({
   name: "@single-spa/welcome",
   app: () =>
-    import<% if (typescript) {%><LifeCycles><% } %>(
-      /* webpackIgnore: true */
+    import(
+      /* webpackIgnore: true */ // @ts-ignore-next
       "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
     ),
   activeWhen: ["/"],
@@ -13,8 +13,8 @@ registerApplication({
 // registerApplication({
 //   name: "@<%- orgName %>/navbar",
 //   app: () =>
-//     import<% if (typescript) {%><LifeCycles><% } %>(
-//       /* webpackIgnore: true */
+//     import(
+//       /* webpackIgnore: true */ // @ts-ignore-next
 //       "@<%- orgName %>/navbar"
 //     ),
 //   activeWhen: ["/"],

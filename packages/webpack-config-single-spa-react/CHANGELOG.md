@@ -1,5 +1,36 @@
 # webpack-config-single-spa-react
 
+## 7.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`011ed65`](https://github.com/single-spa/create-single-spa/commit/011ed65c1c3e5758ebc39d56b5a4eb258f8b9909)]:
+  - webpack-config-single-spa@7.0.1
+
+## 7.0.0
+
+### Major Changes
+
+- [#431](https://github.com/single-spa/create-single-spa/pull/431) [`f3fcb82`](https://github.com/single-spa/create-single-spa/commit/f3fcb8223ee42ba6912e5211ba4dd44e959244fb) Thanks [@joeldenning](https://github.com/joeldenning)! - Disable standalone mode unless explicitly set
+
+### Patch Changes
+
+- Updated dependencies [[`f3fcb82`](https://github.com/single-spa/create-single-spa/commit/f3fcb8223ee42ba6912e5211ba4dd44e959244fb)]:
+  - webpack-config-single-spa@7.0.0
+
+## 6.0.0
+
+### Major Changes
+
+- [#428](https://github.com/single-spa/create-single-spa/pull/428) [`317a5c5`](https://github.com/single-spa/create-single-spa/commit/317a5c5b1c25d6edb6269a05618563895fe7d2b8) Thanks [@joeldenning](https://github.com/joeldenning)! - Add react-dom/client to externals
+
+## 5.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`b600a88`](https://github.com/single-spa/create-single-spa/commit/b600a88039d0f3ad0fbafc727751d81ce2b7c694)]:
+  - webpack-config-single-spa@6.0.3
+
 ## 5.0.2
 
 ### Patch Changes

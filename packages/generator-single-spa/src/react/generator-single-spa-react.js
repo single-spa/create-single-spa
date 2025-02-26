@@ -23,6 +23,9 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
     this.option("skipMainFile", {
       type: Boolean,
     });
+    this.option("moduleFormat", {
+      type: String,
+    });
   }
   async getOptions() {
     const answers = await this.prompt([
@@ -39,6 +42,13 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
         message: "Will this project use Typescript?",
         default: false,
         when: this.options.typescript === undefined,
+      },
+      {
+        type: "list",
+        name: "moduleFormat",
+        message: "What module format should this microfrontend be bundled to?",
+        choices: ["esm", "systemjs"],
+        when: !this.options.moduleFormat,
       },
       {
         type: "input",
@@ -82,10 +92,6 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
       delete packageJson.devDependencies["@types/jest"];
       // Will be replaced by eslint-config-ts-react-important-stuff
       delete packageJson.devDependencies["eslint-config-react-important-stuff"];
-      // Will be replaced by webpack-config-single-spa-react-ts
-      delete packageJson.devDependencies["webpack-config-single-spa"];
-      // Will be replaced by webpack-config-single-spa-react-ts
-      delete packageJson.devDependencies["webpack-config-single-spa-ts"];
 
       packageJson.types = `dist/${this.options.orgName}-${this.options.projectName}.d.ts`;
     }
@@ -121,6 +127,8 @@ module.exports = class SingleSpaReactGenerator extends PnpmGenerator {
           if (key === "devDependencies") {
             // Remove standard eslint configuration in favor of react specific
             delete value["eslint-config-ts-important-stuff"];
+            delete value["webpack-config-single-spa-ts"];
+            delete value["webpack-config-single-spa-react"];
           }
           return value;
         }

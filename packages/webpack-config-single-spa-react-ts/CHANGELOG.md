@@ -1,5 +1,40 @@
 # webpack-config-single-spa-react-ts
 
+## 6.0.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - webpack-config-single-spa-react@7.0.1
+  - webpack-config-single-spa-ts@6.0.1
+
+## 6.0.0
+
+### Major Changes
+
+- [#431](https://github.com/single-spa/create-single-spa/pull/431) [`f3fcb82`](https://github.com/single-spa/create-single-spa/commit/f3fcb8223ee42ba6912e5211ba4dd44e959244fb) Thanks [@joeldenning](https://github.com/joeldenning)! - Disable standalone mode unless explicitly set
+
+### Patch Changes
+
+- Updated dependencies [[`f3fcb82`](https://github.com/single-spa/create-single-spa/commit/f3fcb8223ee42ba6912e5211ba4dd44e959244fb)]:
+  - webpack-config-single-spa-ts@6.0.0
+  - webpack-config-single-spa-react@7.0.0
+
+## 5.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`317a5c5`](https://github.com/single-spa/create-single-spa/commit/317a5c5b1c25d6edb6269a05618563895fe7d2b8)]:
+  - webpack-config-single-spa-react@6.0.0
+
+## 5.0.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - webpack-config-single-spa-react@5.0.3
+  - webpack-config-single-spa-ts@5.0.3
+
 ## 5.0.2
 
 ### Patch Changes
