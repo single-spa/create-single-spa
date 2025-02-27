@@ -128,11 +128,13 @@ function webpackConfigSingleSpa(opts) {
       allowedHosts: "all",
       hot: outputSystemJS,
       setupMiddlewares: (middlewares, devServer) => {
-        const htmlDevServer = readFileSync(
-          path.join(__dirname, "index.html"),
-          "utf8"
-        );
-        devServer.app.get("/", (_, res) => res.send(htmlDevServer));
+        if (!opts.disableHtmlGeneration) {
+          const htmlDevServer = readFileSync(
+            path.join(__dirname, "index.html"),
+            "utf8"
+          );
+          devServer.app.get("/", (_, res) => res.send(htmlDevServer));
+        }
         return middlewares;
       },
     },
