@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 7.0.2
+
+### Patch Changes
+
+- [#446](https://github.com/single-spa/create-single-spa/pull/446) [`a771b27`](https://github.com/single-spa/create-single-spa/commit/a771b2727be5763a91fe3410610584cac0188529) Thanks [@eckdanny](https://github.com/eckdanny)! - Restore instructions for using integrated mode in webpack-dev-server without standalone setup
+
 ## 7.0.1
 
 ### Patch Changes
