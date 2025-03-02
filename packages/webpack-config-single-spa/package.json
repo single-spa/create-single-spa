@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-single-spa",
-  "version": "7.0.2",
+  "version": "7.0.3",
   "description": "A webpack config for in-browser modules used with single-spa",
   "author": "Joel Denning <joeldenning@gmail.com>",
   "homepage": "https://github.com/single-spa/create-single-spa",

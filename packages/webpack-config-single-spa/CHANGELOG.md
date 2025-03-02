@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 7.0.3
+
+### Patch Changes
+
+- [#448](https://github.com/single-spa/create-single-spa/pull/448) [`0ada084`](https://github.com/single-spa/create-single-spa/commit/0ada084723fc0d92a3366fc1d7d40872fd7d9a89) Thanks [@eckdanny](https://github.com/eckdanny)! - Fix webpack-dev-server instructions copy
+
 ## 7.0.2
 
 ### Patch Changes

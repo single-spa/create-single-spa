@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-single-spa-react",
-  "version": "7.0.2",
+  "version": "7.0.3",
   "description": "A helper for creating webpack configs for react single-spa applications",
   "keywords": [
     "single-spa",
