@@ -79,11 +79,8 @@ module.exports = class SingleSpaVueGenerator extends Generator {
     );
 
     if (error) {
-      if (error.message) {
-        console.error("The process encountered an error: ", error.message);
-      } else {
-        console.error("The process encountered an error: ", error);
-      }
+      console.error(`The vue cli process to create a new project failed`);
+      console.error(error);
 
       process.exit(1);
     }
