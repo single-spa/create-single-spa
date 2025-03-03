@@ -1,5 +1,13 @@
 # generator-single-spa
 
+## 6.2.0
+
+### Minor Changes
+
+- [#451](https://github.com/single-spa/create-single-spa/pull/451) [`c4b5a81`](https://github.com/single-spa/create-single-spa/commit/c4b5a812102cd6430ee0c90053c164618d2f572f) Thanks [@armanossiloko](https://github.com/armanossiloko)! - Added console logging for errors that occur in Vue project creation
+
+- [#450](https://github.com/single-spa/create-single-spa/pull/450) [`b977eb5`](https://github.com/single-spa/create-single-spa/commit/b977eb5cea48930b63952d9cb2979cfc508aa3b7) Thanks [@armanossiloko](https://github.com/armanossiloko)! - Added console logging for errors that occur in Angular project creation
+
 ## 6.1.1
 
 ### Patch Changes
