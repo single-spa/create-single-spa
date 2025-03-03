@@ -50,7 +50,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
     // `ng new` fails if cwd doesn't already exist
     if (!fs.existsSync(cwd)) fs.mkdirSync(cwd);
 
-    const { status, signal } = spawnSync(
+    const { status, signal, error } = spawnSync(
       command,
       args.concat([
         "new",
@@ -60,9 +60,18 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
       { stdio: "inherit", cwd }
     );
 
+    if (error) {
+      console.error(`The Angular CLI process to create a new project failed.`);
+      console.error(error);
+  
+      process.exit(1);
+    }
+
     if (signal) {
+      console.error(`The process was terminated by signal: ${signal}`);
       process.exit(1);
     } else if (status !== 0) {
+      console.error(`The process exited with a status: ${status}`);
       process.exit(status);
     } else {
       spawnSync(command, args.concat(["add", "single-spa-angular"]), {
