@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 7.0.4
+
+### Patch Changes
+
+- [#453](https://github.com/single-spa/create-single-spa/pull/453) [`ecd5236`](https://github.com/single-spa/create-single-spa/commit/ecd5236ccfa555a569a33288390dedd559e9292f) Thanks [@jolyndenning](https://github.com/jolyndenning)! - Fix standalone mode for projects outputting to native modules
+
 ## 7.0.3
 
 ### Patch Changes

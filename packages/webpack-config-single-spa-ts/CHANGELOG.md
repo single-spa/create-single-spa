@@ -1,5 +1,12 @@
 # webpack-config-single-spa-ts
 
+## 6.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`ecd5236`](https://github.com/single-spa/create-single-spa/commit/ecd5236ccfa555a569a33288390dedd559e9292f)]:
+  - webpack-config-single-spa@7.0.4
+
 ## 6.0.3
 
 ### Patch Changes
