@@ -2,7 +2,8 @@ const path = require("path");
 const { readFileSync } = require("fs");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const _HtmlWebpackPlugin = require("html-webpack-plugin");
-const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
+const StandaloneSingleSpaPlugin =
+  require("standalone-single-spa-webpack-plugin").default;
 const SystemJSPublicPathPlugin = require("systemjs-webpack-interop/SystemJSPublicPathWebpackPlugin");
 const {
   ImportMapExternalsPlugin,
@@ -128,7 +129,7 @@ function webpackConfigSingleSpa(opts) {
       allowedHosts: "all",
       hot: outputSystemJS,
       setupMiddlewares: (middlewares, devServer) => {
-        if (!opts.disableHtmlGeneration) {
+        if (!opts.disableHtmlGeneration && !isStandalone) {
           const htmlDevServer = readFileSync(
             path.join(__dirname, "index.html"),
             "utf8"
@@ -155,6 +156,7 @@ function webpackConfigSingleSpa(opts) {
         !opts.disableHtmlGeneration &&
         new StandaloneSingleSpaPlugin({
           appOrParcelName: `@${opts.orgName}/${opts.projectName}`,
+          moduleFormat: outputSystemJS ? "systemjs" : "esm",
           disabled: !webpackConfigEnv.standalone,
           HtmlWebpackPlugin,
           ...opts.standaloneOptions,
