@@ -1,5 +1,11 @@
 # webpack-config-single-spa
 
+## 7.0.5
+
+### Patch Changes
+
+- [#455](https://github.com/single-spa/create-single-spa/pull/455) [`0e85f66`](https://github.com/single-spa/create-single-spa/commit/0e85f66c32eb6a042299f56cb909b4930f445a53) Thanks [@jolyndenning](https://github.com/jolyndenning)! - Downgrade standalone-single-spa-webpack-plugin due to breaking change
+
 ## 7.0.4
 
 ### Patch Changes
