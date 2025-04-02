@@ -1,5 +1,13 @@
 # webpack-config-single-spa
 
+## 8.0.0
+
+### Major Changes
+
+- [#456](https://github.com/single-spa/create-single-spa/pull/456) [`9f827f4`](https://github.com/single-spa/create-single-spa/commit/9f827f4784c0089db4d4d48c0cd45888c0fdaea9) Thanks [@jolyndenning](https://github.com/jolyndenning)! - NodeJS>=22 now required
+
+- [#456](https://github.com/single-spa/create-single-spa/pull/456) [`9f827f4`](https://github.com/single-spa/create-single-spa/commit/9f827f4784c0089db4d4d48c0cd45888c0fdaea9) Thanks [@jolyndenning](https://github.com/jolyndenning)! - Upgrade standalone-single-spa-webpack-plugin to support ESM output formats. NodeJS>=22 now required.
+
 ## 7.0.5
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # create-single-spa
 
+## 5.0.9
+
+### Patch Changes
+
+- Updated dependencies [[`9f827f4`](https://github.com/single-spa/create-single-spa/commit/9f827f4784c0089db4d4d48c0cd45888c0fdaea9)]:
+  - generator-single-spa@8.0.0
+
 ## 5.0.8
 
 ### Patch Changes

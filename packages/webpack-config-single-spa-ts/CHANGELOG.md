@@ -1,5 +1,12 @@
 # webpack-config-single-spa-ts
 
+## 8.0.0
+
+### Major Changes
+
+- Updated dependencies [[`9f827f4`](https://github.com/single-spa/create-single-spa/commit/9f827f4784c0089db4d4d48c0cd45888c0fdaea9), [`9f827f4`](https://github.com/single-spa/create-single-spa/commit/9f827f4784c0089db4d4d48c0cd45888c0fdaea9)]:
+  - webpack-config-single-spa@8.0.0
+
 ## 6.0.5
 
 ### Patch Changes

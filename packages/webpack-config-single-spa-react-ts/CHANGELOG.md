@@ -1,5 +1,17 @@
 # webpack-config-single-spa-react-ts
 
+## 8.0.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - webpack-config-single-spa-react@7.0.6
+  - webpack-config-single-spa-ts@6.0.6
+
+## 7.0.0
+
+Version 7 was skipped, so that this package's major version is in sync with other single-spa webpack configs.
+
 ## 6.0.5
 
 ### Patch Changes
