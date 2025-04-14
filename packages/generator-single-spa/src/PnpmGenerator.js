@@ -9,8 +9,13 @@ module.exports = class PnpmGenerator extends Generator {
   }
   // This overrides https://github.com/yeoman/generator/blob/9cd93ee0fe8babd26cce4e22a6f1db7637573801/lib/actions/install.js#L119
   // to include support for pnpm installations
-  installDependencies(options) {
-    options = options || {};
+  _installDependencies() {
+    const options = {
+      npm: this.options.packageManager === "npm",
+      yarn: this.options.packageManager === "yarn",
+      pnpm: this.options.packageManager === "pnpm",
+      bower: false,
+    };
     const msg = {
       commands: [],
       template: _.template(
@@ -42,7 +47,7 @@ module.exports = class PnpmGenerator extends Generator {
 
     if (options.pnpm !== false) {
       msg.commands.push("pnpm install");
-      this.pnpmInstall(null, getOptions(options.pnpm));
+      this._pnpmInstall(null, getOptions(options.pnpm));
     }
 
     assert(
@@ -63,7 +68,26 @@ module.exports = class PnpmGenerator extends Generator {
       this.log(msg.template(tplValues));
     }
   }
-  pnpmInstall(pkgs, options, spawnOptions) {
+  _pnpmInstall(pkgs, options, spawnOptions) {
     this.scheduleInstallTask("pnpm", pkgs, options, spawnOptions);
+  }
+  install() {
+    this._installDependencies();
+    this._gitInit();
+  }
+  _gitInit() {
+    if (this.options.skipGit || this.options["skip-git"]) {
+      this.log("Skipping git initialization");
+      return;
+    } else {
+      const childGitInitProcess = this.spawnCommandSync("git", ["init"]);
+      if (childGitInitProcess.error) {
+        this.log(chalk.red("************"));
+        this.log(chalk.red("Cannot initialize git repository"));
+        this.log(chalk.red("************"));
+      } else {
+        this.log(chalk.green("Initialized git repository"));
+      }
+    }
   }
 };
