@@ -63,7 +63,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
     if (error) {
       console.error(`The Angular CLI process to create a new project failed.`);
       console.error(error);
-
+  
       process.exit(1);
     }
 
