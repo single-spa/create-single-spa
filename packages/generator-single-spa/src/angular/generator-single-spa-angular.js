@@ -57,13 +57,13 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
         this.options.projectName, // name of the new workspace and initial project
         // "--routing", false, TODO: Figure out how to interop with single-spa-angular's routing option so that we don't ask the user twice with opposite defaults
       ]),
-      { stdio: "inherit", cwd }
+      { stdio: "inherit", cwd, shell: true }
     );
 
     if (error) {
       console.error(`The Angular CLI process to create a new project failed.`);
       console.error(error);
-  
+
       process.exit(1);
     }
 
@@ -77,6 +77,7 @@ module.exports = class SingleSpaAngularGenerator extends Generator {
       spawnSync(command, args.concat(["add", "single-spa-angular"]), {
         stdio: "inherit",
         cwd: path.resolve(cwd, this.options.projectName),
+        shell: true,
       });
 
       console.log(
