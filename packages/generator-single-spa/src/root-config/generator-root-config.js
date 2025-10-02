@@ -194,25 +194,9 @@ module.exports = class SingleSpaRootConfigGenerator extends PnpmGenerator {
       );
       this.fs.extendJSON(this.destinationPath("package.json"), layoutJson);
     }
-
-    const childGitInitProcess = this.spawnCommandSync("git", ["init"]);
-    if (childGitInitProcess.error) {
-      console.log(chalk.red("\n************"));
-      console.log(chalk.red("Cannot initialize git repository"));
-      console.log(chalk.red("************\n"));
-    } else {
-      console.log(chalk.green("\nInitialized git repository\n"));
-    }
   }
   install() {
-    if (!this.skipInstall) {
-      this.installDependencies({
-        npm: this.options.packageManager === "npm",
-        yarn: this.options.packageManager === "yarn",
-        pnpm: this.options.packageManager === "pnpm",
-        bower: false,
-      });
-    }
+    super.install();
   }
   finished() {
     this.on(`${this.options.packageManager}Install:end`, () => {
