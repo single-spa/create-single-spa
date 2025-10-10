@@ -113,13 +113,13 @@ module.exports = class SingleSpaSvelteGenerator extends PnpmGenerator {
       projectName: this.options.projectName,
     });
     this.fs.copyTpl(
-      this.templatePath(`jest.config.js`),
-      this.destinationPath(`jest.config.js`),
+      this.templatePath(`vite.config.mjs`),
+      this.destinationPath(`vite.config.mjs`),
       this.options
     );
     this.fs.copyTpl(
-      this.templatePath(`babel.config.js`),
-      this.destinationPath(`babel.config.js`),
+      this.templatePath(`setupTests.js`),
+      this.destinationPath(`setupTests.js`),
       this.options
     );
     this.fs.copyTpl(

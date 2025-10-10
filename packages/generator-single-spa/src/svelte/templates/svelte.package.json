@@ -1,36 +1,35 @@
 {
   "name": "<%= name %>",
+  "type": "module",
   "scripts": {
     "build": "concurrently <%- packageManager %>:build:*",
     "build:rollup": "rollup -c",
     "start": "rollup -c -w",
     "serve": "sirv dist -c",
-    "test": "jest",
+    "test": "vitest",
     "prepare": "husky install",
     "format": "prettier --write --plugin-search-dir=. .",
     "check-format": "prettier --plugin-search-dir=. --check ."
   },
   "devDependencies": {
-    "@babel/core": "^7.23.3",
-    "@babel/preset-env": "^7.23.3",
-    "@rollup/plugin-commonjs": "^20.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.4",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/svelte": "^3.0.3",
-    "babel-jest": "^27.5.1",
-    "concurrently": "^6.2.1",
-    "jest": "^27.5.1",
-    "prettier": "^2.3.2",
-    "prettier-plugin-svelte": "^2.3.1",
-    "rollup": "^2.56.3",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@sveltejs/vite-plugin-svelte": "^5.1.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/svelte": "^5.2.8",
+    "concurrently": "^9.2.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
+    "rollup": "^4.44.1",
+    "rollup-plugin-esbuild-minify": "^1.3.0",
     "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-svelte": "^7.1.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "svelte": "^3.42.3",
-    "svelte-jester": "^2.0.0"
+    "rollup-plugin-svelte": "^7.2.2",
+    "vitest": "^3.2.4",
+    "jsdom": "^27.0.0"
   },
   "dependencies": {
-    "single-spa-svelte": "^2.1.1",
-    "sirv-cli": "^1.0.14"
+    "@single-spa/svelte": "^3.0.0-beta.0",
+    "sirv-cli": "^1.0.14",
+    "svelte": "^5.34.9"
   }
 }
