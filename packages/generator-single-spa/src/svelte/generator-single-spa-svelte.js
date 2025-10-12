@@ -166,16 +166,14 @@ module.exports = class SingleSpaSvelteGenerator extends PnpmGenerator {
       });
     }
   }
-  finished() {
-    this.on(`${this.options.packageManager}Install:end`, () => {
-      const bwLog = (msg) => console.log(chalk.bgWhite.black(msg));
+  end() {
+    const bwLog = (msg) => console.log(chalk.bgWhite.black(msg));
 
-      bwLog("Project setup complete!");
-      bwLog("Steps to test your Svelte single-spa application:");
-      bwLog(`1. Run '${this.options.packageManager} start'`);
-      bwLog(
-        `2. Go to http://single-spa-playground.org/playground/instant-test?name=@${this.options.orgName}/${this.options.projectName}&url=5000 to see it working!`
-      );
-    });
+    bwLog("Project setup complete!");
+    bwLog("Steps to test your Svelte single-spa application:");
+    bwLog(`1. Run '${this.options.packageManager} start'`);
+    bwLog(
+      `2. Go to http://single-spa-playground.org/playground/instant-test?name=@${this.options.orgName}/${this.options.projectName}&url=5000 to see it working!`
+    );
   }
 };
